@@ -1,5 +1,8 @@
-lapis = require "lapis"
+lapis = require 'lapis'
 
 class extends lapis.Application
-  "/": =>
-    "Welcome to Lapis #{require "lapis.version"}!"
+  @enable 'etlua'
+  layout: 'layout'
+
+  [index: "/"]: =>
+    render: true

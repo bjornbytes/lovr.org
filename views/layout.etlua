@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/lovr.css" />
+  </head>
+
+  <body>
+    <% render('views.sidebar') %>
+    <% content_for('inner') %>
+  </body>
+</html>

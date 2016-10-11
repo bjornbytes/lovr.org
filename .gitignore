@@ -1,3 +1,5 @@
 **/*.lua
 logs
 nginx.conf.compiled
+static/css
+.sass-cache

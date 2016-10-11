@@ -1,0 +1,9 @@
+<nav>
+  <div class="logo">
+    L&#214;VR
+  </div>
+
+  <ul class="sections">
+    <li>lovr.graphics</li>
+  </ul>
+</nav>
