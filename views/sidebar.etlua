@@ -4,6 +4,19 @@
   </div>
 
   <ul class="sections">
+    <li>lovr.event</li>
+    <ul class="subsection">
+      <li>lovr.event.poll</li>
+      <li>lovr.event.quit</li>
+    </ul>
+
     <li>lovr.graphics</li>
+    <ul class="subsection">
+      <li>lovr.graphics.getColor</li>
+      <li>lovr.graphics.setColor</li>
+    </ul>
+
+    <li>lovr.headset</li>
+    <li>lovr.timer</li>
   </ul>
 </nav>

@@ -1,7 +1,7 @@
 @import "colors.scss";
 
 nav {
-  background: #2e2f34;
+  background: $c-storm;
   position: fixed;
   height: 100%;
   width: 25%;
@@ -17,6 +17,32 @@ nav {
     background-repeat: no-repeat;
     background-position: 0 4px;
     background-size: 42px auto;
-    padding-left: 52px;
+    padding-left: 54px;
+    margin-bottom: 18px;
+  }
+
+  ul.sections {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+
+    > li {
+      color: $c-lilac;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+  }
+
+  ul.subsection {
+    list-style-type: none;
+    padding: 0;
+    margin: 8px 15px;
+
+    li {
+      color: $c-slate;
+      font-size: 14px;
+      padding: 4px 0;
+    }
   }
 }
