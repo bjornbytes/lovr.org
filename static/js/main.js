@@ -11,6 +11,13 @@ oboe('/api/docs')
     if (li) {
       li.classList.remove('disabled');
       li.addEventListener('click', function(event) {
+        var activeLinks = Array.prototype.slice.call(document.querySelectorAll('li.active'));
+        activeLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+
+        li.classList.add('active');
+
         var contents = Array.prototype.slice.call(main.querySelectorAll('.content'));
         contents.forEach(function(content) {
           content.classList.add('outro');

@@ -43,6 +43,11 @@ nav {
       color: lighten($c-storm, 25%);
     }
 
+    li.active, li.active:hover {
+      background: darken($c-night, 3%);
+      color: $c-white;
+    }
+
     > li {
       padding-left: 20px;
       padding-top: 6px;
