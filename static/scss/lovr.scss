@@ -1,13 +1,17 @@
 @import "sidebar.scss";
+@import "content.scss";
 @import "colors.scss";
 
 body {
   margin: 0;
   padding: 0;
   background: $c-night;
+  display: flex;
 }
 
 * {
   font-family: "Varela Round";
   color: $c-slate;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }

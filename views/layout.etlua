@@ -8,5 +8,7 @@
   <body>
     <% render('views.sidebar') %>
     <% content_for('inner') %>
+
+    <script src="/static/js/lovr.js"></script>
   </body>
 </html>

@@ -1,13 +1,18 @@
 @import "colors.scss";
 
 nav {
-  background: $c-storm;
-  position: fixed;
-  height: 100%;
-  width: 25%;
-  min-width: 300px;
-  border-right: 1px solid rgba(#fff, .05);
-  padding: 20px 15px;
+  .wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: $c-storm;
+    border-right: 1px solid rgba(#fff, .05);
+    padding: 20px 0;
+    width: 300px;
+    overflow-y: scroll;
+  }
+
+  flex: 0 0 300px;
 
   .logo {
     color: $c-white;
@@ -18,6 +23,7 @@ nav {
     background-position: 0 4px;
     background-size: 42px auto;
     padding-left: 54px;
+    margin-left: 15px;
     margin-bottom: 18px;
   }
 
@@ -25,24 +31,40 @@ nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    margin-left: 5px;
+
+    li:not(.disabled) {
+      cursor: pointer;
+      &:hover {
+        background: $c-night;
+      }
+    }
+
+    li.disabled {
+      color: lighten($c-storm, 25%);
+    }
 
     > li {
+      padding-left: 20px;
+      padding-top: 6px;
+      padding-bottom: 6px;
       color: $c-lilac;
       font-size: 16px;
-      margin-bottom: 8px;
     }
   }
 
   ul.subsection {
     list-style-type: none;
     padding: 0;
-    margin: 8px 15px;
 
     li {
       color: $c-slate;
       font-size: 14px;
       padding: 4px 0;
+      padding-left: 20px;
+    }
+
+    &.indent li {
+      padding-left: 40px;
     }
   }
 }

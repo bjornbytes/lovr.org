@@ -2,4 +2,7 @@
 logs
 nginx.conf.compiled
 static/css
+static/js/lovr.js
 .sass-cache
+.tup
+node_modules

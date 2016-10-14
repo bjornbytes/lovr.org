@@ -1,22 +1,57 @@
 <nav>
-  <div class="logo">
-    L&#214;VR
+  <div class="wrapper">
+    <div class="logo">
+      L&#214;VR
+    </div>
+
+    <ul class="sections">
+      <li class="disabled" data-doc="lovr.graphics">lovr.graphics</li>
+      <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.graphics.clear' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.present' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.reset' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.line' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.plane' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.cube' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.push' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.pop' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.origin' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.translate' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.rotate' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.scale' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getBackgroundColor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setBackgroundColor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getColor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setColor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getColorMask' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setColorMask' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getScissor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setScissor' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getShader' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setShader' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setProjection' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getLineWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setLineWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.isCullingEnabled' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setCullingEnabled' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getPolygonWinding' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setPolygonWinding' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getHeight' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getDimensions' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newBuffer' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newModel' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newShader' }) %>
+
+        <% render('views.sidebar-link', { key = 'PolygonWinding' }) %>
+        <% render('views.sidebar-link', { key = 'DrawMode' }) %>
+
+        <% render('views.sidebar-link', { key = 'Buffer' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Buffer:draw' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getVertexCount' }) %>
+        </ul>
+      </ul>
+    </ul>
   </div>
-
-  <ul class="sections">
-    <li>lovr.event</li>
-    <ul class="subsection">
-      <li>lovr.event.poll</li>
-      <li>lovr.event.quit</li>
-    </ul>
-
-    <li>lovr.graphics</li>
-    <ul class="subsection">
-      <li>lovr.graphics.getColor</li>
-      <li>lovr.graphics.setColor</li>
-    </ul>
-
-    <li>lovr.headset</li>
-    <li>lovr.timer</li>
-  </ul>
 </nav>

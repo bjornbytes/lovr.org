@@ -1,0 +1,1 @@
+<li class="disabled" data-doc="<%= key %>"><%= label or key %></li>
