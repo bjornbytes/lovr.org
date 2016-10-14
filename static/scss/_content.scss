@@ -118,14 +118,15 @@ main {
   }
 }
 
-.version {
+a.version {
   position: absolute;
   right: 20px;
   top: 20px;
   background: $c-black;
-  color: $c-white;
-  font-size: 14px;
   border-radius: 8px;
   text-align: center;
   padding: 8px 16px;
+  color: $c-white;
+  font-size: 14px;
+  text-decoration: none;
 }

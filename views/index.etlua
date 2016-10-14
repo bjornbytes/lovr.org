@@ -5,6 +5,6 @@
     Lua.  It's free and open source.</p>
 </main>
 
-<div class="version">
-0.1.0
+<a class="version" href="https://github.com/bjornbytes/lovr" target="_blank">
+  0.1.0
 </div>
