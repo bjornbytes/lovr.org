@@ -49,6 +49,7 @@ nav {
       padding-bottom: 6px;
       color: $c-lilac;
       font-size: 16px;
+      &:not(:first-child) { margin-top: 24px; }
     }
   }
 

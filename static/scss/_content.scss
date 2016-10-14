@@ -7,6 +7,8 @@ main {
   .content {
     position: absolute;
     animation: intro 250ms;
+    padding-bottom: 40px;
+    padding-right: 40px;
   }
 
   .content.outro {
@@ -114,4 +116,16 @@ main {
       padding: 4px 8px;
     }
   }
+}
+
+.version {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: $c-black;
+  color: $c-white;
+  font-size: 14px;
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px 16px;
 }

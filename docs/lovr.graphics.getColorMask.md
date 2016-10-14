@@ -4,7 +4,7 @@ lovr.graphics.getColorMask
 Returns the active color channels.  If a color channel is active, then drawing operations will
 affect that particular channel.  By default, all color channels are active.
 
-    local r, g, b, a = lovr.graphics.getColorMask()
+    r, g, b, a = lovr.graphics.getColorMask()
 
 #### Arguments
 

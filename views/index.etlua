@@ -1,3 +1,10 @@
 <main>
-  <div class="content"></div>
+  <div class="content">
+    <h2>L&#214;VR</h2>
+    <p>Welcome!  L&#214;VR is a framework you can use to make virtual reality games with
+    Lua.  It's free and open source.</p>
 </main>
+
+<div class="version">
+0.1.0
+</div>

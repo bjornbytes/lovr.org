@@ -4,7 +4,7 @@ lovr.graphics.getBackgroundColor
 Returns the current background color.  Color components are from 0 to 255.  The default background
 color is black.
 
-    r, g, b, a = lovr.graphics.getBackgroundColor
+    r, g, b, a = lovr.graphics.getBackgroundColor()
 
 #### Arguments
 

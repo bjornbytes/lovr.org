@@ -5,7 +5,14 @@
     </div>
 
     <ul class="sections">
-      <li class="disabled" data-doc="lovr.graphics">lovr.graphics</li>
+
+      <% render('views.sidebar-link', { key = 'lovr.event' }) %>
+      <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.event.poll' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.event.quit' }) %>
+      </ul>
+
+      <% render('views.sidebar-link', { key = 'lovr.graphics' }) %>
       <ul class="subsection">
         <% render('views.sidebar-link', { key = 'lovr.graphics.clear' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.present' }) %>
@@ -50,8 +57,50 @@
         <ul class="subsection indent">
           <% render('views.sidebar-link', { key = 'Buffer:draw' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getVertexCount' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getVertex' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getVertexMap' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setVertexMap' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getDrawMode' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setDrawMode' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getDrawRange' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setDrawRange' }) %>
+        </ul>
+
+        <% render('views.sidebar-link', { key = 'Shader' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Shader:send' }) %>
         </ul>
       </ul>
+
+      <% render('views.sidebar-link', { key = 'lovr.headset' }) %>
+      <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.headset.isPresent' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getType' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getClipDistance' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.setClipDistance' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getTrackingSize' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.isBoundsVisible' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.setBoundsVisible' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getPosition' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getOrientation' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getVelocity' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getAngularVelocity' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.renderTo' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getController' }) %>
+
+        <% render('views.sidebar-link', { key = 'Controller' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Controller:getPosition' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:getOrientation' }) %>
+        </ul>
+      </ul>
+
+      <% render('views.sidebar-link', { key = 'lovr.timer' }) %>
+      <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.timer.step' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.timer.sleep' }) %>
+      </ul>
+
     </ul>
   </div>
 </nav>

@@ -4,7 +4,7 @@ lovr.graphics.setScissor
 Sets the scissor region.  The scissor is a rectangular area of the screen.  Any pixels outside
 the scissor region will be unaffected by drawing operations.
 
-    lovr.graphics.getScissor(x, y, w, h)
+    lovr.graphics.setScissor(x, y, w, h)
 
 #### Arguments
 
