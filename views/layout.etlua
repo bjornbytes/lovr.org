@@ -9,6 +9,6 @@
     <% render('views.sidebar') %>
     <% content_for('inner') %>
 
-    <script src="/static/js/lovr.js"></script>
+    <script src="/static/js/lovr.js" async></script>
   </body>
 </html>
