@@ -88,6 +88,8 @@
         <% render('views.sidebar-link', { key = 'lovr.headset.renderTo' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getController' }) %>
 
+        <% render('views.sidebar-link', { key = 'ControllerHand' }) %>
+
         <% render('views.sidebar-link', { key = 'Controller' }) %>
         <ul class="subsection indent">
           <% render('views.sidebar-link', { key = 'Controller:getPosition' }) %>
