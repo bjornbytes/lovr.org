@@ -3,7 +3,7 @@ import oboe from 'oboe';
 var main = document.querySelector('main');
 var docs = {};
 
-oboe('/api/docs')
+oboe('api/docs')
   .node('!.*', function(node, path, ancestors) {
     docs[path] = node;
 
