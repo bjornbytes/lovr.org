@@ -47,11 +47,12 @@
         <% render('views.sidebar-link', { key = 'lovr.graphics.getHeight' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getDimensions' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newBuffer' }) %>
-        <% render('views.sidebar-link', { key = 'lovr.graphics.newModel' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newShader' }) %>
 
         <% render('views.sidebar-link', { key = 'PolygonWinding' }) %>
         <% render('views.sidebar-link', { key = 'DrawMode' }) %>
+        <% render('views.sidebar-link', { key = 'BufferDrawMode' }) %>
+        <% render('views.sidebar-link', { key = 'BufferUsage' }) %>
 
         <% render('views.sidebar-link', { key = 'Buffer' }) %>
         <ul class="subsection indent">
