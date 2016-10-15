@@ -15,6 +15,7 @@ class extends lapis.Application
       docs[key] = content
 
   [index: "/"]: =>
+    @index = docs.index
     render: true
 
   [docs: "/api/docs"]: =>

@@ -7,7 +7,7 @@ oboe('/api/docs')
   .node('!.*', function(node, path, ancestors) {
     docs[path] = node;
 
-    var li = document.querySelector('li[data-doc="' + path + '"]');
+    var li = document.querySelector('[data-doc="' + path + '"]');
     if (li) {
       li.classList.remove('disabled');
       li.addEventListener('click', function(event) {

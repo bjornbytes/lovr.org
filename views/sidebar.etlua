@@ -1,6 +1,6 @@
 <nav>
   <div class="wrapper">
-    <div class="logo">
+    <div class="logo" data-doc="index">
       L&#214;VR
     </div>
 
