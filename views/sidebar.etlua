@@ -83,6 +83,9 @@
       <ul class="subsection">
         <% render('views.sidebar-link', { key = 'lovr.headset.isPresent' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getType' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getDisplayWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getDisplayHeight' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getDisplayDimensions' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getClipDistance' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.setClipDistance' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getTrackingSize' }) %>
