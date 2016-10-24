@@ -101,6 +101,7 @@
         <ul class="subsection indent">
           <% render('views.sidebar-link', { key = 'Controller:getPosition' }) %>
           <% render('views.sidebar-link', { key = 'Controller:getOrientation' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:getHand' }) %>
         </ul>
       </ul>
 
