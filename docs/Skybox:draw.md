@@ -18,6 +18,11 @@ Draws a skybox at a specified angle.
 
 #### Notes
 
-The skybox is rendered without depth, meaning it will be drawn behind all other geometry.
-Additionally, a specialized shader is used to render the skybox.  This means it is not possible to
-use a custom shader to render skyboxes.
+Skyboxes are drawn without depth, meaning:
+
+- Anything drawn before the skybox will be covered by the skybox.
+- The skybox will be behind anything drawn after it.
+
+Because of this, it's usually a good idea to draw a skybox before drawing other geometry.
+Additionally, a specialized shader is used to render the skybox.  This means it is not currently
+possible to use a custom shader to render skyboxes.
