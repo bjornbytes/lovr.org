@@ -5,9 +5,10 @@ var docs = {};
 
 oboe('api/docs')
   .node('!.*', function(node, path, ancestors) {
-    docs[path] = node;
+    var key = path[0];
+    docs[key] = node;
 
-    var li = document.querySelector('[data-doc="' + path + '"]');
+    var li = document.querySelector('[data-doc="' + key + '"]');
     if (li) {
       li.classList.remove('disabled');
       li.addEventListener('click', function(event) {
@@ -28,8 +29,10 @@ oboe('api/docs')
 
         var newContent = document.createElement('div');
         newContent.classList.add('content');
-        newContent.innerHTML = docs[path];
+        newContent.innerHTML = docs[key];
         main.appendChild(newContent);
+
+        document.title = (key === 'index' ? '' : (key + ' - ')) + 'LOVR';
       });
     }
   });
