@@ -48,6 +48,7 @@
         <% render('views.sidebar-link', { key = 'lovr.graphics.getDimensions' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newBuffer' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newShader' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newSkybox' }) %>
 
         <% render('views.sidebar-link', { key = 'PolygonWinding' }) %>
         <% render('views.sidebar-link', { key = 'DrawMode' }) %>
@@ -70,6 +71,11 @@
         <% render('views.sidebar-link', { key = 'Shader' }) %>
         <ul class="subsection indent">
           <% render('views.sidebar-link', { key = 'Shader:send' }) %>
+        </ul>
+
+        <% render('views.sidebar-link', { key = 'Skybox' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Skybox:draw' }) %>
         </ul>
       </ul>
 
