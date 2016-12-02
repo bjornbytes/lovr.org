@@ -1,11 +1,11 @@
 lovr.event.poll
 ---
 
-This function polls the event system for any updates relating to the window, mouse, keyboard, etc.
-It is required to be called regularly to inform the operating system that your program is still
-running, otherwise the operating system may consider it unresponsive.
+This function returns an iterator for all of the unprocessed items in the event queue.  Each event
+consists of a name as a string, followed by event-specific arguments.  Typically this function is
+automatically called for you by `lovr.run`.
 
-    lovr.event.poll()
+    iterator = lovr.event.poll()
 
 #### Arguments
 
@@ -13,4 +13,13 @@ running, otherwise the operating system may consider it unresponsive.
 
 #### Returns
 
-- Nothing
+- `function iterator` - The iterator function, usable in a for loop.
+
+#### Notes
+
+Example usage from `lovr.run`:
+
+    for event, a, b, c, d in lovr.event.poll() do
+      print('new event:', event)
+      print('arguments:', a, b, c, d)
+    end

@@ -1,7 +1,8 @@
 lovr.event.quit
 ---
 
-Quits the game with an optional exit code.
+Quits the game with an optional exit code.  This function is equivalent to calling
+`lovr.event.push('quit', code)`.
 
     lovr.event.quit(code)
 
