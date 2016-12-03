@@ -1,8 +1,7 @@
 lovr.timer.step
 ---
 
-Returns the amount of time since this function was last called.  This is called automatically in the
-default `lovr.run` script.
+Steps the timer, returning the new delta time.  This is called automatically in `lovr.run`.
 
     delta = lovr.timer.step()
 
