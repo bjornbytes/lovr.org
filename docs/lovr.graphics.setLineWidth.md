@@ -11,7 +11,7 @@ Sets the width of lines, in pixels.
 
 #### Returns
 
-- Nothing
+Nothing
 
 #### Notes
 

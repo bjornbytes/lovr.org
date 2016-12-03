@@ -16,3 +16,13 @@ white.
 #### Returns
 
 - Nothing
+
+#### Notes
+
+There are a few different ways you can specify colors:
+
+    lovr.graphics.setColor(r, g, b, a) -- 4 numbers between 0 and 255
+    lovr.graphics.setColor(r, g, b) -- set r, g, b, alpha is set to 255
+    lovr.graphics.setColor({ r, g, b, a }) -- using a table
+    lovr.graphics.setColor({ r, g, b }, a) -- using a table and an alpha
+    lovr.graphics.setColor(0xff00aaff) -- using a hex code (must include alpha)
