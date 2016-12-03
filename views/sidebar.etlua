@@ -8,7 +8,10 @@
 
       <% render('views.sidebar-link', { key = 'lovr.event' }) %>
       <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.event.clear' }) %>
         <% render('views.sidebar-link', { key = 'lovr.event.poll' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.event.pump' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.event.push' }) %>
         <% render('views.sidebar-link', { key = 'lovr.event.quit' }) %>
       </ul>
 
@@ -17,7 +20,9 @@
         <% render('views.sidebar-link', { key = 'lovr.graphics.clear' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.present' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.reset' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.points' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.line' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.triangle' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.plane' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.cube' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.push' }) %>
@@ -39,16 +44,24 @@
         <% render('views.sidebar-link', { key = 'lovr.graphics.setProjection' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getLineWidth' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.setLineWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getPointSize' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setPointSize' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.isCullingEnabled' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.setCullingEnabled' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getPolygonWinding' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.setPolygonWinding' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.getDepthTest' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setDepthTest' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.isWireframe' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.setWireframe' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getWidth' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getHeight' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.getDimensions' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newBuffer' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newModel' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newShader' }) %>
         <% render('views.sidebar-link', { key = 'lovr.graphics.newSkybox' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.graphics.newTexture' }) %>
 
         <% render('views.sidebar-link', { key = 'PolygonWinding' }) %>
         <% render('views.sidebar-link', { key = 'DrawMode' }) %>
@@ -60,12 +73,25 @@
           <% render('views.sidebar-link', { key = 'Buffer:draw' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getVertexCount' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getVertex' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setVertex' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getVertexAttribute' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setVertexAttribute' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setVertices' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getVertexMap' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:setVertexMap' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getDrawMode' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:setDrawMode' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:getDrawRange' }) %>
           <% render('views.sidebar-link', { key = 'Buffer:setDrawRange' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:getTexture' }) %>
+          <% render('views.sidebar-link', { key = 'Buffer:setTexture' }) %>
+        </ul>
+
+        <% render('views.sidebar-link', { key = 'Model' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Model:draw' }) %>
+          <% render('views.sidebar-link', { key = 'Model:getTexture' }) %>
+          <% render('views.sidebar-link', { key = 'Model:setTexture' }) %>
         </ul>
 
         <% render('views.sidebar-link', { key = 'Shader' }) %>
@@ -76,6 +102,19 @@
         <% render('views.sidebar-link', { key = 'Skybox' }) %>
         <ul class="subsection indent">
           <% render('views.sidebar-link', { key = 'Skybox:draw' }) %>
+        </ul>
+
+        <% render('views.sidebar-link', { key = 'Texture' }) %>
+        <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Texture:bind' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:refresh' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:getWidth' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:getHeight' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:getDimensions' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:getFilter' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:setFilter' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:getWrap' }) %>
+          <% render('views.sidebar-link', { key = 'Texture:setWrap' }) %>
         </ul>
       </ul>
 
@@ -88,28 +127,40 @@
         <% render('views.sidebar-link', { key = 'lovr.headset.getDisplayDimensions' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getClipDistance' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.setClipDistance' }) %>
-        <% render('views.sidebar-link', { key = 'lovr.headset.getTrackingSize' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getBoundsWidth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getBoundsDepth' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getBoundsDimensions' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getBoundsGeometry' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.isBoundsVisible' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.setBoundsVisible' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getPosition' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getOrientation' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getVelocity' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.getAngularVelocity' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getControllers' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.headset.getControllerCount' }) %>
         <% render('views.sidebar-link', { key = 'lovr.headset.renderTo' }) %>
-        <% render('views.sidebar-link', { key = 'lovr.headset.getController' }) %>
 
-        <% render('views.sidebar-link', { key = 'ControllerHand' }) %>
+        <% render('views.sidebar-link', { key = 'ControllerAxis' }) %>
+        <% render('views.sidebar-link', { key = 'ControllerButton' }) %>
 
         <% render('views.sidebar-link', { key = 'Controller' }) %>
         <ul class="subsection indent">
+          <% render('views.sidebar-link', { key = 'Controller:isPresent' }) %>
           <% render('views.sidebar-link', { key = 'Controller:getPosition' }) %>
           <% render('views.sidebar-link', { key = 'Controller:getOrientation' }) %>
-          <% render('views.sidebar-link', { key = 'Controller:getHand' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:getAxis' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:isDown' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:vibrate' }) %>
+          <% render('views.sidebar-link', { key = 'Controller:newModel' }) %>
         </ul>
       </ul>
 
       <% render('views.sidebar-link', { key = 'lovr.timer' }) %>
       <ul class="subsection">
+        <% render('views.sidebar-link', { key = 'lovr.timer.getDelta' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.timer.getFPS' }) %>
+        <% render('views.sidebar-link', { key = 'lovr.timer.getTime' }) %>
         <% render('views.sidebar-link', { key = 'lovr.timer.step' }) %>
         <% render('views.sidebar-link', { key = 'lovr.timer.sleep' }) %>
       </ul>
