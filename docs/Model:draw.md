@@ -14,7 +14,7 @@ Draws a model.
 - `number angle (0)` The angle to rotate the model around its axis of rotation.
 - `number ax (0)` The x component of the axis of rotation.
 - `number ay (1)` The y component of the axis of rotation.
-- `number az (1)` The z component of the axis of rotation.
+- `number az (0)` The z component of the axis of rotation.
 
 #### Returns
 
