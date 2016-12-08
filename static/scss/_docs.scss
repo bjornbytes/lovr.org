@@ -1,0 +1,246 @@
+@import "colors.scss";
+
+.sidebar {
+  .wrapper {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    background: $c-white;
+    box-shadow: 1px 0 2px rgba($c-black, .1);
+    padding-bottom: 20px;
+    width: 310px;
+    overflow-y: scroll;
+    will-change: scroll-position;
+  }
+
+  flex: 0 0 310px;
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  color: $c-raven;
+  margin: 0;
+  font-weight: normal;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.sidebar li {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: $c-mauve;
+  font-size: 12px;
+  cursor: pointer;
+  &.active { background: mix($c-lilac, $c-white, 50%); }
+  &:last-child { margin-bottom: 0; }
+  &:hover, &.active { color: $c-black; }
+  &.disabled, &.disabled:hover {
+    color: $c-slate;
+    cursor: default;
+  }
+}
+
+.sidebar input {
+  display: none;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 4px;
+  width: 200px;
+  font-size: 14px;
+  border: none;
+  &, &:focus {
+    outline: none;
+    border-bottom: 2px $c-lilac solid;
+  }
+}
+
+main.docs {
+  position: fixed;
+  overflow-y: scroll;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  margin-left: 310px;
+  padding: 40px 60px;
+
+  .content {
+    position: absolute;
+    animation: intro 250ms;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    will-change: transform, opacity;
+  }
+
+  .content.outro {
+    animation: outro 250ms;
+  }
+
+  @keyframes intro {
+    from {
+      opacity: 0;
+      transform: translateX(-16px);
+      -webkit-backface-visibility: hidden;
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+      -webkit-backface-visibility: hidden;
+    }
+  }
+
+  @keyframes outro {
+    from {
+      opacity: 1;
+      transform: translateX(0px);
+      -webkit-backface-visibility: hidden;
+    }
+
+    to {
+      opacity: 0;
+      transform: translateX(16px);
+      -webkit-backface-visibility: hidden;
+    }
+  }
+
+  h1, h2, h3, h4, h5, ul, li, p, pre {
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    color: $c-smoky;
+    font-size: 24px;
+  }
+
+  h3 {
+    color: $c-smoke;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 30px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px $c-steam solid;
+  }
+
+  h4 {
+    color: $c-smoky;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 30px 0 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0;
+  }
+
+  code {
+    &, * {
+      font-family: "Inconsolata";
+    }
+
+    a {
+      color: $c-raven;
+      &[data-doc] {
+        color: $c-mauve;
+        &:hover {
+          color: $c-black;
+        }
+      }
+    }
+
+    background: $c-white;
+    color: $c-raven;
+    font-size: 12px;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 0 4px;
+    border: 1px $c-lilac solid;
+  }
+
+  pre {
+    margin: 24px 16px;
+
+    code {
+      background: mix($c-lilac, $c-black, 40%);
+      color: $c-white;
+      font-size: 15px;
+      border-radius: 5px;
+      padding: 12px;
+      line-height: 1.15;
+      border: 2px $c-slate solid;
+
+      a, a[data-doc] {
+        color: $c-white;
+        &:hover {
+          color: $c-lilac;
+        }
+      }
+
+      .hljs-comment {
+        color: $c-steam;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px $c-steam solid;
+    margin: 20px 0;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    font-size: 12px;
+    margin-bottom: 6px;
+    &:last-child { margin-bottom: 0; }
+
+    code:first-child {
+      margin-right: 8px;
+      padding: 4px 8px;
+    }
+  }
+
+  table {
+    background: $c-white;
+    border-collapse: collapse;
+    &, tr, td { border: 1px $c-steam solid; }
+
+    tr {
+      td {
+        font-size: 12px;
+        padding: 6px;
+
+        &.pre, &.pre a {
+          font-family: "Inconsolata";
+          font-size: 14px;
+        }
+
+        &.pre a {
+          color: $c-mauve;
+          padding-top: 6px;
+          padding-bottom: 6px;
+          &:hover {
+            color: $c-black;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,7 @@
+<!--
+category: reference
+-->
+
 lovr.event.poll
 ---
 
@@ -19,6 +23,7 @@ automatically called for you by `lovr.run`.
 
 Example usage from `lovr.run`:
 
+    -- Poll events
     for event, a, b, c, d in lovr.event.poll() do
       print('new event:', event)
       print('arguments:', a, b, c, d)

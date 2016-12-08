@@ -1,3 +1,7 @@
+<!--
+category: reference
+-->
+
 lovr.graphics.setDepthTest
 ---
 
@@ -5,7 +9,7 @@ Sets the current depth test.  The depth test controls how overlapping objects ar
 The default is 'less', which causes things farther away from the "camera" to be drawn behind things
 that are closer to the camera.
 
-    lovr.graphics.getDepthTest(compareMode)
+    lovr.graphics.setDepthTest(compareMode)
 
 #### Arguments
 

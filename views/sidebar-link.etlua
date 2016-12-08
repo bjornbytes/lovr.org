@@ -1,1 +1,1 @@
-<li class="disabled" data-doc="<%= key %>"><%= label or key %></li>
+<li class="disabled<%= key == page and ' active' or '' %>" data-doc="<%= key %>"><%= (label or key):gsub('_', ' ') %></li>

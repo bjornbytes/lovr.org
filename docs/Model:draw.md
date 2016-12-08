@@ -1,3 +1,7 @@
+<!--
+category: reference
+-->
+
 Model:draw
 ---
 

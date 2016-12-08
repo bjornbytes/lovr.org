@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LOVR</title>
+    <title><%= page and (page .. ' - ') or '' %>LOVR</title>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/lovr.css" />
-    <link rel="shortcut icon" href="static/img/favicon.png" />
+    <link rel="stylesheet" href="<%= prefix %>/static/css/lovr.css" />
+    <link rel="stylesheet" href="<%= prefix %>/static/css/tomorrow-night-blue.css" />
+    <link rel="shortcut icon" href="<%= prefix %>/static/img/favicon.png" />
   </head>
 
   <body>
-    <% render('views.sidebar') %>
     <% content_for('inner') %>
-
-    <script src="static/js/lovr.js" async></script>
   </body>
 </html>

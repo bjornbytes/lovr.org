@@ -1,0 +1,16 @@
+<nav>
+<% if logo ~= false then %>
+  <div class="logo">
+    <a href="<%= prefix %>/">
+      <img src="/static/img/logo.png">
+      LÖVR
+    </a>
+  </div>
+<% end %>
+
+  <div class="links container">
+    <a href="<%= prefix %>/docs">Documentation</a>
+    <a href="https://github.com/bjornbytes/lovr">Source</a>
+  </div>
+</nav>
+

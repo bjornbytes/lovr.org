@@ -1,22 +1,22 @@
 lapis = require 'lapis'
-mde = require 'markdown_extra'
+import docs, reference from require 'docs'
 require 'lfs'
 
 class extends lapis.Application
   @enable 'etlua'
   layout: 'layout'
 
-  docs = {}
-  for file in lfs.dir 'docs'
-    path = 'docs/' .. file
-    if lfs.attributes(path, 'mode') == 'file'
-      content, metadata = mde.from_file(path)
-      key = metadata and metadata.key or path\match('([^%/]+)%.md$')
-      docs[key] = content
+  @before_filter =>
+    @prefix = ''
 
   [index: "/"]: =>
-    @index = docs.index
     render: true
 
-  [docs: "/api/docs"]: =>
+  [docs: "/docs(/*)"]: =>
+    @reference = reference
+    @page = @params.splat
+    @content = docs[@page] or ''
+    render: true
+
+  "/api/docs": =>
     json: docs

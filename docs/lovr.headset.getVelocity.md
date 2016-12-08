@@ -1,3 +1,7 @@
+<!--
+category: reference
+-->
+
 lovr.headset.getVelocity
 ---
 

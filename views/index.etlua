@@ -1,9 +1,11 @@
-<main>
-  <div class="content">
-    <%- index %>
+<% render('views.navbar', { logo = false }) %>
+
+<main class="index container">
+  <img src="/static/img/logo.png" class="villain">
+  <h1>LÖVR</h1>
+  <p>A simple framework for creating VR experiences</p>
+  <div class="buttons">
+    <a href="#">Download</a>
+    <a href="<%= prefix %>/docs">Learn More</a>
   </div>
 </main>
-
-<a class="version" href="https://github.com/bjornbytes/lovr" target="_blank">
-  0.1.0
-</div>

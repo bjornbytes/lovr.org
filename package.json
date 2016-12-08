@@ -12,6 +12,7 @@
   "author": "bjornbytes",
   "homepage": "https://github.com/bjornbytes/lovr-docs",
   "dependencies": {
-    "oboe": "^2.1.2"
+    "oboe": "^2.1.2",
+    "script-loader": "^0.7.0"
   }
 }

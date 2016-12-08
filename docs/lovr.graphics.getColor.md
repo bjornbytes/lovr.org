@@ -1,9 +1,13 @@
+<!--
+category: reference
+-->
+
 lovr.graphics.getColor
 ---
 
 Returns the current color used for drawing.  The default color is white.
 
-    local r, g, b, a = lovr.graphics.getColor()
+    r, g, b, a = lovr.graphics.getColor()
 
 #### Arguments
 
