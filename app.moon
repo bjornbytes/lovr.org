@@ -1,6 +1,5 @@
 lapis = require 'lapis'
 import docs, reference from require 'docs'
-require 'lfs'
 
 class extends lapis.Application
   @enable 'etlua'

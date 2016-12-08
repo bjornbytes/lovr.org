@@ -1,3 +1,4 @@
+require 'lfs'
 mde = require 'markdown_extra'
 docs = {}
 reference = {}
