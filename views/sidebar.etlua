@@ -2,6 +2,11 @@
   <div class="wrapper">
     <input class="search">
 
+    <h2>Guides</h2>
+    <ul>
+      <% render('views.sidebar-link', { key = 'Introduction' }) %>
+    </ul>
+
     <h2>Modules</h2>
     <ul>
       <% render('views.sidebar-link', { key = 'lovr' }) %>
