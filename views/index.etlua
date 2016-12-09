@@ -5,7 +5,7 @@
   <h1>LÖVR</h1>
   <p>A simple framework for creating VR experiences</p>
   <div class="buttons">
-    <a href="#">Download</a>
+    <a href="http://bjornbyt.es/f/lovr.zip">Download</a>
     <a href="<%= prefix %>/docs">Learn More</a>
   </div>
 </main>
