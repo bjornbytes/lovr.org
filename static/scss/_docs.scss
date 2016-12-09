@@ -118,14 +118,14 @@ main.docs {
     padding: 0;
   }
 
-  h2 {
+  h1 {
     margin-bottom: 20px;
     font-weight: normal;
-    color: $c-smoky;
-    font-size: 24px;
+    color: $c-smoke;
+    font-size: 28px;
   }
 
-  h3 {
+  h2 {
     color: $c-smoke;
     font-size: 18px;
     font-weight: normal;
@@ -134,11 +134,11 @@ main.docs {
     border-bottom: 1px $c-steam solid;
   }
 
-  h4 {
+  h3 {
     color: $c-smoky;
     font-size: 16px;
     font-weight: normal;
-    margin: 30px 0 10px;
+    margin: 25px 0 10px;
   }
 
   p {
@@ -198,7 +198,7 @@ main.docs {
 
   hr {
     border: none;
-    border-top: 1px $c-steam solid;
+    border-top: 2px $c-steam solid;
     margin: 20px 0;
   }
 

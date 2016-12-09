@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.push
----
+===
 
 Pushes a copy of the current transform onto the transformation stack.  After changing the transform
 using `lovr.graphics.translate`, `lovr.graphics.rotate`, and `lovr.graphics.scale`, the original
@@ -12,10 +12,10 @@ pushes and pops in `lovr.draw`.
 
     lovr.graphics.push()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

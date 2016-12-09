@@ -3,7 +3,7 @@ category: reference
 -->
 
 Shader
----
+===
 
 Shaders are GLSL programs that transform the way vertices and pixels show up on the screen.  They
 can be used for lighting, postprocessing, particles, animation, and much more.  You can use
@@ -21,7 +21,8 @@ can be used for lighting, postprocessing, particles, animation, and much more.  
 </tr>
 </table>
 
-### Default Shader Code
+Default Shader Code
+---
 
 The default vertex shader:
 

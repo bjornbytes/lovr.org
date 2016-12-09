@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.isCullingEnabled
----
+===
 
 Returns whether or not culling is active.  Culling is an optimization that avoids rendering the back
 face of polygons.  This improves performance by reducing the number of polygons drawn, but requires
@@ -12,10 +12,10 @@ Culling is initially disabled.
 
     isEnabled = lovr.graphics.isCullingEnabled()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `boolean isEnabled` Whether or not culling is enabled.

@@ -3,16 +3,16 @@ category: reference
 -->
 
 Model:getTexture
----
+===
 
 Return the current texture of a Model.
 
     texture = model:getTexture()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `Texture texture` The current texture.

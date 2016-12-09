@@ -3,12 +3,13 @@ category: reference
 -->
 
 BufferDrawMode
----
+===
 
 Buffers are lists of arbitrary vertices.  These vertices can be drawn in a few different ways,
 leading to different results.
 
-#### Values
+Values
+---
 
 - `points` Draw each vertex as a point.
 - `strip` The first three vertices define a triangle.  Each vertex after that creates a triangle

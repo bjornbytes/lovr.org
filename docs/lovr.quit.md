@@ -3,7 +3,7 @@ category: callback
 -->
 
 lovr.quit
----
+===
 
 This callback is called right before the game is about to quit.  Use it to perform any cleanup you
 need to do.  You can also return a "truthy" value from this callback to abort quitting.
@@ -16,6 +16,7 @@ need to do.  You can also return a "truthy" value from this callback to abort qu
       end
     end
 
-#### See also
+See also
+---
 
 - `lovr.event.quit`

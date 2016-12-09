@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.getPointSize
----
+===
 
 Returns the current point size.
 
     size = lovr.graphics.getPointSize()
 
-#### Arguments
+### Arguments
 
 None
 
-#### Returns
+### Returns
 
 - `number size` The current point size, in pixels.  The default is 1.

@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.newTexture
----
+===
 
 Creates a new texture from an image file.
 
     texture = lovr.graphics.newTexture(filename)
 
-#### Arguments
+### Arguments
 
 - `string filename` The filename of the image.
 
-#### Returns
+### Returns
 
 - `Texture texture` The new Texture.

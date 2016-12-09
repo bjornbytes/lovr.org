@@ -3,17 +3,19 @@ category: reference
 -->
 
 ControllerButton
----
+===
 
 Buttons on a controller.
 
-#### Values
+Values
+---
 
 - `system` The system button.
 - `menu` The menu button.
 - `grip` The grip button.
 - `touchpad` The button on the touchpad.
 
-#### See Also
+See Also
+---
 
 - `Controller:isDown`

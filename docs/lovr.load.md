@@ -3,7 +3,7 @@ category: callback
 -->
 
 lovr.load
----
+===
 
 This callback is called once when the game starts.  It should be used to perform initial setup work,
 like loading resources and initializing classes and variables.
@@ -17,6 +17,7 @@ like loading resources and initializing classes and variables.
       loadLevel(1)
     end
 
-#### See also
+See also
+---
 
 - `lovr.quit`

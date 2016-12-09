@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.headset.renderTo
----
+===
 
 Renders to each eye of the headset using a function.
 
@@ -16,11 +16,11 @@ If the headset module is enabled, this function is called automatically by `lovr
 
     lovr.headset.renderTo(callback)
 
-#### Arguments
+### Arguments
 
 - `function callback` The function used to render.  It will be passed a string representing the
   current eye that is being rendered to: "left" or "right".
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

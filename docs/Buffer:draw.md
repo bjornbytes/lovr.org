@@ -3,16 +3,16 @@ category: reference
 -->
 
 Buffer:draw
----
+===
 
 Draws the contents of the buffer.
 
     buffer:draw()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

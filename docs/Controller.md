@@ -3,14 +3,15 @@ category: reference
 -->
 
 Controller
----
+===
 
 Controller objects represent the controllers held in players' hands.  To obtain a list of currently
 connected controllers, use `lovr.headset.getControllers`.  To determine when controllers are added
 and removed, use `lovr.controlleradded` and `lovr.controllerremoved`.  Often Controllers won't
 be considered "active" until they are moved around a bit.
 
-### Functions
+Functions
+---
 
 <table>
 <tr>
@@ -49,7 +50,8 @@ be considered "active" until they are moved around a bit.
 </tr>
 </table>
 
-### Types
+Types
+---
 
 <table>
 <tr>

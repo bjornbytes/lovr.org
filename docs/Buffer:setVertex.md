@@ -3,7 +3,7 @@ category: reference
 -->
 
 Buffer:setVertex
----
+===
 
 Set a vertex of a Buffer.
 
@@ -11,7 +11,7 @@ Set a vertex of a Buffer.
 
     buffer:setVertex(index, ...)
 
-#### Arguments
+### Arguments
 
 - `number index` The index of the vertex to set.
 - `...` The attributes of the vertex as arguments.
@@ -20,21 +20,23 @@ Set a vertex of a Buffer.
 
     buffer:setVertex(index, vertex)
 
-#### Arguments
+### Arguments
 
 - `number index` The index of the vertex to set.
 - `table vertex` A table containing the attributes of the vertex.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### Notes
+Notes
+---
 
 Any unspecified components will be set to 0 for float and int attributes, or 255 for byte
 attributes.
 
-#### Example
+Example
+---
 
 Set the position of a vertex
 

@@ -3,16 +3,16 @@ category: reference
 -->
 
 Buffer:setDrawMode
----
+===
 
 Set the draw mode of the buffer.
 
     buffer:setDrawMode(mode)
 
-#### Arguments
+### Arguments
 
 - `BufferDrawMode mode` The new draw mode for the buffer.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

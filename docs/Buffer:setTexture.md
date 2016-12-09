@@ -3,20 +3,21 @@ category: reference
 -->
 
 Buffer:setTexture
----
+===
 
 Set the texture used when drawing the buffer.
 
     buffer:setTexture(texture)
 
-#### Arguments
+### Arguments
 
 - `Texture texture` The new texture.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### See also
+See also
+---
 
 - `Buffer:getTexture`

@@ -3,20 +3,21 @@ category: reference
 -->
 
 Buffer:getTexture
----
+===
 
 Get the current `Texture` applied to the Buffer.
 
     texture = buffer:getTexture()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `Texture texture` The current texture applied to the Buffer.
 
-#### See also
+See also
+---
 
 - `Buffer:setTexture`

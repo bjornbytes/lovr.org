@@ -13,7 +13,7 @@ class extends lapis.Application
 
   [docs: "/docs(/*)"]: =>
     @reference = reference
-    @page = @params.splat
+    @page = @params.splat or 'lovr'
     @content = docs[@page] or ''
     render: true
 

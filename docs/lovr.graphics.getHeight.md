@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.getHeight
----
+===
 
 Returns the height of the window on the desktop.
 
     height = lovr.graphics.getHeight()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number height` The height of the window.

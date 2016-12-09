@@ -3,21 +3,22 @@ category: reference
 -->
 
 lovr.graphics.setLineWidth
----
+===
 
 Sets the width of lines, in pixels.
 
     lovr.graphics.setLineWidth(width)
 
-#### Arguments
+### Arguments
 
 - `number width` The new line width.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### Notes
+Notes
+---
 
 Driver support for line widths is poor.  The actual width of lines may be different from what is set
 here.

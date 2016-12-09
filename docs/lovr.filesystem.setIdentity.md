@@ -3,20 +3,21 @@ category: reference
 -->
 
 lovr.filesystem.setIdentity
----
+===
 
 Set the name of the save directory.
 
     lovr.filesystem.setIdentity(identity)
 
-#### Arguments
+### Arguments
 
 - `string identity` The new name of the save directory.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### See also
+See also
+---
 
 - `lovr.filesystem.getIdentity`

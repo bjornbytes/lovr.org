@@ -3,20 +3,21 @@ category: reference
 -->
 
 lovr.filesystem.exists
----
+===
 
 Determine if a file exists.
 
     exists = lovr.filesystem.exists(path)
 
-#### Arguments
+### Arguments
 
 - `string path` The path to check.
 
-#### Returns
+### Returns
 
 - `boolean exists` Whether the path is a file or directory.
 
-#### Notes
+Notes
+---
 
 This function checks both the source directory and the save directory.

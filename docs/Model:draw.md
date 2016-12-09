@@ -3,13 +3,13 @@ category: reference
 -->
 
 Model:draw
----
+===
 
 Draws a model.
 
     model:draw(x, y, z, size, angle, ax, ay az)
 
-#### Arguments
+### Arguments
 
 - `number x (0)` The x coordinate to draw the model at.
 - `number y (0)` The y coordinate to draw the model at.
@@ -20,6 +20,6 @@ Draws a model.
 - `number ay (1)` The y component of the axis of rotation.
 - `number az (0)` The z component of the axis of rotation.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

@@ -3,11 +3,12 @@ category: reference
 -->
 
 BufferUsage
----
+===
 
 Buffers can have a usage hint, describing how they are planning on being updated.
 
-#### Values
+Values
+---
 
 - `static` The buffer's contents will rarely change.
 - `dynamic` The buffer's contents will change often.

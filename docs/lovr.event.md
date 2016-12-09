@@ -3,7 +3,7 @@ category: module
 -->
 
 lovr.event
----
+===
 
 The `lovr.event` module controls how and when events are handled.  Note that this is a pretty
 low-level module, in fact, most simple projects won't even need to touch this at all!  This is

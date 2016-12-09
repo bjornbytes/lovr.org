@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.scale
----
+===
 
 Scales the coordinate system in 3 dimensions.  This will cause objects to appear bigger or smaller.
 
@@ -14,12 +14,12 @@ Note that order matters when scaling, translating, and rotating the coordinate s
 
     lovr.graphics.scale(x, y, z)
 
-#### Arguments
+### Arguments
 
 - `number x` The amount to scale on the x axis.
 - `number y` The amount to scale on the y axis.
 - `number z` The amount to scale on the z axis.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

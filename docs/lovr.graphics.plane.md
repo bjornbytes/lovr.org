@@ -3,13 +3,13 @@ category: reference
 -->
 
 lovr.graphics.plane
----
+===
 
 Draws a plane with a given position, size, and orientation.
 
     lovr.graphics.plane(mode, x, y, z, size, nx, ny, nz)
 
-#### Arguments
+### Arguments
 
 - `DrawMode mode` How to draw the plane.
 - `number x (0)` The x coordinate of the center of the plane.
@@ -20,6 +20,6 @@ Draws a plane with a given position, size, and orientation.
 - `number ny (1.0)` The y coordinate of the normal vector of the plane.
 - `number nz (0.0)` The z coordinate of the normal vector of the plane.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

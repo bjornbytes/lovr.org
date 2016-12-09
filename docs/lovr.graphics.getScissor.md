@@ -3,18 +3,18 @@ category: reference
 -->
 
 lovr.graphics.getScissor
----
+===
 
 Returns the current scissor.  The scissor is a rectangular area of the screen.  Any pixels outside
 the scissor region will be unaffected by drawing operations.
 
     x, y, w, h = lovr.graphics.getScissor()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number x` The x position of the upper left corner of the scissor.
 - `number y` The y position of the upper left corner of the scissor.

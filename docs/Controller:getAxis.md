@@ -3,16 +3,16 @@ category: reference
 -->
 
 Controller:getAxis
----
+===
 
 Retrieve the input state of a controller axis.
 
     value = controller:getAxis(axis)
 
-#### Arguments
+### Arguments
 
 - `ControllerAxis axis` The axis to retrieve the state of.
 
-#### Returns
+### Returns
 
 - `number value` The current state of the axis, from 0 to 1.

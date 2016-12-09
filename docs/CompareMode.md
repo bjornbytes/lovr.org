@@ -3,11 +3,12 @@ category: reference
 -->
 
 CompareMode
----
+===
 
 The method used to compare z values when deciding how to overlap rendered objects.
 
-#### Values
+Values
+---
 
 - `equal` The object will be shown only if its z value equals the existing z value.
 - `notequal` The object will be shown only if its z value does not equal the existing z value.

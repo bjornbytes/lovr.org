@@ -3,16 +3,16 @@ category: reference
 -->
 
 Buffer:getVertexCount
----
+===
 
 Returns the maximum number of vertices the buffer can hold.
 
     size = buffer:getVertexCount()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number size` The number of vertices the buffer can hold.

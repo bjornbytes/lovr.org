@@ -3,17 +3,17 @@ category: reference
 -->
 
 lovr.graphics.getColor
----
+===
 
 Returns the current color used for drawing.  The default color is white.
 
     r, g, b, a = lovr.graphics.getColor()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number r` The red component of the color.
 - `number g` The green component of the color.

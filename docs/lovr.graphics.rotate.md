@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.rotate
----
+===
 
 Rotates the coordinate system around an axis.
 
@@ -14,13 +14,13 @@ Note that order matters when scaling, translating, and rotating the coordinate s
 
     lovr.graphics.rotate(angle, ax, ay, az)
 
-#### Arguments
+### Arguments
 
 - `number angle` The amount to rotate the coordinate system by, in radians.
 - `number ax` The x component of the axis of rotation.
 - `number ay` The y component of the axis of rotation.
 - `number az` The z component of the axis of rotation.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

@@ -3,7 +3,7 @@ category: callback
 -->
 
 lovr.controlleradded
----
+===
 
 This callback is called when a `Controller` is connected, discovered, or woken up.
 
@@ -11,7 +11,8 @@ This callback is called when a `Controller` is connected, discovered, or woken u
       print('There are now ' .. lovr.headset.getControllerCount() .. ' controllers')
     end
 
-#### See also
+See also
+---
 
 - `lovr.controllerremoved`
 - `lovr.headset.getControllers`

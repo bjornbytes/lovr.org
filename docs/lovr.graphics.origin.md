@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.origin
----
+===
 
 Resets the transformation to the origin.
 
     lovr.graphics.origin()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

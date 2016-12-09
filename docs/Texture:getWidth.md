@@ -3,16 +3,16 @@ category: reference
 -->
 
 Texture:getWidth
----
+===
 
 Return the width of the texture.
 
     width = texture:getWidth()
 
-#### Arguments
+### Arguments
 
 None
 
-#### Returns
+### Returns
 
 - `number width` The width of the texture, in pixels.

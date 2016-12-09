@@ -3,17 +3,17 @@ category: reference
 -->
 
 Controller:getOrientation
----
+===
 
 Returns the current orientation of the controller in 3d space.
 
     angle, ax, ay, az = controller:getOrientation()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number angle` The number of radians the controller is rotated around its axis of rotation.
 - `number ax` The x component of the axis of rotation.

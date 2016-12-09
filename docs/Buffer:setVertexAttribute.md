@@ -3,27 +3,29 @@ category: reference
 -->
 
 Buffer:setVertexAttribute
----
+===
 
 Set the components of a specific attribute of a vertex in a Buffer.
 
     buffer:setVertexAttribute(vertex, attribute, ...)
 
-#### Arguments
+### Arguments
 
 - `number vertex` The index of the vertex.
 - `number attribute` The index of the attribute.
 - `...` The new components of the attribute.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### Notes
+Notes
+---
 
 Buffers without a custom format have the vertex position as their first attribute, the normal vector
 as the second attribute, and the texture coordinate as the third attribute.
 
-#### See also
+See also
+---
 
 - `Buffer:getVertexAttribute`

@@ -3,14 +3,15 @@ category: module
 -->
 
 lovr.graphics
----
+===
 
 The `lovr.graphics` module handles rendering graphics to the window.  Although LÖVR is focused on VR,
 you can use it to render 3D graphics with or without a VR headset.  If the `lovr.headset` module is
 enabled, LÖVR will render to each eye of the headset, otherwise everything will be rendered to a
 window on the desktop.
 
-### Drawing
+Drawing
+---
 
 Simple functions for drawing simple shapes:
 
@@ -41,7 +42,8 @@ Simple functions for drawing simple shapes:
 </tr>
 </table>
 
-### Transforms
+Transforms
+---
 
 Functions to manipulate the coordinate system.  Changing the coordinate system can be useful for
 creating a 3D camera, expressing parent-child relationships between entities, or otherwise changing
@@ -79,7 +81,8 @@ how objects in the game world are mapped onto the screen.
 </tr>
 </table>
 
-### Objects
+Objects
+---
 
 Several graphics-related objects can be created with the graphics module.  Try to avoid calling
 these functions in `lovr.update` or `lovr.draw`, because then the objects will be reloaded every
@@ -117,7 +120,8 @@ frame, which can really slow things down!
 </tr>
 </table>
 
-### State
+State
+---
 
 These functions retrieve or manipulate the graphics state.  Graphics state includes things like the
 color of drawn objects, the current shader, settings for culling and depth testing, and lots of
@@ -271,4 +275,3 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
   <td>Enable or disable wireframe rendering.</td>
 </tr>
 </table>
-

@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.newModel
----
+===
 
 Creates a new Model from a file.  Most 3D file formats are supported.
 
     model = lovr.graphics.newModel(filename)
 
-#### Arguments
+### Arguments
 
 - `string filename` The filename of the model.
 
-#### Returns
+### Returns
 
 - `Model model` The new Model.

@@ -3,7 +3,7 @@ category: callback
 -->
 
 lovr.run
----
+===
 
 This callback contains the main loop for the game.  The default is usually suitable, but sometimes
 it is helpful to override this callback for custom behavior.  For reference, here is the default

@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.event.clear
----
+===
 
 Clears the event queue.
 
     lovr.event.clear()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

@@ -3,7 +3,7 @@ category: reference
 -->
 
 Model
----
+===
 
 A Model is a drawable object loaded from a 3D file format.  Most common 3D file formats are
 supported, such as `3ds`, `blend`, `dae`, `fbx`, `stl`, `obj`, and `glTF`.  Models will use normals

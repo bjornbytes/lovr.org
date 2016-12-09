@@ -3,7 +3,7 @@ category: callback
 -->
 
 lovr.conf
----
+===
 
 The `lovr.conf` callback lets you configure default settings for LÖVR.  It is called once right
 before the game starts.  Make sure you put `lovr.conf` in a file called `conf.lua`, a special file

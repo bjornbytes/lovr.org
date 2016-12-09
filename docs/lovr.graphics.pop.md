@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.pop
----
+===
 
 Pops the current transform from the stack, returning to the transformation that was applied before
 `lovr.graphics.push` was called.  It's important to have a balanced sequence of pushes and pops in
@@ -11,10 +11,10 @@ Pops the current transform from the stack, returning to the transformation that 
 
     lovr.graphics.pop()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

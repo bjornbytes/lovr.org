@@ -3,28 +3,30 @@ category: reference
 -->
 
 Shader:send
----
+===
 
 Update a uniform variable of a Shader.
 
     shader:send(uniform, value)
 
-#### Arguments
+### Arguments
 
 - `string uniform` The name of the uniform variable.
 - `* value` The new value of the uniform variable.
 
-#### Returns
+### Returns
 
 Nothing
 
-#### Notes
+Notes
+---
 
 The shader does not need to be active to update its uniforms.  However, the types must match up.
 Uniform variables declared as `float`s must be sent a single number, whereas uniforms declared as
 `vec4`s must be sent a table containing 4 numbers, etc.
 
-#### Example
+Example
+---
 
 Updating a `vec3` uniform variable
 

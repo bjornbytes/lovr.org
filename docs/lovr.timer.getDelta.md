@@ -3,21 +3,22 @@ category: reference
 -->
 
 lovr.timer.getDelta
----
+===
 
 Returns the time between the last two frames.
 
     dt = lovr.timer.getDelta()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number dt` The time passed, in seconds.
 
-#### Notes
+Notes
+---
 
 The return value of this function will remain the same until `lovr.timer.step` is called.  This
 function should not be used to measure times for game behavior or benchmarking, use

@@ -3,11 +3,12 @@ category: reference
 -->
 
 WrapMode
----
+===
 
 The method used to render textures when texture coordinates are outside of the 0-1 range.
 
-#### Values
+Values
+---
 
 - `clamp` The pixels that fall outside of the range will take on the value of the pixels at the edge
   of the texture.

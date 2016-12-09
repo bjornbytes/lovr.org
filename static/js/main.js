@@ -1,5 +1,5 @@
 import oboe from 'oboe';
-window.hljs = require('script!./highlight.js');
+require('script!./highlight.js');
 var main = document.querySelector('main');
 var docs = document.querySelector('.docs');
 var sidebarLinks = document.querySelectorAll('li[data-doc]');
@@ -118,7 +118,14 @@ window.addEventListener('popstate', function(event) {
 });
 
 // Add syntax highlighting and autolinking to any initial content
-enhance(document.querySelector('.content'));
+var initialContent = document.querySelector('.content');
+if (initialContent) {
+  enhance(initialContent);
+  var wrapper = document.querySelector('.wrapper');
+  var link = wrapper.querySelector('[data-doc="' + initialContent.dataset.key + '"]');
+  var linkGeometry = link.getBoundingClientRect();
+  wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
+}
 
 document.onkeydown = function(event) {
   if (event.keyCode === 27) {
@@ -128,11 +135,16 @@ document.onkeydown = function(event) {
     updateResults();
   } else if (event.keyCode === 8) {
     searchBox.focus();
+  } else if (event.keyCode === 13) {
+    var link = Array.prototype.find.call(sidebarLinks, function(link) { return link.style.display === ''; });
+    if (link) {
+      link.click();
+    }
   }
 };
 
 document.onkeypress = function(event) {
-  if (document.activeElement !== searchBox && /[a-zA-Z\.:]/.test(event.key)) {
+  if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:]/.test(event.key)) {
     event.preventDefault();
     searchBox.style.display = 'block';
     searchBox.value += event.key;

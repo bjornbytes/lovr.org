@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.getPolygonWinding
----
+===
 
 Returns the current polygon winding.  The default is counterclockwise.
 
      winding = lovr.graphics.getPolygonWinding()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `PolygonWinding winding` The current winding.

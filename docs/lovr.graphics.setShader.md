@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.setShader
----
+===
 
 Sets or clears the Shader used for drawing.
 
@@ -11,15 +11,16 @@ Sets or clears the Shader used for drawing.
 
     lovr.graphics.setShader(shader)
 
-#### Arguments
+### Arguments
 
 - `Shader shader` The shader to use.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing
 
-#### Notes
+Notes
+---
 
 Sets the current shader.  All drawing operations will pass through the specified Shader until the
 next call to `lovr.graphics.setShader`.
@@ -28,14 +29,15 @@ next call to `lovr.graphics.setShader`.
 
     lovr.graphics.setShader()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing
 
-#### Notes
+Notes
+---
 
 - Disables shaders, allowing unfiltered drawing operations.

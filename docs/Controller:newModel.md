@@ -3,20 +3,21 @@ category: reference
 -->
 
 Controller:newModel
----
+===
 
 Returns a new Model for the Controller.
 
     model = controller:newModel()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `Model model` The new model.
 
-#### Notes
+Notes
+---
 
 The Model will already have an appropriate texture applied.

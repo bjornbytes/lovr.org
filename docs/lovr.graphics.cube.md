@@ -3,13 +3,13 @@ category: reference
 -->
 
 lovr.graphics.cube
----
+===
 
 Draws a cube with a given position, size, and orientation.
 
     lovr.graphics.cube(mode, x, y, z, size, angle, ax, ay, az)
 
-#### Arguments
+### Arguments
 
 - `DrawMode mode` How to draw the cube.
 - `number x (0)` The x coordinate of the center of the cube.
@@ -21,6 +21,6 @@ Draws a cube with a given position, size, and orientation.
 - `number ay (1)` The y coordinate of the cube's axis of rotation.
 - `number az (0)` The z coordinate of the cube's axis of rotation.
 
-#### Returns
+### Returns
 
-- Nothing
+Nothing

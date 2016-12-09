@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.headset.getBoundsDepth
----
+===
 
 Returns the depth of the play area, in meters.
 
     depth = lovr.headset.getBoundsDepth()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `number depth` The depth of the play area, in meters.

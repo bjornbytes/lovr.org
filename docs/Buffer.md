@@ -3,12 +3,13 @@ category: reference
 -->
 
 Buffer
----
+===
 
 A buffer is a drawable object that stores an arbitrary list of vertices.  It is flexible and
 efficient, but is a little more difficult to use.
 
-### Functions
+Functions
+---
 
 <table>
 <tr>
@@ -92,7 +93,8 @@ efficient, but is a little more difficult to use.
 </tr>
 </table>
 
-### Types
+Types
+---
 
 <table>
 <tr>
@@ -106,7 +108,8 @@ efficient, but is a little more difficult to use.
 </tr>
 </table>
 
-### Buffer Formats
+Buffer Formats
+---
 
 Each vertex in a buffer can hold several pieces of data.  For example, you might want a vertex to
 keep track of its position, color, and a weight.  Each one of these pieces of information is called

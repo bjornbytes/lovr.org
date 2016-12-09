@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.newSkybox
----
+===
 
 Creates a new `Skybox` from a set of 6 images.
 
@@ -11,7 +11,7 @@ Creates a new `Skybox` from a set of 6 images.
 
     skybox = lovr.graphics.newSkybox(right, left, top, bottom, back, front)
 
-#### Arguments
+### Arguments
 
 - `string right` The filename of the image for the right face of the skybox.
 - `string left` The filename of the image for the left face of the skybox.
@@ -20,7 +20,7 @@ Creates a new `Skybox` from a set of 6 images.
 - `string back` The filename of the image for the back face of the skybox.
 - `string front` The filename of the image for the front face of the skybox.
 
-#### Returns
+### Returns
 
 - `Skybox skybox` The new skybox object.
 
@@ -28,10 +28,10 @@ Creates a new `Skybox` from a set of 6 images.
 
     skybox = lovr.graphics.newSkybox(images)
 
-#### Arguments
+### Arguments
 
 - `table images` A table containing the images, as described above.
 
-#### Returns
+### Returns
 
 - `Skybox skybox` The new skybox object.

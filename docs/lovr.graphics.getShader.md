@@ -3,16 +3,16 @@ category: reference
 -->
 
 lovr.graphics.getShader
----
+==
 
 Returns the active shader.
 
     shader = lovr.graphics.getShader()
 
-#### Arguments
+### Arguments
 
-- None
+None
 
-#### Returns
+### Returns
 
 - `Shader shader` The active shader object, or `nil` if none is active.

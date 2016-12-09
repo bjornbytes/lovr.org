@@ -3,7 +3,7 @@ category: reference
 -->
 
 Texture
----
+===
 
 A Texture is an image that can be applied to `Model`s and `Buffer`s.  Supported file formats
 include `.png`, `.jpg`, `.tga`, and `.bmp`.
