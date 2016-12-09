@@ -10,10 +10,10 @@ var docs = {};
 function pushPage(key) {
   if (history.state) {
     var scroll = docs.scrollTop;
-    history.replaceState({ key: history.state.key, scroll: scroll }, '', '/docs/' + history.state.key);
+    history.replaceState({ key: history.state.key, scroll: scroll }, '', prefix + '/docs/' + history.state.key);
   }
 
-  history.pushState({ key: key, scroll: 0 }, '', '/docs/' + key);
+  history.pushState({ key: key, scroll: 0 }, '', prefix + '/docs/' + key);
 }
 
 function showPage(key, scroll) {
@@ -97,7 +97,7 @@ function enhance(node) {
   });
 }
 
-oboe('/api/docs')
+oboe(prefix + '/api/docs')
   .node('!.*', function(node, path, ancestors) {
     var key = path[0];
     docs[key] = node;

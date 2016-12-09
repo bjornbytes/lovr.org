@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <script>var prefix = "<%= prefix %>";</script>
     <% content_for('inner') %>
   </body>
 </html>

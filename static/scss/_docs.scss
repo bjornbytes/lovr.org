@@ -1,6 +1,26 @@
 @import "colors.scss";
 
 .sidebar {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner {
+    height: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .04);
+    border-radius: 1px;
+    &:hover {
+      background: $c-lilac;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba($c-black, .03);
+  }
+
   .wrapper {
     position: fixed;
     top: 60px;
@@ -76,6 +96,7 @@ main.docs {
   .content {
     position: absolute;
     animation: intro 250ms;
+    max-width: 900px;
     padding-bottom: 40px;
     padding-right: 40px;
     will-change: transform, opacity;
