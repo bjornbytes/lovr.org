@@ -6,7 +6,7 @@ Welcome!
 ===
 
 LÖVR is a framework for creating VR experiences with Lua.  It's great for small projects,
-prototyping, creative coding, game jams, and more!
+prototyping, creative coding, game jams, and more.
 
 Why LÖVR?
 ---
@@ -14,11 +14,14 @@ Why LÖVR?
 LÖVR aims to be simple to use.  You can get up and running with just a few lines of Lua,
 and there is no bloated editor to use, account to create, or compiling to do.
 
-There is no cost to use LÖVR and it's open source, so you use it for pretty much any
-project without restrictions and even modify the framework if you need to.
+There is no cost to use LÖVR and it's open source, so you can use it for pretty much any
+project without restrictions, and even modify the framework if you need to.
 
 LÖVR is really fast.  It's written in C and uses LuaJIT, a crazy-fast just in time compiler for Lua
 code.
+
+Under the hood LÖVR uses OpenVR, so both the HTC Vive and the Oculus Rift are supported.  Support
+for other headsets is also in the works.
 
 Hello World
 ---
