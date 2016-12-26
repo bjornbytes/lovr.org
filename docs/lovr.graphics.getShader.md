@@ -3,7 +3,7 @@ category: reference
 -->
 
 lovr.graphics.getShader
-==
+===
 
 Returns the active shader.
 
