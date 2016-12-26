@@ -1,21 +1,23 @@
 lapis = require 'lapis'
-import docs, reference from require 'docs'
+import cached from require 'lapis.cache'
+import getDocs from require 'docs'
 
 class extends lapis.Application
   @enable 'etlua'
   layout: 'layout'
 
   @before_filter =>
-    @prefix = '/lovr'
+    @prefix = ''
 
-  [index: "/"]: =>
+  [index: "/"]: cached =>
     render: true
 
-  [docs: "/docs(/*)"]: =>
+  [docs: "/docs(/*)"]: cached =>
+    docs, reference = getDocs()
     @reference = reference
     @page = @params.splat or 'Introduction'
     @content = docs[@page] or ''
     render: true
 
-  "/api/docs": =>
-    json: docs
+  "/api/docs": cached =>
+    json: getDocs()
