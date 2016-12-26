@@ -7,7 +7,7 @@ class extends lapis.Application
   layout: 'layout'
 
   @before_filter =>
-    @prefix = ''
+    @prefix = '/lovr'
 
   [index: "/"]: cached =>
     render: true
