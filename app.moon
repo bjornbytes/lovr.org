@@ -1,4 +1,5 @@
 lapis = require 'lapis'
+config = require('lapis.config').get!
 import cached from require 'lapis.cache'
 import getDocs from require 'docs'
 
@@ -7,7 +8,7 @@ class extends lapis.Application
   layout: 'layout'
 
   @before_filter =>
-    @prefix = '/lovr'
+    @prefix = config.prefix
 
   [index: "/"]: cached =>
     render: true
