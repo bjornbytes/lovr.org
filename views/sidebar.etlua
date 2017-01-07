@@ -10,6 +10,7 @@
     <h2>Modules</h2>
     <ul>
       <% render('views.sidebar-link', { key = 'lovr' }) %>
+      <% render('views.sidebar-link', { key = 'lovr.audio' }) %>
       <% render('views.sidebar-link', { key = 'lovr.event' }) %>
       <% render('views.sidebar-link', { key = 'lovr.filesystem' }) %>
       <% render('views.sidebar-link', { key = 'lovr.graphics' }) %>
