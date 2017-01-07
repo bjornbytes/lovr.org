@@ -14,9 +14,15 @@ Modules
 Modules are the **what** of the application; you can use the functions in modules to tell LÖVR to do
 things.  For example, you can draw things on the screen, figure out what buttons on a controller are
 pressed, or load a 3D model from a file.  Each module controls a certain aspect of the app, so the
-`lovr.graphics` deals with rendering and `lovr.headset` deals with VR.
+`lovr.graphics` deals with rendering, `lovr.audio` lets you play sounds, `lovr.headset` deals with
+VR, and so on.
 
 <table>
+<tr>
+  <td class="pre">lovr.audio</td>
+  <td>Plays sound and music.</td>
+</tr>
+
 <tr>
   <td class="pre">lovr.event</td>
   <td>Deals with events from the hardware and operating system.</td>
