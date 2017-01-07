@@ -1,7 +1,7 @@
 import oboe from 'oboe';
 require('script!./highlight.js');
 var main = document.querySelector('main');
-var docs = document.querySelector('.docs');
+var elDocs = document.querySelector('.docs');
 var sidebarLinks = document.querySelectorAll('li[data-doc]');
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
@@ -10,7 +10,7 @@ var docs = {};
 
 function pushPage(key) {
   if (history.state) {
-    var scroll = docs.scrollTop;
+    var scroll = elDocs.scrollTop;
     history.replaceState({ key: history.state.key, scroll: scroll }, '', prefix + '/docs/' + history.state.key);
   }
 
@@ -45,18 +45,18 @@ function showPage(key, scroll) {
   if (transitionTimeout) { clearTimeout(transitionTimeout); }
   transitionTimeout = setTimeout(function() {
     main.appendChild(newContent);
+
+    // Scroll to the right place if the back button was used
+    if (scroll !== elDocs.scrollTop) {
+
+      // Makes transition less jarring
+      contents.forEach(function(content) {
+        content.remove();
+      });
+
+      elDocs.scrollTop = scroll;
+    }
   }, isDirty ? 140 : 0);
-
-  // Scroll to the right place if the back button was used
-  if (scroll !== docs.scrollTop) {
-
-    // Makes transition less jarring
-    contents.forEach(function(content) {
-      content.remove();
-    });
-
-    docs.scrollTop = scroll;
-  }
 
   // Set window title
   document.title = (key === 'index' ? '' : (key + ' - ')) + 'LOVR';
