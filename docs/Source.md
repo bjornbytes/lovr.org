@@ -9,17 +9,17 @@ A source is an object representing a sound.  A source can be in three different 
 
 <table>
 <tr>
-  <td class="pre">Playing</td>
+  <td>Playing</td>
   <td>The source is currently playing.  It can be stopped, paused, or rewound.</td>
 </tr>
 
 <tr>
-  <td class="pre">Paused</td>
+  <td>Paused</td>
   <td>The source is paused.  It can be stopped, played/resumed, or rewound.</td>
 </tr>
 
 <tr>
-  <td class="pre">Stopped</td>
+  <td>Stopped</td>
   <td>The source has been stopped.  It can be played.</td>
 </tr>
 </table>
