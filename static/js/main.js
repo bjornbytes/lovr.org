@@ -4,6 +4,7 @@ var main = document.querySelector('main');
 var docs = document.querySelector('.docs');
 var sidebarLinks = document.querySelectorAll('li[data-doc]');
 var searchBox = document.querySelector('.search');
+var transitionTimeout;
 
 var docs = {};
 
@@ -21,6 +22,7 @@ function showPage(key, scroll) {
 
   // Initiate outro animation for any existing content elements
   var contents = Array.prototype.slice.call(main.querySelectorAll('.content'));
+  var isDirty = contents.length > 0;
   contents.forEach(function(content) {
     content.classList.add('outro');
     content.addEventListener('animationend', function() {
@@ -40,7 +42,10 @@ function showPage(key, scroll) {
   enhance(newContent);
 
   // Add the new content to the DOM (animation plays automatically)
-  main.appendChild(newContent);
+  if (transitionTimeout) { clearTimeout(transitionTimeout); }
+  transitionTimeout = setTimeout(function() {
+    main.appendChild(newContent);
+  }, isDirty ? 140 : 0);
 
   // Scroll to the right place if the back button was used
   if (scroll !== docs.scrollTop) {
@@ -106,6 +111,8 @@ oboe(prefix + '/api/docs')
     if (li) {
       li.classList.remove('disabled');
       li.addEventListener('click', function(event) {
+        var content = document.querySelector('.content');
+        if (content && content.dataset.key == key) { return; }
         pushPage(key);
         showPage(key, 0);
       });

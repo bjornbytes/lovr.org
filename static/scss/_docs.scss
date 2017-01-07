@@ -95,7 +95,7 @@ main.docs {
 
   .content {
     position: absolute;
-    animation: intro 250ms;
+    animation: intro 150ms;
     max-width: 900px;
     padding-bottom: 40px;
     padding-right: 40px;
@@ -103,13 +103,13 @@ main.docs {
   }
 
   .content.outro {
-    animation: outro 250ms;
+    animation: outro 150ms;
   }
 
   @keyframes intro {
     from {
       opacity: 0;
-      transform: translateX(-16px);
+      transform: translateX(-8px);
       -webkit-backface-visibility: hidden;
     }
 
@@ -129,7 +129,7 @@ main.docs {
 
     to {
       opacity: 0;
-      transform: translateX(16px);
+      transform: translateX(8px);
       -webkit-backface-visibility: hidden;
     }
   }
