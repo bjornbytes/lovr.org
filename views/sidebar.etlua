@@ -5,6 +5,8 @@
     <h2>Guides</h2>
     <ul>
       <% render('views.sidebar-link', { key = 'Introduction' }) %>
+      <% render('views.sidebar-link', { key = 'Getting_Started' }) %>
+      <% render('views.sidebar-link', { key = 'How_to_Lua' }) %>
     </ul>
 
     <h2>Modules</h2>

@@ -59,7 +59,7 @@ function showPage(key, scroll) {
   }, isDirty ? 140 : 0);
 
   // Set window title
-  document.title = (key === 'index' ? '' : (key + ' - ')) + 'LOVR';
+  document.title = (key === 'index' ? '' : (key.replace(/_/g, ' ') + ' - ')) + 'LOVR';
 }
 
 function highlightLink(key) {
