@@ -7,6 +7,11 @@
       <% render('views.sidebar-link', { key = 'Introduction' }) %>
       <% render('views.sidebar-link', { key = 'Getting_Started' }) %>
       <% render('views.sidebar-link', { key = 'How_to_Lua' }) %>
+      <% render('views.sidebar-link', { key = 'Callbacks' }) %>
+      <% render('views.sidebar-link', { key = 'Simple_Shapes' }) %>
+      <% render('views.sidebar-link', { key = '3D_Models' }) %>
+      <% render('views.sidebar-link', { key = 'Controllers' }) %>
+      <% render('views.sidebar-link', { key = 'Sound' }) %>
     </ul>
 
     <h2>Modules</h2>

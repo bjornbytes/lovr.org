@@ -5,10 +5,17 @@ category: guide
 How to Lua
 ===
 
-This guide will be a very brief introduction to the Lua programming language.  You can use
-[repl.it](https://repl.it/languages/lua) to run Lua code on the web if you don't want to setup Lua
-on your computer.  If you've used Lua before or you are familiar with another programming language,
-feel free to skip this guide.  Or just skip it anyway and use it as a reference if you get stuck.
+This is a very brief introduction to the Lua programming language and assumes you've never
+programmed before.
+
+If you're familiar with Lua, feel free to skip this guide.  If you know a different programming
+language or you want a refresher on Lua, check out these guides:
+
+1. [Learn Lua in 15 Minutes](http://tylerneylon.com/a/learn-lua/)
+1. [Lua for Programmers](http://nova-fusion.com/2012/08/27/lua-for-programmers-part-1/)
+
+You can use [repl.it](https://repl.it/languages/lua) to run Lua code on the web if you don't want to
+set up Lua on your computer.
 
 Printing
 ---
@@ -17,7 +24,7 @@ You can use `print` to print out numbers and text.  It doesn't print things out 
 but will "print" text to the output so you can see it.  Try it:
 
 ```
-print('sup')
+print('hey')
 print(5)
 ```
 
@@ -209,6 +216,10 @@ More Resources
 ---
 
 This is really just the tip of the iceberg, but hopefully it helps you understand some of the other
-code in these guides.  For additional reference content, check out the [Lua Wiki tutorial
-series](http://lua-users.org/wiki/LuaTutorial), the [Programming in Lua](http://lua.org/pil) book
-(first edition), and the [Lua Reference Manual](http://www.lua.org/manual/5.1/).
+code in these guides.  For additional reference content, have a look at these:
+
+1. [Lua Wiki tutorial series](http://lua-users.org/wiki/LuaTutorial)
+1. The [Programming in Lua](http://lua.org/pil) book (first edition)
+1. [Lua Reference Manual](http://www.lua.org/manual/5.1/)
+
+Otherwise, continue on to the [Callbacks](Callbacks) guide.

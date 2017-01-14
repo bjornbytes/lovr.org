@@ -233,17 +233,25 @@ main.docs {
 
   ul {
     list-style-type: none;
+
+    li {
+      font-size: 12px;
+      margin-bottom: 6px;
+      &:last-child { margin-bottom: 0; }
+
+      code:first-child {
+        margin-right: 8px;
+        padding: 4px 8px;
+      }
+    }
   }
 
-  li {
-    font-size: 12px;
-    margin-bottom: 6px;
-    &:last-child { margin-bottom: 0; }
-
-    code:first-child {
-      margin-right: 8px;
-      padding: 4px 8px;
-    }
+  ol {
+    list-style-type: circle;
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0;
   }
 
   table {
