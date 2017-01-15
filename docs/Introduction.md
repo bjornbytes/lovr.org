@@ -26,24 +26,17 @@ Example
 ---
 
 What does LÖVR look like?  Here's a simple example that draws a cube at the position of each
-motion controller and makes them grow when the triggers are pressed:
+motion controller:
 
 ```
 function lovr.load()
   controllers = lovr.headset.getControllers()
-  sizes = { 1, 1 }
-end
-
-function lovr.update()
-  for i, controller in pairs(controllers) do
-    sizes[i] = 1 + controller:getTrigger()
-  end
 end
 
 function lovr.draw()
   for i, controller in pairs(controllers) do
     local x, y, z = controller:getPosition()
-    lovr.graphics.cube('line', x, y, z, .2 * sizes[i], controller:getOrientation())
+    lovr.graphics.cube('line', x, y, z, .2, controller:getOrientation())
   end
 end
 ```

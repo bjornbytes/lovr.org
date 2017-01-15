@@ -166,7 +166,7 @@ remember what's going on:
 
 ```
 -- This variable contains my favorite color
-favorite_color = 'purple'
+color = 'purple'
 ```
 
 Nil
