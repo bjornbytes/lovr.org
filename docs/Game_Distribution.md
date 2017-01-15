@@ -15,8 +15,6 @@ The first step is to create a `.lovr` file from your project.  On Windows, creat
 the files in your project by selecting them, right clicking, and choosing "Send to" -> "Compressed
 (zip) folder".
 
-<img>
-
 Once you have a `.zip` file for your project, change the extension to `.lovr`.  You can test the
 `.lovr` file by dropping it onto `lovr.exe`.
 
