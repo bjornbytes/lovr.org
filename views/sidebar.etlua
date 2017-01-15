@@ -12,6 +12,7 @@
       <% render('views.sidebar-link', { key = '3D_Models' }) %>
       <% render('views.sidebar-link', { key = 'Controllers' }) %>
       <% render('views.sidebar-link', { key = 'Sound' }) %>
+      <% render('views.sidebar-link', { key = 'Game_Distribution' }) %>
     </ul>
 
     <h2>Modules</h2>

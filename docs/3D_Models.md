@@ -7,9 +7,9 @@ category: guide
 
 In the previous guide we learned how to draw some simple shapes.  Now we're going to learn how to
 draw 3D models exported from tools like Blender, Maya, or 3DS Max.   LÖVR supports lots of different
-3D file formats, including `.obj` and `.fbx`.  We can also apply textures to our models.  Texture
-files can be `.png` or `.jpg`.  For this tutorial I'm going to use [this]() free model.  Once you
-have your model files, put them in the folder for your project.
+3D file formats, including `.obj`, `.fbx`, and `.dae`.  We can also apply textures to our models.
+Texture files can be `.png` or `.jpg`.  Once you have your model files, put them in the folder for
+your project.
 
 Create the Model
 ---
@@ -18,7 +18,7 @@ To load a model into LÖVR, we can use the `lovr.graphics.newModel` function.  I
 the name of the model file and returns an object representing the model.
 
 ```
-model = lovr.graphics.newModel('model.obj')
+model = lovr.graphics.newModel('duck.dae')
 ```
 
 Create the Texture
@@ -27,7 +27,7 @@ Create the Texture
 Creating textures is really similar to creating models:
 
 ```
-texture = lovr.graphics.newTexture('texture.png')
+texture = lovr.graphics.newTexture('duck.png')
 ```
 
 We can apply a texture to a model using `Model:setTexture`.  The colon syntax in Lua is used when

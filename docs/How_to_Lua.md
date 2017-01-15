@@ -8,8 +8,9 @@ How to Lua
 This is a very brief introduction to the Lua programming language and assumes you've never
 programmed before.
 
-If you're familiar with Lua, feel free to skip this guide.  If you know a different programming
-language or you want a refresher on Lua, check out these guides:
+If you're already familiar with Lua or you're feeling brave and just want to start making stuff,
+feel free to skip this guide.  If you know a different programming language or you want a refresher
+on Lua, check out these guides:
 
 1. [Learn Lua in 15 Minutes](http://tylerneylon.com/a/learn-lua/)
 1. [Lua for Programmers](http://nova-fusion.com/2012/08/27/lua-for-programmers-part-1/)

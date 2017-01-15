@@ -176,6 +176,11 @@ main.docs {
     margin: 12px 0;
   }
 
+  img {
+    margin: 10px 0;
+    border-radius: 1px;
+  }
+
   code {
     &, * {
       font-family: "Inconsolata";

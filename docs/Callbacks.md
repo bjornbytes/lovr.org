@@ -45,7 +45,7 @@ What in the world does this mean?  These callbacks give us a handy way to design
 `lovr.load` is a great place to create a bunch of variables, load 3D models and sounds, and perform
 any other setup work.
 
-In lovr.update we put the "logic" of our application, so we might move objects around, simulate a
+In `lovr.update` we put the "logic" of our application, so we might move objects around, simulate a
 physics system, or keep track of scores and timers.  Because lovr.update is called over and over
 again, we can update our simulation constantly to respond to user input or move objects smoothly
 over time to create animation.
