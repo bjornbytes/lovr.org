@@ -61,6 +61,8 @@ location in the virtual world!  To position a source, use `Source:setPosition`:
 source:setPosition(1.3, 2, -4.2)
 ```
 
+Note that only mono sounds can be spatialized in this way.
+
 Muting Audio
 ---
 
