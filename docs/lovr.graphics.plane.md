@@ -23,3 +23,38 @@ Draws a plane with a given position, size, and orientation.
 ### Returns
 
 Nothing
+
+---
+
+Draw a textured plane
+
+    lovr.graphics.plane(texture, x, y, z, size, nx, ny, nz)
+
+### Arguments
+
+- `Texture texture` The Texture to apply to the plane.
+- `number x (0)` The x coordinate of the center of the plane.
+- `number y (0)` The y coordinate of the center of the plane.
+- `number z (0)` The z coordinate of the center of the plane.
+- `number size (1.0)` The size of the plane, in meters.
+- `number nx (0.0)` The x coordinate of the normal vector of the plane.
+- `number ny (1.0)` The y coordinate of the normal vector of the plane.
+- `number nz (0.0)` The z coordinate of the normal vector of the plane.
+
+### Returns
+
+Nothing
+
+---
+
+Draw a textured plane that takes up the whole screen
+
+    lovr.graphics.plane(texture)
+
+### Arguments
+
+- `Texture texture` The texture to use.
+
+### Returns
+
+Nothing

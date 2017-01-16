@@ -11,7 +11,7 @@ include `.png`, `.jpg`, `.tga`, and `.bmp`.
 <table>
 <tr>
   <td class="pre">lovr.graphics.newTexture</td>
-  <td>Create a new Texture from an image file.</td>
+  <td>Create a new Texture.</td>
 </tr>
 
 <tr>
@@ -37,6 +37,11 @@ include `.png`, `.jpg`, `.tga`, and `.bmp`.
 <tr>
   <td class="pre">Texture:getWrap</td>
   <td>Get the current <code>WrapMode</code> of the Texture.</td>
+</tr>
+
+<tr>
+  <td class="pre">Texture:renderTo</td>
+  <td>Render to a Texture using a function.</td>
 </tr>
 
 <tr>
