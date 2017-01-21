@@ -124,6 +124,10 @@ window.addEventListener('popstate', function(event) {
   showPage(event.state && event.state.key, event.state && event.state.scroll);
 });
 
+if (/docs$/.test(window.location.href)) {
+  history.pushState({ key: 'Introduction', scroll: 0 }, '', prefix + '/docs/Introduction');
+}
+
 // Add syntax highlighting and autolinking to any initial content
 var initialContent = document.querySelector('.content');
 if (initialContent) {
