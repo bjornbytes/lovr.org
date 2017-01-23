@@ -15,9 +15,9 @@ The data type can either be "float" or "byte".  The number of components can be 
 default format is as follows:
 
     {
-      { 'position', 'float', 3 },
-      { 'normal', 'float', 3 },
-      { 'texCoord', 'float', 2 }
+      { 'lovrPosition', 'float', 3 },
+      { 'lovrNormal', 'float', 3 },
+      { 'lovrTexCoord', 'float', 2 }
     }
 
 Each attribute is made available in the active shader as an input variable.
