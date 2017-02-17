@@ -1,8 +1,9 @@
 import oboe from 'oboe';
+
 require('script!./highlight.js');
 var main = document.querySelector('main');
 var elDocs = document.querySelector('.docs');
-var sidebarLinks = document.querySelectorAll('li[data-doc]');
+var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-doc]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
 
@@ -148,7 +149,7 @@ document.onkeydown = function(event) {
   } else if (event.keyCode === 8) {
     searchBox.focus();
   } else if (event.keyCode === 13) {
-    var link = Array.prototype.find.call(sidebarLinks, function(link) { return link.style.display === ''; });
+    var link = sidebarLinks.find(function(link) { return link.style.display === ''; });
     if (link) {
       link.click();
     }
@@ -156,18 +157,29 @@ document.onkeydown = function(event) {
 };
 
 document.onkeypress = function(event) {
+  if (event.ctrlKey || event.altKey || event.metaKey) {
+    return;
+  }
+
   if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:]/.test(event.key)) {
+    console.log(event);
     event.preventDefault();
     searchBox.style.display = 'block';
-    searchBox.value += event.key;
     searchBox.focus();
+    searchBox.value += event.key;
     updateResults();
   }
 };
 
-searchBox.onkeydown = function() {
+searchBox.onkeyup = function() {
   setTimeout(function() {
-    searchBox.style.display = searchBox.value === '' ? '' : 'block';
+    if (searchBox.value === '') {
+      searchBox.style.display = '';
+      searchBox.blur();
+    } else {
+      searchBox.style.display = 'block';
+    }
+
     updateResults();
   }, 0);
 };
