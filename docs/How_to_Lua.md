@@ -223,4 +223,4 @@ code in these guides.  For additional reference content, have a look at these:
 1. The [Programming in Lua](http://lua.org/pil) book (first edition)
 1. [Lua Reference Manual](http://www.lua.org/manual/5.1/)
 
-Otherwise, continue on to the [Callbacks](Callbacks) guide.
+Otherwise, continue on to the <a data-doc="Callbacks">Callbacks</a> guide.

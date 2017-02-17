@@ -11,10 +11,14 @@ var docs = {};
 function pushPage(key) {
   if (history.state) {
     var scroll = elDocs.scrollTop;
-    history.replaceState({ key: history.state.key, scroll: scroll }, '', prefix + '/docs/' + history.state.key);
+    var url = prefix + '/docs';
+    url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
+    history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
   }
 
-  history.pushState({ key: key, scroll: 0 }, '', prefix + '/docs/' + key);
+  var url = prefix + '/docs';
+  url += key.length > 0 ? ('/' + key) : '';
+  history.pushState({ key: key, scroll: 0 }, '', url);
 }
 
 function showPage(key, scroll) {
@@ -87,18 +91,18 @@ function enhance(node) {
         return '<a data-doc="' + token + '">' + token + '</a>';
       }
 
-      return token
+      return token;
     });
+  });
 
-    var links = Array.prototype.slice.call(linkable.querySelectorAll('a[data-doc]'));
-    links.forEach(function(link) {
-      link.style.cursor = 'pointer';
-      link.onclick = function(event) {
-        var key = link.dataset.doc;
-        pushPage(key);
-        showPage(key, 0);
-      };
-    });
+  var links = Array.prototype.slice.call(node.querySelectorAll('a[data-doc]'));
+  links.forEach(function(link) {
+    link.style.cursor = 'pointer';
+    link.onclick = function(event) {
+      var key = link.dataset.doc;
+      pushPage(key);
+      showPage(key, 0);
+    };
   });
 }
 
@@ -121,12 +125,9 @@ oboe(prefix + '/api/docs')
 
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
-  showPage(event.state && event.state.key, event.state && event.state.scroll);
+  var page = (event.state && event.state.key) || 'Introduction';
+  showPage(page, event.state && event.state.scroll);
 });
-
-if (/docs$/.test(window.location.href)) {
-  history.pushState({ key: 'Introduction', scroll: 0 }, '', prefix + '/docs/Introduction');
-}
 
 // Add syntax highlighting and autolinking to any initial content
 var initialContent = document.querySelector('.content');

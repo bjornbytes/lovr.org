@@ -69,4 +69,4 @@ I combined the calls to `lovr.graphics.newTexture` and `model:setTexture`, and I
 rotation parameters from `model:draw` for simplicity.
 
 That's all there is to it!  Next we'll (finally!) talk about our first VR topic:
-[Controllers](Controllers).
+<a data-doc="Controllers">Controllers</a>.

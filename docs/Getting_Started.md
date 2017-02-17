@@ -72,4 +72,4 @@ around, introduce yourself to it, befriend it.
 
 That's it for this guide.  I knew you could do it.
 If you want to make something even more cool, you'll need to learn a little bit more about Lua.
-Continue on to the [How to Lua]() guide to learn more about Lua!
+Continue on to the <a data-doc="How_to_Lua">How to Lua</a> guide to learn more about Lua!
