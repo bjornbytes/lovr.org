@@ -37,6 +37,13 @@ you're calling a function on an object.
 model:setTexture(texture)
 ```
 
+It is also possible to create and set the texture while creating the model, using the second
+parameter to `lovr.graphics.newModel`:
+
+```
+model = lovr.graphics.newModel('duck.dae', 'duck.png')
+```
+
 Rendering the Model
 ---
 
@@ -56,8 +63,7 @@ Here's the complete program for loading and rendering a 3D model:
 
 ```
 function lovr.load()
-  model = lovr.graphics.newModel('model.obj')
-  model:setTexture(lovr.graphics.newTexture('texture.png'))
+  model = lovr.graphics.newModel('model.obj', 'texture.png')
 end
 
 function lovr.draw()
@@ -65,8 +71,7 @@ function lovr.draw()
 end
 ```
 
-I combined the calls to `lovr.graphics.newTexture` and `model:setTexture`, and I left out the
-rotation parameters from `model:draw` for simplicity.
+The rotation parameters for `model:draw` were left out for simplicity.
 
 That's all there is to it!  Next we'll (finally!) talk about our first VR topic:
 <a data-doc="Controllers">Controllers</a>.
