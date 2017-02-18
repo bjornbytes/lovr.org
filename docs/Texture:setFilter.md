@@ -17,6 +17,8 @@ Set the `FilterMode` used by the texture when upsampling or downsampling.  The d
 
 ### Returns
 
+Nothing
+
 See also
 ---
 
