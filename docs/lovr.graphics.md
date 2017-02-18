@@ -40,6 +40,11 @@ Simple functions for drawing simple shapes:
   <td class="pre">lovr.graphics.triangle</td>
   <td>Draw a triangle from three points.</td>
 </tr>
+
+<tr>
+  <td class="pre">lovr.graphics.print</td>
+  <td>Draw text.</td>
+</tr>
 </table>
 
 Transforms
@@ -93,6 +98,12 @@ frame, which can really slow things down!
   <td class="pre">Buffer</td>
   <td class="pre">lovr.graphics.newBuffer</td>
   <td>A drawable list of vertices.</td>
+</tr>
+
+<tr>
+  <td class="pre">Font</td>
+  <td class="pre">lovr.graphics.newFont</td>
+  <td>A font that can be used to render text.</td>
 </tr>
 
 <tr>
@@ -183,6 +194,16 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 <tr>
   <td class="pre">lovr.graphics.setDepthTest</td>
   <td>Set or disable the depth test method, used to control how rendered objects overlap.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getFont</td>
+  <td>Get the active font.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.setFont</td>
+  <td>Set the active font.</td>
 </tr>
 
 <tr>
