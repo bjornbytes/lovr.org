@@ -23,6 +23,7 @@
       <% render('views.sidebar-link', { key = 'lovr.filesystem' }) %>
       <% render('views.sidebar-link', { key = 'lovr.graphics' }) %>
       <% render('views.sidebar-link', { key = 'lovr.headset' }) %>
+      <% render('views.sidebar-link', { key = 'lovr.math' }) %>
       <% render('views.sidebar-link', { key = 'lovr.timer' }) %>
     </ul>
 
