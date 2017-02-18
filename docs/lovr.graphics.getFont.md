@@ -17,7 +17,8 @@ None
 
 - `Font font` The active font.
 
-### See also
+See also
+---
 
 - `lovr.graphics.setFont`
 - `Font`

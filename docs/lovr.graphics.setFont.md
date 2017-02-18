@@ -17,7 +17,8 @@ Set the active font used to render text.
 
 Nothing
 
-### See also
+See also
+---
 
 - `lovr.graphics.getFont`
 - `Font`

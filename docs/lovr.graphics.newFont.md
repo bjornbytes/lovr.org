@@ -34,6 +34,7 @@ Creates a new font from a ttf file.
 
 - `Font font` A new instance of the default font (Cabin).
 
-### See also
+See also
+---
 
 - `Font`

@@ -30,7 +30,8 @@ Nothing
 
 Unicode text is supported.  Use `\n` to add a line break.
 
-### See also
+See also
+---
 
 - `lovr.graphics.setFont`
 - `lovr.graphics.getFont`
