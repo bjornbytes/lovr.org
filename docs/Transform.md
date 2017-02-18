@@ -10,7 +10,7 @@ describe how entities are arranged in a scene, or how a camera is oriented.
 
 <table>
 <tr>
-  <td class="pre">lovr.graphics.newTransform</td>
+  <td class="pre">lovr.math.newTransform</td>
   <td>Create a new Transform.</td>
 </tr>
 
