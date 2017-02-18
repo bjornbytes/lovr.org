@@ -23,3 +23,17 @@ Draws a model.
 ### Returns
 
 Nothing
+
+---
+
+Draws a model using a transform.
+
+    model:draw(transform)
+
+### Arguments
+
+- `Transform transform` The Transform to apply to the model.
+
+### Returns
+
+Nothing

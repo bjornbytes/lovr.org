@@ -46,3 +46,21 @@ Draw a textured cube
 ### Returns
 
 Nothing
+
+---
+
+Draw a cube using a `Transform`.
+
+    lovr.graphics.cube(mode, transform)
+
+- `DrawMode mode` How to draw the cube.
+- `Transform transform` The Transform to apply to the cube.
+
+---
+
+Draw a textured cube using a `Transform`.
+
+    lovr.graphics.cube(texture, transform)
+
+- `Texture texture` The Texture to apply to the cube.
+- `Transform transform` The Transform to apply to the cube.

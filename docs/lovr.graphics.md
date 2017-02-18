@@ -71,6 +71,11 @@ how objects in the game world are mapped onto the screen.
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.transform</td>
+  <td>Transform the coordinate system using a <code>Transform</code> object.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.rotate</td>
   <td>Rotate the coordinate system around an axis.</td>
 </tr>

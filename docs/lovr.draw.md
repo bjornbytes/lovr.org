@@ -17,3 +17,4 @@ See also
 ---
 
 - `lovr.headset.renderTo`
+- `HeadsetEye`
