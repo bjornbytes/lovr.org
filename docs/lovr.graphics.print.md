@@ -28,8 +28,7 @@ Nothing
 
 ### Notes
 
-- Unicode is supported.
-- Use `\n` to add a line break.
+Unicode text is supported.  Use `\n` to add a line break.
 
 ### See also
 
