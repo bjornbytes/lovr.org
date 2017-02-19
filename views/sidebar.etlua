@@ -33,6 +33,7 @@
       <% render('views.sidebar-link', { key = 'lovr.controlleradded' }) %>
       <% render('views.sidebar-link', { key = 'lovr.controllerremoved' }) %>
       <% render('views.sidebar-link', { key = 'lovr.draw' }) %>
+      <% render('views.sidebar-link', { key = 'lovr.errhand' }) %>
       <% render('views.sidebar-link', { key = 'lovr.load' }) %>
       <% render('views.sidebar-link', { key = 'lovr.quit' }) %>
       <% render('views.sidebar-link', { key = 'lovr.run' }) %>
