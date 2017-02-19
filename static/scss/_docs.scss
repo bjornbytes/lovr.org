@@ -285,4 +285,15 @@ main.docs {
       }
     }
   }
+
+  blockquote {
+    background: $c-lapis;
+    padding: 16px;
+    border-radius: 8px;
+    border: 2px darken($c-lapis, 5%) solid;
+
+    p {
+      margin: 0;
+    }
+  }
 }
