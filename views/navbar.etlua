@@ -3,7 +3,7 @@
   <div class="logo">
     <a href="<%= prefix %>/">
       <img src="<%= prefix %>/static/img/logo.png">
-      LÖVR
+      <span>LÖVR</span>
     </a>
   </div>
 <% end %>

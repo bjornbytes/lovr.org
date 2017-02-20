@@ -25,6 +25,10 @@ nav .links a {
   &:hover {
     color: $c-black;
   }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }
 
 nav .logo {
@@ -41,7 +45,7 @@ nav .logo img {
 }
 
 nav .logo a {
-  margin-left: 20px + 35px + 15px;;
+  margin-left: 20px + 35px + 15px;
   height: 60px;
   line-height: 60px;
   display: inline-block;
@@ -51,6 +55,14 @@ nav .logo a {
 
   &:hover {
     color: $c-raven;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  &:active span {
+    transform: translateY(1px);
   }
 }
 
