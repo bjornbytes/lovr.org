@@ -37,7 +37,7 @@ nav .logo {
   padding-right: 30px;
 }
 
-nav .logo img {
+nav .logo svg {
   height: 35px;
   position: absolute;
   top: 12px;
@@ -63,13 +63,14 @@ nav .logo a {
   }
 }
 
-img.villain {
-  margin-top: 90px;
-  height: 135px;
-}
-
 main.index {
   text-align: center;
+
+  svg.logo {
+    margin-top: 90px;
+    height: 135px;
+    pointer-events: none;
+  }
 }
 
 h1 {

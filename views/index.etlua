@@ -1,7 +1,7 @@
 <% render('views.navbar', { logo = false }) %>
 
 <main class="index container">
-  <img src="<%= prefix %>/static/img/logo.png" class="villain">
+  <% render('views.logo') %>
   <h1>LÖVR</h1>
   <p>A simple framework for creating VR experiences</p>
   <div class="buttons">

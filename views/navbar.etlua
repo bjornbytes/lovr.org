@@ -2,7 +2,7 @@
 <% if logo ~= false then %>
   <div class="logo">
     <a href="<%= prefix %>/">
-      <img src="<%= prefix %>/static/img/logo.png">
+      <% render('views.logo') %>
       <span>LÖVR</span>
     </a>
   </div>
