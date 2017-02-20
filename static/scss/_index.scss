@@ -59,10 +59,7 @@ nav .logo a {
 
   span {
     display: inline-block;
-  }
-
-  &:active span {
-    transform: translateY(1px);
+    &:active { transform: translateY(1px); }
   }
 }
 
