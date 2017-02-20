@@ -60,9 +60,11 @@
   color: $c-mauve;
   font-size: 12px;
   cursor: pointer;
-  &.active { background: mix($c-lilac, $c-white, 50%); }
+  transition: padding-left 180ms;
+  &:hover { background: mix($c-lilac, $c-white, 25%); }
+  &.active { padding-left: 22px; color: $c-raven; }
+  &:active, &.active { background: $c-phlox; }
   &:last-child { margin-bottom: 0; }
-  &:hover, &.active { color: $c-black; }
   &.disabled, &.disabled:hover {
     color: $c-slate;
     cursor: default;
