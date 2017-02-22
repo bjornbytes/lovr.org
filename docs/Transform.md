@@ -21,7 +21,7 @@ describe how entities are arranged in a scene, or how a camera is oriented.
 
 <tr>
   <td class="pre">Transform:inverse</td>
-  <td>Return the inverse of the Transform..</td>
+  <td>Return the inverse of the Transform.</td>
 </tr>
 
 <tr>
