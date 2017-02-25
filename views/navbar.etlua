@@ -10,6 +10,6 @@
 
   <div class="links container">
     <a href="<%= prefix %>/docs">Documentation</a>
-    <a href="https://github.com/bjornbytes/lovr">Source</a>
+    <a href="https://github.com/bjornbytes/lovr" target="_blank">Source</a>
   </div>
 </nav>
