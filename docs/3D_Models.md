@@ -18,7 +18,7 @@ To load a model into LÖVR, we can use the `lovr.graphics.newModel` function.  I
 the name of the model file and returns an object representing the model.
 
 ```
-model = lovr.graphics.newModel('duck.dae')
+model = lovr.graphics.newModel('assets/duck.dae')
 ```
 
 Create the Texture
@@ -27,7 +27,7 @@ Create the Texture
 Creating textures is really similar to creating models:
 
 ```
-texture = lovr.graphics.newTexture('duck.png')
+texture = lovr.graphics.newTexture('assets/duck.png')
 ```
 
 We can apply a texture to a model using `Model:setTexture`.  The colon syntax in Lua is used when
@@ -41,7 +41,7 @@ It is also possible to create and set the texture while creating the model, usin
 parameter to `lovr.graphics.newModel`:
 
 ```
-model = lovr.graphics.newModel('duck.dae', 'duck.png')
+model = lovr.graphics.newModel('assets/duck.dae', 'assets/duck.png')
 ```
 
 Rendering the Model
@@ -63,7 +63,7 @@ Here's the complete program for loading and rendering a 3D model:
 
 ```
 function lovr.load()
-  model = lovr.graphics.newModel('model.obj', 'texture.png')
+  model = lovr.graphics.newModel('assets/model.obj', 'assets/texture.png')
 end
 
 function lovr.draw()
@@ -71,7 +71,8 @@ function lovr.draw()
 end
 ```
 
-The rotation parameters for `model:draw` were left out for simplicity.
+The rotation parameters for `model:draw` were left out for simplicity.  The model and texture were
+put in a folder called `assets`.
 
 That's all there is to it!  Next we'll (finally!) talk about our first VR topic:
 <a data-doc="Controllers">Controllers</a>.
