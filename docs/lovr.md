@@ -29,13 +29,13 @@ VR, and so on.
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics</td>
-  <td>Render things to the screen, load images and models from files.</td>
+  <td class="pre">lovr.filesystem</td>
+  <td>Read and write files.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.filesystem</td>
-  <td>Read and write files.</td>
+  <td class="pre">lovr.graphics</td>
+  <td>Render things to the screen, load images and models from files.</td>
 </tr>
 
 <tr>
