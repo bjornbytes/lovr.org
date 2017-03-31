@@ -114,12 +114,20 @@ oboe(prefix + '/api/docs')
 
     var li = document.querySelector('li[data-doc="' + key + '"]');
     if (li) {
-      li.classList.remove('disabled');
-      li.addEventListener('click', function(event) {
+      var onclick = function(event) {
         var content = document.querySelector('.content');
         if (content && content.dataset.key == key) { return; }
         pushPage(key);
         showPage(key, 0);
+      };
+
+      li.classList.remove('disabled');
+      li.addEventListener('click', onclick);
+      li.addEventListener('keypress', function(event) {
+        if (event.keyCode == 13 || event.keyCode == 32) {
+          event.preventDefault();
+          onclick(event);
+        }
       });
     }
   });
@@ -141,6 +149,9 @@ if (initialContent) {
 }
 
 document.onkeydown = function(event) {
+  var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
+  var firstVisibleLink = visibleLinks[0];
+
   if (event.keyCode === 27) {
     searchBox.value = '';
     searchBox.style.display = 'none';
@@ -149,9 +160,30 @@ document.onkeydown = function(event) {
   } else if (event.keyCode === 8) {
     searchBox.focus();
   } else if (event.keyCode === 13) {
-    var link = sidebarLinks.find(function(link) { return link.style.display === ''; });
-    if (link) {
-      link.click();
+    firstVisibleLink && firstVisibleLink.click();
+  } else if (event.keyCode === 40) {
+    if (document.activeElement === searchBox) {
+      firstVisibleLink && firstVisibleLink.focus();
+      event.preventDefault();
+    } else if (document.activeElement && document.activeElement.dataset.doc) {
+      var idx = visibleLinks.indexOf(document.activeElement);
+      var next = idx >= 0 && visibleLinks[idx + 1];
+      if (next) {
+        next.focus();
+        event.preventDefault();
+      }
+    }
+  } else if (event.keyCode === 38) {
+    if (document.activeElement && document.activeElement.dataset.doc) {
+      var idx = visibleLinks.indexOf(document.activeElement);
+      var prev = idx >= 0 && visibleLinks[idx - 1];
+      if (prev) {
+        prev.focus();
+        event.preventDefault();
+      } else if (idx === 0) {
+        searchBox.focus();
+        event.preventDefault();
+      }
     }
   }
 };
@@ -162,7 +194,6 @@ document.onkeypress = function(event) {
   }
 
   if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:]/.test(event.key)) {
-    console.log(event);
     event.preventDefault();
     searchBox.style.display = 'block';
     searchBox.focus();
