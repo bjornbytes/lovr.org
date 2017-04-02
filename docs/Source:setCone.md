@@ -25,4 +25,4 @@ Nothing
 See also
 ---
 
-- `SourcegsetCone`
+- `Source:setCone`
