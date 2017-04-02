@@ -16,9 +16,9 @@ Note that order matters when scaling, translating, and rotating the coordinate s
 
 ### Arguments
 
-- `number x` The amount to scale on the x axis.
-- `number y` The amount to scale on the y axis.
-- `number z` The amount to scale on the z axis.
+- `number x (1)` The amount to scale on the x axis.
+- `number y (x)` The amount to scale on the y axis.
+- `number z (x)` The amount to scale on the z axis.
 
 ### Returns
 
