@@ -41,6 +41,11 @@ Sources are objects that represent a single sound instance.
 </tr>
 
 <tr>
+  <td class="pre">lovr.audio.isSpatialized</td>
+  <td>Get whether or not sound is spatialized.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.audio.getDopplerEffect</td>
   <td>Get parameters controlling the doppler effect.</td>
 </tr>
