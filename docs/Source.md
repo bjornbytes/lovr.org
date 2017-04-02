@@ -44,13 +44,13 @@ Functions
 </tr>
 
 <tr>
-  <td class="pre">Source:getDuration</td>
-  <td>Get the duration of the Source.</td>
+  <td class="pre">Source:getDirection</td>
+  <td>Get the direction vector of the Source.</td>
 </tr>
 
 <tr>
-  <td class="pre">Source:getOrientation</td>
-  <td>Get the orientation vector of the Source.</td>
+  <td class="pre">Source:getDuration</td>
+  <td>Get the duration of the Source.</td>
 </tr>
 
 <tr>
@@ -119,13 +119,13 @@ Functions
 </tr>
 
 <tr>
-  <td class="pre">Source:setLooping</td>
-  <td>Set whether or not the Source loops.</td>
+  <td class="pre">Source:setDirection</td>
+  <td>Set the direction of a Source.</td>
 </tr>
 
 <tr>
-  <td class="pre">Source:setOrientation</td>
-  <td>Set the direction of a Source.</td>
+  <td class="pre">Source:setLooping</td>
+  <td>Set whether or not the Source loops.</td>
 </tr>
 
 <tr>

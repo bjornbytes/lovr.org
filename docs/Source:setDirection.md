@@ -2,24 +2,24 @@
 category: reference
 -->
 
-Source:getOrientation
+Source:setDirection
 ===
 
-Get the orientation of the Source.
+Set the direction vector of the source.
 
-    x, y, z = source:getOrientation()
+    source:setDirection(x, y, z)
 
 ### Arguments
-
-None
-
-### Returns
 
 - `number x` The x component of the direction vector.
 - `number y` The y component of the direction vector.
 - `number z` The z component of the direction vector.
 
+### Returns
+
+Nothing
+
 See also
 ---
 
-- `Source:setOrientation`
+- `Source:getDirection`
