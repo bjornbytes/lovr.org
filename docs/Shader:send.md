@@ -23,7 +23,8 @@ Notes
 
 The shader does not need to be active to update its uniforms.  However, the types must match up.
 Uniform variables declared as `float`s must be sent a single number, whereas uniforms declared as
-`vec4`s must be sent a table containing 4 numbers, etc.
+`vec4`s must be sent a table containing 4 numbers, etc.  Note that uniforms declared as `mat4`s can
+be sent a `Transform` object.
 
 Example
 ---
