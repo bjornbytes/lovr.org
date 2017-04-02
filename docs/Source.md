@@ -40,7 +40,7 @@ Functions
 
 <tr>
   <td class="pre">Source:getChannels</td>
-  <td>Get the number of channels in the source (mono/stereo).</td>
+  <td>Get the number of channels in the Source (mono/stereo).</td>
 </tr>
 
 <tr>
@@ -61,6 +61,11 @@ Functions
 <tr>
   <td class="pre">Source:getPosition</td>
   <td>Get the position of the Source.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:getFalloff</td>
+  <td>Get parameters controlling how the volume of the Source falls off with distance.</td>
 </tr>
 
 <tr>
@@ -121,6 +126,11 @@ Functions
 <tr>
   <td class="pre">Source:setDirection</td>
   <td>Set the direction of a Source.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:getFalloff</td>
+  <td>Set parameters controlling how the volume of the Source falls off with distance.</td>
 </tr>
 
 <tr>
