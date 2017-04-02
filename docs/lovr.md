@@ -79,6 +79,11 @@ whenever a new controller is connected.
 </tr>
 
 <tr>
+  <td class="pre">lovr.focus</td>
+  <td>Called when the application gets or loses focus.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.controlleradded</td>
   <td>Called whenever a <code>Controller</code> is connected.</td>
 </tr>
