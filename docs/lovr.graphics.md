@@ -5,9 +5,9 @@ category: module
 lovr.graphics
 ===
 
-The `lovr.graphics` module handles rendering graphics to the window.  Although LÖVR is focused on VR,
-you can use it to render 3D graphics with or without a VR headset.  If the `lovr.headset` module is
-enabled, LÖVR will render to each eye of the headset, otherwise everything will be rendered to a
+The `lovr.graphics` module handles rendering graphics to the window.  Although LÖVR is focused on
+VR, you can use it to render 3D graphics with or without a VR headset.  If the `lovr.headset` module
+is enabled, LÖVR will render to each eye of the headset, otherwise everything will be rendered to a
 window on the desktop.
 
 Drawing
@@ -254,11 +254,6 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 <tr>
   <td class="pre">lovr.graphics.present</td>
   <td>Flush the results of drawing operations to the display.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.setProjection</td>
-  <td>Set the projection options for the virtual camera.</td>
 </tr>
 
 <tr>
