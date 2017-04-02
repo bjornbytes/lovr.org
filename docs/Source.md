@@ -44,6 +44,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Source:getCone</td>
+  <td>Get the directional volume cone of the Source.</td>
+</tr>
+
+<tr>
   <td class="pre">Source:getDirection</td>
   <td>Get the direction vector of the Source.</td>
 </tr>
@@ -121,6 +126,11 @@ Functions
 <tr>
   <td class="pre">Source:seek</td>
   <td>Seek to a specific position in the audio file.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:setCone</td>
+  <td>Set the directional volume cone of the Source.</td>
 </tr>
 
 <tr>
