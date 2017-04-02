@@ -17,7 +17,7 @@ None
 
 - `table controllers` A list of Controller objects.
 
-See Also
+See also
 ---
 
 - `lovr.controlleradded`

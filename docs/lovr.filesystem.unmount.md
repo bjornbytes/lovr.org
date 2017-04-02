@@ -17,7 +17,7 @@ Unmounts an archive previously mounted with `lovr.filesystem.mount`.
 
 - `boolean success` Whether or not the operation was successful.
 
-See Also
+See also
 ---
 
 - `lovr.filesystem.mount`

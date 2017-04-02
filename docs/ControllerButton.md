@@ -15,7 +15,7 @@ Values
 - `grip` The grip button.
 - `touchpad` The button on the touchpad.
 
-See Also
+See also
 ---
 
 - `Controller:isDown`

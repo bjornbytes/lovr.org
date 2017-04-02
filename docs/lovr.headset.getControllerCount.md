@@ -17,7 +17,7 @@ None
 
 - `number count` The number of currently connected controllers.
 
-See Also
+See also
 ---
 
 - `lovr.controlleradded`

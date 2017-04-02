@@ -32,7 +32,7 @@ lovr.filesystem.mount('data.zip', 'assets')
 print(lovr.filesystem.exists('assets/background.png')) -- true
 ```
 
-See Also
+See also
 ---
 
 - `lovr.filesystem.unmount`

@@ -14,7 +14,7 @@ Values
 - `touchx` The x axis of the controller's touch pad.
 - `touchy` The y axis of the controller's touch pad.
 
-See Also
+See also
 ---
 
 - `Controller:getAxis`
