@@ -5,7 +5,19 @@ category: reference
 lovr.graphics.newSkybox
 ===
 
-Creates a new `Skybox` from a set of 6 images.
+Creates a new `Skybox` from a set of images.
+
+---
+
+    skybox = lovr.graphics.newSkybox(image)
+
+### Arguments
+
+- `string image` The filename of a panoramic image to use for the Skybox.
+
+### Returns
+
+- `Skybox skybox` The new skybox object.
 
 ---
 
