@@ -89,6 +89,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Source:getVolumeLimits</td>
+  <td>Get the min and max volume of the Source.</td>
+</tr>
+
+<tr>
   <td class="pre">Source:isLooping</td>
   <td>Get whether the Source is looping.</td>
 </tr>
@@ -101,6 +106,11 @@ Functions
 <tr>
   <td class="pre">Source:isPlaying</td>
   <td>Get whether a Source is playing.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:isRelative</td>
+  <td>Get whether a Source is relatively positioned.</td>
 </tr>
 
 <tr>
@@ -164,6 +174,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Source:setRelative</td>
+  <td>Set whether a Source is relatively positioned.</td>
+</tr>
+
+<tr>
   <td class="pre">Source:setVelocity</td>
   <td>Set the velocity of a Source.</td>
 </tr>
@@ -171,6 +186,11 @@ Functions
 <tr>
   <td class="pre">Source:setVolume</td>
   <td>Set the volume of a Source.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:setVolumeLimits</td>
+  <td>Set the min and max volume of a Source.</td>
 </tr>
 
 <tr>
