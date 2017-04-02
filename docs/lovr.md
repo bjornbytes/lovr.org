@@ -89,6 +89,16 @@ whenever a new controller is connected.
 </tr>
 
 <tr>
+  <td class="pre">lovr.controllerpressed</td>
+  <td>Called whenever a button on a <code>Controller</code> is pressed.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.controllerreleased</td>
+  <td>Called whenever a button on a <code>Controller</code> is released.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.conf</td>
   <td>Set configuration settings for LÖVR and control which modules are enabled.</td>
 </tr>

@@ -31,6 +31,8 @@
     <ul>
       <% render('views.sidebar-link', { key = 'lovr.conf' }) %>
       <% render('views.sidebar-link', { key = 'lovr.controlleradded' }) %>
+      <% render('views.sidebar-link', { key = 'lovr.controllerpressed' }) %>
+      <% render('views.sidebar-link', { key = 'lovr.controllerreleased' }) %>
       <% render('views.sidebar-link', { key = 'lovr.controllerremoved' }) %>
       <% render('views.sidebar-link', { key = 'lovr.draw' }) %>
       <% render('views.sidebar-link', { key = 'lovr.errhand' }) %>

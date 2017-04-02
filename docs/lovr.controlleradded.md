@@ -15,5 +15,8 @@ See also
 ---
 
 - `lovr.controllerremoved`
+- `lovr.controllerpressed`
+- `lovr.controllerreleased`
 - `lovr.headset.getControllers`
 - `lovr.headset.getControllerCount`
+- `Controller`
