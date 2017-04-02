@@ -98,3 +98,21 @@ whenever a new controller is connected.
   <td>The main loop for the game.</td>
 </tr>
 </table>
+
+Functions
+---
+
+There are also a couple of miscellaneous functions for retrieving the current version of LÖVR and
+the user's operating system.
+
+<table>
+<tr>
+  <td class="pre">lovr.getOS()</td>
+  <td>Get user's operating system.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.getVersion()</td>
+  <td>Get the version of LÖVR.</td>
+</tr>
+</table>
