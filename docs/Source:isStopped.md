@@ -15,7 +15,7 @@ None
 
 ### Returns
 
-- `boolean isStopped` Whether or not the sorce is stopped.
+- `boolean isStopped` Whether or not the source is stopped.
 
 See also
 ---

@@ -15,7 +15,7 @@ None
 
 ### Returns
 
-- `boolean isLooping` Whether or not the sorce is looping.
+- `boolean isLooping` Whether or not the source is looping.
 
 See also
 ---

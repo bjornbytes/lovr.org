@@ -15,7 +15,7 @@ None
 
 ### Returns
 
-- `boolean isPaused` Whether or not the sorce is paused.
+- `boolean isPaused` Whether or not the source is paused.
 
 See also
 ---

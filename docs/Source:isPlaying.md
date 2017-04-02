@@ -15,7 +15,7 @@ None
 
 ### Returns
 
-- `boolean isPlaying` Whether or not the sorce is playing.
+- `boolean isPlaying` Whether or not the source is playing.
 
 See also
 ---
