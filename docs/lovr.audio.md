@@ -41,6 +41,16 @@ Sources are objects that represent a single sound instance.
 </tr>
 
 <tr>
+  <td class="pre">lovr.audio.getVelocity</td>
+  <td>Get the velocity of the listener.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.audio.setVelocity</td>
+  <td>Set the velocity of the listener.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.audio.update</td>
   <td>An internal function to update audio.</td>
 </tr>
