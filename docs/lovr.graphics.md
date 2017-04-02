@@ -182,6 +182,16 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.getBlendMode</td>
+  <td>Get the current blend mode.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.setBlendMode</td>
+  <td>Control how colors are blended together.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.isCullingEnabled</td>
   <td>Get whether the graphics system is culling the backface culling of polygons.</td>
 </tr>
