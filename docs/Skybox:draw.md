@@ -35,7 +35,7 @@ Examples
 
 Drawing a Skybox in VR
 
-    function love.load()
+    function lovr.load()
       skybox = lovr.graphics.newSkybox({
         '1.png',
         '2.png',

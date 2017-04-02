@@ -29,7 +29,7 @@ command prompt.  From there, type `cd C:\Users\Cena\Desktop\lovr`, or wherever t
 Finally, use the following command to create the executable:
 
 ```
-copy /b love.exe+MyGame.lovr MyGame.exe
+copy /b lovr.exe+MyGame.lovr MyGame.exe
 ```
 
 On unix systems, the `cat` utility can be used to concatenate the `lovr` file with `lovr.exe`.
