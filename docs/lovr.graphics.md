@@ -100,8 +100,8 @@ frame, which can really slow things down!
 
 <table>
 <tr>
-  <td class="pre">Buffer</td>
-  <td class="pre">lovr.graphics.newBuffer</td>
+  <td class="pre">Mesh</td>
+  <td class="pre">lovr.graphics.newMesh</td>
   <td>A drawable list of vertices.</td>
 </tr>
 
@@ -132,7 +132,7 @@ frame, which can really slow things down!
 <tr>
   <td class="pre">Texture</td>
   <td class="pre">lovr.graphics.newTexture</td>
-  <td>An image that can be used to texture Buffers and Models.</td>
+  <td>An image that can be used to texture Meshes and Models.</td>
 </tr>
 </table>
 

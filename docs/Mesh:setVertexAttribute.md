@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:setVertexAttribute
+Mesh:setVertexAttribute
 ===
 
-Set the components of a specific attribute of a vertex in a Buffer.
+Set the components of a specific attribute of a vertex in a Mesh.
 
-    buffer:setVertexAttribute(vertex, attribute, ...)
+    mesh:setVertexAttribute(vertex, attribute, ...)
 
 ### Arguments
 
@@ -22,10 +22,10 @@ Nothing
 Notes
 ---
 
-Buffers without a custom format have the vertex position as their first attribute, the normal vector
+Meshes without a custom format have the vertex position as their first attribute, the normal vector
 as the second attribute, and the texture coordinate as the third attribute.
 
 See also
 ---
 
-- `Buffer:getVertexAttribute`
+- `Mesh:getVertexAttribute`

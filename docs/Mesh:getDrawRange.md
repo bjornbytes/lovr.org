@@ -2,13 +2,13 @@
 category: reference
 -->
 
-Buffer:getDrawRange
+Mesh:getDrawRange
 ===
 
-Retrieve the current draw range for the buffer.  The draw range is a subset of the vertices of the
-buffer that will be drawn.
+Retrieve the current draw range for the mesh.  The draw range is a subset of the vertices of the
+mesh that will be drawn.
 
-    start, count = buffer:getDrawRange()
+    start, count = mesh:getDrawRange()
 
 ### Arguments
 

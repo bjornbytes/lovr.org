@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:getVertexFormat
+Mesh:getVertexFormat
 ===
 
-Get the format table of the Buffer's vertices.
+Get the format table of the Mesh's vertices.
 
-    format = buffer:getVertexFormat()
+    format = mesh:getVertexFormat()
 
 ### Arguments
 

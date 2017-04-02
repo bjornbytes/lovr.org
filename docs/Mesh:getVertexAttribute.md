@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:getVertexAttribute
+Mesh:getVertexAttribute
 ===
 
-Get the components of a specific attribute of a vertex in a Buffer.
+Get the components of a specific attribute of a vertex in a Mesh.
 
-    ... = buffer:getVertexAttribute(vertex, attribute)
+    ... = mesh:getVertexAttribute(vertex, attribute)
 
 ### Arguments
 
@@ -21,10 +21,10 @@ Get the components of a specific attribute of a vertex in a Buffer.
 Notes
 ---
 
-Buffers without a custom format have the vertex position as their first attribute, the normal vector
+Meshes without a custom format have the vertex position as their first attribute, the normal vector
 as the second attribute, and the texture coordinate as the third attribute.
 
 See also
 ---
 
-- `Buffer:setVertexAttribute`
+- `Mesh:setVertexAttribute`

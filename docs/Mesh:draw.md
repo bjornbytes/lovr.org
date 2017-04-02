@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:draw
+Mesh:draw
 ===
 
-Draws the contents of the Buffer.
+Draws the contents of the Mesh.
 
-    buffer:draw(x, y, z, scale, angle, ax, ay, az)
+    mesh:draw(x, y, z, scale, angle, ax, ay, az)
 
 ### Arguments
 
@@ -26,9 +26,9 @@ Nothing
 
 ---
 
-Draws the contents of the Buffer.
+Draws the contents of the Mesh.
 
-    buffer:draw(transform)
+    mesh:draw(transform)
 
 ### Arguments
 

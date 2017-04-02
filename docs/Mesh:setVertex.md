@@ -2,14 +2,14 @@
 category: reference
 -->
 
-Buffer:setVertex
+Mesh:setVertex
 ===
 
-Set a vertex of a Buffer.
+Set a vertex of a Mesh.
 
 ---
 
-    buffer:setVertex(index, ...)
+    mesh:setVertex(index, ...)
 
 ### Arguments
 
@@ -18,7 +18,7 @@ Set a vertex of a Buffer.
 
 ---
 
-    buffer:setVertex(index, vertex)
+    mesh:setVertex(index, vertex)
 
 ### Arguments
 
@@ -41,13 +41,13 @@ Example
 Set the position of a vertex
 
     function lovr.load()
-      buffer = lovr.graphics.newBuffer({
+      mesh = lovr.graphics.newMesh({
         { -1, 1, 0,  0, 0, 1,  0, 0 },
         { 1, 1, 0,  0, 0, 1,  1, 0 },
         { -1, -1, 0,  0, 0, 1,  0, 1 },
         { 1, -1, 0,  0, 0, 1,  1, 1 }
       }, 'strip')
 
-      buffer:setVertex(2, { 7, 7, 7 })
-      print(buffer:getVertex(2)) -- 7, 7, 7, 0, 0, 0, 0, 0
+      mesh:setVertex(2, { 7, 7, 7 })
+      print(mesh:getVertex(2)) -- 7, 7, 7, 0, 0, 0, 0, 0
     end

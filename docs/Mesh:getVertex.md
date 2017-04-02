@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:getVertex
+Mesh:getVertex
 ===
 
-Returns a single vertex in the buffer.
+Returns a single vertex in the mesh.
 
-    ... = buffer:getVertex(index)
+    ... = mesh:getVertex(index)
 
 ### Arguments
 

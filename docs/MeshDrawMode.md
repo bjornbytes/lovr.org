@@ -2,10 +2,10 @@
 category: reference
 -->
 
-BufferDrawMode
+MeshDrawMode
 ===
 
-Buffers are lists of arbitrary vertices.  These vertices can be drawn in a few different ways,
+Meshes are lists of arbitrary vertices.  These vertices can be drawn in a few different ways,
 leading to different results.
 
 Values

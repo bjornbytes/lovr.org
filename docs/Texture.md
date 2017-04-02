@@ -5,8 +5,8 @@ category: reference
 Texture
 ===
 
-A Texture is an image that can be applied to `Model`s and `Buffer`s.  Supported file formats
-include `.png`, `.jpg`, `.tga`, and `.bmp`.
+A Texture is an image that can be applied to `Model`s and `Mesh`s.  Supported file formats include
+`.png`, `.jpg`, `.tga`, and `.bmp`.
 
 <table>
 <tr>

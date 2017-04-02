@@ -2,13 +2,13 @@
 category: reference
 -->
 
-Buffer:setDrawRange
+Mesh:setDrawRange
 ===
 
-Set the draw range for the buffer.  The draw range is a subset of the vertices of the buffer that
-will be drawn.
+Set the draw range for the mesh.  The draw range is a subset of the vertices of the mesh that will
+be drawn.
 
-    buffer:getDrawRange(start, count)
+    mesh:getDrawRange(start, count)
 
 ### Arguments
 

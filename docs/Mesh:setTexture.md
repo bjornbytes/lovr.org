@@ -2,12 +2,12 @@
 category: reference
 -->
 
-Buffer:setTexture
+Mesh:setTexture
 ===
 
-Set the texture used when drawing the buffer.
+Set the texture used when drawing the mesh.
 
-    buffer:setTexture(texture)
+    mesh:setTexture(texture)
 
 ### Arguments
 
@@ -20,4 +20,4 @@ Nothing
 See also
 ---
 
-- `Buffer:getTexture`
+- `Mesh:getTexture`
