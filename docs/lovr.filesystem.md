@@ -26,13 +26,33 @@ directory takes precedence.
 </tr>
 
 <tr>
+  <td class="pre">lovr.filesystem.createDirectory</td>
+  <td>Create a directory.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.filesystem.exists</td>
   <td>Check whether a file exists.</td>
 </tr>
 
 <tr>
+  <td class="pre">lovr.filesystem.getAppdataDirectory</td>
+  <td>Get the system "application data" directory.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.getDirectoryItems</td>
+  <td>Get a list of files and folders in a directory.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.filesystem.getExecutablePath</td>
   <td>Get the path of the LÖVR executable.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.getLastModified</td>
+  <td>Get the last time a file was modified.</td>
 </tr>
 
 <tr>
@@ -43,6 +63,16 @@ directory takes precedence.
 <tr>
   <td class="pre">lovr.filesystem.getRealDirectory</td>
   <td>Get the real folder containing a file in the virtual filesystem.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.getSaveDirectory</td>
+  <td>Get the directory where files will be written.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.getSize</td>
+  <td>Get the size of a file in bytes.</td>
 </tr>
 
 <tr>
@@ -66,8 +96,28 @@ directory takes precedence.
 </tr>
 
 <tr>
+  <td class="pre">lovr.filesystem.isFused</td>
+  <td>Check whether the game is being run as a standalone executable.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.load</td>
+  <td>Load a file containing Lua code.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.mount</td>
+  <td>Mount a folder or archive into the virtual filesystem.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.filesystem.read</td>
   <td>Read the contents of a file.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.remove</td>
+  <td>Remove a file or directory.</td>
 </tr>
 
 <tr>
@@ -76,8 +126,8 @@ directory takes precedence.
 </tr>
 
 <tr>
-  <td class="pre">lovr.filesystem.setSource</td>
-  <td>Set the source of the game.</td>
+  <td class="pre">lovr.filesystem.unmount</td>
+  <td>Unmount an archive previously mounted with lovr.filesystem.mount.</td>
 </tr>
 
 <tr>
