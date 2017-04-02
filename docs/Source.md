@@ -79,6 +79,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Source:getVelocity</td>
+  <td>Get the velocity of a Source.</td>
+</tr>
+
+<tr>
   <td class="pre">Source:getVolume</td>
   <td>Get the volume of the Source.</td>
 </tr>
@@ -156,6 +161,11 @@ Functions
 <tr>
   <td class="pre">Source:setPosition</td>
   <td>Set the position of a Source.</td>
+</tr>
+
+<tr>
+  <td class="pre">Source:setVelocity</td>
+  <td>Set the velocity of a Source.</td>
 </tr>
 
 <tr>
