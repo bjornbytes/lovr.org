@@ -47,7 +47,10 @@ Nothing
 
 ---
 
-Draw a textured plane that takes up the whole screen
+Draw a textured plane that takes up the whole screen.  Note that a special shader is required that
+does not use `lovrProjection` or `lovrTransform` when calculating the vertex position.  To have LÖVR
+automatically use this Shader, make sure the default shader is set (by calling
+`lovr.graphics.setShader()`) before drawing the fullscreen quad.
 
     lovr.graphics.plane(texture)
 

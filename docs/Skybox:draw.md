@@ -30,6 +30,26 @@ Because of this, it's usually a good idea to draw a skybox before drawing other 
 Additionally, a specialized shader is used to render the skybox.  This means it is not currently
 possible to use a custom shader to render skyboxes.
 
+Also note that cubemap Skyboxes require a special Shader to be drawn correctly.  If the default
+Shader is set when drawing the Skybox (by calling `lovr.graphics.setShader()`), LÖVR will
+automatically use a default skybox shader:
+
+```
+// Vertex
+out vec3 texturePosition;
+vec4 position(mat4 projection, mat4 transform, vec4 vertex) {
+  texturePosition = vertex.xyz;
+  return projection * transform * vertex;
+}
+
+// Fragment
+in vec3 texturePosition;
+uniform samplerCube cube;
+vec4 color(vec4 graphicsColor, sampler2D image, vec2 uv) {
+  return graphicsColor * texture(cube, texturePosition);
+}
+```
+
 Examples
 ---
 
