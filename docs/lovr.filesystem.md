@@ -134,4 +134,9 @@ directory takes precedence.
   <td class="pre">lovr.filesystem.write</td>
   <td>Write to a file.</td>
 </tr>
+
+<tr>
+  <td class="pre">lovr.filesystem.newBlob</td>
+  <td>Create a Blob.</td>
+</tr>
 </table>
