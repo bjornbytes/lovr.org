@@ -7,7 +7,7 @@ lovr.graphics.print
 
 Draws text in 3D space using the active font.
 
-    lovr.graphics.print(str, x, y, z, w, h, angle, ax, ay, az)
+    lovr.graphics.print(str, x, y, z, scale, angle, ax, ay, az, wrap, halign, valign)
 
 ### Arguments
 
@@ -15,12 +15,16 @@ Draws text in 3D space using the active font.
 - `number x (0)` The x coordinate of the center of the text.
 - `number y (0)` The y coordinate of the center of the text.
 - `number z (0)` The z coordinate of the center of the text.
-- `number w (0)` The maximum width of each line, in meters.  Use zero for unlimited.
-- `number h (.1)` The height of each line, in meters.
+- `number scale (1)` The scale of the text.  This, combined with the pixel density of the Font, will
+  control the size of the text.
 - `number angle (0)` The rotation of the cube around its rotation axis, in radians.
 - `number ax (0)` The x coordinate of the cube's axis of rotation.
 - `number ay (1)` The y coordinate of the cube's axis of rotation.
 - `number az (0)` The z coordinate of the cube's axis of rotation.
+- `number wrap (0)` The maximum width of each line, in meters (affected by `scale`).  Set to 0 or
+  `nil` for no wrapping.
+- `HorizontalAlign halign` How to horizontally align each line.
+- `VerticalAlign valign` How to vertically align each line.
 
 ### Returns
 
