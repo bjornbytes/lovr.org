@@ -5,5 +5,11 @@ module.exports = {
   entry: './main.js',
   output: {
     filename: 'static/js/lovr.js'
+  },
+  module: {
+    rules: [{
+      test: /highlight/,
+      loader: 'script-loader'
+    }]
   }
 };

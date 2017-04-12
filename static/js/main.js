@@ -1,6 +1,6 @@
 import oboe from 'oboe';
 
-require('script!./highlight.js');
+require('./highlight.js');
 var main = document.querySelector('main');
 var elDocs = document.querySelector('.docs');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-doc]'));
