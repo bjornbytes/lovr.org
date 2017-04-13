@@ -1,8 +1,0 @@
-<% render('views.navbar') %>
-<% render('views.sidebar') %>
-
-<main class="docs">
-  <div class="content" data-key="<%= page %>"><%- content %></div>
-</main>
-
-<script src="<%= prefix %>/static/js/lovr.js" async></script>
