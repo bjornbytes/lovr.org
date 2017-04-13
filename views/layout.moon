@@ -7,9 +7,6 @@ class Layout extends Widget
         meta charset: 'utf-8'
         title (@page and (@page\gsub('_', ' ') .. ' - ') or '')
         link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Varela+Round'
-        link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata'
-        link rel: 'stylesheet', href: @prefix .. '/static/css/lovr.css'
-        link rel: 'stylesheet', href: @prefix .. '/static/css/tomorrow-night-blue.css'
         link rel: 'shortcut icon', href: @prefix .. '/static/img/favicon.png'
 
         @content_for 'head'

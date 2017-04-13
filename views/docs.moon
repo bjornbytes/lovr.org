@@ -5,6 +5,11 @@ Sidebar = require 'views.sidebar'
 
 class Docs extends Widget
   content: =>
+    @content_for 'head', ->
+      link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata'
+      link rel: 'stylesheet', href: @prefix .. '/static/css/docs.css'
+      link rel: 'stylesheet', href: @prefix .. '/static/css/tomorrow-night-blue.css'
+
     widget Navbar
     widget Sidebar
 

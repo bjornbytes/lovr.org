@@ -1,0 +1,58 @@
+@import "colors.scss";
+
+nav {
+  background: $c-cream;
+  border-bottom: 1px solid $c-steam;
+  height: 60px;
+  user-select: none;
+  position: relative;
+}
+
+nav .links a {
+  display: inline-block;
+  font-size: 16px;;
+  margin-right: 40px;
+  height: 60px;
+  line-height: 60px;
+  text-decoration: none;
+
+  &:hover {
+    color: $c-black;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+nav .logo {
+  position: relative;
+  float: left;
+  padding-right: 30px;
+}
+
+nav .logo svg {
+  height: 35px;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+}
+
+nav .logo a {
+  margin-left: 20px + 35px + 15px;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  margin-top: 1px;
+  font-size: 20px;
+  text-decoration: none;
+
+  &:hover {
+    color: $c-raven;
+  }
+
+  span {
+    display: inline-block;
+    &:active { transform: translateY(1px); }
+  }
+}

@@ -1,0 +1,35 @@
+@import "colors.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $c-cream;
+}
+
+* {
+  font-family: "Varela Round", sans-serif;
+  color: $c-smoke;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 25px;
+  font-weight: normal;
+  font-size: 55px;
+  color: $c-raven;
+}
+
+p {
+  margin: 0;
+  margin-top: 45px;
+  color: $c-smoke;
+  font-size: 18px;
+}

@@ -5,6 +5,9 @@ Logo = require 'views.logo'
 
 class Index extends Widget
   content: =>
+    @content_for 'head', ->
+      link rel: 'stylesheet', href: @prefix .. '/static/css/index.css'
+
     widget Navbar logo: false
     main class: 'index container', ->
       widget Logo

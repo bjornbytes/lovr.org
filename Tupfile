@@ -1,4 +1,5 @@
 : foreach *.moon |> moonc %f |> %B.lua
 : foreach views/*.moon |> moonc %f |> views/%B.lua
-: static/scss/lovr.scss |> sass -C --sourcemap=none %f %o |> static/css/lovr.css
+: static/scss/index.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/index.css
+: static/scss/docs.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/docs.css
 : static/js/main.js |> webpack --config webpack.config.js |> static/js/lovr.js

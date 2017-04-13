@@ -1,0 +1,41 @@
+@import "base.scss";
+@import "colors.scss";
+@import "nav.scss";
+
+main.index {
+  text-align: center;
+
+  svg.logo {
+    margin-top: 90px;
+    height: 135px;
+    pointer-events: none;
+  }
+}
+
+.buttons {
+  margin: 0 auto;
+  margin-top: 45px;
+  display: flex;
+  width: 420px; // Blaze it
+  justify-content: space-between;
+}
+
+.buttons a {
+  background: $c-lilac;
+  width: 190px;
+  height: 70px;
+  line-height: 70px;
+  user-select: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: $c-smoke;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 2px solid darken($c-lilac, 4%);
+
+  &:active {
+    background: darken($c-lilac, 5%);
+    transform: translate(0, 2px);
+  }
+}
