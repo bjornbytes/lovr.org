@@ -5,7 +5,7 @@ class Layout extends Widget
     html_5 ->
       head ->
         meta charset: 'utf-8'
-        title (@page and (@page\gsub('_', ' ') .. ' - ') or '')
+        title (@page and (@page\gsub('_', ' ') .. ' - ') or '') .. 'LÖVR'
         link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Varela+Round'
         link rel: 'shortcut icon', href: @prefix .. '/static/img/favicon.png'
 
