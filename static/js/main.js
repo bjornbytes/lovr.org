@@ -3,7 +3,7 @@ import oboe from 'oboe';
 require('./highlight.js');
 var main = document.querySelector('main');
 var elDocs = document.querySelector('.docs');
-var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-doc]'));
+var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
 
@@ -68,12 +68,12 @@ function showPage(key, scroll) {
 }
 
 function highlightLink(key) {
-  var links = Array.prototype.slice.call(document.querySelectorAll('li[data-doc].active'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('li[data-key].active'));
   links.forEach(function(link) {
     link.classList.remove('active');
   });
 
-  var activeLink = document.querySelector('li[data-doc="' + key + '"]');
+  var activeLink = document.querySelector('li[data-key="' + key + '"]');
   activeLink && activeLink.classList.add('active');
 }
 
@@ -88,15 +88,15 @@ function enhance(node) {
   var linkables = Array.prototype.slice.call(node.querySelectorAll('code, td'));
   linkables.forEach(function(linkable) {
     linkable.innerHTML = linkable.innerHTML.replace(/[a-zA-Z\.:]+/gm, function(token) {
-      if (token !== node.dataset.key && document.querySelector('[data-doc="' + token + '"]')) {
-        return '<a data-doc="' + token + '">' + token + '</a>';
+      if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
+        return '<a data-key="' + token + '">' + token + '</a>';
       }
 
       return token;
     });
   });
 
-  var links = Array.prototype.slice.call(node.querySelectorAll('a[data-doc]'));
+  var links = Array.prototype.slice.call(node.querySelectorAll('a[data-key]'));
   links.forEach(function(link) {
     link.style.cursor = 'pointer';
     link.onclick = function(event) {
@@ -112,7 +112,7 @@ oboe(prefix + '/api/docs')
     var key = path[0];
     docs[key] = node;
 
-    var li = document.querySelector('li[data-doc="' + key + '"]');
+    var li = document.querySelector('li[data-key="' + key + '"]');
     if (li) {
       var onclick = function(event) {
         var content = document.querySelector('.content');
@@ -143,7 +143,7 @@ var initialContent = document.querySelector('.content');
 if (initialContent) {
   enhance(initialContent);
   var wrapper = document.querySelector('.wrapper');
-  var link = wrapper.querySelector('[data-doc="' + initialContent.dataset.key + '"]');
+  var link = wrapper.querySelector('[data-key="' + initialContent.dataset.key + '"]');
   var linkGeometry = link.getBoundingClientRect();
   wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
 }
@@ -165,7 +165,7 @@ document.onkeydown = function(event) {
     if (document.activeElement === searchBox) {
       firstVisibleLink && firstVisibleLink.focus();
       event.preventDefault();
-    } else if (document.activeElement && document.activeElement.dataset.doc) {
+    } else if (document.activeElement && document.activeElement.dataset.key) {
       var idx = visibleLinks.indexOf(document.activeElement);
       var next = idx >= 0 && visibleLinks[idx + 1];
       if (next) {
@@ -174,7 +174,7 @@ document.onkeydown = function(event) {
       }
     }
   } else if (event.keyCode === 38) {
-    if (document.activeElement && document.activeElement.dataset.doc) {
+    if (document.activeElement && document.activeElement.dataset.key) {
       var idx = visibleLinks.indexOf(document.activeElement);
       var prev = idx >= 0 && visibleLinks[idx - 1];
       if (prev) {
@@ -217,7 +217,7 @@ searchBox.onkeyup = function() {
 
 function updateResults() {
   sidebarLinks.forEach(function(link) {
-    var visible = link.dataset.doc.toLowerCase().indexOf(searchBox.value.toLowerCase()) >= 0;
+    var visible = link.dataset.key.toLowerCase().indexOf(searchBox.value.toLowerCase()) >= 0;
     link.style.display = visible ? '' : 'none';
   });
 }
