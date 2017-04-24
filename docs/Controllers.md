@@ -142,4 +142,4 @@ function lovr.update(dt)
 end
 ```
 
-That's all for controllers.  The next guide is about <a data-doc="Sound">Sound</a>.
+That's all for controllers.  The next guide is about <a data-key="Sound">Sound</a>.

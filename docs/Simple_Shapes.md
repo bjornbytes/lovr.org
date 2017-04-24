@@ -116,4 +116,4 @@ end
 
 For this to work, put an image named `ground.png` in the same folder that `main.lua` is in.
 
-Woohoo, let's take this a step further and start drawing <a data-doc="3D_Models">3D Models</a>.
+Woohoo, let's take this a step further and start drawing <a data-key="3D_Models">3D Models</a>.

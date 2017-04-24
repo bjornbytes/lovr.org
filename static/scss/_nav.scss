@@ -8,6 +8,10 @@ nav {
   position: relative;
 }
 
+nav .links {
+  margin-left: 50px;
+}
+
 nav .links a {
   display: inline-block;
   font-size: 16px;;
@@ -28,7 +32,7 @@ nav .links a {
 nav .logo {
   position: relative;
   float: left;
-  padding-right: 30px;
+  padding-right: 50px;
 }
 
 nav .logo svg {

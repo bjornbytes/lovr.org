@@ -45,6 +45,6 @@ Onward!
 ---
 
 If you want to learn more about creating experiences with LÖVR, check out the
-<a data-doc="Getting_Started">Getting Started</a> guide.  You can also explore everything LÖVR can
+<a data-key="Getting_Started">Getting Started</a> guide.  You can also explore everything LÖVR can
 do using the sidebar on the left.  Or, if you're looking for a particular feature, you can type a
 keyword, like 'audio'.

@@ -11,6 +11,7 @@ class Navbar extends Widget
             widget Logo
             span 'LÖVR'
 
-      div class: 'links container', ->
+      div class: 'links', ->
         a href: @prefix .. '/docs', 'Documentation'
+        a href: @prefix .. '/share', 'Share'
         a href: 'https://github.com/bjornbytes/lovr', target: '_blank', 'Source'

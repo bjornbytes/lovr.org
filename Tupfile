@@ -3,4 +3,6 @@
 : static/scss/index.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/index.css
 : static/scss/docs.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/docs.css
 : static/scss/examples.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/examples.css
-: static/js/main.js |> webpack --config webpack.config.js |> static/js/lovr.js
+: static/scss/share.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/share.css
+: static/scss/play.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/play.css
+: static/js/src/*.js |> webpack --config webpack.config.js |> static/js/docs.js static/js/share.js static/js/play.js

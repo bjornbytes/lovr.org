@@ -108,7 +108,7 @@ main.docs {
 
     a {
       color: $c-raven;
-      &[data-doc] {
+      &[data-key] {
         color: $c-mauve;
         &:hover {
           color: $c-black;
@@ -137,7 +137,7 @@ main.docs {
       line-height: 1.15;
       border: 2px $c-slate solid;
 
-      a, a[data-doc] {
+      a, a[data-key] {
         color: $c-white;
         &:hover {
           color: $c-lilac;

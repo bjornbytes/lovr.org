@@ -1,0 +1,45 @@
+@import "base.scss";
+@import "colors.scss";
+@import "nav.scss";
+
+main.play {
+  min-width: 960px;
+  width: auto;
+  text-align: center;
+  margin-top: 140px;
+
+  canvas {
+    border: 0;
+    padding: 0;
+    width: 1080px;
+    height: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+    background: $c-white;
+  }
+
+  button.vr {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    outline: none;
+    background: $c-lilac;
+    width: 190px;
+    height: 70px;
+    line-height: 70px;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: $c-smoke;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid darken($c-lilac, 4%);
+
+    &:active {
+      background: darken($c-lilac, 5%);
+      transform: translate(0, 2px);
+    }
+  }
+}

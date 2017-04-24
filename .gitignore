@@ -2,7 +2,11 @@
 logs
 nginx.conf.compiled
 static/css/lovr.css
-static/js/lovr.js
+static/js/docs.js
+static/js/share.js
+static/js/play.js
 .sass-cache
 .tup
 node_modules
+uploads/*
+static/play/*

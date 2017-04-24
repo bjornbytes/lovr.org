@@ -1,6 +1,6 @@
 import oboe from 'oboe';
 
-require('./highlight.js');
+require('../highlight.js');
 var main = document.querySelector('main');
 var elDocs = document.querySelector('.docs');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
@@ -100,7 +100,7 @@ function enhance(node) {
   links.forEach(function(link) {
     link.style.cursor = 'pointer';
     link.onclick = function(event) {
-      var key = link.dataset.doc;
+      var key = link.dataset.key;
       pushPage(key);
       showPage(key, 0);
     };

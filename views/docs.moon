@@ -15,6 +15,7 @@ class Docs extends require 'views.page'
       @sidebar_link 'Controllers'
       @sidebar_link 'Sound'
       @sidebar_link 'Game_Distribution'
+      @sidebar_link 'WebVR'
 
     h2 'Modules'
     ul ->
@@ -60,4 +61,4 @@ class Docs extends require 'views.page'
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
-    script src: @prefix .. '/static/js/lovr.js', async: true
+    script src: @prefix .. '/static/js/docs.js', async: true

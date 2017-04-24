@@ -23,4 +23,4 @@ class Examples extends require 'views.page'
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
-    script src: @prefix .. '/static/js/lovr.js', async: true
+    script src: @prefix .. '/static/js/docs.js', async: true

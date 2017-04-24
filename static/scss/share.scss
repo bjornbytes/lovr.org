@@ -1,0 +1,37 @@
+@import "base.scss";
+@import "colors.scss";
+@import "nav.scss";
+
+main.share {
+  min-width: 960px;
+  width: auto;
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+    margin: 50px auto;
+  }
+
+  a {
+    color: $c-mauve;
+    text-decoration: none;
+
+    &:hover {
+      color: $c-black;
+    }
+  }
+}
+
+.drop {
+  width: 1080px;
+  height: 600px;
+  margin: 0 auto;
+  background: $c-white;
+  border-radius: 16px;
+  border: 6px dashed $c-lilac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: $c-slate;
+}

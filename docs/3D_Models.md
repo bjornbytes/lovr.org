@@ -75,4 +75,4 @@ The rotation parameters for `model:draw` were left out for simplicity.  The mode
 put in a folder called `assets`.
 
 That's all there is to it!  Next we'll (finally!) talk about our first VR topic:
-<a data-doc="Controllers">Controllers</a>.
+<a data-key="Controllers">Controllers</a>.
