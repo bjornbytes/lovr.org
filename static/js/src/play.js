@@ -19,6 +19,7 @@ if (navigator.getVRDisplays) {
     if (displays && displays[0] && displays[0].capabilities.canPresent) {
       var vrButton = document.createElement('button');
       vrButton.classList.add('vr');
+      vrButton.textContent = 'Enter VR';
       document.querySelector('main').appendChild(vrButton);
       vrButton.addEventListener('click', function(event) {
         window.dispatchEvent(new CustomEvent('lovr.entervr'));

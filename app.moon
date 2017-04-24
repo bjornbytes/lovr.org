@@ -58,8 +58,12 @@ class extends Application
     file\write(@params.file.content)
     file\close!
 
-    os.execute("unzip -q -o uploads/#{id}.zip -d uploads/#{id}")
-    os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload uploads/#{id}@/ --js-output=static/play/#{id}.js")
+    if os.execute("unzip -q -o uploads/#{id}.zip -d uploads/#{id}")
+      return json: { error: true }, status: 500
+
+    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload uploads/#{id}@/ --js-output=static/play/#{id}.js")
+      return json: { error: true }, status: 500
+
     os.remove("uploads/#{id}.zip")
 
     json: { :id }
