@@ -25,7 +25,7 @@ drop.addEventListener('drop', function(event) {
     return;
   }
 
-  if (type !== 'application/zip') {
+  if (type !== 'application/zip' && type !== 'application/x-zip-compressed' && type !== 'application/octet-stream') {
     drop.textContent = 'Hmm, this doesn\'t look like a lovr (zip) file';
     drop.classList.add('error');
     return;
