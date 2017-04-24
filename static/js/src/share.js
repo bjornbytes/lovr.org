@@ -44,6 +44,8 @@ drop.addEventListener('drop', function(event) {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status !== 200) {
         console.error(xhr.responseText);
+        drop.textContent = 'There was a problem with the upload.';
+        drop.classList.add('error');
         return;
       }
 
