@@ -20,14 +20,19 @@ drop.addEventListener('drop', function(event) {
   var type = file.type;
 
   if (size > 10000000) {
-    console.log('Sorry, your file is WAY too big (> 10MB)');
+    drop.textContent = 'Sorry, uploads must be less than 10MB';
+    drop.classList.add('error');
     return;
   }
 
   if (type !== 'application/zip') {
-    console.log('Sorry, this doesn\'t look like a zip file');
+    drop.textContent = 'Hmm, this doesn\'t look like a lovr (zip) file';
+    drop.classList.add('error');
     return;
   }
+
+  drop.textContent = '';
+  drop.classList.remove('error');
 
   var form = new FormData();
   form.append('file', file);

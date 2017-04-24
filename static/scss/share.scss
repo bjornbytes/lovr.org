@@ -34,4 +34,8 @@ main.share {
   align-items: center;
   font-size: 20px;
   color: $c-slate;
+
+  &.error {
+    color: $c-error;
+  }
 }
