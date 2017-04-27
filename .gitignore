@@ -8,5 +8,4 @@ static/js/play.js
 .sass-cache
 .tup
 node_modules
-uploads/*
 static/play/*

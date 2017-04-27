@@ -1,9 +1,11 @@
 import Application from require 'lapis'
 import cached from require 'lapis.cache'
+import capture_errors_json, yield_error from require 'lapis.application'
 
 config = require('lapis.config').get!
 glob = require 'glob'
 lfs = require 'lfs'
+zip = require 'brimworks.zip'
 
 math.randomseed os.time!
 import random from math
@@ -40,7 +42,7 @@ class extends Application
   '/api/docs': cached =>
     json: glob('docs')
 
-  '/api/share': =>
+  '/api/share': capture_errors_json =>
     uuid = ->
       randomCharacter = ->
         switch random 1, 3
@@ -54,16 +56,50 @@ class extends Application
     while lfs.attributes("static/play/#{id}", 'mode') do
       id = uuid!
 
-    file = io.open("uploads/#{id}.zip", 'wb')
+    zipName = os.tmpname!
+    file = io.open(zipName, 'wb')
     file\write(@params.file.content)
     file\close!
 
-    if os.execute("unzip -q -o uploads/#{id}.zip -d uploads/#{id}")
-      return json: { error: true }, status: 500
+    archive = zip.open(zipName)
 
-    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload uploads/#{id}@/ --js-output=static/play/#{id}.js")
-      return json: { error: true }, status: 500
+    if not archive then
+      return yield_error 'unzip'
 
-    os.remove("uploads/#{id}.zip")
+    if #archive > 1000 then
+      return yield_error 'too many files'
+
+    if not archive\name_locate('main.lua') then
+      return yield_error 'no main'
+
+    unzipTo = "/tmp/#{id}"
+    lfs.mkdir(unzipTo)
+
+    totalSize = 0
+    for i = 1, #archive
+      stat = archive\stat(i)
+      if not stat then
+        return yield_error 'unzip'
+
+      if stat.name\match('^/') then
+        return yield_error 'absolute'
+
+      totalSize += stat.size
+
+      if totalSize > 25e6
+        return yield_error 'too big'
+
+      handle = archive\open(i)
+      data = handle\read(stat.size)
+      handle\close!
+
+      file = io.open("#{unzipTo}/#{stat.name}", 'wb')
+      file\write(data)
+      file\close!
+
+    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js") != true
+      return yield_error 'packing'
+
+    os.remove(zipName)
 
     json: { :id }
