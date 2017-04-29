@@ -20,16 +20,9 @@ drop.addEventListener('drop', function(event) {
   }
 
   var size = file.size;
-  var type = file.type;
 
   if (size > 15000000) {
     message.textContent = 'Sorry, uploads must be less than 15MB';
-    message.classList.add('error');
-    return;
-  }
-
-  if (type !== 'application/zip' && type !== 'application/x-zip-compressed' && type !== 'application/octet-stream') {
-    message.textContent = 'Hmm, this doesn\'t look like a .lovr or .zip file';
     message.classList.add('error');
     return;
   }
@@ -53,7 +46,13 @@ drop.addEventListener('drop', function(event) {
 
   xhr.onreadystatechange = function(event) {
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status !== 200) {
+      var result = null;
+
+      try {
+        result = JSON.parse(xhr.responseText);
+      } catch(e) { }
+
+      if (xhr.status !== 200 || (result && result.errors && result.errors.length > 0)) {
         var messages = {
           'unzip': 'There was a problem reading your upload.',
           'too many files': 'Wow, there are too many files in here! (max 1000)',
@@ -63,7 +62,8 @@ drop.addEventListener('drop', function(event) {
           'packing': 'I couldn\'t package your app, sorry!'
         };
 
-        var message = messages[xhr.responseText] || 'There was a problem with the upload, sorry!';
+        var error = result.errors[0];
+        var message = messages[error] || 'There was a problem with the upload, sorry!';
 
         if (xhr.status === 413) {
           message = 'Sorry, uploads must be less than 15MB';
@@ -75,7 +75,6 @@ drop.addEventListener('drop', function(event) {
       }
 
       progressBar.style.width = '100%';
-      var result = JSON.parse(xhr.responseText);
       window.location = '/play/' + result.id;
     }
   };
