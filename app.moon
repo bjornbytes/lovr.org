@@ -97,7 +97,7 @@ class extends Application
       file\write(data)
       file\close!
 
-    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js") != true
+    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js") != 0
       return yield_error 'packing'
 
     os.remove(zipName)
