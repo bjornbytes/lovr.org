@@ -5,4 +5,4 @@
 : static/scss/examples.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/examples.css
 : static/scss/share.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/share.css
 : static/scss/play.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/play.css
-: static/js/src/*.js |> webpack --config webpack.config.js |> static/js/docs.js static/js/share.js static/js/play.js
+: static/js/src/*.js |> webpack --optimize-minimize --config webpack.config.js |> static/js/docs.js static/js/share.js static/js/play.js
