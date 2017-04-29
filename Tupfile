@@ -1,8 +1,4 @@
 : foreach *.moon |> moonc %f |> %B.lua
 : foreach views/*.moon |> moonc %f |> views/%B.lua
-: static/scss/index.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/index.css
-: static/scss/docs.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/docs.css
-: static/scss/examples.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/examples.css
-: static/scss/share.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/share.css
-: static/scss/play.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/play.css
+: foreach static/scss/index.scss static/scss/docs.scss static/scss/examples.scss static/scss/play.scss static/scss/share.scss |> sass -C -t compressed --sourcemap=none %f %o |> static/css/%B.css
 : static/js/src/*.js |> webpack --optimize-minimize --config webpack.config.js |> static/js/docs.js static/js/share.js static/js/play.js
