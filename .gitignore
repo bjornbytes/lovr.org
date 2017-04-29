@@ -9,3 +9,4 @@ static/js/play.js
 .tup
 node_modules
 static/play/*
+conf
