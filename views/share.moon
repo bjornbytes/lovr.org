@@ -11,7 +11,9 @@ class Share extends Widget
     main class: 'share container', ->
       h1 'Share your LÖVR'
       div class: 'drop', ->
-        text 'Drop a .lovr file here to turn it into a WebVR app!'
+        div class: 'message', 'Drop a .lovr file here to turn it into a WebVR app!'
+        div class: 'progress', ->
+          span ''
 
       p ->
         raw 'Need help?  Check out the <a href="' .. @prefix .. '/docs/WebVR">WebVR Guide</a> or the <a href="' .. @prefix .. '/docs/Introduction">LÖVR Introduction</a>.'

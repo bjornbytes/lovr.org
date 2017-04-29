@@ -19,9 +19,10 @@ nav .links a {
   height: 60px;
   line-height: 60px;
   text-decoration: none;
+  color: $c-raven;
 
   &:hover {
-    color: $c-black;
+    color: $c-smoky;
   }
 
   &:active {
@@ -32,13 +33,13 @@ nav .links a {
 nav .logo {
   position: relative;
   float: left;
-  padding-right: 50px;
+  margin-right: 50px;
 }
 
 nav .logo svg {
-  height: 35px;
+  height: 30px;
   position: absolute;
-  top: 12px;
+  top: 14px;
   left: 20px;
 }
 
@@ -51,11 +52,13 @@ nav .logo a {
   font-size: 20px;
   text-decoration: none;
 
-  &:hover {
-    color: $c-raven;
+  &:hover span {
+    color: $c-smoky;
   }
 
   span {
+    color: $c-raven;
+    z-index: 1;
     display: inline-block;
     &:active { transform: translateY(1px); }
   }

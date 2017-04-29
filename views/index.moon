@@ -8,7 +8,7 @@ class Index extends Widget
     @content_for 'head', ->
       link rel: 'stylesheet', href: @prefix .. '/static/css/index.css'
 
-    widget Navbar logo: false
+    widget Navbar
     main class: 'index container', ->
       widget Logo
       h1 'LÖVR'

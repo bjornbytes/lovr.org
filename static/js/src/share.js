@@ -1,4 +1,7 @@
 var drop = document.querySelector('.drop');
+var message = drop.querySelector('.message');
+var progress = document.querySelector('.progress');
+var progressBar = progress.querySelector('span');
 
 drop.addEventListener('dragover', function(event) {
   event.preventDefault();
@@ -20,25 +23,33 @@ drop.addEventListener('drop', function(event) {
   var type = file.type;
 
   if (size > 15000000) {
-    drop.textContent = 'Sorry, uploads must be less than 15MB';
-    drop.classList.add('error');
+    message.textContent = 'Sorry, uploads must be less than 15MB';
+    message.classList.add('error');
     return;
   }
 
   if (type !== 'application/zip' && type !== 'application/x-zip-compressed' && type !== 'application/octet-stream') {
-    drop.textContent = 'Hmm, this doesn\'t look like a .lovr or .zip file';
-    drop.classList.add('error');
+    message.textContent = 'Hmm, this doesn\'t look like a .lovr or .zip file';
+    message.classList.add('error');
     return;
   }
 
-  drop.textContent = '';
-  drop.classList.remove('error');
+  message.textContent = '';
+  message.classList.remove('error');
 
   var form = new FormData();
   form.append('file', file);
 
   var xhr = new XMLHttpRequest();
   xhr.open('post', '/api/share', true);
+
+  xhr.addEventListener('progress', function(event) {
+    if (event.lengthComputable) {
+      var percent = event.loaded / event.total;
+      progress.style.opacity = 1;
+      progressBar.style.width = (percent * 100) + '%';
+    }
+  });
 
   xhr.onreadystatechange = function(event) {
     if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -58,11 +69,12 @@ drop.addEventListener('drop', function(event) {
           message = 'Sorry, uploads must be less than 15MB';
         }
 
-        drop.textContent = message;
-        drop.classList.add('error');
+        message.textContent = message;
+        message.classList.add('error');
         return;
       }
 
+      progressBar.style.width = '100%';
       var result = JSON.parse(xhr.responseText);
       window.location = '/play/' + result.id;
     }
@@ -70,5 +82,5 @@ drop.addEventListener('drop', function(event) {
 
   xhr.send(form);
 
-  drop.textContent = 'Uploading...';
+  message.textContent = 'Uploading...';
 });
