@@ -12,12 +12,12 @@ var docs = {};
 function pushPage(key) {
   if (history.state) {
     var scroll = elDocs.scrollTop;
-    var url = prefix + '/docs';
+    var url = '/docs';
     url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
     history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
   }
 
-  var url = prefix + '/docs';
+  var url = '/docs';
   url += key.length > 0 ? ('/' + key) : '';
   history.pushState({ key: key, scroll: 0 }, '', url);
 }
@@ -107,7 +107,7 @@ function enhance(node) {
   });
 }
 
-oboe(prefix + '/api/docs')
+oboe('/api/docs')
   .node('!.*', function(node, path, ancestors) {
     var key = path[0];
     docs[key] = node;

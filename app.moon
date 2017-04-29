@@ -13,9 +13,6 @@ import random from math
 class extends Application
   layout: 'layout'
 
-  @before_filter =>
-    @prefix = config.prefix
-
   [index: '/']: cached =>
     render: true
 

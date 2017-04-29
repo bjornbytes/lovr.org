@@ -7,12 +7,9 @@ class Layout extends Widget
         meta charset: 'utf-8'
         title (@page and (@page\gsub('_', ' ') .. ' - ') or '') .. 'LÖVR'
         link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Varela+Round'
-        link rel: 'shortcut icon', href: @prefix .. '/static/img/favicon.png'
+        link rel: 'shortcut icon', href: '/static/img/favicon.png'
 
         @content_for 'head'
 
       body ->
-        script type: 'text/javascript', ->
-          raw 'var prefix = "' .. @prefix .. '";'
-
         @content_for 'inner'

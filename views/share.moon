@@ -5,7 +5,7 @@ Navbar = require 'views.navbar'
 class Share extends Widget
   content: =>
     @content_for 'head', ->
-      link rel: 'stylesheet', href: @prefix .. '/static/css/share.css'
+      link rel: 'stylesheet', href: '/static/css/share.css'
 
     widget Navbar
     main class: 'share container', ->
@@ -16,6 +16,6 @@ class Share extends Widget
           span ''
 
       p ->
-        raw 'Need help?  Check out the <a href="' .. @prefix .. '/docs/WebVR">WebVR Guide</a> or the <a href="' .. @prefix .. '/docs/Introduction">LÖVR Introduction</a>.'
+        raw 'Need help?  Check out the <a href="/docs/WebVR">WebVR Guide</a> or the <a href="/docs/Introduction">LÖVR Introduction</a>.'
 
-    script src: @prefix .. '/static/js/share.js', async: true
+    script src: '/static/js/share.js', async: true

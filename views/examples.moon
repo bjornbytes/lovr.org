@@ -11,8 +11,8 @@ class Examples extends require 'views.page'
   content: =>
     @content_for 'head', ->
       link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata'
-      link rel: 'stylesheet', href: @prefix .. '/static/css/examples.css'
-      link rel: 'stylesheet', href: @prefix .. '/static/css/tomorrow-night-blue.css'
+      link rel: 'stylesheet', href: '/static/css/examples.css'
+      link rel: 'stylesheet', href: '/static/css/tomorrow-night-blue.css'
 
     @content_for 'sidebar', ->
 
@@ -23,4 +23,4 @@ class Examples extends require 'views.page'
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
-    script src: @prefix .. '/static/js/docs.js', async: true
+    script src: '/static/js/docs.js', async: true
