@@ -157,7 +157,7 @@ if (initialContent) {
     wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
   }
 
-  if (preview) {
+  if (preview && key) {
     preview.style.display = 'block';
     preview.src = '/embed/' + key;
   }
