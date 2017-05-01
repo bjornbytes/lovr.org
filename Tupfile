@@ -1,7 +1,7 @@
-stylesheets = static/scss/index.scss static/scss/docs.scss static/scss/examples.scss static/scss/play.scss static/scss/share.scss
+stylesheets = static/scss/index.scss static/scss/docs.scss static/scss/play.scss static/scss/share.scss static/scss/embed.scss
 
 : foreach *.moon |> moonc %f |> %B.lua
 : foreach views/*.moon |> moonc %f |> views/%B.lua
 : foreach $(stylesheets) |> sass -C -t compressed --sourcemap=none %f %o |> static/css/%B.css
-: foreach examples/*.md |> lua5.1 examples/build.lua %f |> examples/%B.js examples/%B.data
-: static/js/src/*.js |> webpack --optimize-minimize --config webpack.config.js |> static/js/docs.js static/js/share.js static/js/play.js
+: foreach examples/*.md |> lua5.1 build-example.lua %f |> static/play/%B.js static/play/%B.data
+: static/js/src/*.js |> webpack --optimize-minimize --config webpack.config.js |> static/js/docs.js

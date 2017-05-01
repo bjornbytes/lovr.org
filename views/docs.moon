@@ -61,4 +61,5 @@ class Docs extends require 'views.page'
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
+    script type: 'text/javascript', -> raw "window.config = { base: '/docs', api: '/api/docs' };"
     script src: '/static/js/docs.js', async: true

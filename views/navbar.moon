@@ -12,5 +12,9 @@ class Navbar extends Widget
 
       div class: 'links', ->
         a href: '/docs', 'Documentation'
-        a href: '/share', 'Share'
-        a href: 'https://github.com/bjornbytes/lovr', target: '_blank', 'GitHub'
+        a href: '/examples', 'Examples'
+        a href: '/share', 'Upload'
+
+        div class: 'right', ->
+          a href: 'https://github.com/bjornbytes/lovr', target: '_blank', 'GitHub'
+          a href: 'https://twitter.com/bjornbytes', target: '_blank', 'Twitter'

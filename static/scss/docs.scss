@@ -3,7 +3,7 @@
 @import "nav.scss";
 @import "sidebar.scss";
 
-main.docs {
+main.docs, main.examples {
   position: fixed;
   overflow-y: scroll;
   left: 0;
@@ -11,14 +11,12 @@ main.docs {
   top: 60px;
   bottom: 0;
   margin-left: 310px;
-  padding: 40px 60px;
 
   .content {
     position: absolute;
     animation: intro 150ms;
     max-width: 900px;
-    padding-bottom: 40px;
-    padding-right: 40px;
+    padding: 40px 40px 40px 60px;
     will-change: transform, opacity;
   }
 
@@ -215,5 +213,14 @@ main.docs {
     p {
       margin: 0;
     }
+  }
+
+  iframe.preview {
+    display: none;
+    border: none;
+    width: 100%;
+    height: calc(55vw - 310px);
+    min-height: 300px;
+    max-height: calc(80vh - 60px);
   }
 }

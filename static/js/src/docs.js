@@ -2,22 +2,22 @@ import oboe from 'oboe';
 
 require('../highlight.js');
 var main = document.querySelector('main');
-var elDocs = document.querySelector('.docs');
+var preview = document.querySelector('iframe.preview');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
 
-var docs = {};
+var data = {};
 
 function pushPage(key) {
   if (history.state) {
-    var scroll = elDocs.scrollTop;
-    var url = '/docs';
+    var scroll = main.scrollTop;
+    var url = window.config.base;
     url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
     history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
   }
 
-  var url = '/docs';
+  var url = window.config.base;
   url += key.length > 0 ? ('/' + key) : '';
   history.pushState({ key: key, scroll: 0 }, '', url);
 }
@@ -39,10 +39,16 @@ function showPage(key, scroll) {
     return;
   }
 
+  // Update preview
+  if (preview) {
+    preview.src = '/embed/' + key;
+    preview.style.display = 'block';
+  }
+
   // Create element for new content
   var newContent = document.createElement('div');
   newContent.classList.add('content');
-  newContent.innerHTML = docs[key];
+  newContent.innerHTML = data[key];
   newContent.dataset.key = key;
   enhance(newContent);
 
@@ -52,14 +58,14 @@ function showPage(key, scroll) {
     main.appendChild(newContent);
 
     // Scroll to the right place if the back button was used
-    if (scroll !== elDocs.scrollTop) {
+    if (scroll !== main.scrollTop) {
 
       // Makes transition less jarring
       contents.forEach(function(content) {
         content.remove();
       });
 
-      elDocs.scrollTop = scroll;
+      main.scrollTop = scroll;
     }
   }, isDirty ? 140 : 0);
 
@@ -107,10 +113,10 @@ function enhance(node) {
   });
 }
 
-oboe('/api/docs')
+oboe(window.config.api)
   .node('!.*', function(node, path, ancestors) {
     var key = path[0];
-    docs[key] = node;
+    data[key] = node;
 
     var li = document.querySelector('li[data-key="' + key + '"]');
     if (li) {
@@ -143,9 +149,18 @@ var initialContent = document.querySelector('.content');
 if (initialContent) {
   enhance(initialContent);
   var wrapper = document.querySelector('.wrapper');
-  var link = wrapper.querySelector('[data-key="' + initialContent.dataset.key + '"]');
-  var linkGeometry = link.getBoundingClientRect();
-  wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
+  var key = initialContent.dataset.key;
+  var link = wrapper.querySelector('[data-key="' + key + '"]');
+
+  if (link) {
+    var linkGeometry = link.getBoundingClientRect();
+    wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
+  }
+
+  if (preview) {
+    preview.style.display = 'block';
+    preview.src = '/embed/' + key;
+  }
 }
 
 document.onkeydown = function(event) {

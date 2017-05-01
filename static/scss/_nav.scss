@@ -9,17 +9,22 @@ nav {
 }
 
 nav .links {
-  margin-left: 50px;
+  margin: 0 20px;
+  display: flex;
+
+  .right {
+    margin-left: auto;
+  }
 }
 
 nav .links a {
   display: inline-block;
   font-size: 16px;;
-  margin-right: 40px;
   height: 60px;
   line-height: 60px;
   text-decoration: none;
   color: $c-raven;
+  padding: 0 20px;
 
   &:hover {
     color: $c-smoky;
@@ -33,7 +38,7 @@ nav .links a {
 nav .logo {
   position: relative;
   float: left;
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 nav .logo svg {

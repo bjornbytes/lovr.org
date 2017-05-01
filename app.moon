@@ -17,19 +17,26 @@ class extends Application
     render: true
 
   [docs: '/docs(/*)']: cached =>
-    docs, categories = glob('docs')
+    docs, categories = glob('docs', 'md')
     @reference = categories.reference
     @page = @params.splat or 'Introduction'
     @contents = docs[@page] or ''
     render: true
 
   [examples: '/examples(/*)']: cached =>
-    examples, categories = glob('examples')
+    examples, categories = glob 'examples', 'md', (content, metadata) ->
+      "<pre><code>#{metadata.code}</code></pre>#{content}"
+
+    @examples = categories.default
     @page = @params.splat
     @contents = examples[@page] or ''
     render: true
 
-  [play: '/play/:id[A-Za-z%d]']: =>
+  [play: '/play/:id']: =>
+    @id = @params.id
+    render: true
+
+  [embed: '/embed/:id']: =>
     @id = @params.id
     render: true
 
@@ -37,7 +44,11 @@ class extends Application
     render: true
 
   '/api/docs': cached =>
-    json: glob('docs')
+    json: glob 'docs', 'md'
+
+  '/api/examples': cached =>
+    json: glob 'examples', 'md', (content, metadata) ->
+      "<pre><code>#{metadata.code}</code></pre>#{content}"
 
   '/api/share': capture_errors_json =>
     uuid = ->
@@ -60,13 +71,13 @@ class extends Application
 
     archive = zip.open(zipName)
 
-    if not archive then
+    if not archive
       return yield_error 'unzip'
 
-    if #archive > 1000 then
+    if #archive > 1000
       return yield_error 'too many files'
 
-    if not archive\name_locate('main.lua') then
+    if not archive\name_locate('main.lua')
       return yield_error 'no main'
 
     unzipTo = "/tmp/#{id}"
@@ -75,10 +86,10 @@ class extends Application
     totalSize = 0
     for i = 1, #archive
       stat = archive\stat(i)
-      if not stat then
+      if not stat
         return yield_error 'unzip'
 
-      if stat.name\match('^/') then
+      if stat.name\match('^/')
         return yield_error 'absolute'
 
       totalSize += stat.size
