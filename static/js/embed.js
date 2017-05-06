@@ -14,7 +14,11 @@ var Module = window.Module = {
   }
 };
 
-if (navigator.getVRDisplays) {
+function initVR() {
+  if (!navigator.getVRDisplays) {
+    return;
+  }
+
   navigator.getVRDisplays().then(function(displays) {
     var display = displays[0];
 
@@ -40,3 +44,15 @@ if (navigator.getVRDisplays) {
     }
   });
 }
+
+if (!navigator.getVRDisplays) {
+  var canvas = document.querySelector('canvas');
+  if (canvas) {
+    canvas.style.cursor = 'move';
+  }
+
+  InitializeWebVRPolyfill();
+  initVR();
+}
+
+initVR();
