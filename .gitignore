@@ -1,4 +1,5 @@
-**/*.lua
+*.lua
+views/*.lua
 logs
 nginx.conf.compiled
 static/css/lovr.css
