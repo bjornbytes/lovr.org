@@ -12,16 +12,23 @@ class Examples extends require 'views.page'
   content: =>
     @content_for 'head', ->
       link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata'
-      link rel: 'stylesheet', href: '/static/css/docs.css'
+      link rel: 'stylesheet', href: '/static/css/examples.css'
       link rel: 'stylesheet', href: '/static/css/tomorrow-night-blue.css'
 
     widget Navbar
     @sidebar!
 
     main class: 'examples', ->
-      iframe class: 'preview'
-      div class: 'content', ['data-key']: @page, ->
-        raw @contents
+      iframe class: 'preview', allowvr: true
+      if @page
+        div class: 'content', ['data-key']: @page, ->
+          raw @contents
+      else
+        div class: 'content all', ->
+          for i, key in ipairs @examples do
+            div class: 'tile', ['data-key']: key, ->
+              img src: '/static/img/examples/' .. key .. '.jpg'
+              div class: 'title', true and key\gsub('_', ' ')
 
     script type: 'text/javascript', -> raw "window.config = { base: '/examples', api: '/api/examples' };"
     script src: '/static/js/docs.js', async: true

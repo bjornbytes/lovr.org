@@ -101,7 +101,7 @@ main.docs, main.examples {
 
   code {
     &, * {
-      font-family: "Inconsolata";
+      font-family: "Inconsolata", monospace;
     }
 
     a {
@@ -213,14 +213,5 @@ main.docs, main.examples {
     p {
       margin: 0;
     }
-  }
-
-  iframe.preview {
-    display: none;
-    border: none;
-    width: 100%;
-    height: calc(55vw - 310px);
-    min-height: 300px;
-    max-height: calc(80vh - 60px);
   }
 }

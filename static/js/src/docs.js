@@ -32,17 +32,22 @@ function showPage(key, scroll) {
     content.classList.add('outro');
     content.addEventListener('animationend', function() {
       content.remove();
-    })
+    });
   });
 
   if (!key) {
     return;
   }
 
-  // Update preview
   if (preview) {
-    preview.src = '/embed/' + key;
-    preview.style.display = 'block';
+    if (preview.style.display !== 'block') {
+      preview.style.display = 'block';
+      contents.forEach(function(content) {
+        content.remove();
+      });
+    } else {
+      preview.style.visibility = 'hidden';
+    }
   }
 
   // Create element for new content
@@ -56,6 +61,12 @@ function showPage(key, scroll) {
   if (transitionTimeout) { clearTimeout(transitionTimeout); }
   transitionTimeout = setTimeout(function() {
     main.appendChild(newContent);
+
+    if (preview) {
+      newContent.addEventListener('animationend', function() {
+        preview.src = '/embed/' + key;
+      });
+    }
 
     // Scroll to the right place if the back button was used
     if (scroll !== main.scrollTop) {
@@ -159,7 +170,19 @@ if (initialContent) {
 
   if (preview && key) {
     preview.style.display = 'block';
+    preview.style.visibility = 'hidden';
     preview.src = '/embed/' + key;
+  }
+
+  if (preview && !key) {
+    var tiles = Array.prototype.slice.call(initialContent.querySelectorAll('.tile'));
+    tiles.forEach(function(tile) {
+      tile.addEventListener('click', function(event) {
+        var key = tile.dataset.key;
+        pushPage(key);
+        showPage(key, 0);
+      });
+    });
   }
 }
 
@@ -236,3 +259,7 @@ function updateResults() {
     link.style.display = visible ? '' : 'none';
   });
 }
+
+preview.addEventListener('load', function(event) {
+  preview.style.visibility = 'visible';
+});

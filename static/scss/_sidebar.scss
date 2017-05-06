@@ -31,6 +31,7 @@
     width: 310px;
     overflow-y: scroll;
     will-change: scroll-position;
+    z-index: 10;
   }
 
   flex: 0 0 310px;

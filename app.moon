@@ -13,19 +13,28 @@ import random from math
 class extends Application
   layout: 'layout'
 
+  handle_404: =>
+    render: '400'
+
+  handle_error: (err, trace) =>
+    if config.env == 'prod'
+      ngx.log ngx.ERR, err, trace
+      render: '500'
+    else
+      super err, trace
+
   [index: '/']: cached =>
     render: true
 
   [docs: '/docs(/*)']: cached =>
-    docs, categories = glob('docs', 'md')
+    docs, categories = glob('docs')
     @reference = categories.reference
     @page = @params.splat or 'Introduction'
     @contents = docs[@page] or ''
     render: true
 
   [examples: '/examples(/*)']: cached =>
-    examples, categories = glob 'examples', 'md', (content, metadata) ->
-      "<pre><code>#{metadata.code}</code></pre>#{content}"
+    examples, categories = glob 'examples', '%.md%.compiled$'
 
     @examples = categories.default
     @page = @params.splat
@@ -44,11 +53,10 @@ class extends Application
     render: true
 
   '/api/docs': cached =>
-    json: glob 'docs', 'md'
+    json: glob 'docs'
 
   '/api/examples': cached =>
-    json: glob 'examples', 'md', (content, metadata) ->
-      "<pre><code>#{metadata.code}</code></pre>#{content}"
+    json: glob 'examples', '%.md.compiled$'
 
   '/api/share': capture_errors_json =>
     uuid = ->
@@ -105,9 +113,7 @@ class extends Application
       file\write(data)
       file\close!
 
-    if os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js") != 0
-      return yield_error 'packing'
-
+    os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js")
     os.remove(zipName)
 
     json: { :id }

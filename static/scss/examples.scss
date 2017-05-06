@@ -1,0 +1,64 @@
+@import "docs.scss";
+
+main.examples {
+  iframe.preview {
+    display: none;
+    visibility: hidden;
+    border: none;
+    width: 100%;
+    height: calc(55vw - 310px);
+    min-height: 300px;
+    max-height: calc(80vh - 60px);
+  }
+
+  h1 + pre {
+    margin: 0 0 24px 0;
+  }
+
+  .content.all {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: none;
+
+    .tile {
+      flex: 0 0 400px;
+      margin: 10px;
+      height: 300px;
+      position: relative;
+      background: $c-white;
+      cursor: pointer;
+      border-radius: 8px;
+
+      &:active {
+        transform: translateY(1px);
+      }
+
+      img {
+        width: 400px;
+        height: 300px;
+        margin: 0;
+        border-radius: 8px;
+      }
+
+      .title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba($c-black, .25);
+        padding: 6px;
+        color: $c-cream;
+        text-shadow: 0 1px rgba($c-black, .15);
+        text-align: center;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      &:hover .title {
+        background: rgba(0, 0, 0, .35);
+        color: $c-white;
+      }
+    }
+  }
+}

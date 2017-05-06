@@ -1,24 +1,20 @@
--- lua build-example.lua examples/Example_Name.md
+-- lua build-example.lua examples/MyExample
 
-local markdown = require 'markdown_extra'
+local name = arg[1]:match('/([^%.]+)$')
+os.execute('python emscripten/tools/file_packager.py "static/play/' .. name .. '.data" --preload ' .. arg[1] .. '@/ --js-output="static/play/' .. name .. '.js"')
 
-local name = arg[1]:match('/([^%.]+)%.md$')
-local dir = '/tmp/lovr-example'
-lfs.mkdir(dir)
+local file
 
-local file = io.open(dir .. '/main.lua', 'w')
-
-local content, metadata = markdown.from_file(arg[1])
-
-if not metadata then
-  print('Unable to parse file')
-  os.exit(1)
-end
-
-file:write(metadata.code)
+file = io.open(arg[1] .. '/main.lua', 'r')
+local code = file:read('*a'):gsub('%s+$', '')
 file:close()
 
-os.execute('python emscripten/tools/file_packager.py "static/play/' .. name .. '.data" --preload ' .. dir .. '@/ --js-output="static/play/' .. name .. '.js"')
+file = io.open(arg[1] .. '.md', 'r')
+local text = file:read('*all')
+file:close()
 
-os.remove(dir .. '/main.lua')
-os.remove(dir)
+if text:match('<!%-%-%s*code%s*%-%->') then
+  file = io.open(arg[1] .. '.md.compiled', 'w')
+  file:write(true and text:gsub('<!%-%-%s*code%s*%-%->', '```\n' .. code .. '\n```'))
+  file:close()
+end
