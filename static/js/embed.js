@@ -15,7 +15,7 @@ var Module = window.Module = {
 };
 
 if (navigator.getVRDisplays) {
-  document.querySelector('canvas').style.cursor = 'move';
+  document.querySelector('canvas').style.cursor = 'default';
 
   navigator.getVRDisplays().then(function(displays) {
     var display = displays[0];
@@ -42,5 +42,5 @@ if (navigator.getVRDisplays) {
     }
   });
 } else {
-  document.querySelector('canvas').style.cursor = 'default';
+  document.querySelector('canvas').style.cursor = 'move';
 }
