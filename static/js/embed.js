@@ -14,10 +14,8 @@ var Module = window.Module = {
   }
 };
 
-function initVR() {
-  if (!navigator.getVRDisplays) {
-    return;
-  }
+if (navigator.getVRDisplays) {
+  document.querySelector('canvas').style.cursor = 'move';
 
   navigator.getVRDisplays().then(function(displays) {
     var display = displays[0];
@@ -43,16 +41,6 @@ function initVR() {
       });
     }
   });
+} else {
+  document.querySelector('canvas').style.cursor = 'default';
 }
-
-if (!navigator.getVRDisplays) {
-  var canvas = document.querySelector('canvas');
-  if (canvas) {
-    canvas.style.cursor = 'move';
-  }
-
-  InitializeWebVRPolyfill();
-  initVR();
-}
-
-initVR();
