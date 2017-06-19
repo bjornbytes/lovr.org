@@ -29,6 +29,7 @@ drop.addEventListener('drop', function(event) {
 
   message.textContent = '';
   message.classList.remove('error');
+  progressBar.style.width = '0%';
 
   var form = new FormData();
   form.append('file', file);
@@ -71,6 +72,7 @@ drop.addEventListener('drop', function(event) {
 
         message.textContent = errorMessage;
         message.classList.add('error');
+        progress.style.opacity = 0;
         return;
       }
 

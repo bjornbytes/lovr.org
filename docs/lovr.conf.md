@@ -12,10 +12,14 @@ all options to their defaults:
 
     function lovr.conf(t)
       t.identity = 'default' -- The game identity, used as the name of the save directory
+      t.modules.audio = true -- Enable the audio module
       t.modules.event = true -- Enable the event module
       t.modules.graphics = true -- Enable the graphics module
       t.modules.headset = true -- Enable the headset module
+      t.modules.math = true -- Enable the math module
+      t.modules.physics = true -- Enable the physics module
       t.modules.timer = true -- Enable the timer module
+      t.headset.mirror = true -- Mirror the headset display onto the desktop window
     end
 
 Note: Disabling the `headset` module can improve startup time a lot if you aren't intending to use

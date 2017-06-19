@@ -122,12 +122,12 @@ the user's operating system.
 
 <table>
 <tr>
-  <td class="pre">lovr.getOS()</td>
+  <td class="pre">lovr.getOS</td>
   <td>Get user's operating system.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.getVersion()</td>
+  <td class="pre">lovr.getVersion</td>
   <td>Get the version of LÖVR.</td>
 </tr>
 </table>
