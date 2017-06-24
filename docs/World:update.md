@@ -40,6 +40,10 @@ Additional logic could be introduced to the collision resolver function to add a
 code to collision handling or changing the collision parameters (like friction and restitution) on a
 per-collision basis.
 
+> If possible, use a fixed timestep value for updating the World.  It will greatly improve the
+> accuracy of the simulation and reduce bugs.  For more information on implementing a fixed timestep
+> loop, see [this article](http://gafferongames.com/game-physics/fix-your-timestep/).
+
 See also
 ---
 
