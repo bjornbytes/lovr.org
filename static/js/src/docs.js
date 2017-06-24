@@ -260,6 +260,8 @@ function updateResults() {
   });
 }
 
-preview.addEventListener('load', function(event) {
-  preview.style.visibility = 'visible';
-});
+if (preview) {
+  preview.addEventListener('load', function(event) {
+    preview.style.visibility = 'visible';
+  });
+}
