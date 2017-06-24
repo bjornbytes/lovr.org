@@ -24,3 +24,16 @@ Note that order matters when scaling, translating, and rotating the coordinate s
 ### Returns
 
 Nothing
+
+Example
+---
+
+Draw a spinning cube manually using `lovr.graphics.rotate`:
+
+```
+lovr.graphics.translate(0, 0, -1)
+lovr.graphics.rotate(lovr.timer.getTime())
+lovr.graphics.translate(0, 0, 1)
+
+lovr.graphics.cube('line', 0, 0, -1, .5)
+```
