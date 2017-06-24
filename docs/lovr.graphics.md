@@ -17,8 +17,8 @@ Simple functions for drawing simple shapes:
 
 <table>
 <tr>
-  <td class="pre">lovr.graphics.cube</td>
-  <td>Draw a cube.</td>
+  <td class="pre">lovr.graphics.points</td>
+  <td>Draw one or more points.</td>
 </tr>
 
 <tr>
@@ -27,18 +27,33 @@ Simple functions for drawing simple shapes:
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.triangle</td>
+  <td>Draw a triangle from three points.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.plane</td>
   <td>Draw a plane with a position, size, and orientation.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.points</td>
-  <td>Draw one or more points.</td>
+  <td class="pre">lovr.graphics.cube</td>
+  <td>Draw a cube.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.triangle</td>
-  <td>Draw a triangle from three points.</td>
+  <td class="pre">lovr.graphics.box</td>
+  <td>Draw a box.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.cylinder</td>
+  <td>Draw a cylinder.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.sphere</td>
+  <td>Draw a sphere.</td>
 </tr>
 
 <tr>

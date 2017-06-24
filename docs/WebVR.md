@@ -30,6 +30,5 @@ There are a few differences when running LÖVR in the browser:
   <li>Audio is not spatialized.</li>
   <li><code>Controller:newModel</code> will always return <code>nil</code>.</li>
   <li><code>lovr.headset.getBoundsGeometry</code> will return a table with four zero vectors in it</li>
-  <li>Shaders will need to be translated to glsl version 100 instead of 150.</li>
   <li><code>lovr.getOS</code> will return "Web".</li>
 </ol>

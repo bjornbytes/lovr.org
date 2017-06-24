@@ -61,9 +61,10 @@
   color: $c-mauve;
   font-size: 12px;
   cursor: pointer;
-  &:not(.disabled) { transition: padding-left 180ms; }
+  border-left: 5px solid;
+  border-left-color: transparent;
   &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
-  &.active { padding-left: 15px; color: $c-raven; }
+  &.active { color: $c-raven; border-left-color: $c-mauve; }
   &:active, &.active { background: $c-phlox; }
   &:last-child { margin-bottom: 0; }
   &.disabled, &.disabled:hover {

@@ -15,6 +15,11 @@ seconds.
 </tr>
 
 <tr>
+  <td class="pre">lovr.timer.getAverageDelta</td>
+  <td>Get the average delta over the last second.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.timer.getFPS</td>
   <td>Get the current frames per second.</td>
 </tr>
