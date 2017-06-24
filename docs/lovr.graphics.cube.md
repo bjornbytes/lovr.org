@@ -15,7 +15,7 @@ Draws a cube with a given position, size, and orientation.
 - `number x (0)` The x coordinate of the center of the cube.
 - `number y (0)` The y coordinate of the center of the cube.
 - `number z (0)` The z coordinate of the center of the cube.
-- `number size (1.0)` The z coordinate of the center of the cube.
+- `number size (1)` The size of the cube, in meters.
 - `number angle (0)` The rotation of the cube around its rotation axis, in radians.
 - `number ax (0)` The x coordinate of the cube's axis of rotation.
 - `number ay (1)` The y coordinate of the cube's axis of rotation.
@@ -37,7 +37,7 @@ Draw a textured cube
 - `number x (0)` The x coordinate of the center of the cube.
 - `number y (0)` The y coordinate of the center of the cube.
 - `number z (0)` The z coordinate of the center of the cube.
-- `number size (1.0)` The z coordinate of the center of the cube.
+- `number size (1)` The size of the cube, in meters.
 - `number angle (0)` The rotation of the cube around its rotation axis, in radians.
 - `number ax (0)` The x coordinate of the cube's axis of rotation.
 - `number ay (1)` The y coordinate of the cube's axis of rotation.
@@ -64,3 +64,13 @@ Draw a textured cube using a `Transform`.
 
 - `Texture texture` The Texture to apply to the cube.
 - `Transform transform` The Transform to apply to the cube.
+
+Notes
+---
+
+This function is like `lovr.graphics.box` with the same scale for each axis.
+
+See also
+---
+
+- `lovr.graphics.box`
