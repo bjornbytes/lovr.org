@@ -63,7 +63,7 @@
   cursor: pointer;
   &:not(.disabled) { transition: padding-left 180ms; }
   &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
-  &.active { padding-left: 22px; color: $c-raven; }
+  &.active { padding-left: 15px; color: $c-raven; }
   &:active, &.active { background: $c-phlox; }
   &:last-child { margin-bottom: 0; }
   &.disabled, &.disabled:hover {
