@@ -7,7 +7,7 @@ lovr.physics
 
 The `lovr.physics` module allows you to simulate 3D rigid body physics.
 
-World
+Worlds
 ---
 
 A physics `World` holds all of the colliders and joints in the simulation.  It must be updated every
