@@ -7,16 +7,6 @@ lovr.physics
 
 The `lovr.physics` module allows you to simulate 3D rigid body physics.
 
-> Note: The physics module is advanced and can be pretty difficult to use!  Try to avoid it unless
-> your experience requires realistic physics.
-
-To make a basic physics simulation, first create a physics world using `lovr.physics.newWorld`.
-From there, you can add `Collider` objects to the simulation by calling functions on the World, such
-as `World:newBoxCollider` or `World:newSphereCollider`.  Finally, call `World:update` on the World
-in `lovr.update`, passing it the `dt` value.  For rendering, be sure to draw some 3D models or
-graphics primitives where the colliders are at (using `Collider:getPosition` and
-`Collider:getOrientation`) so you can see them reacting to collisions and physics forces!
-
 World
 ---
 
