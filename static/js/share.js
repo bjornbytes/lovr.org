@@ -63,7 +63,7 @@ drop.addEventListener('drop', function(event) {
           'packing': 'I couldn\'t package your app, sorry!'
         };
 
-        var error = result.errors[0];
+        var error = result && result.errors && result.errors[0];
         var errorMessage = messages[error] || 'There was a problem with the upload, sorry!';
 
         if (xhr.status === 413) {
