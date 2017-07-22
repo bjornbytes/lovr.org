@@ -14,12 +14,12 @@ class extends Application
   layout: 'layout'
 
   handle_404: =>
-    render: '400'
+    render: '404', status: 404
 
   handle_error: (err, trace) =>
     if config.env == 'prod'
       ngx.log ngx.ERR, err, trace
-      render: '500'
+      render: '500', status: 500
     else
       super err, trace
 
