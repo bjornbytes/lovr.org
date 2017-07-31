@@ -6,6 +6,8 @@ var Module = window.Module = {
   locateFile: function(file) {
     if (/\.mem$/.test(file)) {
       return '/static/js/lovr.js.mem';
+    } else if (/\.wasm/.test(file)) {
+      return '/static/js/lovr.wasm';
     } else if (/\.data$/.test(file)) {
       return '/static/play/' + file;
     }
