@@ -11,9 +11,7 @@ class Examples extends require 'views.page'
 
   content: =>
     @content_for 'head', ->
-      link rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Inconsolata'
       link rel: 'stylesheet', href: '/static/css/examples.css'
-      link rel: 'stylesheet', href: '/static/css/tomorrow-night-blue.css'
 
     widget Navbar
     @sidebar!
