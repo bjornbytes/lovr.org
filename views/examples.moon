@@ -17,7 +17,10 @@ class Examples extends require 'views.page'
     @sidebar!
 
     main class: 'examples', ->
-      iframe class: 'preview', allowvr: true
+      div class: 'preview', ->
+        div class: 'progress', -> span ''
+        iframe allowvr: true
+
       if @page
         div class: 'content', ['data-key']: @page, ->
           raw @contents

@@ -1,6 +1,7 @@
 @import "base.scss";
 @import "colors.scss";
 @import "nav.scss";
+@import "progress.scss";
 @import "varela-round.scss";
 
 main.share {
@@ -44,42 +45,16 @@ main.share {
   }
 
   .progress {
-    box-sizing: content-box;
+    opacity: 0;
+    transition: opacity 200ms;
     width: 30%;
-    height: 20px;
-    margin: 0 auto;
-    padding: 6px;
-    border-radius: 6px;
-    box-shadow: 0 0 2px $c-steam inset;
-    background-color: $c-cream;
-    text-align: left;
     position: absolute;
     left: 0;
     right: 0;
     top: 75%;
     transform: translateY(-50%);
-    opacity: 0;
-    transition: opacity 200ms;
-
     span {
-      display: inline-block;
-      height: 100%;
-      border-radius: 3px;
-      box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
-      transition: width 150ms;
-      background-size: 30px 30px;
-      background-color: $c-lilac;
-      background-image: linear-gradient(
-        135deg, rgba(255, 255, 255, .15) 25%, transparent 25%,
-        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
-        transparent 75%, transparent
-      );
-
-      animation: progress 2s linear infinite;
-      @keyframes progress {
-        0% { background-position: 0 0; }
-        100% { background-position: 60px 0; }
-      }
+      width: 0;
     }
   }
 }

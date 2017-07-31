@@ -2,7 +2,8 @@ import oboe from 'oboe';
 
 require('../highlight.js');
 var main = document.querySelector('main');
-var preview = document.querySelector('iframe.preview');
+var preview = document.querySelector('.preview');
+var iframe = preview.querySelector('iframe');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
@@ -46,7 +47,7 @@ function showPage(key, scroll) {
         content.remove();
       });
     } else {
-      preview.style.visibility = 'hidden';
+      iframe.style.visibility = 'hidden';
     }
   }
 
@@ -64,7 +65,7 @@ function showPage(key, scroll) {
 
     if (preview) {
       newContent.addEventListener('animationend', function() {
-        preview.src = '/embed/' + key;
+        iframe.src = '/embed/' + key;
       });
     }
 
@@ -170,8 +171,8 @@ if (initialContent) {
 
   if (preview && key) {
     preview.style.display = 'block';
-    preview.style.visibility = 'hidden';
-    preview.src = '/embed/' + key;
+    iframe.style.visibility = 'hidden';
+    iframe.src = '/embed/' + key;
   }
 
   if (preview && !key) {
@@ -261,7 +262,7 @@ function updateResults() {
 }
 
 if (preview) {
-  preview.addEventListener('load', function(event) {
-    preview.style.visibility = 'visible';
+  iframe.addEventListener('load', function(event) {
+    iframe.style.visibility = 'visible';
   });
 }
