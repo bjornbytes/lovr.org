@@ -3,7 +3,7 @@ import oboe from 'oboe';
 require('../highlight.js');
 var main = document.querySelector('main');
 var preview = document.querySelector('.preview');
-var iframe = preview.querySelector('iframe');
+var iframe = preview && preview.querySelector('iframe');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
