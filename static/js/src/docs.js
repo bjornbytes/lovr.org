@@ -3,7 +3,6 @@ import oboe from 'oboe';
 require('../highlight.js');
 var main = document.querySelector('main');
 var preview = document.querySelector('.preview');
-var iframe = preview && preview.querySelector('iframe');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
@@ -262,6 +261,8 @@ function updateResults() {
 }
 
 if (preview) {
+  var iframe = preview.appendChild(document.createElement('iframe'));
+  iframe.setAttribute('allowvr', true);
   iframe.addEventListener('load', function(event) {
     iframe.style.visibility = 'visible';
   });

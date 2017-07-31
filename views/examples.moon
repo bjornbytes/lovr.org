@@ -19,7 +19,6 @@ class Examples extends require 'views.page'
     main class: 'examples', ->
       div class: 'preview', ->
         div class: 'progress', -> span ''
-        iframe allowvr: true
 
       if @page
         div class: 'content', ['data-key']: @page, ->
