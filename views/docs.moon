@@ -29,6 +29,7 @@ class Docs extends require 'views.page'
       @sidebar_link 'lovr.physics'
       @sidebar_link 'lovr.timer'
       @sidebar_link 'json'
+      @sidebar_link 'enet'
 
     h2 'Callbacks'
     ul ->
