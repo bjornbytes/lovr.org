@@ -5,15 +5,15 @@ category: reference
 Texture:setFilter
 ===
 
-Set the `FilterMode` used by the texture when upsampling or downsampling.  The default mode is
-`linear`.
+Set the `FilterMode` used by the texture.  The default can be set using
+`lovr.graphics.setDefaultFilter`.
 
     texture:setFilter(min, mag)
 
 ### Arguments
 
-- `FilterMode min` The filter mode used for minification.
-- `FilterMode mag (min)` The filter mode used for magnification.
+- `FilterMode mode` The filter mode to use.
+- `number anisotropy` The level of anisotropy to use, when using anisotropic filtering.
 
 ### Returns
 
@@ -23,3 +23,5 @@ See also
 ---
 
 - `Texture:getFilter`
+- `lovr.graphics.getDefaultFilter`
+- `lovr.graphics.setDefaultFilter`

@@ -6,7 +6,9 @@ Texture
 ===
 
 A Texture is an image that can be applied to `Model`s and `Mesh`s.  Supported file formats include
-`.png`, `.jpg`, `.tga`, and `.bmp`.
+`.png`, `.jpg`, `.tga`, and `.bmp`.  Additionally, three compressed formats are supported: DXT1,
+DXT3, and DXT5 (all have the `.dds` extension).  Compressed textures are recommended as they use
+less video memory and usually improve performance.
 
 <table>
 <tr>
@@ -46,7 +48,7 @@ A Texture is an image that can be applied to `Model`s and `Mesh`s.  Supported fi
 
 <tr>
   <td class="pre">Texture:setFilter</td>
-  <td>Set the <code>FilterMode</code> of the Texture, used to control upsampling and downsampling.</td>
+  <td>Set the <code>FilterMode</code> of the Texture, used to control sampling.</td>
 </tr>
 
 <tr>

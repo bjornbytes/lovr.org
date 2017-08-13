@@ -7,7 +7,7 @@ Texture:getFilter
 
 Get the current `FilterMode` used by the texture.
 
-    min, mag = texture:getFilter()
+    mode, anisotropy = texture:getFilter()
 
 ### Arguments
 
@@ -15,8 +15,9 @@ None
 
 ### Returns
 
-- `FilterMode min` The filter mode used for minification.
-- `FilterMode mag` The filter mode used for magnification.
+- `FilterMode mode` The filtering mode for the texture.
+- `number anisotropy` If the filter mode is `anisotropic`, returns the level of anisotropy.
+  Otherwise, this will be `nil`.
 
 See also
 ---
