@@ -34,6 +34,12 @@ Nothing
 
 Unicode text is supported.  Use `\n` to add a line break.
 
+LÖVR uses a fancy technique for font rendering called multichanel signed distance fields.  This leads
+to crisp text in VR, but requires a special shader to use.  LÖVR internally switches to the appropriate
+shader, but only when the default shader is already set.  If you see strange font artifacts, make
+sure you switch back to the default shader by using `lovr.graphics.setShader()` before you draw
+text.
+
 See also
 ---
 
