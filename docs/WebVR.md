@@ -8,8 +8,8 @@ WebVR
 LÖVR is able to run in the browser using WebVR.  This guide explains some of the differences between
 running LÖVR on the desktop and running in the browser, and how to get up and running.
 
-First, you'll need to make sure your browser supports WebVR.  Visit [webvr.info](http://webvr.info)
-to find a browser that works with your headset.
+First, you'll need to make sure your browser supports WebVR and WebAssembly.  Visit
+[webvr.info](http://webvr.info) to find a browser that works with your headset.
 
 Next, you'll need a LÖVR project.  The <a data-key="Getting_Started">Getting Started</a> guide teaches
 you how to make a simple project with a spinning cube in it.
@@ -30,5 +30,5 @@ There are a few differences when running LÖVR in the browser:
   <li>Audio is not spatialized.</li>
   <li><code>Controller:newModel</code> will always return <code>nil</code>.</li>
   <li><code>lovr.headset.getBoundsGeometry</code> will return a table with four zero vectors in it</li>
-  <li><code>lovr.getOS</code> will return "Web".</li>
+  <li>Oculus Touch controllers are not fully supported yet</li>
 </ol>
