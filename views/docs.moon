@@ -28,6 +28,7 @@ class Docs extends require 'views.page'
       @sidebar_link 'lovr.math'
       @sidebar_link 'lovr.physics'
       @sidebar_link 'lovr.timer'
+      @sidebar_link 'json'
 
     h2 'Callbacks'
     ul ->
