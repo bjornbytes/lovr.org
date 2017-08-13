@@ -15,4 +15,4 @@ None
 
 ### Returns
 
-- `string os` Either `Windows`, `macOS`, or `Web`.
+- `string os` Either `Windows`, `macOS`, `Web`, or `Linux`.

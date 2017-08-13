@@ -11,6 +11,7 @@ is platform-specific:
 
 - Windows: `C:\Users\<user>\AppData\Roaming\LOVR\<identity>`
 - macOS: `/Users/<user>/Library/Application Support/LOVR/<identity>`
+- Linux: `/home/<user>/.config/LOVR`
 
 It is recommended to use `lovr.conf` or `lovr.filesystem.setIdentity` to give your game a unique
 `identity`.

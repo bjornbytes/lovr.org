@@ -19,8 +19,9 @@ project without restrictions, and even modify the framework if you need to.
 
 LÖVR is really fast.  It's written in C and uses LuaJIT, an incredibly fast Lua implementation.
 
-Under the hood LÖVR uses OpenVR, so both the HTC Vive and the Oculus Rift are supported.  There is
-also a WebVR export tool that can be found [here](/share).
+LÖVR is cross platform, supporting Windows, macOS, and Linux.  There is also a WebVR export tool
+that can be found [here](/share).  Many different types of headsets are supported through OpenVR
+and WebVR.
 
 Example
 ---
