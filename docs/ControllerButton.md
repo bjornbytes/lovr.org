@@ -12,8 +12,9 @@ Values
 
 - `system` The system button.
 - `menu` The menu button.
+- `trigger` The trigger button.
 - `grip` The grip button.
-- `touchpad` The button on the touchpad.
+- `touchpad` The touchpad or joystick.
 
 See also
 ---
