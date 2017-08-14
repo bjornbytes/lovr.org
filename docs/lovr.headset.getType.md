@@ -5,8 +5,7 @@ category: reference
 lovr.headset.getType
 ===
 
-Get the type of headset.  Currently only the HTC Vive is supported, though support for the Oculus
-Rift and other devices is planned.
+Get the type of headset.
 
     type = lovr.headset.getType()
 
@@ -16,5 +15,5 @@ None
 
 ### Returns
 
-- `string type` The type of the headset.  Will be "Vive" for the HTC Vive and "Rift" for the Oculus
-  Rift.
+- `HeadsetType type` The type of the headset.  Will be "vive" for the HTC Vive and "rift" for the
+  Oculus Rift, or "unknown" if it isn't officially supported.
