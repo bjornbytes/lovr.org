@@ -2,12 +2,12 @@
 category: reference
 -->
 
-RandomGenerator:randomNormal
+lovr.math.randomNormal
 ===
 
 Generate a pseudo-random number from a normal distribution (a bell curve).
 
-    x = randomGenerator:randomNormal(sigma, mu)
+    x = lovr.math.randomNormal(sigma, mu)
 
 ### Arguments
 
@@ -22,5 +22,4 @@ Generate a pseudo-random number from a normal distribution (a bell curve).
 See also
 ---
 
-- `lovr.math.randomNormal`
-- `RandomGenerator:random`
+- `lovr.math.random`

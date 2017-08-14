@@ -27,6 +27,11 @@ player's face.
 </tr>
 
 <tr>
+  <td class="pre">lovr.headset.getOriginType</td>
+  <td>Get the coordinate space used by the headset.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.headset.getPosition</td>
   <td>Get the current position of the headset in 3D space.</td>
 </tr>
