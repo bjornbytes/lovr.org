@@ -11,8 +11,9 @@ Values
 ---
 
 - `trigger` The controller's trigger.
-- `touchx` The x axis of the controller's touch pad.
-- `touchy` The y axis of the controller's touch pad.
+- `grip` The controller's grip.  This is only supported on the Oculus Touch.
+- `touchx` The x axis of the controller's touch pad or joystick.
+- `touchy` The y axis of the controller's touch pad or joystick.
 
 See also
 ---
