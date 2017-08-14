@@ -287,16 +287,6 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getScissor</td>
-  <td>Get the current scissor region.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.setScissor</td>
-  <td>Set or disable the scissor region.</td>
-</tr>
-
-<tr>
   <td class="pre">lovr.graphics.getShader</td>
   <td>Get the current shader in use.</td>
 </tr>
