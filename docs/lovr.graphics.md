@@ -187,16 +187,6 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getColorMask</td>
-  <td>Get the current color mask.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.setColorMask</td>
-  <td>Enable or disable color channels.</td>
-</tr>
-
-<tr>
   <td class="pre">lovr.graphics.getBlendMode</td>
   <td>Get the current blend mode.</td>
 </tr>
