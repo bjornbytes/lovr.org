@@ -297,6 +297,11 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.createWindow</td>
+  <td>Create the window.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.getWidth</td>
   <td>Get the width of the window.</td>
 </tr>
