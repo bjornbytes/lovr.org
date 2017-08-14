@@ -35,3 +35,31 @@ The default fragment shader:
     vec4 color(vec4 graphicsColor, sampler2D image, vec2 uv) {
       return graphicsColor * texture(image, uv);
     }
+
+Shader Headers
+---
+
+When you create a shader, the following headers are prepended to the source, giving you convenient
+access to a default set of uniform variables and vertex attributes:
+
+Vertex header:
+
+    // Vertex attributes
+    in vec3 lovrPosition;
+    in vec3 lovrNormal;
+    in vec2 lovrTexCoord;
+    out vec2 texCoord;
+
+    // Matrix uniforms
+    uniform mat4 lovrModel;
+    uniform mat4 lovrView;
+    uniform mat4 lovrProjection;
+    uniform mat4 lovrTransform; // The ModelView matrix
+    uniform mat3 lovrNormalMatrix;
+
+Fragment header:
+
+    in vec2 texCoord;
+    out vec4 lovrFragColor;
+    uniform vec4 lovrColor; // The color set with lovr.graphics.setColor
+    uniform sampler2D lovrTexture;
