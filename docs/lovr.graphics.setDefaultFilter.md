@@ -18,7 +18,7 @@ Set the default filter mode used for new `Texture` objects.
 
 Nothing
 
-See Also
+See also
 ---
 
 - `lovr.graphics.getDefaultFilter`

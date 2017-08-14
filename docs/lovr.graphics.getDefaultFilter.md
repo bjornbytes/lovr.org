@@ -18,7 +18,7 @@ None
 - `FilterMode mode` The filter mode.
 - `number anisotropy` The level of anisotropy used for anisotropic filtering.
 
-See Also
+See also
 ---
 
 - `lovr.graphics.setDefaultFilter`

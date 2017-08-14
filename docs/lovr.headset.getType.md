@@ -17,3 +17,8 @@ None
 
 - `HeadsetType type` The type of the headset.  Will be "vive" for the HTC Vive and "rift" for the
   Oculus Rift, or "unknown" if it isn't officially supported.
+
+See also
+---
+
+- `HeadsetType`
