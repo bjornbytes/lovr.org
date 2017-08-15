@@ -4,13 +4,52 @@
 @import "varela-round.scss";
 
 main.index {
-  text-align: center;
+  h1, h1 + p {
+    text-align: center;
+  }
 
   svg.logo {
-    margin-top: 90px;
+    margin-top: 60px;
     height: 135px;
     pointer-events: none;
     width: 100%;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: normal;
+  }
+
+  .thirds {
+    display: flex;
+    margin-top: 70px;
+
+    .third {
+      margin-right: 40px;
+      &:last-child { margin-bottom: 0; }
+
+      h3 {
+        font-size: 28px;
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 15px;
+
+        span {
+          display: inline-block;
+          font-size: 30px;
+          vertical-align: middle;
+          margin-right: 20px;
+        }
+      }
+
+      p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      flex-basis: 33%;
+    }
   }
 }
 
@@ -23,7 +62,8 @@ main.index {
 }
 
 .buttons a {
-  background: $c-lilac;
+  background-color: #d4c8ee;
+  background-image: linear-gradient(rgba($c-white, 0), rgba($c-white, .5));
   width: 190px;
   height: 70px;
   line-height: 70px;
@@ -34,10 +74,15 @@ main.index {
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
-  border-bottom: 2px solid darken($c-lilac, 4%);
+  border-bottom: 2px solid #bdb0ee;
+  text-shadow: 0 1px 0 rgba($c-white, .5);
+
+  &:hover {
+    background-image: linear-gradient(rgba($c-white, 0), rgba($c-white, .6));
+  }
 
   &:active {
-    background: darken($c-lilac, 5%);
+    border-bottom: 0px;
     transform: translate(0, 2px);
   }
 }
