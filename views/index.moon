@@ -15,7 +15,7 @@ class Index extends Widget
       p 'A simple framework for creating VR experiences'
       div class: 'buttons', ->
         a href: 'http://bjornbyt.es/f/lovr.zip', 'Download'
-        a href: '/docs', 'Learn More'
+        a href: '/docs', 'Get Started'
       div class: 'thirds', ->
         div class: 'third', ->
           h3 (-> span '📦'), 'Cross Platform'
@@ -26,7 +26,7 @@ class Index extends Widget
         div class: 'third', ->
           h3 (-> span '🌈'), 'Super Simple'
           p 'LÖVR is minimal, clean, and really easy to pick up.  It\'s scripted with Lua, a fun
-            little scripting language.  Common tasks are reduced to just a few lines of code, and
+            little scripting language.  Most tasks are reduced to just a few lines of code, and
             everything is designed for VR.'
 
         div class: 'third', ->

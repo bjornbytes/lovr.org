@@ -15,9 +15,12 @@ body {
 }
 
 .container {
-  width: 1100px;
+  width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
+  @media(max-width: 1080px) {
+    width: 460px;
+  }
 }
 
 h1 {
