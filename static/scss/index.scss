@@ -2,6 +2,7 @@
 @import "colors.scss";
 @import "nav.scss";
 @import "varela-round.scss";
+@import "inconsolata.scss";
 
 main.index {
   padding-bottom: 40px;
@@ -19,6 +20,9 @@ main.index {
   h2 {
     font-size: 36px;
     font-weight: normal;
+    text-align: center;
+    margin: 0;
+    margin-top: 60px;
   }
 
   .thirds {
@@ -55,6 +59,33 @@ main.index {
     }
   }
 
+  .samples {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .sample {
+      flex-basis: 45%;
+
+      h4 {
+        font-size: 22px;
+        font-weight: normal;
+        text-align: center;
+        margin: 35px 0 15px;
+      }
+
+      pre {
+        font-family: Inconsolata;
+        background: #433a4c;
+        color: $c-white;
+        border: 2px #7d63a1 solid;
+        border-radius: 8px;
+        margin: 0;
+        padding: 12px;
+      }
+    }
+  }
+
   @media(max-width: 1080px) {
     .thirds {
       flex-wrap: wrap;
@@ -64,6 +95,12 @@ main.index {
         margin-right: 0;
         margin-bottom: 30px;
         text-align: justify;
+      }
+    }
+
+    .samples {
+      .sample {
+        flex-basis: 100%;
       }
     }
   }
