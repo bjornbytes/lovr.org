@@ -242,7 +242,7 @@ document.onkeypress = function(event) {
     event.preventDefault();
     searchBox.style.display = 'block';
     searchBox.focus();
-    searchBox.value += event.key;
+    searchBox.value = event.key;
     updateResults();
   }
 };
