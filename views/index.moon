@@ -3,33 +3,6 @@ import Widget from require 'lapis.html'
 Navbar = require 'views.navbar'
 Logo = require 'views.logo'
 
-samples = {
-[[function lovr.draw()
-  lovr.graphics.print('oh wow', 0, 2, -3, .5)
-end]],
-
-[[function lovr.load()
-  sound = lovr.audio.newSource('darude.ogg')
-  sound:play()
-end]],
-
-[[function lovr.draw()
-  controllers = lovr.headset.getControllers()
-  for i, controller in ipairs(controllers) do
-    x, y, z = controller:getPosition()
-    lovr.graphics.sphere(x, y, z, .1)
-  end
-end]],
-
-[[function lovr.load()
-  skybox = lovr.graphics.newSkybox('sky.jpg')
-end
-
-function lovr.draw()
-  skybox:draw(lovr.headset.getOrientation())
-end]]
-}
-
 class Index extends Widget
   content: =>
     @content_for 'head', ->
@@ -49,36 +22,98 @@ class Index extends Widget
       div class: 'thirds', ->
         div class: 'third', ->
           h3 (-> span '📦'), 'Cross Platform'
-          p 'LÖVR works on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or
-            an Oculus Rift.  There\'s even a drag and drop WebVR exporter to export projects to the
-            web!'
+          p 'LÖVR works on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or '..
+            'an Oculus Rift.  There\'s even a drag and drop WebVR exporter to export projects to the '..
+            'web!'
 
         div class: 'third', ->
           h3 (-> span '🌈'), 'Super Simple'
-          p 'LÖVR is minimal, clean, and really easy to pick up.  It\'s scripted with Lua, a fun
-            little scripting language.  Most tasks are reduced to just a few lines of code, and
-            everything is designed for VR.'
+          p 'LÖVR is minimal, clean, and really easy to pick up.  It\'s scripted with Lua, a fun '..
+            'little scripting language.  Most tasks are reduced to just a few lines of code, and '..
+            'everything is designed for VR.'
 
         div class: 'third', ->
           h3 (-> span '💜'), 'Open Source'
-          p 'LÖVR is open source software.  It\'s 100% free to use and doesn\'t require any
-            licensing, royalties, or accounts.  The code is available on GitHub and is released
-            under the MIT license.'
+          p 'LÖVR is open source software.  It\'s 100% free to use and doesn\'t require any '..
+            'licensing, royalties, or accounts.  The code is available on GitHub and is released '..
+            'under the MIT license.'
 
       h2 'Samples'
       div class: 'samples', ->
         div class: 'sample', ->
           h4 'Render Text'
-          pre samples[1]
+          pre class: 'hljs lua', ->
+            span class: 'hljs-function', ->
+              span class: 'hljs-keyword', 'function '
+              span class: 'hljs-title', 'lovr.draw'
+              span class: 'hljs-params', '()'
+
+            text '\n  lovr.graphics.print('
+            span class: 'hljs-string', '\'oh wow\''
+            text ', '
+            span class: 'hljs-number', '0'
+            text ', '
+            span class: 'hljs-number', '2'
+            text ', '
+            span class: 'hljs-number', '-3'
+            text ', '
+            span class: 'hljs-number', '.5'
+            text ')\n'
+            span class: 'hljs-keyword', 'end'
 
         div class: 'sample', ->
           h4 'Play Sounds'
-          pre samples[2]
+          pre class: 'hljs lua', ->
+            span class: 'hljs-function', ->
+              span class: 'hljs-keyword', 'function '
+              span class: 'hljs-title', 'lovr.load'
+              span class: 'hljs-params', '()'
+
+            text '\n  sound = lovr.audio.newSource('
+
+            span class: 'hljs-string', '\'darude.ogg\')'
+            text '\n  sound:play()'
+            span class: 'hljs-keyword', '\nend'
 
         div class: 'sample', ->
           h4 'Tracked Controllers'
-          pre samples[3]
+          pre class: 'hljs lua', ->
+            span class: 'hljs-function', ->
+              span class: 'hljs-keyword', 'function '
+              span class: 'hljs-title', 'lovr.draw'
+              span class: 'hljs-params', '()'
+
+            text '\n  controllers = lovr.headset.getControllers()'
+            span class: 'hljs-keyword', '\n  for'
+            text ' _, controller'
+            span class: 'hljs-keyword', ' in'
+            span class: 'hljs-built_in', ' ipairs'
+            text '(controllers)'
+            span class: 'hljs-keyword', ' do'
+
+            text '\n    x, y, z = controller:getPosition()'
+            text '\n    lovr.graphics.sphere(x, y, z,'
+            span class: 'hljs-number', ' .1'
+            text ')'
+            span class: 'hljs-keyword', '\n  end\nend'
 
         div class: 'sample', ->
           h4 'Skybox'
-          pre samples[4]
+          pre class: 'hljs lua', ->
+            span class: 'hljs-function', ->
+              span class: 'hljs-keyword', 'function '
+              span class: 'hljs-title', 'lovr.load'
+              span class: 'hljs-params', '()'
+
+            text '\n  skybox = lovr.graphics.newSkybox('
+            span class: 'hljs-string', '\'sky.jpg\''
+            text ')'
+            span class: 'hljs-keyword', '\nend\n\n'
+
+            span class: 'hljs-function', ->
+              span class: 'hljs-keyword', 'function '
+              span class: 'hljs-title', 'lovr.draw'
+              span class: 'hljs-params', '()'
+
+            text '\n  skybox:draw(lovr.headset.getOrientation())'
+            span class: 'hljs-keyword', '\nend'

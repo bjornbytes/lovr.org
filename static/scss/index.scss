@@ -3,6 +3,7 @@
 @import "nav.scss";
 @import "varela-round.scss";
 @import "inconsolata.scss";
+@import "tomorrow-night-blue.scss";
 
 main.index {
   padding-bottom: 40px;
@@ -75,7 +76,10 @@ main.index {
       }
 
       pre {
-        font-family: Inconsolata;
+        &, * {
+          font-family: Inconsolata, monospace;
+        }
+
         background: #433a4c;
         color: $c-white;
         border: 2px #7d63a1 solid;
