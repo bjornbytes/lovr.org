@@ -6,7 +6,6 @@ class Docs extends require 'views.page'
   sidebar_content: =>
     h2 'Guides'
     ul ->
-      @sidebar_link 'Introduction'
       @sidebar_link 'Getting_Started'
       @sidebar_link 'How_to_Lua'
       @sidebar_link 'Callbacks'
@@ -16,6 +15,11 @@ class Docs extends require 'views.page'
       @sidebar_link 'Sound'
       @sidebar_link 'Game_Distribution'
       @sidebar_link 'WebVR'
+
+    h2 'Examples'
+    ul ->
+      @sidebar_link 'Cube'
+      @sidebar_link '360_Image'
 
     h2 'Modules'
     ul ->

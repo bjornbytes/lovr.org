@@ -158,7 +158,7 @@ oboe(window.config.api)
 
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
-  var page = (event.state && event.state.key) || 'Introduction';
+  var page = (event.state && event.state.key) || 'Getting_Started';
   showPage(page, event.state && event.state.scroll);
 });
 

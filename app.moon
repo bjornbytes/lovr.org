@@ -29,7 +29,7 @@ class extends Application
   [docs: '/docs(/*)']: cached =>
     docs, categories = glob('docs')
     @reference = categories.reference
-    @page = @params.splat or 'Introduction'
+    @page = @params.splat or 'Getting_Started'
     @contents = docs[@page] or ''
     render: true
 
