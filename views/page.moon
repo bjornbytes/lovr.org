@@ -2,7 +2,7 @@ import Widget from require 'lapis.html'
 
 class Page extends Widget
   sidebar_link: (key) =>
-    li class: { 'disabled', active: key == @page }, tabindex: '0', ['data-key']: key, ->
+    li class: { 'disabled', active: key == @page }, tabindex: '0', ['data-key']: key, ['data-embed']: @embeds[key], ->
       text key\gsub('_', ' ') or ''
 
   sidebar: =>

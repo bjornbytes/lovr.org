@@ -1,15 +1,16 @@
 require 'lfs'
 mde = require 'markdown_extra'
 
-glob = (dir, ext = '%.md$', fn) ->
-  data, categories = {}, { all: {} }
+glob = (dir) ->
+  data, categories, embeds = {}, {}, {}
 
   for file in lfs.dir dir
     path = dir .. '/' .. file
-    if path\match(ext) and lfs.attributes(path, 'mode') == 'file'
+    if path\match('%.md$') and lfs.attributes(path, 'mode') == 'file'
       content, metadata = mde.from_file(path)
-      key = metadata and metadata.key or path\match('([^%/]+)' .. ext)
+      key = metadata and metadata.key or path\match('([^%/]+)%.md$')
       data[key] = fn and fn(content, metadata, key) or content
+      embeds[key] = metadata and metadata.embed
       category = metadata and metadata.category or 'default'
       categories[category] = categories[category] or {}
       table.insert categories[category], key
@@ -27,6 +28,6 @@ glob = (dir, ext = '%.md$', fn) ->
       else
         return a < b
 
-  data, categories
+  data, categories, embeds
 
 glob

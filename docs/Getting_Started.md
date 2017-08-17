@@ -53,9 +53,6 @@ end
 Whew, that wasn't so bad.  Okay, save the file inside the `SuperEpicCube` folder and be sure to name
 it `main.lua`.  Now we're ready to run our project!
 
-> Note: if you're trying this out without a VR headset, use the coordinates `0, 0,
-> -2` instead of `0, 1, 0` so the cube shows up correctly!
-
 Running a Project
 ---
 

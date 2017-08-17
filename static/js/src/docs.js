@@ -2,19 +2,12 @@ import oboe from 'oboe';
 
 require('../highlight.js');
 var main = document.querySelector('main');
-var preview = document.querySelector('.preview');
+var embed = document.querySelector('.embed');
+var iframe = embed.querySelector('iframe');
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var transitionTimeout;
 var data = {};
-
-if (preview) {
-  var iframe = preview.appendChild(document.createElement('iframe'));
-  iframe.setAttribute('allowvr', true);
-  iframe.addEventListener('load', function(event) {
-    iframe.style.visibility = 'visible';
-  });
-}
 
 function pushPage(key) {
   if (history.state) {
@@ -30,75 +23,44 @@ function pushPage(key) {
 }
 
 function showPage(key, scroll) {
-  highlightLink(key);
 
-  // Initiate outro animation for any existing content elements
-  var contents = Array.prototype.slice.call(main.querySelectorAll('.content'));
-  var isDirty = contents.length > 0;
-  contents.forEach(function(content) {
-    content.classList.add('outro');
-    content.addEventListener('animationend', function() {
-      content.remove();
-    });
+  // Unhighlight all active links
+  var activeLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key].active'));
+  activeLinks.forEach(function(link) {
+    link.classList.remove('active');
   });
 
+  // Highlight active link
+  var link = document.querySelector('li[data-key="' + key + '"]');
+  link && link.classList.add('active');
+
+  // Destroy any existing content elements
+  var contents = Array.prototype.slice.call(main.querySelectorAll('.content'));
+  contents.forEach(function(content) {
+    content.remove();
+  });
+
+  // Show/hide embed
+  setEmbed(link && link.dataset.embed);
+
+  // Uh
   if (!key) {
     return;
   }
 
-  if (preview) {
-    if (preview.style.display !== 'block') {
-      preview.style.display = 'block';
-      contents.forEach(function(content) {
-        content.remove();
-      });
-    } else {
-      iframe.style.visibility = 'hidden';
-    }
-  }
-
   // Create element for new content
-  var newContent = document.createElement('div');
-  newContent.classList.add('content');
-  newContent.innerHTML = data[key];
-  newContent.dataset.key = key;
-  enhance(newContent);
+  var content = document.createElement('div');
+  content.classList.add('content');
+  content.innerHTML = data[key];
+  content.dataset.key = key;
+  enhance(content);
 
   // Add the new content to the DOM (animation plays automatically)
-  if (transitionTimeout) { clearTimeout(transitionTimeout); }
-  transitionTimeout = setTimeout(function() {
-    main.appendChild(newContent);
-
-    if (preview) {
-      newContent.addEventListener('animationend', function() {
-        iframe.src = '/embed/' + key;
-      });
-    }
-
-    // Scroll to the right place if the back button was used
-    if (scroll !== main.scrollTop) {
-
-      // Makes transition less jarring
-      contents.forEach(function(content) {
-        content.remove();
-      });
-
-      main.scrollTop = scroll;
-    }
-  }, isDirty ? 140 : 0);
+  main.appendChild(content);
+  main.scrollTop = scroll;
 
   // Set window title
   document.title = (key === 'index' ? '' : (key.replace(/_/g, ' ') + ' - ')) + 'LOVR';
-}
-
-function highlightLink(key) {
-  var links = Array.prototype.slice.call(document.querySelectorAll('li[data-key].active'));
-  links.forEach(function(link) {
-    link.classList.remove('active');
-  });
-
-  var activeLink = document.querySelector('li[data-key="' + key + '"]');
-  activeLink && activeLink.classList.add('active');
 }
 
 // Syntax highlighting and autolinking
@@ -131,6 +93,7 @@ function enhance(node) {
   });
 }
 
+// Stream documentation
 oboe(window.config.api)
   .node('!.*', function(node, path, ancestors) {
     var key = path[0];
@@ -140,7 +103,7 @@ oboe(window.config.api)
     if (li) {
       var onclick = function(event) {
         var content = document.querySelector('.content');
-        if (content && content.dataset.key == key) { return; }
+        if (content && content.dataset.key === key) { return; }
         pushPage(key);
         showPage(key, 0);
       };
@@ -148,7 +111,7 @@ oboe(window.config.api)
       li.classList.remove('disabled');
       li.addEventListener('click', onclick);
       li.addEventListener('keypress', function(event) {
-        if (event.keyCode == 13 || event.keyCode == 32) {
+        if (event.keyCode === 13 || event.keyCode === 32) {
           event.preventDefault();
           onclick(event);
         }
@@ -162,7 +125,24 @@ window.addEventListener('popstate', function(event) {
   showPage(page, event.state && event.state.scroll);
 });
 
-// Add syntax highlighting and autolinking to any initial content
+// Embeds
+function setEmbed(key) {
+  if (key) {
+    embed.style.display = 'block';
+    iframe.style.display = 'none';
+    iframe.src = '/embed/' + key;
+  } else {
+    embed.style.display = 'none';
+    iframe.style.display = 'none';
+    iframe.src = 'about:blank';
+  }
+}
+
+iframe.addEventListener('load', function(event) {
+  iframe.style.display = iframe.src === 'about:blank' ? 'none' : 'block';
+});
+
+// Bootstrap initial content
 var initialContent = document.querySelector('.content');
 if (initialContent) {
   enhance(initialContent);
@@ -173,63 +153,59 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
-  }
-
-  if (preview && key) {
-    preview.style.display = 'block';
-    iframe.style.visibility = 'hidden';
-    iframe.src = '/embed/' + key;
-  }
-
-  if (preview && !key) {
-    var tiles = Array.prototype.slice.call(initialContent.querySelectorAll('.tile'));
-    tiles.forEach(function(tile) {
-      tile.addEventListener('click', function(event) {
-        var key = tile.dataset.key;
-        pushPage(key);
-        showPage(key, 0);
-      });
-    });
+    setEmbed(link.dataset.embed);
   }
 }
+
+// Searching
 
 document.onkeydown = function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
   var firstVisibleLink = visibleLinks[0];
 
-  if (event.keyCode === 27) {
-    searchBox.value = '';
-    searchBox.style.display = 'none';
-    searchBox.blur();
-    updateResults();
-  } else if (event.keyCode === 8) {
-    searchBox.focus();
-  } else if (event.keyCode === 13) {
-    firstVisibleLink && firstVisibleLink.click();
-  } else if (event.keyCode === 40) {
-    if (document.activeElement === searchBox) {
-      firstVisibleLink && firstVisibleLink.focus();
-      event.preventDefault();
-    } else if (document.activeElement && document.activeElement.dataset.key) {
-      var idx = visibleLinks.indexOf(document.activeElement);
-      var next = idx >= 0 && visibleLinks[idx + 1];
-      if (next) {
-        next.focus();
+  switch (event.keyCode) {
+    case 27:
+      searchBox.value = '';
+      searchBox.style.display = 'none';
+      searchBox.blur();
+      updateResults();
+      break;
+
+    case 8:
+      searchBox.focus();
+      break;
+
+    case 13:
+      firstVisibleLink && firstVisibleLink.click();
+      break;
+
+    case 40:
+      if (document.activeElement === searchBox) {
+        firstVisibleLink && firstVisibleLink.focus();
         event.preventDefault();
+      } else if (document.activeElement && document.activeElement.dataset.key) {
+        var idx = visibleLinks.indexOf(document.activeElement);
+        var next = idx >= 0 && visibleLinks[idx + 1];
+        if (next) {
+          next.focus();
+          event.preventDefault();
+        }
       }
-    }
-  } else if (event.keyCode === 38) {
-    if (document.activeElement && document.activeElement.dataset.key) {
-      var idx = visibleLinks.indexOf(document.activeElement);
-      var prev = idx >= 0 && visibleLinks[idx - 1];
-      if (prev) {
-        prev.focus();
-        event.preventDefault();
-      } else if (idx === 0) {
-        searchBox.focus();
-        event.preventDefault();
+      break;
+
+    case 38:
+      if (document.activeElement && document.activeElement.dataset.key) {
+        var idx = visibleLinks.indexOf(document.activeElement);
+        var prev = idx >= 0 && visibleLinks[idx - 1];
+        if (prev) {
+          prev.focus();
+          event.preventDefault();
+        } else if (idx === 0) {
+          searchBox.focus();
+          event.preventDefault();
+        }
       }
-    }
+      break;
   }
 };
 

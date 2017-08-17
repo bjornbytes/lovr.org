@@ -11,4 +11,3 @@ static/js/play.js
 node_modules
 static/play/*
 conf
-examples/*.md.compiled

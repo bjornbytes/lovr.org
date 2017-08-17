@@ -63,6 +63,10 @@ class Docs extends require 'views.page'
     @sidebar!
 
     main class: 'docs', ->
+      div class: 'embed', ->
+        div class: 'progress', -> span ''
+        iframe allowvr: true
+
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 

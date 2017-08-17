@@ -1,12 +1,99 @@
 @import "base.scss";
 @import "colors.scss";
 @import "nav.scss";
-@import "sidebar.scss";
-@import "varela-round.scss";
+@import "progress.scss";
 @import "inconsolata.scss";
+@import "varela-round.scss";
 @import "tomorrow-night-blue.scss";
 
-main.docs, main.examples {
+.sidebar {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner {
+    height: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .04);
+    border-radius: 1px;
+    &:hover {
+      background: $c-lilac;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba($c-black, .03);
+  }
+
+  .wrapper {
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    background: $c-white;
+    box-shadow: 1px 0 2px rgba($c-black, .1);
+    padding-bottom: 20px;
+    width: 310px;
+    overflow-y: scroll;
+    will-change: scroll-position;
+    z-index: 10;
+  }
+
+  flex: 0 0 310px;
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  color: $c-raven;
+  margin: 0;
+  font-weight: normal;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  padding-left: 24px;
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.sidebar li {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  color: $c-mauve;
+  font-size: 12px;
+  cursor: pointer;
+  border-left: 5px solid;
+  border-left-color: transparent;
+  &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
+  &.active { color: $c-raven; border-left-color: $c-mauve; }
+  &:active, &.active { background: $c-phlox; }
+  &:last-child { margin-bottom: 0; }
+  &.disabled, &.disabled:hover {
+    color: $c-slate;
+    cursor: default;
+  }
+}
+
+.sidebar input {
+  display: none;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 4px;
+  width: 200px;
+  font-size: 14px;
+  border: none;
+  &, &:focus {
+    outline: none;
+    border-bottom: 2px $c-lilac solid;
+  }
+}
+
+main.docs {
   position: fixed;
   overflow-y: scroll;
   left: 0;
@@ -15,16 +102,40 @@ main.docs, main.examples {
   bottom: 0;
   margin-left: 310px;
 
+  .embed {
+    display: none;
+    position: relative;
+    border: none;
+    width: 100%;
+    height: calc(55vw - 310px);
+    min-height: 300px;
+    max-height: calc(80vh - 60px);
+
+    .progress {
+      width: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+    }
+
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
   .content {
     position: absolute;
-    animation: intro 150ms;
+    animation: intro 160ms;
     max-width: 900px;
     padding: 40px 40px 40px 60px;
     will-change: transform, opacity;
-  }
-
-  .content.outro {
-    animation: outro 150ms;
   }
 
   @keyframes intro {
@@ -37,20 +148,6 @@ main.docs, main.examples {
     to {
       opacity: 1;
       transform: translateX(0px);
-      -webkit-backface-visibility: hidden;
-    }
-  }
-
-  @keyframes outro {
-    from {
-      opacity: 1;
-      transform: translateX(0px);
-      -webkit-backface-visibility: hidden;
-    }
-
-    to {
-      opacity: 0;
-      transform: translateX(8px);
       -webkit-backface-visibility: hidden;
     }
   }
@@ -130,7 +227,7 @@ main.docs, main.examples {
     margin: 24px 16px;
 
     code {
-      background: mix($c-lilac, $c-black, 40%);
+      background: $c-night;
       color: $c-white;
       font-size: 15px;
       border-radius: 5px;

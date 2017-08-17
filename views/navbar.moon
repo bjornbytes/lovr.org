@@ -12,8 +12,7 @@ class Navbar extends Widget
 
       div class: 'links', ->
         a href: '/docs', 'Documentation'
-        a href: '/examples', 'Examples'
-        a href: '/share', 'Upload'
+        a href: '/share', 'WebVR Export'
 
         a href: 'https://github.com/bjornbytes/lovr', target: '_blank', class: 'right', 'GitHub'
         a href: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg', target: '_blank', 'Slack'
