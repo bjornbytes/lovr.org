@@ -5,71 +5,76 @@ category: guide
 Getting Started
 ===
 
-This guide will help you install LÖVR and teach you how to create a simple scene.  You'll need to
-have an HTC Vive or Oculus Rift handy, and you'll also need to have SteamVR installed on your
-computer.
+This guide will teach you how to install LÖVR, create a simple project, and run it.
+
+Here's an overview of the process:
+
+<img src="../static/img/gettingStarted.png" style="width: 400px">
+
+The rest of this guide will explain these steps in more detail.
 
 Installing LÖVR
 ---
 
-First, download LÖVR from the website:
-
-![LOVR Home Page](../static/img/please.jpg)
-
-Next, extract the zip file and open up the folder.  You should see a file called `lovr.exe` and a
-bunch of `.dll` files.
+First, download LÖVR from the website.  Extract the zip archive and open up the folder.  You should
+see a file called `lovr.exe` and a bunch of `.dll` files.
 
 ![Archive Contents](../static/img/dlls.png)
 
-Double click on `lovr.exe` to open LÖVR.  If you see a window with a black screen, don't panic!
-That means LÖVR is working.  If you don't tell LÖVR what project you want to run, it will just open
-a blank window.  That's super boring though.  Let's create a project with a cube in it.
+Double click on `lovr.exe` to open LÖVR.  You should see a window with the LÖVR logo in it.  This is
+what's shown if you run LÖVR without specifying a project.
 
-To create a project, just create a new folder somewhere.  You can call the folder whatever you want.
-I'm going to call it `SuperEpicCube`.
+![The Default Project](../static/img/defaultProject.png)
 
-Writing Code
+> Note: If you're using a VR headset, you may see a blank window if your headset isn't
+> pointing in the forward direction.  That's fine!
+
+Next we're going to make a project so we see something more interesting than the default screen.
+
+Creating a Project
 ---
 
-Now we're going to have to write some code.  Code is really scary, so we're going to download a
-**text editor** to make it easier for us to write code.  There are lots of different kinds of text
-editors.  Some good ones are [Sublime Text](http://www.sublimetext.com), [Atom](http://atom.io), or
-[Zero Brane Studio](https://studio.zerobrane.com).  I'll use Sublime Text for this tutorial, but
-the approach should be similar no matter what text editor you use.
+A LÖVR project is just a folder.  The folder can have anything necessary for your experience, like
+3D models, sound files, or Lua code.  There isn't any required structure for the folder, so you can
+organize it however you want.
 
-Every LÖVR project needs a special file called `main.lua`.  Open a new file in your text editor and
-type out this Lua code.  If you don't know what Lua is or don't know what the code does or are
-beginning to have an out of body experience, that's fine.  It's not important to understand all the
-details of the code right now.  *However*, I recommend that you avoid just copying and pasting it!
-Typing out each line does this magical thing to your brain that helps you read, write, and
-understand the code better.  I promise.
+There is one special file that LÖVR looks for though, called `main.lua`.  If you put a `main.lua`
+file in your project folder, LÖVR will run the code in there when the project starts.
+
+If you haven't already, create a folder for your project and give it a cool name.  Next, create
+a file called `main.lua` inside your project folder and type the following Lua code in it:
 
 ```
 function lovr.draw()
-  lovr.graphics.cube('line', 0, 1, 0)
+  lovr.graphics.print('hello world', 0, 1.7, -3, .5)
 end
 ```
 
-Whew, that wasn't so bad.  Okay, save the file inside the `SuperEpicCube` folder and be sure to name
-it `main.lua`.  Now we're ready to run our project!
+Don't fret if you're confused about the code, it's not important to understand all of it right now.
+In short, we declared the `lovr.draw` function and used `lovr.graphics.cube` in there to draw a cube
+at the `(0, 1.7, -2)` position in 3D space every frame.  This will create a cube floating in the air
+towards the front of the play area.
 
 Running a Project
 ---
 
-We're going to run our project with LÖVR and experience our cube in VR.  First, start SteamVR if it
-isn't started already:
-
-![Steam VR](../static/img/steamvr.png)
-
-Now, drag the `SuperEpicCube` folder on to the `lovr.exe` application we ran earlier:
+To run a LÖVR project, drop its folder onto `lovr.exe` (a shortcut also works).
 
 ![Drag and Drop](../static/img/dragonDrop.png)
 
-Ok, put on your headset!  You should see a cube floating in the middle of the play space.  Walk
-around, introduce yourself to it, befriend it.
+If you followed the example above, you should see the following:
 
-![A Beautiful Cube](../static/img/cube.png)
+![Hello World](../static/img/helloWorld.png)
 
-That's it for this guide.  I knew you could do it.
-If you want to make something even more cool, you'll need to learn a little bit more about Lua.
-Continue on to the <a data-key="How_to_Lua">How to Lua</a> guide to learn more about Lua!
+That's all there is to it!
+
+Next Steps
+---
+
+The next guide will teach you how to make more sophisticated projects using [Callbacks]().
+
+If you want to learn more about Lua, some good resources are [Learn Lua in 15
+Minutes](http://tylerneylon.com/a/learn-lua/) and [Lua for
+Programmers](http://nova-fusion.com/2012/08/27/lua-for-programmers-part-1/).
+
+To see some examples of what LÖVR can do, check out the [Examples]() gallery.

@@ -7,12 +7,7 @@ class Docs extends require 'views.page'
     h2 'Guides'
     ul ->
       @sidebar_link 'Getting_Started'
-      @sidebar_link 'How_to_Lua'
       @sidebar_link 'Callbacks'
-      @sidebar_link 'Simple_Shapes'
-      @sidebar_link '3D_Models'
-      @sidebar_link 'Controllers'
-      @sidebar_link 'Sound'
       @sidebar_link 'Game_Distribution'
       @sidebar_link 'WebVR'
 
