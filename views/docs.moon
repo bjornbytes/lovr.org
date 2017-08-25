@@ -7,8 +7,8 @@ class Docs extends require 'views.page'
     h2 'Guides'
     ul ->
       @sidebar_link 'Getting_Started'
-      @sidebar_link 'Callbacks'
-      @sidebar_link 'Game_Distribution'
+      @sidebar_link 'Callbacks_and_Modules'
+      @sidebar_link 'Distribution'
       @sidebar_link 'WebVR'
 
     h2 'Examples'

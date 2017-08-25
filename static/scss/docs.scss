@@ -110,6 +110,7 @@ main.docs {
     height: calc(55vw - 310px);
     min-height: 300px;
     max-height: calc(80vh - 60px);
+    background: $c-white;
 
     .progress {
       width: 50%;
@@ -118,7 +119,7 @@ main.docs {
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      background: #fff;
+      background: $c-white;
       box-shadow: 0 0 4px rgba(0, 0, 0, .1);
     }
 
@@ -132,10 +133,10 @@ main.docs {
 
   .content {
     position: absolute;
-    animation: intro 160ms;
-    max-width: 900px;
-    padding: 40px 40px 40px 60px;
+    max-width: 720px;
+    padding: 30px 50px;
     will-change: transform, opacity;
+    &.intro { animation: intro 200ms; }
   }
 
   @keyframes intro {
@@ -166,19 +167,19 @@ main.docs {
   }
 
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: normal;
-    color: $c-smoke;
-    font-size: 28px;
+    color: $c-raven;
+    font-size: 25px;
   }
 
   h2 {
     color: $c-smoke;
     font-size: 18px;
     font-weight: normal;
-    margin: 30px 0 10px;
+    margin-top: 40px;
     padding-bottom: 6px;
-    border-bottom: 1px $c-steam solid;
+    border-bottom: 2px #E6DAFA solid;
   }
 
   h3 {
@@ -190,14 +191,15 @@ main.docs {
 
   p {
     font-size: 14px;
-    line-height: 1.5;
-    margin: 12px 0;
+    line-height: 1.6;
+    margin: 15px 0;
   }
 
   img {
-    margin: 10px 0;
+    margin: 10px auto;
     border-radius: 1px;
     max-width: 400px;
+    display: block;
   }
 
   code {
@@ -218,16 +220,17 @@ main.docs {
     background: $c-white;
     color: $c-raven;
     font-size: 12px;
-    border-radius: 2px;
+    border-radius: 4px;
     display: inline-block;
     padding: 0 4px;
-    border: 1px $c-lilac solid;
+    border: 1px $c-steam solid;
   }
 
   pre {
-    margin: 24px 16px;
+    margin-bottom: -4px;
 
     code {
+      min-width: 100%;
       background: $c-night;
       color: $c-white;
       font-size: 15px;
@@ -251,7 +254,7 @@ main.docs {
 
   hr {
     border: none;
-    border-top: 2px $c-steam solid;
+    border-top: 2px #E6DAFA solid;
     margin: 20px 0;
   }
 

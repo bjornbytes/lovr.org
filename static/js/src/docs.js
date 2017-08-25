@@ -50,7 +50,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content');
+  content.classList.add('content', 'intro');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);
@@ -95,7 +95,7 @@ function enhance(node) {
 
 // Stream documentation
 oboe(window.config.api)
-  .node('!.*', function(node, path, ancestors) {
+  .node('!.*', function(node, path) {
     var key = path[0];
     data[key] = node;
 
@@ -117,6 +117,8 @@ oboe(window.config.api)
         }
       });
     }
+
+    return oboe.drop;
   });
 
 // Render pages when history is updated
