@@ -195,6 +195,9 @@ Here's an example that makes a tower of boxes that you can knock down with contr
 function lovr.load()
   world = lovr.physics.newWorld()
 
+  -- Create the ground
+  world:newBoxCollider(0, 0, 0, 5, .01, 5):setKinematic(true)
+
   -- Create boxes!
   boxes = {}
   for x = -1, 1, .25 do
@@ -204,16 +207,15 @@ function lovr.load()
     end
   end
 
-  -- Make kinematic boxes that will follow the controllers around
   controllerBoxes = {}
-  for i = 1, lovr.headset.getControllerCount() do
-    controllerBoxes[i] = world:newBoxCollider(0, 0, 0, .25)
-    controllerBoxes[i]:setKinematic(true)
-  end
 end
 
 function lovr.update(dt)
   for i, controller in ipairs(lovr.headset.getControllers()) do
+    if not controllerBoxes[i] then
+      controllerBoxes[i] = world:newBoxCollider(0, 0, 0, .25)
+      controllerBoxes[i]:setKinematic(true)
+    end
     controllerBoxes[i]:setPosition(controller:getPosition())
     controllerBoxes[i]:setOrientation(controller:getOrientation())
   end
@@ -225,7 +227,7 @@ end
 -- A helper function for drawing boxes
 function drawBox(box)
   local x, y, z = box:getPosition()
-  lovr.graphics.cube('fill', x, y, z, .25, box:getOrientation())
+  lovr.graphics.cube('line', x, y, z, .25, box:getOrientation())
 end
 
 function lovr.draw()

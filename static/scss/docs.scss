@@ -133,6 +133,7 @@ main.docs {
 
   .content {
     position: absolute;
+    width: 740px;
     max-width: 740px;
     padding: 40px 60px;
     will-change: transform, opacity;
@@ -226,14 +227,15 @@ main.docs {
 
   pre {
     margin-bottom: -4px;
+    overflow-x: scroll;
 
     code {
-      min-width: 100%;
       background: $c-night;
       color: $c-white;
       font-size: 15px;
       border-radius: 5px;
       padding: 12px;
+      padding-right: 24px;
       line-height: 1.15;
       border: 2px $c-slate solid;
 
