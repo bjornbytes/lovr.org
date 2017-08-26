@@ -109,6 +109,7 @@ oboe(window.config.api)
       };
 
       li.classList.remove('disabled');
+      li.tabIndex = 0;
       li.addEventListener('click', onclick);
       li.addEventListener('keypress', function(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
@@ -163,6 +164,7 @@ if (initialContent) {
 
 document.onkeydown = function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
+
   var firstVisibleLink = visibleLinks[0];
 
   switch (event.keyCode) {
