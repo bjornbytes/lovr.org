@@ -17,7 +17,7 @@ right click them, and choose "Send to" -> "Compressed (zip) folder".  On Unix sy
 utility can be used:
 
 ```
-zip -9qr myproject
+zip -9qr .
 ```
 
 A zip archive can be run with LÖVR but isn't a standalone executable yet.
@@ -39,3 +39,18 @@ Distribution
 
 Once you have an executable, be sure to distribute it with all the `.dll` files that come with the
 original LÖVR download.
+
+WebVR
+---
+
+The easy way is to use the [WebVR Exporter](/share).  You can drag and drop a `.zip` file into your
+window to create a WebVR build.  Note that builds are removed after 30 days of inactivity.
+
+To create a custom WebVR build, see [this
+guide](https://github.com/bjornbytes/lovr/blob/master/COMPILING.md#webvr).
+
+Note that there are a few differences when running LÖVR in the browser:
+
+- `Controller:newModel` will always return `nil`.
+- `lovr.headset.getBoundsGeometry` is not supported and will return four zero vectors.
+- Oculus Touch controllers are not fully supported yet.

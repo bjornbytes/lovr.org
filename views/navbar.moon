@@ -14,6 +14,6 @@ class Navbar extends Widget
         a href: '/docs', 'Documentation'
         a href: '/share', 'WebVR Export'
 
-        a href: 'https://github.com/bjornbytes/lovr', target: '_blank', class: 'right', 'GitHub'
-        a href: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg', target: '_blank', 'Slack'
-        a href: 'https://twitter.com/bjornbytes', target: '_blank', 'Twitter'
+        a href: 'https://github.com/bjornbytes/lovr', target: '_blank', rel: 'noopener', class: 'right', 'GitHub'
+        a href: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg', target: '_blank', rel: 'noopener', 'Slack'
+        a href: 'https://twitter.com/bjornbytes', target: '_blank', rel: 'noopener', 'Twitter'

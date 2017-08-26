@@ -110,7 +110,7 @@ main.docs {
     height: calc(55vw - 310px);
     min-height: 300px;
     max-height: calc(80vh - 60px);
-    background: $c-white;
+    background: $c-steam;
 
     .progress {
       width: 50%;
@@ -133,8 +133,8 @@ main.docs {
 
   .content {
     position: absolute;
-    max-width: 720px;
-    padding: 30px 50px;
+    max-width: 740px;
+    padding: 40px 60px;
     will-change: transform, opacity;
     &.intro { animation: intro 200ms; }
   }
@@ -142,14 +142,12 @@ main.docs {
   @keyframes intro {
     from {
       opacity: 0;
-      transform: translateX(-8px);
-      -webkit-backface-visibility: hidden;
+      transform: translate3d(-8px, 0px, 0px);
     }
 
     to {
       opacity: 1;
-      transform: translateX(0px);
-      -webkit-backface-visibility: hidden;
+      transform: translate3d(0px, 0px, 0px);
     }
   }
 
@@ -167,10 +165,10 @@ main.docs {
   }
 
   h1 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: normal;
-    color: $c-raven;
-    font-size: 25px;
+    color: $c-smoke;
+    font-size: 28px;
   }
 
   h2 {
@@ -223,7 +221,7 @@ main.docs {
     border-radius: 4px;
     display: inline-block;
     padding: 0 4px;
-    border: 1px $c-steam solid;
+    border: 1px $c-lilac solid;
   }
 
   pre {
@@ -259,16 +257,18 @@ main.docs {
   }
 
   ul {
-    list-style-type: none;
+    margin: 15px 25px;
+    list-style-type: circle;
 
     li {
-      font-size: 12px;
+      font-size: 14px;
       margin-bottom: 6px;
       &:last-child { margin-bottom: 0; }
+      line-height: 1.5;
 
       code:first-child {
         margin-right: 8px;
-        padding: 4px 8px;
+        padding: 0 4px;
       }
     }
   }
@@ -284,6 +284,7 @@ main.docs {
   }
 
   table {
+    margin: 15px 0;
     background: $c-white;
     border-collapse: collapse;
     &, tr, td { border: 1px $c-steam solid; }

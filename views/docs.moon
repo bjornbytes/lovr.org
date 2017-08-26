@@ -8,8 +8,8 @@ class Docs extends require 'views.page'
     ul ->
       @sidebar_link 'Getting_Started'
       @sidebar_link 'Callbacks_and_Modules'
+      @sidebar_link 'Libraries'
       @sidebar_link 'Distribution'
-      @sidebar_link 'WebVR'
 
     h2 'Examples'
     ul ->
@@ -62,7 +62,7 @@ class Docs extends require 'views.page'
         div class: 'progress', -> span ''
         iframe allowvr: true
 
-      div class: 'content', ['data-key']: @page, ->
+      div class: 'content intro', ['data-key']: @page, ->
         raw @contents
 
     script type: 'text/javascript', -> raw "window.config = { base: '/docs', api: '/api/docs' };"

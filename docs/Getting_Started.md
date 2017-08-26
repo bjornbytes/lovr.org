@@ -23,10 +23,10 @@ what's shown if you run LÖVR without specifying a project.
 
 ![The Default Project](../static/img/defaultProject.png)
 
-> Note: If you're using a VR headset, you may see a blank window if your headset isn't
-> pointing in the forward direction.  That's fine!
+> Note: If you're using a VR headset, you'll only see the logo if your headset is pointing in the
+> forward direction.
 
-We're going to make a project so we see something more interesting than the default screen.
+We're going to make a project so we see something more interesting than the logo.
 
 Creating a Project
 ---
@@ -68,7 +68,7 @@ That's all there is to it!
 Next Steps
 ---
 
-The next guide will teach you how to make more sophisticated projects using [Callbacks]().
+The next guide will teach you how to make more interesting projects using <a data-key="Callbacks_and_Modules">Callbacks and Modules</a>.
 
 If you want to learn more about Lua, some good resources are:
 

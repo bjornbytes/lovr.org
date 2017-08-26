@@ -292,7 +292,7 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.setDefaultFitler</td>
+  <td class="pre">lovr.graphics.setDefaultFilter</td>
   <td>Set the default texture filtering method.</td>
 </tr>
 

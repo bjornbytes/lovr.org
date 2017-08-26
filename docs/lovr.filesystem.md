@@ -13,8 +13,7 @@ is platform-specific:
 - macOS: `/Users/<user>/Library/Application Support/LOVR/<identity>`
 - Linux: `/home/<user>/.config/LOVR`
 
-It is recommended to use `lovr.conf` or `lovr.filesystem.setIdentity` to give your game a unique
-`identity`.
+You can use `lovr.conf` or `lovr.filesystem.setIdentity` to give your game a unique `identity`.
 
 All filenames are relative to either the save directory or the directory containing the game's
 source.  If a file exists in both the save directory and the game source, the file in the save

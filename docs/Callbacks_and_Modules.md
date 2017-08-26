@@ -70,7 +70,6 @@ useful, they often aren't used in smaller projects.  The most commonly used modu
 2. `lovr.headset`
 3. `lovr.audio`
 4. `lovr.physics`
-5. `lovr.filesystem`
 
 Each module is described briefly below.
 
@@ -127,11 +126,123 @@ end
 lovr.headset
 ---
 
+The headset module lets you interact with VR hardware.  You can get pose information for the HMD and
+controllers, and also query the input state of controllers to see if buttons are pressed.  You can
+also retrieve information about the configured play area so you know how much available space there
+is to place objects.
+
+Pose information consists of the position and orientation of a tracked device, which is useful
+because it lets you know where the device is and which way it's facing.  To get the position of the
+HMD, you can call `lovr.headset.getPosition` which returns 3 numbers corresponding to an xyz
+position in 3D space.  You can also call `lovr.headset.getOrientation` which returns four numbers
+representing a rotation in angle/axis format.
+
+The `lovr.headset.getControllers` function returns a list of all connected controllers.  You can
+query pose info for controllers using `Controller:getPosition` and `Controller:getOrientation`,
+similar to the HMD.  There are also `Controller:getAxis` and `Controller:isDown` functions for
+determining input state.
+
+Several callbacks are relevant to the headset module.  The `lovr.controlleradded` callback is run
+whenever a new controller is connected, and there is a similar `controllerremoved` callback.  Also,
+there is the `lovr.controllerpressed` callback for when a button on a controller is pressed, with
+a similar callback for `controllerreleased`.
+
+Here's an example that draws a sphere in the "opposite" position of the headset:
+
+```
+function lovr.draw()
+  local x, y, z = lovr.headset.getPosition()
+  lovr.graphics.sphere(-x, y, -z, .1)
+end
+```
+
 lovr.audio
 ---
+
+Sound can be played with `lovr.audio`.  Audio is spatialized, so sounds can have positions and
+directions, which are used to make things sound realistic as the headset moves and rotates.
+
+Each instance of a sound is called a `Source`.  To create a sources, use `lovr.audio.newSource` and
+pass it an ogg file.  You can then call `play` on the source to play it.
+
+```
+function lovr.load()
+  ambience = lovr.audio.newSource('background.ogg')
+  ambience:setLooping(true)
+  ambience:play()
+end
+```
+
+See the `Source` page for more information.
 
 lovr.physics
 ---
 
-lovr.filesystem
+Adding a physics simulation to a scene can make it feel more realistic and immersive.  The
+`lovr.physics` module can be used to set up a physics simulation.
+
+> Note: Physics engines can be tricky to set up.  There are lots of knobs to turn and it may take
+> some tweaking to get things working well.
+
+The first step to creating a simulation is to create a `World` using `lovr.physics.newWorld`.  After
+a world is created you can add `Collider`s to it, using functions like `World:newBoxCollider` or
+`World:newCylinderCollider`.  Each collider represents a single entity in the simulation and can have
+forces applied it.  The world should be updated in `lovr.update` using the `dt` value.
+
+Here's an example that makes a tower of boxes that you can knock down with controllers:
+
+```
+function lovr.load()
+  world = lovr.physics.newWorld()
+
+  -- Create boxes!
+  boxes = {}
+  for x = -1, 1, .25 do
+    for y = .125, 2, .25 do
+      local box = world:newBoxCollider(x, y, -1, .25)
+      table.insert(boxes, box)
+    end
+  end
+
+  -- Make kinematic boxes that will follow the controllers around
+  controllerBoxes = {}
+  for i = 1, lovr.headset.getControllerCount() do
+    controllerBoxes[i] = world:newBoxCollider(0, 0, 0, .25)
+    controllerBoxes[i]:setKinematic(true)
+  end
+end
+
+function lovr.update(dt)
+  for i, controller in ipairs(lovr.headset.getControllers()) do
+    controllerBoxes[i]:setPosition(controller:getPosition())
+    controllerBoxes[i]:setOrientation(controller:getOrientation())
+  end
+
+  -- Update the physics simulation
+  world:update(dt)
+end
+
+-- A helper function for drawing boxes
+function drawBox(box)
+  local x, y, z = box:getPosition()
+  lovr.graphics.cube('fill', x, y, z, .25, box:getOrientation())
+end
+
+function lovr.draw()
+  lovr.graphics.setColor(255, 0, 0)
+  for i, box in ipairs(boxes) do
+    drawBox(box)
+  end
+
+  lovr.graphics.setColor(0, 0, 255)
+  for i, box in ipairs(controllerBoxes) do
+    drawBox(box)
+  end
+end
+```
+
+Next Steps
 ---
+
+Hopefully you have a better idea of how to use LÖVR.  To unlock even more functionality you can use
+<a data-key="Libraries">Libraries</a>.
