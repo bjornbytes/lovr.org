@@ -29,13 +29,13 @@ class Index extends Widget
         div class: 'third', ->
           h3 (-> span '🌈'), 'Super Simple'
           p 'LÖVR is minimal, clean, and really easy to pick up.  It\'s scripted with Lua, a fun '..
-            'little scripting language.  Most tasks are reduced to just a few lines of code, and '..
+            'little scripting language.  Most common tasks are reduced to just a few lines of code, and '..
             'everything is designed for VR.'
 
         div class: 'third', ->
           h3 (-> span '💜'), 'Open Source'
-          p 'LÖVR is open source software.  It\'s 100% free to use and doesn\'t require any '..
-            'licensing, royalties, or accounts.  The code is available on GitHub and is released '..
+          p 'LÖVR is open source software.  It\'s 100% free to use and doesn\'t require accounts, '..
+            'licensing, or royalties.  The code is on GitHub and is released '..
             'under the MIT license.'
 
       h2 'Samples'
@@ -117,3 +117,14 @@ class Index extends Widget
 
             text '\n  skybox:draw(lovr.headset.getOrientation())'
             span class: 'hljs-keyword', '\nend'
+
+      h2 'Screenshots'
+      div class: 'screenshots thirds', ->
+        div class: 'third', ->
+          img src: '/static/img/wattle.jpg'
+
+        div class: 'third', ->
+          img src: '/static/img/levrage.jpg'
+
+        div class: 'third', ->
+          img src: '/static/img/planets.jpg'
