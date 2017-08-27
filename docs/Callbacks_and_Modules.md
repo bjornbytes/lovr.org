@@ -207,10 +207,12 @@ function lovr.load()
     end
   end
 
+  -- Each controller is going to have a collider attached to it
   controllerBoxes = {}
 end
 
 function lovr.update(dt)
+  -- Synchronize controllerBoxes with the active controllers
   for i, controller in ipairs(lovr.headset.getControllers()) do
     if not controllerBoxes[i] then
       controllerBoxes[i] = world:newBoxCollider(0, 0, 0, .25)

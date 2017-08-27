@@ -13,8 +13,8 @@ class Docs extends require 'views.page'
 
     h2 'Examples'
     ul ->
-      @sidebar_link 'Cube'
-      @sidebar_link '360_Image'
+      for i, key in ipairs @categories.example do
+        @example_link key
 
     h2 'Modules'
     ul ->
@@ -47,7 +47,7 @@ class Docs extends require 'views.page'
 
     h2 'Reference'
     ul ->
-      for i, key in ipairs @reference do
+      for i, key in ipairs @categories.reference do
         @sidebar_link key
 
   content: =>

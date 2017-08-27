@@ -7,7 +7,7 @@ Getting Started
 
 This guide will teach you how to install LÖVR, create a project, and run it. TL;DR version:
 
-![Getting Started](../static/img/gettingStarted.png)
+<img src="../static/img/gettingStarted.png" width="400" height="515" class="flat">
 
 Installing LÖVR
 ---
@@ -46,10 +46,9 @@ function lovr.draw()
 end
 ```
 
-Don't fret if you're confused about the code, it's not important to understand all of it right now.
-In short, we declared the `lovr.draw` function and used `lovr.graphics.print` in there to render
-some text on the screen in 3D space every frame.  We'll learn more about what's going on in the next
-guide.
+Don't worry if you're confused about the code, it's not important to understand it all right now.
+In short, we declared the `lovr.draw` callback and used `lovr.graphics.print` in there to render
+some text in the world.  We'll learn more about how this works in the next guide.
 
 Running a Project
 ---

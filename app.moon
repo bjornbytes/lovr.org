@@ -24,8 +24,7 @@ class extends Application
     render: true
 
   [docs: '/docs(/*)']: cached =>
-    docs, categories, @embeds = glob 'docs'
-    @reference = categories.reference
+    docs, @categories = glob!
     @page = @params.splat or 'Getting_Started'
     @contents = docs[@page] or ''
     render: true
@@ -46,7 +45,7 @@ class extends Application
     render: true
 
   '/api/docs': cached =>
-    json: glob 'docs'
+    json: glob!
 
   '/api/share': capture_errors_json =>
     success, result = pcall(upload, @params.file.content)

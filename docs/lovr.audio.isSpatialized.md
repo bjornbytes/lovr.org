@@ -16,5 +16,5 @@ None
 
 ### Returns
 
-- `boolean isSpatialized` - Whether or not Head-Related Transfer Functions (HRTFs) are in use,
+- `boolean isSpatialized` Whether or not Head-Related Transfer Functions (HRTFs) are in use,
   enhancing the realism of audio.

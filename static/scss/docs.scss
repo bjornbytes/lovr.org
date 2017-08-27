@@ -178,7 +178,7 @@ main.docs {
     font-weight: normal;
     margin-top: 40px;
     padding-bottom: 6px;
-    border-bottom: 2px #E6DAFA solid;
+    border-bottom: 2px $c-candy solid;
   }
 
   h3 {
@@ -199,6 +199,9 @@ main.docs {
     border-radius: 1px;
     max-width: 400px;
     display: block;
+    border-radius: 8px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    &.flat { box-shadow: none; }
   }
 
   code {
@@ -226,7 +229,8 @@ main.docs {
   }
 
   pre {
-    margin-bottom: -4px;
+    margin: 15px 0;
+    padding: 2px;
     overflow-x: scroll;
 
     code {
@@ -235,14 +239,21 @@ main.docs {
       font-size: 15px;
       border-radius: 5px;
       padding: 12px;
-      padding-right: 24px;
       line-height: 1.15;
       border: 2px $c-slate solid;
 
       a, a[data-key] {
         color: $c-white;
-        &:hover {
-          color: $c-lilac;
+      }
+
+      &:hover {
+        a, a[data-key] {
+          color: $c-white;
+          border-bottom: 1px rgba($c-white, .3) dashed;
+
+          &:hover {
+            border-bottom: 1px rgba($c-white, .5) dashed;
+          }
         }
       }
 
@@ -254,7 +265,7 @@ main.docs {
 
   hr {
     border: none;
-    border-top: 2px #E6DAFA solid;
+    border-top: 2px $c-candy solid;
     margin: 20px 0;
   }
 

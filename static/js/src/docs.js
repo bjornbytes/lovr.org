@@ -50,7 +50,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content', 'intro');
+  content.classList.add('content', 'intro', link && link.dataset.embed && 'example');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);

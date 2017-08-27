@@ -6,7 +6,7 @@ Libraries
 ===
 
 Libraries are external packages that you can import and use in your projects.  Some libraries extend
-the capabilities of LÖVR and others just make it easier to get stuff done.  Simple libraries are
+the capabilities of LÖVR and others just make it easier to get stuff done.  Libraries are usually
 distributed as a single Lua file.  You can copy the Lua file into your project and `require` it to
 use the library:
 

@@ -22,9 +22,8 @@ class Index extends Widget
       div class: 'thirds', ->
         div class: 'third', ->
           h3 (-> span '📦'), 'Cross Platform'
-          p 'LÖVR works on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or '..
-            'an Oculus Rift.  There\'s even a drag and drop WebVR exporter to export projects to the '..
-            'web!'
+          p 'LÖVR projects work on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or '..
+            'an Oculus Rift, and there\'s even a drag and drop tool for exporting projects to WebVR.'
 
         div class: 'third', ->
           h3 (-> span '🌈'), 'Super Simple'
@@ -34,14 +33,14 @@ class Index extends Widget
 
         div class: 'third', ->
           h3 (-> span '💜'), 'Open Source'
-          p 'LÖVR is open source software.  It\'s 100% free to use and doesn\'t require accounts, '..
-            'licensing, or royalties.  The code is on GitHub and is released '..
+          p 'LÖVR is open source software, meaning it\'s 100% free to use and doesn\'t require accounts, paid licenses, '..
+            'or royalties.  The code can be found on GitHub and is released '..
             'under the MIT license.'
 
       h2 'Samples'
       div class: 'samples', ->
         div class: 'sample', ->
-          h4 'Render Text'
+          h4 'Hello World'
           pre class: 'hljs lua', ->
             span class: 'hljs-function', ->
               span class: 'hljs-keyword', 'function '
@@ -49,7 +48,7 @@ class Index extends Widget
               span class: 'hljs-params', '()'
 
             text '\n  lovr.graphics.print('
-            span class: 'hljs-string', '\'oh wow\''
+            span class: 'hljs-string', '\'Hello world\''
             text ', '
             span class: 'hljs-number', '0'
             text ', '
@@ -62,7 +61,7 @@ class Index extends Widget
             span class: 'hljs-keyword', 'end'
 
         div class: 'sample', ->
-          h4 'Play Sounds'
+          h4 'Spatialized Audio'
           pre class: 'hljs lua', ->
             span class: 'hljs-function', ->
               span class: 'hljs-keyword', 'function '

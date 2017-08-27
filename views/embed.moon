@@ -8,9 +8,10 @@ class Embed extends Widget
     canvas id: 'canvas'
     button class: 'vr-toggle', 'Enter VR'
 
-    script type: 'text/javascript', raw [[
+    script type: 'text/javascript', -> raw [[
       window.WebVRConfig = {
-        DEFER_INITIALIZATION: true
+        BUFFER_SCALE: 1,
+        MOUSE_KEYBOARD_CONTROLS_DISABLED: false
       };
     ]]
 

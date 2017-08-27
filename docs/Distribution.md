@@ -34,17 +34,16 @@ copy /b lovr.exe+MyProject.zip MyProject.exe
 
 On Unix systems, the `cat` utility can be used to concatenate the two files.
 
-Distribution
----
-
-Once you have an executable, be sure to distribute it with all the `.dll` files that come with the
+> Once you have an executable, be sure to distribute it with all the `.dll` files that came with the
 original LÖVR download.
 
 WebVR
 ---
 
-The easy way is to use the [WebVR Exporter](/share).  You can drag and drop a `.zip` file into your
-window to create a WebVR build.  Note that builds are removed after 30 days of inactivity.
+You can use the [WebVR Exporter](/share) to export to WebVR.  Just drag and drop a `.zip` file into
+your window to create a WebVR page.
+
+> Note that WebVR exports are removed after 30 days of inactivity!
 
 To create a custom WebVR build, see [this
 guide](https://github.com/bjornbytes/lovr/blob/master/COMPILING.md#webvr).
