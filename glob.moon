@@ -23,9 +23,10 @@ glob = ->
     if file ~= '.' and file ~= '..' and lfs.attributes(path, 'mode') == 'directory'
       main = path .. '/main.lua'
       handle = io.open(main, 'r')
-      data[file] = '<pre><code>' .. handle\read('*a') .. '</code></pre>'
-      handle\close!
-      table.insert(categories.example, file)
+      if handle
+        data[file] = '<pre><code>' .. handle\read('*a') .. '</code></pre>'
+        handle\close!
+        table.insert(categories.example, file)
 
   for category, keys in pairs categories do
     table.sort keys, (a, b) ->
