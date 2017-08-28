@@ -17,7 +17,7 @@ class Index extends Widget
       widget Logo
 
       h1 'LÖVR'
-      p 'A simple framework for creating VR experiences'
+      p 'A simple framework for creating VR with Lua'
 
       div class: 'buttons', ->
         a href: 'http://bjornbyt.es/f/lovr.zip', 'Download'
@@ -52,7 +52,7 @@ class Index extends Widget
               span class: 'hljs-params', '()'
 
             text '\n  lovr.graphics.print('
-            span class: 'hljs-string', '\'Hello world\''
+            span class: 'hljs-string', '\'oh wow\''
             text ', '
             span class: 'hljs-number', '0'
             text ', '
@@ -131,3 +131,5 @@ class Index extends Widget
 
         div class: 'third', ->
           img src: '/static/img/planets.jpg'
+
+    script -> raw [[var s = document.querySelector('main svg'); setTimeout(function(){s.style.display = 'inline-block';}, 0);]]

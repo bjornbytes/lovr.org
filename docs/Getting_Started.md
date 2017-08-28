@@ -67,7 +67,7 @@ That's all there is to it!
 Next Steps
 ---
 
-The next guide will teach you how to make more interesting projects using <a data-key="Callbacks_and_Modules">Callbacks and Modules</a>.
+The next guide will teach you how to make fancier projects using <a data-key="Callbacks_and_Modules">Callbacks and Modules</a>.
 
 If you want to learn more about Lua, some good resources are:
 

@@ -2,7 +2,7 @@
 category: reference
 -->
 
-lovr.physics.newShapeShape
+lovr.physics.newSphereShape
 ===
 
 Create a new `SphereShape`.

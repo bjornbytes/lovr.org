@@ -16,7 +16,7 @@ each one contains functions related to a certain area of functionality.  For exa
 `lovr.graphics` module for rendering graphics, the `lovr.audio` module for playing sounds, and the
 `lovr.headset` module for getting information about connected VR hardware.
 
-We can define **callbacks** and call functions from **modules** in them to make things with LÖVR.
+We can define **callbacks** and call functions from **modules** to make things with LÖVR.
 
 Callbacks
 ---
@@ -248,5 +248,6 @@ end
 Next Steps
 ---
 
-Hopefully you have a better idea of how to use LÖVR.  To unlock even more functionality you can use
-<a data-key="Libraries">Libraries</a>.
+To explore a module or callback in more detail, see the reference page for the `lovr` global.
+
+There are also a number of <a data-key="Libraries">Libraries</a> you can use that may come in handy.
