@@ -6,6 +6,10 @@ Logo = require 'views.logo'
 class Index extends Widget
   content: =>
     @content_for 'head', ->
+      meta name: 'twitter:card', content: 'summary'
+      meta name: 'twitter:title', content: 'LÖVR'
+      meta name: 'twitter:description', content: 'A simple framework for creating VR with Lua.'
+      meta name: 'twitter:image', content: 'http://lovr.org/static/img/logo.png'
       link rel: 'stylesheet', href: '/static/css/index.css'
 
     widget Navbar

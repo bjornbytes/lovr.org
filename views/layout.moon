@@ -5,7 +5,7 @@ class Layout extends Widget
     html_5 ->
       head ->
         meta charset: 'utf-8'
-        meta name: 'description', content: 'A framework for creating VR experiences with Lua.'
+        meta name: 'description', content: 'A simple framework for creating VR with Lua.'
         title (@page and (@page\gsub('_', ' ') .. ' - ') or '') .. 'LÖVR'
         link rel: 'shortcut icon', href: '/static/img/favicon.png'
 
