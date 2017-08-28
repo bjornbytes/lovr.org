@@ -12,12 +12,12 @@ var data = {};
 function pushPage(key) {
   if (history.state) {
     var scroll = main.scrollTop;
-    var url = window.config.base;
+    var url = '/docs';
     url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
     history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
   }
 
-  var url = window.config.base;
+  var url = '/docs';
   url += key.length > 0 ? ('/' + key) : '';
   history.pushState({ key: key, scroll: 0 }, '', url);
 }
@@ -94,7 +94,7 @@ function enhance(node) {
 }
 
 // Stream documentation
-oboe(window.config.api)
+oboe('/api/docs')
   .node('!.*', function(node, path) {
     var key = path[0];
     data[key] = node;

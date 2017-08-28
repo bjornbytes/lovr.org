@@ -53,6 +53,7 @@ class Docs extends require 'views.page'
   content: =>
     @content_for 'head', ->
       link rel: 'stylesheet', href: '/static/css/docs.css'
+      script ';'
 
     widget Navbar
     @sidebar!
@@ -65,5 +66,4 @@ class Docs extends require 'views.page'
       div class: 'content intro', ['data-key']: @page, ->
         raw @contents
 
-    script type: 'text/javascript', -> raw "window.config = { base: '/docs', api: '/api/docs' };"
     script src: '/static/js/docs.js', async: true
