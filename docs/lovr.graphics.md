@@ -162,6 +162,41 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 
 <table>
 <tr>
+  <td class="pre">lovr.graphics.reset</td>
+  <td>Reset all graphics state to their defaults.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.clear</td>
+  <td>Clear the screen to the background color.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.present</td>
+  <td>Flush the results of drawing operations to the display.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.createWindow</td>
+  <td>Create the window.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getWidth</td>
+  <td>Get the width of the window.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getHeight</td>
+  <td>Get the height of the window.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getDimensions</td>
+  <td>Get the dimensions of the window.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.getBackgroundColor</td>
   <td>Get the current background color.</td>
 </tr>
@@ -169,21 +204,6 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 <tr>
   <td class="pre">lovr.graphics.setBackgroundColor</td>
   <td>Set the background color of the scene.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.clear</td>
-  <td>Clear the screen.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.getColor</td>
-  <td>Get the current color.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.setColor</td>
-  <td>Set the color used when drawing.</td>
 </tr>
 
 <tr>
@@ -197,6 +217,16 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.getColor</td>
+  <td>Get the current color.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.setColor</td>
+  <td>Set the color used when drawing.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.isCullingEnabled</td>
   <td>Get whether the graphics system is culling the backface culling of polygons.</td>
 </tr>
@@ -204,6 +234,16 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 <tr>
   <td class="pre">lovr.graphics.setCullingEnabled</td>
   <td>Enable or disable backface culling.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getDefaultFilter</td>
+  <td>Get the default texture filtering method.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.setDefaultFilter</td>
+  <td>Set the default texture filtering method.</td>
 </tr>
 
 <tr>
@@ -227,13 +267,8 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getDimensions</td>
-  <td>Get the dimensions of the window.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.getHeight</td>
-  <td>Get the height of the window.</td>
+  <td class="pre">lovr.graphics.getSystemLimits</td>
+  <td>Get information about the capabilities of the graphics hardware.</td>
 </tr>
 
 <tr>
@@ -257,26 +292,6 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getWinding</td>
-  <td>Get the current winding order of polygons used for backface culling.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.setWinding</td>
-  <td>Set the winding direction of polygons used for backface culling.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.present</td>
-  <td>Flush the results of drawing operations to the display.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.reset</td>
-  <td>Reset graphics state.</td>
-</tr>
-
-<tr>
   <td class="pre">lovr.graphics.getShader</td>
   <td>Get the current shader in use.</td>
 </tr>
@@ -287,23 +302,13 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getDefaultFilter</td>
-  <td>Get the default texture filtering method.</td>
+  <td class="pre">lovr.graphics.getWinding</td>
+  <td>Get the current winding order of polygons used for backface culling.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.setDefaultFilter</td>
-  <td>Set the default texture filtering method.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.createWindow</td>
-  <td>Create the window.</td>
-</tr>
-
-<tr>
-  <td class="pre">lovr.graphics.getWidth</td>
-  <td>Get the width of the window.</td>
+  <td class="pre">lovr.graphics.setWinding</td>
+  <td>Set the winding direction of polygons used for backface culling.</td>
 </tr>
 
 <tr>
