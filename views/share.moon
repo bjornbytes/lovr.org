@@ -16,6 +16,6 @@ class Share extends Widget
           span ''
 
       p ->
-        raw 'Need help?  Check out the <a href="/docs/WebVR">WebVR Guide</a> or the <a href="/docs/Introduction">LÖVR Introduction</a>.'
+        raw 'Need help?  Check out the <a href="/docs/Distribution">Distribution Guide</a> or the <a href="/docs/Getting_Started">Getting Started</a> guide.'
 
     script src: '/static/js/share.js', async: true
