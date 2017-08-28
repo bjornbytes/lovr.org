@@ -2,7 +2,7 @@
 category: reference
 -->
 
-PolygonWinding
+Winding
 ===
 
 Specifying a winding direction allows LÖVR to determine which side of a triangle is the "front"
@@ -17,3 +17,9 @@ Notes
 ---
 
 The default winding order is `counterclockwise`.
+
+See Also
+---
+
+- `lovr.graphics.getWinding`
+- `lovr.graphics.setWinding`

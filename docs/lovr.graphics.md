@@ -257,12 +257,12 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.getPolygonWinding</td>
+  <td class="pre">lovr.graphics.getWinding</td>
   <td>Get the current winding order of polygons used for backface culling.</td>
 </tr>
 
 <tr>
-  <td class="pre">lovr.graphics.setPolygonWinding</td>
+  <td class="pre">lovr.graphics.setWinding</td>
   <td>Set the winding direction of polygons used for backface culling.</td>
 </tr>
 
