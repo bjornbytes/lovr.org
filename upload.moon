@@ -51,13 +51,17 @@ upload = (content) ->
     if totalSize > 25e6
       return error 'too big'
 
-    handle = archive\open(i)
-    data = handle\read(stat.size)
-    handle\close!
+    if stat.name\match('/$') and stat.size == 0
+      if not lfs.mkdir("#{unzipTo}/#{stat.name}")
+        return error 'unzip'
+    else
+      handle = archive\open(i)
+      data = handle\read(stat.size)
+      handle\close!
 
-    file = io.open("#{unzipTo}/#{stat.name}", 'wb')
-    file\write(data)
-    file\close!
+      file = io.open("#{unzipTo}/#{stat.name}", 'wb')
+      file\write(data)
+      file\close!
 
   os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js")
   os.remove(zipName)
