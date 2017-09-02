@@ -231,7 +231,7 @@ main.docs {
   pre {
     margin: 15px 0;
     padding: 2px;
-    overflow-x: scroll;
+    overflow-x: auto;
 
     code {
       background: $c-night;
