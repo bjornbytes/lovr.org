@@ -28,8 +28,11 @@ List of Libraries
 - [30log](https://github.com/Yonaba/30log) - A library for object oriented programming in Lua.
 - [cpml](https://github.com/excessive/cpml) - A 3D math library for Lua.
 - [flux](https://github.com/rxi/flux) - A tweening library for Lua.
+- [handy](https://github.com/bjornbytes/handy) - Helper utilities for managing controllers.
 - [knife](https://github.com/airstruck/knife) - A collection of useful micromodules for Lua.
+- [lovr-circle](https://github.com/bjornbytes/lovr-circle) - Create circle geometry.
 - [lovr-icosphere](https://github.com/bjornbytes/lovr-icosphere) - A library to create icospheres.
+- [lovr-grid](https://github.com/bjornbytes/lovr-grid) - A library for drawing grids.
 - [lovr-lighting](https://github.com/bjornbytes/lovr-lighting) - Simple lighting shaders to add to
   scenes.
 - [lume](https://github.com/rxi/lume) - Lua utility functions geared towards game development.
