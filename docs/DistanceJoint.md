@@ -5,8 +5,8 @@ category: reference
 DistanceJoint
 ===
 
-A DistanceJoint tries to keep two colliders a fixed distance apart.  It extends `Joint` with the
-following functions:
+A DistanceJoint applies forces to keep two colliders a fixed distance apart.  It extends `Joint`
+with the following functions:
 
 <table>
 <tr>
