@@ -5,7 +5,7 @@ category: reference
 lovr.graphics.newModel
 ===
 
-Creates a new Model from a file.  Most 3D file formats are supported.
+Creates a new Model from a file.  Supported 3D formats are COLLADA (.dae), FBX, and OBJ.
 
     model = lovr.graphics.newModel(filename)
 
