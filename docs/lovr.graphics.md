@@ -67,7 +67,8 @@ Transforms
 
 Functions to manipulate the coordinate system.  Changing the coordinate system can be useful for
 creating a 3D camera, expressing parent-child relationships between entities, or otherwise changing
-how objects in the game world are mapped onto the screen.
+how objects in the game world are mapped onto the screen.  Note that in LÖVR the negative z axis
+is the "forwards" direction and the positive y axis is the "upwards" direction.
 
 <table>
 <tr>
