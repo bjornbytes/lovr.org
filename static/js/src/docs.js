@@ -148,9 +148,15 @@ iframe.addEventListener('load', function(event) {
 // Bootstrap initial content
 var initialContent = document.querySelector('.content');
 if (initialContent) {
+  var key = initialContent.dataset.key;
+  var url = '/docs';
+  url += key.length > 0 ? ('/' + key) : '';
+  if (!history.state || history.state.key !== key) {
+    history.replaceState({ key: key }, '', url);
+  }
+
   enhance(initialContent);
   var wrapper = document.querySelector('.wrapper');
-  var key = initialContent.dataset.key;
   var link = wrapper.querySelector('[data-key="' + key + '"]');
 
   if (link) {
