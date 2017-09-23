@@ -34,7 +34,8 @@ List of Libraries
 - [lovr-icosphere](https://github.com/bjornbytes/lovr-icosphere) - A library to create icospheres.
 - [lovr-grid](https://github.com/bjornbytes/lovr-grid) - A library for drawing grids.
 - [lovr-lighting](https://github.com/bjornbytes/lovr-lighting) - Simple lighting shaders to add to
-  scenes.
+- [lovr-webvr-server](https://github.com/bjornbytes/lovr-webvr-server) - A local development server for
+  testing WebVR projects.
 - [lume](https://github.com/rxi/lume) - Lua utility functions geared towards game development.
 - [maf](https://github.com/bjornbytes/maf) - A 3D math library with vectors and quaternions.
 - [tiny-ecs](https://github.com/bakpakin/tiny-ecs) - An entity component system for Lua.
