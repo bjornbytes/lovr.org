@@ -35,8 +35,18 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Controller:isTouched</td>
+  <td>Check whether a button on the Controller is currently touched.</td>
+</tr>
+
+<tr>
   <td class="pre">Controller:isPresent</td>
   <td>Check whether a Controller is connected.</td>
+</tr>
+
+<tr>
+  <td class="pre">Controller:getHand</td>
+  <td>Get whether the controller is the left or the right one.</td>
 </tr>
 
 <tr>
