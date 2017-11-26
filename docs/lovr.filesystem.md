@@ -31,11 +31,6 @@ directory takes precedence.
 </tr>
 
 <tr>
-  <td class="pre">lovr.filesystem.exists</td>
-  <td>Check whether a file exists.</td>
-</tr>
-
-<tr>
   <td class="pre">lovr.filesystem.getAppdataDirectory</td>
   <td>Get the system "application data" directory.</td>
 </tr>

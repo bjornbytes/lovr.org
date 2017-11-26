@@ -29,7 +29,7 @@ Example
 ```
 -- Assuming data.zip contains a file 'background.png'
 lovr.filesystem.mount('data.zip', 'assets')
-print(lovr.filesystem.exists('assets/background.png')) -- true
+print(lovr.filesystem.isFile('assets/background.png')) -- true
 ```
 
 See also
