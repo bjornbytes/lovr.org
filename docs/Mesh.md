@@ -23,6 +23,16 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Mesh:getMaterial</td>
+  <td>Get the Material applied to the Mesh.</td>
+</tr>
+
+<tr>
+  <td class="pre">Mesh:setMaterial</td>
+  <td>Set the Material to use when rendering the Mesh.</td>
+</tr>
+
+<tr>
   <td class="pre">Mesh:getDrawMode</td>
   <td>Get the current draw mode of a Mesh, which controls how vertices are connected together.</td>
 </tr>
