@@ -7,8 +7,6 @@ Transform:setMatrix
 
 Set the individual matrix components of a Transform, in column-major order.
 
----
-
     Transform:setMatrix(m11, m21, m31, m41, m12, m22, m23, m24, m13, m23, m33, m34, m41, m42, m43, m44)
 
 ### Arguments

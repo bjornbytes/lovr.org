@@ -128,6 +128,12 @@ frame, which can really slow things down!
 </tr>
 
 <tr>
+  <td class="pre">Material</td>
+  <td class="pre">lovr.graphics.newMaterial</td>
+  <td>An object for controlling coloring, texturing, and shading.</td>
+</tr>
+
+<tr>
   <td class="pre">Model</td>
   <td class="pre">lovr.graphics.newModel</td>
   <td>An asset in a 3D file format such as .obj or .fbx.</td>
