@@ -6,7 +6,8 @@ Model
 ===
 
 A Model is a drawable object loaded from a 3D file format.  The supported formats are `obj`, `fbx`,
-and `dae` (COLLADA)..  Models will use normals and texture coordinates, if provided.
+`dae` (COLLADA), and `gltf`.  Loading a Model will load its normals, texture coordinates, vertex
+colors, referenced materials, and animations.
 
 <table>
 <tr>
