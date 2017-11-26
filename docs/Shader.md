@@ -53,7 +53,11 @@ Vertex header:
     in vec3 lovrPosition;
     in vec3 lovrNormal;
     in vec2 lovrTexCoord;
+    in vec4 lovrVertexColor;
+    in ivec4 lovrBones;
+    in vec4 lovrBoneWeights;
     out vec2 texCoord;
+    out vec4 vertexColor;
 
     // Matrix uniforms
     uniform mat4 lovrModel;
@@ -61,10 +65,15 @@ Vertex header:
     uniform mat4 lovrProjection;
     uniform mat4 lovrTransform; // The ModelView matrix
     uniform mat3 lovrNormalMatrix;
+    uniform float lovrPointSize;
+    uniform mat4 lovrPose[48]; // Bone poses
 
 Fragment header:
 
     in vec2 texCoord;
+    in vec4 vertexColor;
     out vec4 lovrFragColor;
     uniform vec4 lovrColor; // The color set with lovr.graphics.setColor
-    uniform sampler2D lovrTexture;
+    uniform vec4 lovrDiffuseColor; // The material's diffuse color
+    uniform sampler2D lovrDiffuseTexture; // The material's diffuse texture
+    uniform samplerCube lovrEnvironmentMap; // The material's environment map
