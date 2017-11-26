@@ -83,7 +83,7 @@ The graphics module is the most exciting module, and is also the largest.  Most 
 These can be used to quickly prototype a scene without needing to create or load assets.
 
 There are lots of different rendering-related objects that can be created using `lovr.graphics`,
-such as `Model`, `Texture`, `Font`, `Shader`, `Skybox`, and more.  Every function to create a new
+such as `Model`, `Texture`, `Font`, `Shader`, and more.  Every function to create a new
 object is prefixed with `new`, so to create a 3D model object you can use `lovr.graphics.newModel`.
 
 > Note: Creating graphics objects uses memory and can slow things down if done every frame.  For

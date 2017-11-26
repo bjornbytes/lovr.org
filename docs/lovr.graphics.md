@@ -140,12 +140,6 @@ frame, which can really slow things down!
 </tr>
 
 <tr>
-  <td class="pre">Skybox</td>
-  <td class="pre">lovr.graphics.newSkybox</td>
-  <td>A cube wrapped around the camera to give the illusion of a 3D background.</td>
-</tr>
-
-<tr>
   <td class="pre">Texture</td>
   <td class="pre">lovr.graphics.newTexture</td>
   <td>An image that can be used to texture Meshes and Models.</td>
