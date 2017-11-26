@@ -16,6 +16,11 @@ can be used for lighting, postprocessing, particles, animation, and much more.  
 </tr>
 
 <tr>
+  <td class="pre">Shader:hasUniform</td>
+  <td>Check whether a Shader has a uniform variable.</td>
+</tr>
+
+<tr>
   <td class="pre">Shader:send</td>
   <td>Update a uniform variable of the Shader.</td>
 </tr>
