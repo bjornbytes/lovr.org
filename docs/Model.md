@@ -21,6 +21,16 @@ colors, referenced materials, and animations.
 </tr>
 
 <tr>
+  <td class="pre">Model:getMaterial</td>
+  <td>Get the Material applied to the Model.</td>
+</tr>
+
+<tr>
+  <td class="pre">Model:setMaterial</td>
+  <td>Set the Material to use when rendering the Model.</td>
+</tr>
+
+<tr>
   <td class="pre">Model:getAABB</td>
   <td>Get the axis aligned bounding box of the vertices of the Model.</td>
 </tr>
