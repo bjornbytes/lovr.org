@@ -20,16 +20,6 @@ and `dae` (COLLADA)..  Models will use normals and texture coordinates, if provi
 </tr>
 
 <tr>
-  <td class="pre">Model:getTexture</td>
-  <td>Get the current texture applied to the Model.</td>
-</tr>
-
-<tr>
-  <td class="pre">Model:setTexture</td>
-  <td>Set the texture of the Model, used when drawing.</td>
-</tr>
-
-<tr>
   <td class="pre">Model:getAABB</td>
   <td>Get the axis aligned bounding box of the vertices of the Model.</td>
 </tr>

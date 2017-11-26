@@ -33,11 +33,6 @@ Functions
 </tr>
 
 <tr>
-  <td class="pre">Mesh:getTexture</td>
-  <td>Get the current texture used when drawing the Mesh.</td>
-</tr>
-
-<tr>
   <td class="pre">Mesh:getVertex</td>
   <td>Get a single vertex in the Mesh.</td>
 </tr>
@@ -65,11 +60,6 @@ Functions
 <tr>
   <td class="pre">Mesh:setDrawRange</td>
   <td>Set the draw range of the Mesh, causing only a subset of the vertices to be drawn.</td>
-</tr>
-
-<tr>
-  <td class="pre">Mesh:setTexture</td>
-  <td>Set the texture used when drawing the Mesh.</td>
 </tr>
 
 <tr>
