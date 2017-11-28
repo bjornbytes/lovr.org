@@ -21,6 +21,11 @@ colors, referenced materials, and animations.
 </tr>
 
 <tr>
+  <td class="pre">Model:drawInstanced</td>
+  <td>Draw multiple copies of a Model in an optimized way.</td>
+</tr>
+
+<tr>
   <td class="pre">Model:getMaterial</td>
   <td>Get the Material applied to the Model.</td>
 </tr>

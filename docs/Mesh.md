@@ -23,6 +23,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Mesh:drawInstanced</td>
+  <td>Draw multiple copies of a Mesh in an optimized way.</td>
+</tr>
+
+<tr>
   <td class="pre">Mesh:getMaterial</td>
   <td>Get the Material applied to the Mesh.</td>
 </tr>
