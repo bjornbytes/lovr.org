@@ -32,6 +32,12 @@ all options to their defaults:
       -- simulate a standing experience so the camera isn't "in the floor".
       t.headset.offset = 1.7
 
+      -- The set of available drivers to use for lovr.headset, sorted in order of preference.
+      t.headset.drivers = { 'openvr', 'webvr', 'fake' }
+
+      -- Whether or not colors are gamma corrected
+      t.gammacorrect = false
+
       -- Window properties
       t.window.width = 800
       t.window.height = 600
