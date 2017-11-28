@@ -36,6 +36,16 @@ colors, referenced materials, and animations.
 </tr>
 
 <tr>
+  <td class="pre">Model:getAnimator</td>
+  <td>Get the Animator attached to the Model.</td>
+</tr>
+
+<tr>
+  <td class="pre">Model:setAnimator</td>
+  <td>Attach an Animator to a Model.</td>
+</tr>
+
+<tr>
   <td class="pre">Model:getAABB</td>
   <td>Get the axis aligned bounding box of the vertices of the Model.</td>
 </tr>
