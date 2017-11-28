@@ -25,3 +25,8 @@ Draws a triangle.
 ### Returns
 
 Nothing
+
+Notes
+---
+
+You can use a `Material` instead of a draw mode to draw a triangle with a custom material.

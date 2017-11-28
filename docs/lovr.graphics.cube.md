@@ -30,6 +30,10 @@ Notes
 
 This function is like `lovr.graphics.box` with the same scale for each axis.
 
+A `Material` can be passed instead of a `DrawMode` for more control over appearance.
+
+A `Transform` can be used instead of specifying position, size, and orientation separately.
+
 See also
 ---
 

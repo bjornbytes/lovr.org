@@ -47,6 +47,16 @@ Simple functions for drawing simple shapes:
 </tr>
 
 <tr>
+  <td class="pre">lovr.graphics.arc</td>
+  <td>Draw an arc.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.circle</td>
+  <td>Draw a circle.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.graphics.cylinder</td>
   <td>Draw a cylinder.</td>
 </tr>

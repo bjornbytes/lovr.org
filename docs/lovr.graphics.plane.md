@@ -41,3 +41,10 @@ automatically use this Shader, make sure the default shader is set (by calling
 ### Returns
 
 Nothing
+
+Notes
+---
+
+It is possible to pass a `Material` instead of a `DrawMode` for more control over appearance.
+
+A `Transform` can also be used instead of specifying position, size, and orientation.

@@ -27,14 +27,12 @@ Draws a box with a given position, size, and orientation.
 
 Nothing
 
+Notes
 ---
 
-Draw a box using a `Transform`.
+A `Material` can be passed instead of a `DrawMode` for more control over appearance.
 
-    lovr.graphics.box(mode, transform)
-
-- `DrawMode mode` How to draw the box.
-- `Transform transform` The Transform to apply to the box.
+A `Transform` can be used instead of specifying position, size, and orientation separately.
 
 See also
 ---
