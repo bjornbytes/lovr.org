@@ -111,14 +111,14 @@ end
 
 function lovr.draw()
   -- Use a dark grey background
-  lovr.graphics.setBackgroundColor(50, 50, 50)
+  lovr.graphics.setBackgroundColor(.2, .2, .2)
 
   -- Draw the model
-  lovr.graphics.setColor(255, 255, 255)
+  lovr.graphics.setColor(1.0, 1.0, 1.0)
   model:draw(-.5, 1, -3)
 
   -- Draw a red cube using the "cube" primitive
-  lovr.graphics.setColor(255, 0, 0)
+  lovr.graphics.setColor(1.0, 0, 0)
   lovr.graphics.cube('fill', .5, 1, -3, .5, lovr.timer.getTime())
 end
 ```
@@ -233,12 +233,12 @@ function drawBox(box)
 end
 
 function lovr.draw()
-  lovr.graphics.setColor(255, 0, 0)
+  lovr.graphics.setColor(1.0, 0.0, 0.0)
   for i, box in ipairs(boxes) do
     drawBox(box)
   end
 
-  lovr.graphics.setColor(0, 0, 255)
+  lovr.graphics.setColor(0.0, 0.0, 1.0)
   for i, box in ipairs(controllerBoxes) do
     drawBox(box)
   end

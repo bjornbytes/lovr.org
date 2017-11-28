@@ -6,7 +6,8 @@ Material:setColor
 ===
 
 Set a color property for a Material.  Different types of colors are supported for different lighting
-parameters.  Colors default to white and are gamma corrected as necessary.
+parameters.  Color channels should be specified from 0.0 to 1.0.  Colors default to white and are
+gamma corrected as necessary.
 
     Material:setColor(colorType, r, g, b, a)
 
@@ -16,7 +17,7 @@ parameters.  Colors default to white and are gamma corrected as necessary.
 - `number r` The red component of the color.
 - `number g` The green component of the color.
 - `number b` The blue component of the color.
-- `number a` The alpha component of the color.
+- `number a (1.0)` The alpha component of the color.
 
 ### Returns
 
@@ -33,7 +34,7 @@ Set the diffuse color.
 - `number r` The red component of the color.
 - `number g` The green component of the color.
 - `number b` The blue component of the color.
-- `number a` The alpha component of the color.
+- `number a (1.0)` The alpha component of the color.
 
 ### Returns
 
