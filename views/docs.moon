@@ -43,6 +43,7 @@ class Docs extends require 'views.page'
       @sidebar_link 'lovr.load'
       @sidebar_link 'lovr.quit'
       @sidebar_link 'lovr.run'
+      @sidebar_link 'lovr.step'
       @sidebar_link 'lovr.update'
 
     h2 'Reference'
