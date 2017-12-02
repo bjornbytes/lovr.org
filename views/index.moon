@@ -87,7 +87,7 @@ class Index extends Widget
               span class: 'hljs-params', '()'
 
             text '\n  controllers = lovr.headset.getControllers()'
-            span class: 'hljs-keyword', '\n  for'
+            span class: 'hljs-keyword', '\n\n  for'
             text ' _, controller'
             span class: 'hljs-keyword', ' in'
             span class: 'hljs-built_in', ' ipairs'
@@ -108,7 +108,7 @@ class Index extends Widget
               span class: 'hljs-title', 'lovr.load'
               span class: 'hljs-params', '()'
 
-            text '\n  skybox = lovr.graphics.newSkybox('
+            text '\n  skybox = lovr.graphics.newTexture('
             span class: 'hljs-string', '\'sky.jpg\''
             text ')'
             span class: 'hljs-keyword', '\nend\n\n'
@@ -118,7 +118,8 @@ class Index extends Widget
               span class: 'hljs-title', 'lovr.draw'
               span class: 'hljs-params', '()'
 
-            text '\n  skybox:draw(lovr.headset.getOrientation())'
+            text '\n  angle, ax, ay, az = lovr.headset.getOrientation()'
+            text '\n  lovr.graphics.skybox(skybox, -angle, ax, ay, az)'
             span class: 'hljs-keyword', '\nend'
 
       h2 'Screenshots'
