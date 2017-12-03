@@ -46,6 +46,11 @@ colors, referenced materials, and animations.
 </tr>
 
 <tr>
+  <td class="pre">Model:getMesh</td>
+  <td>Get the underlying Mesh object for a Model.</td>
+</tr>
+
+<tr>
   <td class="pre">Model:getAABB</td>
   <td>Get the axis aligned bounding box of the vertices of the Model.</td>
 </tr>
