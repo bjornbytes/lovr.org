@@ -5,8 +5,7 @@ category: reference
 lovr.audio.isSpatialized
 ===
 
-Set parameters controlling the doppler effect.  This is controlled by the speed of sound and the
-"scaling" factor, which controls how intense the effect is.
+Get whether or not audio is currently spatialized.
 
     isSpatialized = lovr.audio.isSpatialized()
 
