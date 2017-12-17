@@ -109,6 +109,11 @@ whenever a new controller is connected.
 </tr>
 
 <tr>
+  <td class="pre">lovr.step</td>
+  <td>Called to run a single iteration of the run loop.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.run</td>
   <td>The main loop for the game.</td>
 </tr>
