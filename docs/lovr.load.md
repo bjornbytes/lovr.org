@@ -8,7 +8,7 @@ lovr.load
 This callback is called once when the game starts.  It should be used to perform initial setup work,
 like loading resources and initializing classes and variables.
 
-    function lovr.load(eye)
+    function lovr.load(args)
       model = lovr.graphics.newModel('cena.fbx')
       texture = lovr.graphics.newTexture('cena.png')
       levelGeometry = lovr.graphics.newMesh(1000)
