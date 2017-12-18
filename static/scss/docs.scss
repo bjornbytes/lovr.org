@@ -28,7 +28,7 @@
   }
 
   .wrapper {
-    position: fixed;
+    position: absolute;
     top: 60px;
     bottom: 0;
     background: $c-white;
@@ -94,7 +94,7 @@
 }
 
 main.docs {
-  position: fixed;
+  position: absolute;
   overflow-y: scroll;
   left: 310px;
   right: 0;
