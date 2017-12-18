@@ -96,11 +96,10 @@
 main.docs {
   position: fixed;
   overflow-y: scroll;
-  left: 0;
+  left: 310px;
   right: 0;
   top: 60px;
   bottom: 0;
-  margin-left: 310px;
 
   .embed {
     display: none;
@@ -134,7 +133,7 @@ main.docs {
   .content {
     position: absolute;
     width: 740px;
-    max-width: 740px;
+    max-width: 100%;
     padding: 40px 60px;
     will-change: transform, opacity;
     &.intro { animation: intro 200ms; }
@@ -197,7 +196,8 @@ main.docs {
   img {
     margin: 10px auto;
     border-radius: 1px;
-    max-width: 400px;
+    max-width: 70%;
+    height: auto;
     display: block;
     border-radius: 8px;
     box-shadow: 0 0 2px rgba(0, 0, 0, .2);
