@@ -2,11 +2,16 @@
 
 nav {
   background: $c-cream;
-  border-bottom: 1px solid $c-steam;
+  border-bottom: 2px solid $c-ghost;
   height: 60px;
   user-select: none;
-  position: relative;
+  position: fixed;
   overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  overflow-x: auto;
 }
 
 nav .links {
@@ -68,5 +73,38 @@ nav .logo a {
     z-index: 1;
     display: inline-block;
     &:active { transform: translateY(1px); }
+  }
+}
+
+@media(max-width: 720px) {
+  nav .logo {
+    margin-right: 20px;
+  }
+
+  nav .links {
+    margin: 0 10px;
+  }
+
+  nav .links a {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+}
+
+@media(max-width: 540px) {
+  nav .logo {
+    margin-right: 0;
+  }
+
+  nav .logo a {
+    margin-left: 60px;
+
+    span {
+      display: none;
+    }
+  }
+
+  nav .links a {
+    padding: 0 8px;
   }
 }

@@ -10,13 +10,13 @@
   position: fixed;
   top: 60px;
   bottom: 0;
+  z-index: 10;
   background: $c-white;
   border-right: 2px $c-ghost solid;
   padding-bottom: 20px;
   width: 310px;
   overflow-y: scroll;
   will-change: scroll-position;
-  z-index: 10;
 
   h2 {
     font-size: 16px;
@@ -44,6 +44,9 @@
     cursor: pointer;
     border-left: 5px solid;
     border-left-color: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
     &.active { color: $c-raven; border-left-color: $c-mauve; }
     &:active, &.active { background: $c-phlox; }
@@ -70,12 +73,9 @@
 }
 
 main.docs {
-  position: fixed;
   overflow-y: auto;
-  left: 310px;
-  right: 0;
-  top: 60px;
-  bottom: 0;
+  margin-left: 310px;
+  margin-top: 60px;
 
   .embed {
     display: none;
@@ -109,9 +109,10 @@ main.docs {
   .content {
     width: 740px;
     max-width: 100%;
-    padding: 40px 60px;
+    padding: 40px 50px;
     will-change: transform, opacity;
     &.intro { animation: intro 200ms; }
+    overflow-x: hidden;
   }
 
   @keyframes intro {
@@ -163,9 +164,9 @@ main.docs {
   }
 
   p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 15px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 25px 0;
   }
 
   img {
@@ -194,13 +195,11 @@ main.docs {
       }
     }
 
-    background: $c-white;
     color: $c-raven;
-    font-size: 12px;
-    border-radius: 4px;
+    font-size: 14px;
+    border-radius: 3px;
     display: inline-block;
-    padding: 0 4px;
-    border: 1px $c-lilac solid;
+    padding: 0 2px;
   }
 
   pre {
@@ -275,29 +274,28 @@ main.docs {
     margin: 15px 0;
     background: $c-white;
     border-collapse: collapse;
-    &, tr, td { border: 1px $c-steam solid; }
 
-    tr {
-      td {
-        font-size: 12px;
-        padding: 6px;
+    td {
+      font-size: 12px;
+      padding: 4px 6px;
 
-        &.pre, &.pre a {
-          font-family: "Inconsolata";
-          font-size: 14px;
-        }
+      &.pre, &.pre a {
+        font-family: "Inconsolata";
+        font-size: 14px;
+      }
 
-        &.pre a {
-          color: $c-mauve;
-          padding-top: 6px;
-          padding-bottom: 6px;
-          &:hover {
-            color: $c-black;
-          }
+      &.pre a {
+        color: $c-mauve;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        &:hover {
+          color: $c-black;
         }
       }
     }
   }
+
+  table, tr, td { border: 1px $c-steam solid; }
 
   blockquote {
     background: $c-lapis;
@@ -307,21 +305,109 @@ main.docs {
 
     p {
       margin: 0;
+      font-size: 14px;
     }
   }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 960px) {
+  .sidebar {
+    width: 250px;
+
+    h2 {
+      padding-left: 14px;
+    }
+
+    li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  main.docs {
+    margin-left: 250px;
+
+    .content {
+      padding: 30px 40px;
+
+      h1 {
+        font-size: 26px;
+      }
+
+      pre code {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  main.docs {
+    margin-left: 220px;
+
+    .content {
+      padding: 25px 30px;
+    }
+
+    table {
+      td {
+        padding: 4px;
+
+        &.pre, &.pre a {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 720px) {
   .sidebar {
     position: absolute;
     left: -310px;
   }
 
   main.docs {
-    left: 0;
+    margin-left: 0;
 
     .content {
-      padding: 40px 20px;
+      padding: 20px 20px;
+    }
+
+    pre, blockquote {
+      width: auto;
+      margin-left: -20px;
+      margin-right: -20px;
+      border: none;
+      border-radius: 0;
+    }
+
+    pre {
+      padding: 0;
+
+      code {
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        padding: 12px 20px;
+      }
+    }
+  }
+}
+
+@media(max-width: 480px) {
+  main.docs {
+    table, tbody, tr, td {
+      display: block;
+      border: none;
+    }
+
+    tr {
+      border-bottom: 1px $c-steam solid;
     }
   }
 }
