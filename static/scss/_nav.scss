@@ -1,8 +1,8 @@
 @import "colors.scss";
 
 nav {
-  background: $c-cream;
-  border-bottom: 2px solid $c-ghost;
+  background: $c-moody;
+  border-bottom: 2px $c-smoky solid;
   height: 60px;
   user-select: none;
   position: fixed;
@@ -29,11 +29,15 @@ nav .links a {
   height: 60px;
   line-height: 60px;
   text-decoration: none;
-  color: $c-raven;
+  color: $c-steam;
   padding: 0 20px;
 
   &:hover {
-    color: $c-mauve;
+    color: $c-berry;
+  }
+
+  &:active {
+    background: $c-murky;
   }
 
   &:active {
@@ -53,6 +57,10 @@ nav .logo svg {
   position: absolute;
   top: 14px;
   left: 20px;
+
+  g {
+    fill: rgba(255, 255, 255, .15);
+  }
 }
 
 nav .logo a {
@@ -65,11 +73,11 @@ nav .logo a {
   text-decoration: none;
 
   &:hover span {
-    color: $c-mauve;
+    color: $c-berry;
   }
 
   span {
-    color: $c-raven;
+    color: $c-cream;
     z-index: 1;
     display: inline-block;
     &:active { transform: translateY(1px); }
