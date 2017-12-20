@@ -7,95 +7,71 @@
 @import "tomorrow-night-blue.scss";
 
 .sidebar {
-  ::-webkit-scrollbar {
-    width: 8px;
+  position: fixed;
+  top: 60px;
+  bottom: 0;
+  background: $c-white;
+  border-right: 2px $c-ghost solid;
+  padding-bottom: 20px;
+  width: 310px;
+  overflow-y: scroll;
+  will-change: scroll-position;
+  z-index: 10;
+
+  h2 {
+    font-size: 16px;
+    color: $c-raven;
+    margin: 0;
+    font-weight: normal;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    padding-left: 24px;
   }
 
-  ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner {
-    height: 0;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, .04);
-    border-radius: 1px;
-    &:hover {
-      background: $c-lilac;
+  li {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: $c-mauve;
+    font-size: 12px;
+    cursor: pointer;
+    border-left: 5px solid;
+    border-left-color: transparent;
+    &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
+    &.active { color: $c-raven; border-left-color: $c-mauve; }
+    &:active, &.active { background: $c-phlox; }
+    &:last-child { margin-bottom: 0; }
+    &.disabled, &.disabled:hover {
+      color: $c-slate;
+      cursor: default;
     }
   }
 
-  ::-webkit-scrollbar-track {
-    background: rgba($c-black, .03);
-  }
-
-  .wrapper {
-    position: absolute;
-    top: 60px;
-    bottom: 0;
-    background: $c-white;
-    box-shadow: 1px 0 2px rgba($c-black, .1);
-    padding-bottom: 20px;
-    width: 310px;
-    overflow-y: scroll;
-    will-change: scroll-position;
-    z-index: 10;
-  }
-
-  flex: 0 0 310px;
-}
-
-.sidebar h2 {
-  font-size: 16px;
-  color: $c-raven;
-  margin: 0;
-  font-weight: normal;
-  margin-top: 18px;
-  margin-bottom: 8px;
-  padding-left: 24px;
-}
-
-.sidebar ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.sidebar li {
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  color: $c-mauve;
-  font-size: 12px;
-  cursor: pointer;
-  border-left: 5px solid;
-  border-left-color: transparent;
-  &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
-  &.active { color: $c-raven; border-left-color: $c-mauve; }
-  &:active, &.active { background: $c-phlox; }
-  &:last-child { margin-bottom: 0; }
-  &.disabled, &.disabled:hover {
-    color: $c-slate;
-    cursor: default;
-  }
-}
-
-.sidebar input {
-  display: none;
-  margin-top: 20px;
-  margin-left: 20px;
-  padding: 4px;
-  width: 200px;
-  font-size: 14px;
-  border: none;
-  &, &:focus {
-    outline: none;
-    border-bottom: 2px $c-lilac solid;
+  input {
+    display: none;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 4px;
+    width: 200px;
+    font-size: 14px;
+    border: none;
+    &, &:focus {
+      outline: none;
+      border-bottom: 2px $c-lilac solid;
+    }
   }
 }
 
 main.docs {
-  position: absolute;
-  overflow-y: scroll;
+  position: fixed;
+  overflow-y: auto;
   left: 310px;
   right: 0;
   top: 60px;
@@ -131,7 +107,6 @@ main.docs {
   }
 
   .content {
-    position: absolute;
     width: 740px;
     max-width: 100%;
     padding: 40px 60px;
@@ -332,6 +307,21 @@ main.docs {
 
     p {
       margin: 0;
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    left: -310px;
+  }
+
+  main.docs {
+    left: 0;
+
+    .content {
+      padding: 40px 20px;
     }
   }
 }

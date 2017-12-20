@@ -156,12 +156,12 @@ if (initialContent) {
   }
 
   enhance(initialContent);
-  var wrapper = document.querySelector('.wrapper');
-  var link = wrapper.querySelector('[data-key="' + key + '"]');
+  var sidebar = document.querySelector('.sidebar');
+  var link = sidebar.querySelector('[data-key="' + key + '"]');
 
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
-    wrapper.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  wrapper.offsetHeight / 2;
+    sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
     setEmbed(link.dataset.embed);
   }
 }

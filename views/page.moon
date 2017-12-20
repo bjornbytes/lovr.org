@@ -11,7 +11,6 @@ class Page extends Widget
 
   sidebar: =>
     div class: 'sidebar', ->
-      div class: 'wrapper', ->
-        input class: 'search'
+      input class: 'search'
 
-        @sidebar_content!
+      @sidebar_content!
