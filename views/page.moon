@@ -13,6 +13,8 @@ class Page extends Widget
     div class: 'sidebar', ->
       input class: 'search'
 
+      aside class: 'alias-message'
+
       @sidebar_content!
 
     div class: 'sidebar-toggle', ->

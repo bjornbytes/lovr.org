@@ -6,6 +6,7 @@ config = require('lapis.config').get!
 glob = require 'glob'
 upload = require 'upload'
 lfs = require 'lfs'
+aliases = require 'aliases'
 
 class extends Application
   layout: 'layout'
@@ -46,6 +47,9 @@ class extends Application
 
   '/api/docs': cached =>
     json: glob!
+
+  '/api/aliases': cached =>
+    json: aliases
 
   '/api/share': capture_errors_json =>
     success, result = pcall(upload, @params.file.content)

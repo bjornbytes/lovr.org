@@ -62,13 +62,24 @@
     margin-top: 20px;
     margin-left: 20px;
     padding: 4px;
-    width: 200px;
+    width: 80%;
     font-size: 14px;
     border: none;
     &, &:focus {
       outline: none;
       border-bottom: 2px $c-lilac solid;
     }
+  }
+
+  .alias-message {
+    display: none;
+    width: 100%;
+    margin: 18px 0;
+    padding: 8px 24px;
+    font-size: 13px;
+    color: $c-smoky;
+    font-style: italic;
+    background: $c-lapis;
   }
 }
 
