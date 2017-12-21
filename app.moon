@@ -53,3 +53,18 @@ class extends Application
       return json: { id: result }
     else
       yield_error(result)
+
+  '/download': =>
+    redirect_to: 'http://bjornbyt.es/f/lovr.zip'
+
+  '/repo': =>
+    redirect_to: 'https://github.com/bjornbytes/lovr'
+
+  '/source': =>
+    redirect_to: 'https://github.com/bjornbytes/lovr'
+
+  '/github': =>
+    redirect_to: 'https://github.com/bjornbytes/lovr'
+
+  '/slack': =>
+    redirect_to: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg'
