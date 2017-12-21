@@ -80,6 +80,12 @@
     color: $c-smoky;
     font-style: italic;
     background: $c-lapis;
+    line-height: 18px;
+
+    a {
+      color: $c-mauve;
+      text-decoration: none;
+    }
   }
 }
 

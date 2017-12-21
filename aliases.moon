@@ -17,4 +17,9 @@
   'msaa': 'lovr.conf',
   'multis': 'lovr.conf',
   'antia': 'lovr.conf'
+
+  'partic': {
+    type: 'unsupported',
+    feature: 'Particles'
+  }
 }

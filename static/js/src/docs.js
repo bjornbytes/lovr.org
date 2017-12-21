@@ -259,8 +259,19 @@ searchBox.onkeyup = function() {
 
 function updateResults() {
   var query = searchBox.value.toLowerCase();
-  var matchingAliases = aliases.filter(function(alias) {
-    return alias[0].test(query);
+  var replacements = [];
+  var message = null;
+
+  aliases.forEach(function(alias) {
+    if (!alias[0].test(query)) {
+      return;
+    }
+
+    if (typeof alias[1] === 'string') {
+      replacements.push(alias);
+    } else {
+      message = alias[1];
+    }
   });
 
   sidebarLinks.forEach(function(link) {
@@ -268,7 +279,7 @@ function updateResults() {
     var visible = key.indexOf(query) >= 0;
 
     if (!visible) {
-      visible = matchingAliases.find(function(alias) {
+      visible = replacements.find(function(alias) {
         return key.indexOf(alias[1].toLowerCase()) >= 0;
       });
     }
@@ -276,8 +287,19 @@ function updateResults() {
     link.style.display = visible ? '' : 'none';
   });
 
-  if (matchingAliases.length > 0) {
-    aliasMessage.textContent = 'Showing results for ' + matchingAliases.map(function(alias) {
+  if (message) {
+    var html = null;
+
+    if (message.type === 'unsupported') {
+      html = message.feature + ' ' + (/s$/.test(message.feature) ? 'are' : 'is') + ' not supported yet.  ';
+      html += 'Head over to the <a href="https://github.com/bjornbytes/lovr/issues" target="_blank">issues page</a> ';
+      html += 'for up-to-date status and discussion about new features.';
+    }
+
+    aliasMessage.innerHTML = html;
+    aliasMessage.style.display = 'block';
+  } else if (replacements.length > 0) {
+    aliasMessage.textContent = 'Showing results for ' + replacements.map(function(alias) {
       return "'" + alias[1] + "'";
     }).join(', ');
     aliasMessage.style.display = 'block';
