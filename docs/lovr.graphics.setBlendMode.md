@@ -7,7 +7,7 @@ lovr.graphics.setBlendMode
 
 Sets the blend mode.
 
-    lovr.graphics.getColor(blend, alphaBlend)
+    lovr.graphics.setBlendMode(blend, alphaBlend)
 
 ### Arguments
 
