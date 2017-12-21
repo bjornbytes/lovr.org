@@ -72,10 +72,44 @@
   }
 }
 
+.sidebar-toggle {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  right: 0;
+  width: 60px;
+  height: 40px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background: $c-moody;
+  box-shadow: 0 0 12px 1px rgba(0, 0, 0, .25);
+  z-index: 20;
+
+  .arrow {
+    width: 16px;
+    height: 16px;
+    border-left: 4px $c-steam solid;
+    border-top: 4px $c-steam solid;
+    display: inline-block;
+    position: absolute;
+    top: 14px;
+    left: 25px;
+    transform: rotate(-45deg);
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 2px;
+    transition: transform 192ms;
+    transform-origin: 37.5% 37.5%;
+    will-change: transform;
+  }
+}
+
 main.docs {
   overflow-y: auto;
   margin-left: 310px;
-  margin-top: 60px;
+  padding-top: 60px;
+  min-height: 100%;
 
   .embed {
     display: none;
@@ -360,8 +394,27 @@ main.docs {
 
 @media(max-width: 720px) {
   .sidebar {
-    position: absolute;
-    left: -310px;
+    position: fixed;
+    transform: translateX(310px);
+    right: 0;
+    width: 310px;
+    max-width: 100%;
+    border-left: 2px $c-ghost solid;
+    border-right: none;
+    transition: transform 192ms;
+    will-change: transform;
+
+    &.open {
+      transform: translateX(0);
+
+      + .sidebar-toggle .arrow {
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  .sidebar-toggle {
+    display: block;
   }
 
   main.docs {

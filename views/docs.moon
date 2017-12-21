@@ -57,6 +57,7 @@ class Docs extends require 'views.page'
       script ';'
 
     widget Navbar
+
     @sidebar!
 
     main class: 'docs', ->

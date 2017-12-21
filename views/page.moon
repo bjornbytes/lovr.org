@@ -14,3 +14,6 @@ class Page extends Widget
       input class: 'search'
 
       @sidebar_content!
+
+    div class: 'sidebar-toggle', ->
+      span class: 'arrow'

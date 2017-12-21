@@ -1,8 +1,12 @@
 @import "colors.scss";
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+body {
   background: $c-cream;
 }
 

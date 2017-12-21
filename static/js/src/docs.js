@@ -252,3 +252,14 @@ function updateResults() {
     link.style.display = visible ? '' : 'none';
   });
 }
+
+var sidebarToggle = document.querySelector('.sidebar-toggle');
+if (sidebarToggle) {
+  sidebarToggle.addEventListener('click', function() {
+    sidebar.classList.toggle('open');
+  });
+
+  main.addEventListener('click', function() {
+    sidebar.classList.remove('open');
+  });
+}
