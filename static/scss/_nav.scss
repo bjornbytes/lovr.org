@@ -29,15 +29,12 @@ nav .links a {
   height: 60px;
   line-height: 60px;
   text-decoration: none;
+  text-shadow: 1px 1px rgba(0, 0, 0, .75);
   color: $c-steam;
   padding: 0 20px;
 
   &:hover {
     color: $c-berry;
-  }
-
-  &:active {
-    background: $c-murky;
   }
 
   &:active {
@@ -71,6 +68,7 @@ nav .logo a {
   margin-top: 1px;
   font-size: 20px;
   text-decoration: none;
+  text-shadow: 1px 1px rgba(0, 0, 0, .75);
 
   &:hover span {
     color: $c-berry;

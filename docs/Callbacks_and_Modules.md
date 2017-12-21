@@ -59,7 +59,7 @@ section on the sidebar to the left.
 Modules
 ---
 
-You might be wondering what code to write in the different callbacks.  Inside callbacks you'll Often
+You might be wondering what code to write in the different callbacks.  Inside callbacks you'll often
 call into different modules to get LÖVR to do useful things.
 
 A module is just a Lua table that exposes a set of functions you can call.  Each module is
