@@ -219,21 +219,23 @@ main.docs {
       font-family: "Fira Mono", monospace;
     }
 
-    a {
-      color: $c-raven;
-      &[data-key] {
-        color: $c-mauve;
-        &:hover {
-          color: $c-black;
-        }
+    a[data-key] {
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+
+      &:hover {
+        border-bottom: 2px $c-berry solid;
       }
     }
 
-    color: $c-raven;
+    color: $c-smoky;
     font-size: 14px;
-    border-radius: 3px;
     display: inline-block;
-    padding: 0 2px;
+    padding: 2px;
+    background: linear-gradient(to top, rgba($c-phlox, .7), rgba(255, 255, 255, 0));
+    line-height: 1;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
   pre {
@@ -258,11 +260,11 @@ main.docs {
 
       &:hover {
         a, a[data-key] {
-          color: $c-white;
-          border-bottom: 1px rgba($c-white, .3) dashed;
+          border-bottom: 1px $c-slate dashed;
 
           &:hover {
-            border-bottom: 1px rgba($c-white, .5) dashed;
+            color: $c-white;
+            border-bottom: 1px $c-berry dashed;
           }
         }
       }
