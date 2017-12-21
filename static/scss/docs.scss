@@ -446,7 +446,17 @@ main.docs {
   }
 }
 
+@media(max-width: 540px) {
+  .sidebar {
+    top: 50px;
+  }
+}
+
 @media(max-width: 480px) {
+  .sidebar {
+    top: 40px;
+  }
+
   main.docs {
     table, tbody, tr, td {
       display: block;

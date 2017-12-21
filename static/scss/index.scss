@@ -164,6 +164,16 @@ main.index {
       }
     }
   }
+
+  @media(max-width: 380px) {
+    p, .thirds .third p {
+      font-size: 15px;
+    }
+
+    .buttons a {
+      max-width: 45%;
+    }
+  }
 }
 
 .buttons {
