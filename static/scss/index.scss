@@ -7,7 +7,6 @@
 
 main.index {
   padding-bottom: 110px;
-  padding-top: 60px;
 
   h1, h1 + p {
     text-align: center;
@@ -106,20 +105,53 @@ main.index {
   }
 
   @media(max-width: 1080px) {
+    padding-bottom: 40px;
+
+    svg.logo {
+      margin-top: 80px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .buttons {
+      width: 350px;
+      max-width: 100%;
+
+      a {
+        width: 160px;
+        height: 60px;
+        line-height: 60px;
+      }
+    }
+
     .thirds {
       flex-wrap: wrap;
+      margin-top: 50px;
+
+      &.screenshots { margin-top: 20px; }
 
       .third {
         flex-basis: 100%;
         margin-right: 0;
         margin-bottom: 30px;
         text-align: justify;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
+    }
+
+    h2 {
+      margin-top: 40px;
     }
 
     .samples {
       .sample {
         flex-basis: 100%;
+        max-width: 100%;
 
         pre {
           &, * {
@@ -127,6 +159,7 @@ main.index {
           }
 
           padding: 12px;
+          overflow-x: auto;
         }
       }
     }

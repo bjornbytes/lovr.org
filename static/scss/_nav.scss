@@ -97,12 +97,23 @@ nav .logo a {
 }
 
 @media(max-width: 540px) {
+  nav {
+    height: 50px;
+  }
+
   nav .logo {
     margin-right: 0;
   }
 
+  nav .logo svg {
+    top: 10px;
+    width: 28px;
+  }
+
   nav .logo a {
     margin-left: 60px;
+    height: 50px;
+    line-height: 50px;
 
     span {
       display: none;
@@ -111,5 +122,30 @@ nav .logo a {
 
   nav .links a {
     padding: 0 8px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+
+@media(max-width: 480px) {
+  nav {
+    height: 40px;
+  }
+
+  nav .logo a {
+    margin-left: 50px;
+  }
+
+  nav .logo svg {
+    width: 24px;
+    top: 4px;
+    left: 16px;
+  }
+
+  nav .links a {
+    padding: 0 4px;
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
   }
 }

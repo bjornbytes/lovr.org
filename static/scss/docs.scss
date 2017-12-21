@@ -108,7 +108,6 @@
 main.docs {
   overflow-y: auto;
   margin-left: 310px;
-  padding-top: 60px;
   min-height: 100%;
 
   .embed {
@@ -456,6 +455,10 @@ main.docs {
 
     tr {
       border-bottom: 1px $c-steam solid;
+    }
+
+    img {
+      max-width: 100%;
     }
   }
 }
