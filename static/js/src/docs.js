@@ -11,7 +11,7 @@ var data = {};
 
 function pushPage(key) {
   if (history.state) {
-    var scroll = main.scrollTop;
+    var scroll = window.scrollY;
     var url = '/docs';
     url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
     history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
@@ -57,7 +57,7 @@ function showPage(key, scroll) {
 
   // Add the new content to the DOM (animation plays automatically)
   main.appendChild(content);
-  main.scrollTop = scroll;
+  window.scrollTo(0, scroll);
 
   // Set window title
   document.title = (key === 'index' ? '' : (key.replace(/_/g, ' ') + ' - ')) + 'LOVR';
