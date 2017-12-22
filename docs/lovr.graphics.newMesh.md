@@ -42,8 +42,8 @@ Each attribute is made available in the active shader as an input variable.
 
 ### Arguments
 
-- `table vertices` A table of vertices.  Each vertex should be a table containing three numbers
-  representing the x, y, and z coordinates of the vertex.
+- `table vertices` A table of vertices.  Each vertex should be a table containing the data for the
+  vertex.
 - `MeshDrawMode mode (triangles)` The way the mesh will render the points.
 - `MeshUsage usage (dynamic)` The usage hint for the mesh.
 
@@ -73,8 +73,8 @@ Each attribute is made available in the active shader as an input variable.
 ### Arguments
 
 - `table format` A table describing the custom attribute format of the vertices.
-- `table vertices` A table of vertices.  Each vertex should be a table containing three numbers
-  representing the x, y, and z coordinates of the vertex.
+- `table vertices` A table of vertices.  Each vertex should be a table containing the data for the
+  vertex.
 - `MeshDrawMode mode (triangles)` The way the mesh will render the points.
 - `MeshUsage usage (dynamic)` The usage hint for the mesh.
 

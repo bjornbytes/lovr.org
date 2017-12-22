@@ -21,7 +21,7 @@ Nothing
 
 Reset back to the default font.
 
-   lovr.graphics.setFont()
+    lovr.graphics.setFont()
 
 ### Arguments
 

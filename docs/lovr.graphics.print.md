@@ -30,7 +30,8 @@ Draws text in 3D space using the active font.
 
 Nothing
 
-### Notes
+Notes
+---
 
 Unicode text is supported.  Use `\n` to add a line break.
 

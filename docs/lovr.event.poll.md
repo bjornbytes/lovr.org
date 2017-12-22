@@ -19,7 +19,7 @@ None
 
 - `function iterator` The iterator function, usable in a for loop.
 
-Notes
+Example
 ---
 
 Print new events as they come in

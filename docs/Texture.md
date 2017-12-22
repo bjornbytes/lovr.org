@@ -5,7 +5,7 @@ category: reference
 Texture
 ===
 
-A Texture is an image that can be applied to `Model`s and `Mesh`s.  Supported file formats include
+A Texture is an image that can be applied to `Material`s.  Supported file formats include
 `.png`, `.jpg`, `.tga`, and `.bmp`.  Additionally, three compressed formats are supported: DXT1,
 DXT3, and DXT5 (all have the `.dds` extension).  Compressed textures are recommended as they use
 less video memory and usually improve performance.

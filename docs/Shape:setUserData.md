@@ -11,7 +11,7 @@ Set the user data associated with the shape.
 
 ### Arguments
 
-- `any value` The value to associate with the shape.
+- `any data` The value to associate with the shape.
 
 ### Returns
 

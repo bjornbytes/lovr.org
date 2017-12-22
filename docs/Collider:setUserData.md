@@ -11,7 +11,7 @@ Set the user data associated with the collider.
 
 ### Arguments
 
-- `any value` The value to associate with the collider.
+- `any data` The value to associate with the collider.
 
 ### Returns
 

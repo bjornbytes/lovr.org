@@ -14,27 +14,27 @@ Creating Colliders
 <table>
 <tr>
   <td class="pre">World:newCollider</td>
-  <td>Create a new <code>Collider</code> without any shapes attached.</td>
+  <td>Create a new Collider without any shapes attached.</td>
 </tr>
 
 <tr>
   <td class="pre">World:newBoxCollider</td>
-  <td>Create a new <code>Collider</code> with a <code>BoxShape</code> attached.</td>
+  <td>Create a new Collider with a <code>BoxShape</code> attached.</td>
 </tr>
 
 <tr>
   <td class="pre">World:newSphereCollider</td>
-  <td>Create a new <code>Collider</code> with a <code>SphereShape</code> attached.</td>
+  <td>Create a new Collider with a <code>SphereShape</code> attached.</td>
 </tr>
 
 <tr>
   <td class="pre">World:newCapsuleCollider</td>
-  <td>Create a new <code>Collider</code> with a <code>CapsuleShape</code> attached.</td>
+  <td>Create a new Collider with a <code>CapsuleShape</code> attached.</td>
 </tr>
 
 <tr>
   <td class="pre">World:newCylinderCollider</td>
-  <td>Create a new <code>Collider</code> with a <code>CylinderShape</code> attached.</td>
+  <td>Create a new Collider with a <code>CylinderShape</code> attached.</td>
 </tr>
 </table>
 
@@ -49,7 +49,7 @@ Functions
 
 <tr>
   <td class="pre">Collider:getWorld</td>
-  <td>Get the <code>World</code> the Collider is in.</td>
+  <td>Get the World the Collider is in.</td>
 </tr>
 
 <tr>

@@ -7,7 +7,7 @@ lovr.filesystem.getSource
 
 Get the absolute path of the game's source directory or archive.
 
-    path = lovr.filesystem.getSource
+    path = lovr.filesystem.getSource()
 
 ### Arguments
 

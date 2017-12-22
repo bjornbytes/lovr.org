@@ -44,7 +44,7 @@ Functions
 </tr>
 
 <tr>
-  <td class="pre">Shape:getColliders</td>
+  <td class="pre">Joint:getColliders</td>
   <td>Get the colliders the joint is attached to.</td>
 </tr>
 

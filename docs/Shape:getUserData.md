@@ -15,7 +15,7 @@ None
 
 ### Returns
 
-- `any value` The value associated with the shape.
+- `any data` The value associated with the shape.
 
 Notes
 ---

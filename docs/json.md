@@ -5,8 +5,8 @@ category: module
 json
 ===
 
-The json module exposes functions for encoding and decoding JSON.  You can use it by `require`ing
-the `json` module.
+The json module exposes functions for encoding and decoding JSON.  You can use it by requiring the
+`json` module.
 
 Example
 ---

@@ -7,7 +7,7 @@ lovr.graphics.setDefaultFilter
 
 Set the default filter mode used for new `Texture` objects.
 
-    lovr.graphics.getDefaultFilter(mode, anisotropy)
+    lovr.graphics.setDefaultFilter(mode, anisotropy)
 
 ### Arguments
 
