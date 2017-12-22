@@ -294,6 +294,10 @@ function updateResults() {
       html = message.feature + ' ' + (/s$/.test(message.feature) ? 'are' : 'is') + ' not supported yet.  ';
       html += 'Head over to the <a href="https://github.com/bjornbytes/lovr/issues" target="_blank">issues page</a> ';
       html += 'for up-to-date status and discussion about new features.';
+    } else if (message.type === 'hi') {
+      html = 'Hey.';
+    } else if (message.type === 'no') {
+      html = 'No.';
     }
 
     aliasMessage.innerHTML = html;
