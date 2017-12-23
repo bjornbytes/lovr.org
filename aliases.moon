@@ -49,7 +49,7 @@
     feature: 'Bezier curves'
   }
 
-  '(android|cardboard|gear|daydream|mobile)': {
+  '^(android|cardboard|gear|daydream|mobile)': {
     type: 'unsupported',
     feature: 'Mobile VR'
   }
@@ -59,11 +59,11 @@
     feature: 'Augmented Reality'
   }
 
-  'hi': {
+  '^hi$': {
     type: 'hi'
   }
 
-  '(unity|unreal)': {
+  '^(unity|unreal)$': {
     type: 'no'
   }
 }
