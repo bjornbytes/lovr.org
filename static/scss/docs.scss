@@ -163,6 +163,10 @@ main.docs {
     will-change: transform, opacity;
     &.intro { animation: intro 200ms; }
     overflow-x: hidden;
+
+    * {
+      margin-bottom: 0;
+    }
   }
 
   @keyframes intro {
