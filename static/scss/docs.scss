@@ -164,7 +164,7 @@ main.docs {
     &.intro { animation: intro 200ms; }
     overflow-x: hidden;
 
-    * {
+    > *:last-child {
       margin-bottom: 0;
     }
   }
