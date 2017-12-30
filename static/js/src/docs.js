@@ -75,7 +75,8 @@ function enhance(node) {
 
   var linkables = Array.prototype.slice.call(node.querySelectorAll('code, td'));
   linkables.forEach(function(linkable) {
-    linkable.innerHTML = linkable.innerHTML.replace(/[a-zA-Z\.:]+/gm, function(token) {
+    var tokenPattern = /lovr[a-zA-Z\.]*|[A-Z][a-zA-Z:]+/gm
+    linkable.innerHTML = linkable.innerHTML.replace(tokenPattern, function(token) {
       if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
         return '<a data-key="' + token + '">' + token + '</a>';
       }
