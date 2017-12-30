@@ -13,42 +13,32 @@ class Docs extends require 'views.page'
 
     h2 'Examples'
     ul ->
-      for i, key in ipairs @categories.example do
+      for key in *@categories.example do
         @example_link key
 
     h2 'Modules'
     ul ->
-      @sidebar_link 'lovr'
-      @sidebar_link 'lovr.audio'
-      @sidebar_link 'lovr.event'
-      @sidebar_link 'lovr.filesystem'
-      @sidebar_link 'lovr.graphics'
-      @sidebar_link 'lovr.headset'
-      @sidebar_link 'lovr.math'
-      @sidebar_link 'lovr.physics'
-      @sidebar_link 'lovr.timer'
-      @sidebar_link 'json'
-      @sidebar_link 'enet'
+      for key in *@categories.modules do
+        @sidebar_link key
 
     h2 'Callbacks'
     ul ->
-      @sidebar_link 'lovr.conf'
-      @sidebar_link 'lovr.controlleradded'
-      @sidebar_link 'lovr.controllerpressed'
-      @sidebar_link 'lovr.controllerreleased'
-      @sidebar_link 'lovr.controllerremoved'
-      @sidebar_link 'lovr.draw'
-      @sidebar_link 'lovr.errhand'
-      @sidebar_link 'lovr.focus'
-      @sidebar_link 'lovr.load'
-      @sidebar_link 'lovr.quit'
-      @sidebar_link 'lovr.run'
-      @sidebar_link 'lovr.step'
-      @sidebar_link 'lovr.update'
+      for key in *@categories.callbacks do
+        @sidebar_link key
 
-    h2 'Reference'
+    h2 'Objects'
     ul ->
-      for i, key in ipairs @categories.reference do
+      for key in *@categories.objects do
+        @sidebar_link key
+
+    h2 'Functions'
+    ul ->
+      for i, key in ipairs @categories.functions do
+        @sidebar_link key
+
+    h2 'Types'
+    ul ->
+      for i, key in ipairs @categories.enums do
         @sidebar_link key
 
   content: =>

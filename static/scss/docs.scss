@@ -363,6 +363,10 @@ main.docs {
 
   table, tr, td { border: 1px $c-steam solid; }
 
+  thead td {
+    color: $c-slate;
+  }
+
   blockquote {
     background: $c-lapis;
     padding: 16px;
