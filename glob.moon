@@ -106,12 +106,23 @@ glob = ->
           pre ->
             code example.code
 
-      if @related
-        h2 'See also'
-        ul ->
-          for key in *@related
-            li ->
-              code key
+      related = @related or {}
+
+      friend = nil
+      if @key\find('[%.:]get') or @key\find('[%.:]is')
+        friend = data[@key\gsub('([%.:])get', (sep) -> sep .. 'set')]
+      elseif @key\find('[%.:]set')
+        friend = data[@key\gsub('([%.:])set', (sep) -> sep .. 'get')]
+        friend or= data[@key\gsub('([%.:])set', (sep) -> sep .. 'is')]
+
+      related[#related + 1] = friend.key if friend and friend.key ~= @key
+      related[#related + 1] = @key\match('^(%w+):') or @module
+
+      h2 'See also'
+      ul ->
+        for key in *related
+          li ->
+            code key
 
   renderObject = =>
     render_html ->
@@ -158,12 +169,14 @@ glob = ->
           pre ->
             code example.code
 
-      if @related
-        h2 'See also'
-        ul ->
-          for key in *@related
-            li ->
-              code key
+      related = @related or {}
+      related[#related + 1] = @module
+
+      h2 'See also'
+      ul ->
+        for key in *related
+          li ->
+            code key
 
   renderEnum = =>
     render_html ->
