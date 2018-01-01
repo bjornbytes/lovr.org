@@ -30,6 +30,11 @@ Functions
 </tr>
 
 <tr>
+  <td class="pre">Controller:getPose</td>
+  <td>Get the current position and orientation of the Controller.</td>
+</tr>
+
+<tr>
   <td class="pre">Controller:isDown</td>
   <td>Check whether a button on the Controller is currently pressed.</td>
 </tr>

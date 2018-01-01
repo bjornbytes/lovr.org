@@ -42,6 +42,11 @@ player's face.
 </tr>
 
 <tr>
+  <td class="pre">lovr.headset.getPose</td>
+  <td>Get the position and orientation of the headset.</td>
+</tr>
+
+<tr>
   <td class="pre">lovr.headset.getVelocity</td>
   <td>Get the current velocity of the headset.</td>
 </tr>

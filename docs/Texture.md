@@ -42,11 +42,6 @@ less video memory and usually improve performance.
 </tr>
 
 <tr>
-  <td class="pre">Texture:renderTo</td>
-  <td>Render to a Texture using a function.</td>
-</tr>
-
-<tr>
   <td class="pre">Texture:setFilter</td>
   <td>Set the <code>FilterMode</code> of the Texture, used to control sampling.</td>
 </tr>

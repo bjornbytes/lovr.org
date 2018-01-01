@@ -12,6 +12,7 @@ Values
 
 - `vive` HTC Vive.
 - `rift` Oculus Rift.
+- `windowsmr` A Windows Mixed Reality headset.
 - `unknown` An unknown headset.
 
 See also

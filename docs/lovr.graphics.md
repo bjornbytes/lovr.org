@@ -70,6 +70,11 @@ Simple functions for drawing simple shapes:
   <td class="pre">lovr.graphics.print</td>
   <td>Draw text.</td>
 </tr>
+
+<tr>
+  <td class="pre">lovr.graphics.stencil</td>
+  <td>Draw to the stencil buffer.</td>
+</tr>
 </table>
 
 Transforms
@@ -125,6 +130,12 @@ these functions in `lovr.update` or `lovr.draw`, because then the objects will b
 frame, which can really slow things down!
 
 <table>
+<tr>
+  <td class="pre">Canvas</td>
+  <td class="pre">lovr.graphics.newCanvas</td>
+  <td>An offscreen render target.</td>
+</tr>
+
 <tr>
   <td class="pre">Mesh</td>
   <td class="pre">lovr.graphics.newMesh</td>
@@ -310,6 +321,16 @@ again.  `lovr.graphics.reset` is a handy function that will reset **all** graphi
 <tr>
   <td class="pre">lovr.graphics.setShader</td>
   <td>Set or disable the shader.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.getStencilTest</td>
+  <td>Get the current stencil test.</td>
+</tr>
+
+<tr>
+  <td class="pre">lovr.graphics.setStencilTest</td>
+  <td>Set or disable the stencil test.</td>
 </tr>
 
 <tr>
