@@ -9,6 +9,16 @@ glob = ->
   categories = {}
   tags = {}
 
+  renderExamples = (examples) ->
+    render_html ->
+      if examples
+        h2 #examples == 1 and 'Example' or 'Examples'
+        for example in *examples
+          raw mde.from_string example.description if example.description
+
+          pre ->
+            code example.code
+
   renderModule = =>
     render_html ->
       h1 @key
@@ -34,13 +44,19 @@ glob = ->
                 td class: 'pre', fn.key
                 td fn.summary
 
+      if @notes
+        h2 'Notes'
+        raw mde.from_string @notes
+
+      raw renderExamples @examples
+
   renderFunction = =>
     render_html ->
       h1 @key
       raw mde.from_string @description
 
       for i, variant in ipairs(@variants)
-        p variant.description if variant.description
+        raw mde.from_string variant.description if variant.description
 
         pre ->
           code ->
@@ -49,7 +65,7 @@ glob = ->
             arguments = '(' .. table.concat([ arg.name for arg in *variant.arguments ], ', ') .. ')'
 
             if @tag == 'callbacks'
-              raw 'function ' .. @key .. arguments .. '\n  --\nend'
+              raw 'function ' .. @key .. arguments .. '\n  -- your code here\nend'
             else
               returns ..= ' = ' if #returns > 0
               raw returns .. @key .. arguments
@@ -57,7 +73,7 @@ glob = ->
         h3 'Arguments'
 
         if #variant.arguments > 0
-          element 'table', ->
+          element 'table', class: 'signature', ->
             thead ->
               tr ->
                 td 'Name'
@@ -72,12 +88,12 @@ glob = ->
                   td class: 'pre', arg.default
                   td arg.description
         else
-          p 'None'
+          p class: 'muted', 'None'
 
         h3 'Returns'
 
         if #variant.returns > 0
-          element 'table', ->
+          element 'table', class: 'signature', ->
             thead ->
               tr ->
                 td 'Name'
@@ -90,7 +106,7 @@ glob = ->
                   td class: 'pre', ret.type
                   td ret.description
         else
-          p 'Nothing'
+          p class: 'muted', 'Nothing'
 
         hr! if i ~= #@variants
 
@@ -98,13 +114,7 @@ glob = ->
         h2 'Notes'
         raw mde.from_string @notes
 
-      if @examples
-        h2 #@examples == 1 and 'Example' or 'Examples'
-        for example in *@examples
-          raw mde.from_string example.description if example.description
-
-          pre ->
-            code example.code
+      raw renderExamples @examples
 
       related = @related or {}
 
@@ -161,13 +171,7 @@ glob = ->
         h2 'Notes'
         raw mde.from_string @notes
 
-      if @examples
-        h2 #@examples == 1 and 'Example' or 'Examples'
-        for example in *@examples
-          raw mde.from_string example.description if example.description
-
-          pre ->
-            code example.code
+      raw renderExamples @examples
 
       related = @related or {}
       related[#related + 1] = @module
