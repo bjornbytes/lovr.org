@@ -212,16 +212,16 @@ main.docs {
 
   h2 {
     color: $c-smoke;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: normal;
-    margin-top: 30px;
+    margin-top: 40px;
     padding-bottom: 6px;
     border-bottom: 2px $c-candy solid;
   }
 
   h3 {
     color: $c-smoky;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
     margin: 25px 0 10px;
   }
@@ -230,6 +230,12 @@ main.docs {
     font-size: 15px;
     line-height: 1.7;
     margin: 25px 0;
+
+    &.muted {
+      margin: 15px;
+      color: $c-dusty;
+      font-style: italic;
+    }
   }
 
   img {
@@ -342,6 +348,10 @@ main.docs {
     margin: 15px 0;
     background: $c-white;
     border-collapse: collapse;
+
+    &.signature {
+      margin-left: 15px;
+    }
 
     td {
       font-size: 13px;
