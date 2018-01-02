@@ -21,5 +21,5 @@ Nothing
 Notes
 ---
 
-1. Make sure you clear the contents of the canvas before rendering by using `lovr.graphics.clear`.
+Make sure you clear the contents of the canvas before rendering by using `lovr.graphics.clear`.
 Otherwise there might be data in the canvas left over from a previous frame.

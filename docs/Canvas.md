@@ -16,4 +16,19 @@ quads just like textures can, and they inherit all Texture functions.
   <td class="pre">lovr.graphics.newCanvas</td>
   <td>Create a new Canvas.</td>
 </tr>
+
+<tr>
+  <td class="pre">Canvas:renderTo</td>
+  <td>Render to the Canvas using a function.</td>
+</tr>
+
+<tr>
+  <td class="pre">Canvas:getFormat</td>
+  <td>Get the format of the Canvas.</td>
+</tr>
+
+<tr>
+  <td class="pre">Canvas:getMSAA</td>
+  <td>Get the number of antialiasing samples to use when rendering to the Canvas.</td>
+</tr>
 </table>
