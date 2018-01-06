@@ -33,6 +33,8 @@ List of Libraries
 - [lovr-icosphere](https://github.com/bjornbytes/lovr-icosphere) - A library to create icospheres.
 - [lovr-grid](https://github.com/bjornbytes/lovr-grid) - A library for drawing grids.
 - [lovr-lighting](https://github.com/bjornbytes/lovr-lighting) - Simple lighting shaders to add to
+- [lovr-pointer](https://github.com/bjornbytes/lovr-pointer) - A general pointer system that can
+  be used to point at objects or create a teleporter.
 - [lovr-webvr-server](https://github.com/bjornbytes/lovr-webvr-server) - A local development server for
   testing WebVR projects.
 - [lume](https://github.com/rxi/lume) - Lua utility functions geared towards game development.
