@@ -155,6 +155,15 @@ main.docs {
       border: none;
     }
   }
+  
+  .embed.fullscreen {
+    height: 100%;
+    max-height: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+  }
 
   .content {
     width: 740px;
