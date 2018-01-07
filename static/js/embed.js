@@ -49,7 +49,7 @@ if (navigator.getVRDisplays) {
   var vrButton = document.querySelector('button.vr-toggle');
   vrButton.innerHTML = 'Fullscreen';
   vrButton.style.display = 'block';
-  var vrEmbed = window.parent.document.getElementsByClassName('embed')[0];
+  var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
 
   vrButton.addEventListener('click', function() {
     vrEmbed.classList.add('fullscreen');
