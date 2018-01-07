@@ -45,4 +45,17 @@ if (navigator.getVRDisplays) {
   });
 } else {
   document.querySelector('canvas').style.cursor = 'move';
+  
+  var vrButton = document.querySelector('button.vr-toggle');
+  vrButton.innerHTML = 'Fullscreen';
+  vrButton.style.display = 'block';
+  var vrEmbed = window.parent.document.getElementsByClassName('embed')[0];
+
+  vrButton.addEventListener('click', function() {
+    vrEmbed.classList.add('fullscreen');
+  });
+
+  vrEmbed.addEventListener('click', function() {
+    vrEmbed.classList.remove('fullscreen');
+  });
 }
