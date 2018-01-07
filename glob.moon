@@ -199,6 +199,19 @@ glob = ->
               td class: 'pre', value.name
               td value.description
 
+      if @notes
+        h2 'Notes'
+        raw mde.from_string @notes
+
+      related = @related or {}
+      related[#related + 1] = @module
+
+      h2 'See also'
+      ul ->
+        for key in *related
+          li ->
+            code key
+
   dir = 'examples'
   categories.example = {}
   for file in lfs.dir 'examples' do
