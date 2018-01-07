@@ -16,6 +16,17 @@ var Module = window.Module = {
   }
 };
 
+var setupFullscreenButton = function() { // selects the parent element of iframe and toggles a fullscreen class when button is clicked
+  var vrButton = document.querySelector('button.vr-toggle');
+  vrButton.innerHTML = 'Fullscreen';
+  vrButton.style.display = 'block';
+  var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
+
+  vrButton.addEventListener('click', function() {
+    vrEmbed.classList.toggle('fullscreen');
+  });
+};
+
 if (navigator.getVRDisplays) {
   document.querySelector('canvas').style.cursor = 'default';
 
@@ -41,21 +52,11 @@ if (navigator.getVRDisplays) {
           vrButton.textContent = 'Enter VR';
         }
       });
+    } else {
+      setupFullscreenButton();
     }
   });
 } else {
   document.querySelector('canvas').style.cursor = 'move';
-  
-  var vrButton = document.querySelector('button.vr-toggle');
-  vrButton.innerHTML = 'Fullscreen';
-  vrButton.style.display = 'block';
-  var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
-
-  vrButton.addEventListener('click', function() {
-    vrEmbed.classList.add('fullscreen');
-  });
-
-  vrEmbed.addEventListener('click', function() {
-    vrEmbed.classList.remove('fullscreen');
-  });
+  setupFullscreenButton();
 }
