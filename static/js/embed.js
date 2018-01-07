@@ -52,10 +52,6 @@ if (navigator.getVRDisplays) {
   var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
 
   vrButton.addEventListener('click', function() {
-    vrEmbed.classList.add('fullscreen');
-  });
-
-  vrEmbed.addEventListener('click', function() {
-    vrEmbed.classList.remove('fullscreen');
+    vrEmbed.classList.toggle('fullscreen');
   });
 }
