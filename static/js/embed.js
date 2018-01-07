@@ -41,6 +41,15 @@ if (navigator.getVRDisplays) {
           vrButton.textContent = 'Enter VR';
         }
       });
+    } else {
+      var vrButton = document.querySelector('button.vr-toggle');
+      vrButton.innerHTML = 'Fullscreen';
+      vrButton.style.display = 'block';
+      var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
+
+      vrButton.addEventListener('click', function() {
+        vrEmbed.classList.toggle('fullscreen');
+      });
     }
   });
 } else {
