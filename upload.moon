@@ -63,7 +63,7 @@ upload = (content) ->
       file\write(data)
       file\close!
 
-  os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{unzipTo}@/ --js-output=static/play/#{id}.js")
+  os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --no-heap-copy --preload #{unzipTo}@/ --js-output=static/play/#{id}.js")
   os.remove(zipName)
 
   id
