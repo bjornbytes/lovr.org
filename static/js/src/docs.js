@@ -73,10 +73,29 @@ function enhance(node) {
     hljs.highlightBlock(pre);
   });
 
-  var linkables = Array.prototype.slice.call(node.querySelectorAll('code, td'));
-  linkables.forEach(function(linkable) {
-    var tokenPattern = /lovr[a-zA-Z\.]*|[A-Z][a-zA-Z:]+/gm
-    linkable.innerHTML = linkable.innerHTML.replace(tokenPattern, function(token) {
+  var tds = Array.prototype.slice.call(node.querySelectorAll('td'));
+  tds.forEach(function(td) {
+    if (td.classList.contains('pre')) {
+      if (td.textContent !== node.dataset.key && document.querySelector('[data-key="' + td.textContent + '"]')) {
+        td.innerHTML = '<a data-key="' + td.textContent + '">' + td.textContent + '</a>';
+      }
+    } else {
+      var tokenPattern = /(a (?:new )?)([A-Z][a-zA-Z]+)/gm;
+      td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
+        console.log(token);
+        if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
+          return prefix + '<a data-key="' + token + '">' + token + '</a>';
+        }
+
+        return prefix + token;
+      });
+    }
+  });
+
+  var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
+  codes.forEach(function(code) {
+    var tokenPattern = /lovr[a-zA-Z\.]*|[A-Z][a-zA-Z:]+/gm;
+    code.innerHTML = code.innerHTML.replace(tokenPattern, function(token) {
       if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
         return '<a data-key="' + token + '">' + token + '</a>';
       }
@@ -182,7 +201,6 @@ if (initialContent) {
 
 document.onkeydown = function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
-
   var firstVisibleLink = visibleLinks[0];
 
   switch (event.keyCode) {
