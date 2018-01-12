@@ -27,7 +27,7 @@ glob = ->
       if @sections
         for section in *@sections
           h2 section.name
-          raw mde.from_string section.description
+          raw mde.from_string section.description if section.description
 
           if section.tag and tags[section.tag] and #tags[section.tag] > 0
             element 'table', ->
@@ -125,7 +125,7 @@ glob = ->
         friend = data[@key\gsub('([%.:])set', (sep) -> sep .. 'get')]
         friend or= data[@key\gsub('([%.:])set', (sep) -> sep .. 'is')]
 
-      related[#related + 1] = friend.key if friend and friend.key ~= @key
+      table.insert(related, 1, friend.key) if friend and friend.key ~= @key
       related[#related + 1] = @key\match('^(%w+):') or @module
 
       h2 'See also'
@@ -150,7 +150,7 @@ glob = ->
       if @sections
         for section in *@sections
           h2 section.name
-          raw mde.from_string section.description
+          raw mde.from_string section.description if section.description
 
           if section.tag and tags[section.tag] and #tags[section.tag] > 0
             element 'table', ->
@@ -174,6 +174,7 @@ glob = ->
       raw renderExamples @examples
 
       related = @related or {}
+      related[#related + 1] = @extends
       related[#related + 1] = @module
 
       h2 'See also'
@@ -249,8 +250,8 @@ glob = ->
 
   for tag in pairs tags
     table.sort tags[tag], (a, b) ->
-      aBase = a\gsub('%.[gs]et', '')\gsub('%.is', '')
-      bBase = b\gsub('%.[gs]et', '')\gsub('%.is', '')
+      aBase = a\gsub('[%.:][gs]et', '')\gsub('[%.:]is', '')
+      bBase = b\gsub('[%.:][gs]et', '')\gsub('[%.:]is', '')
       return aBase == bBase and (a < b) or (aBase < bBase)
 
   content[key] = renderModule data[key] for key in *categories.modules
@@ -261,13 +262,13 @@ glob = ->
 
   for category, keys in pairs categories
     table.sort keys, (a, b) ->
-      aCap = (a\find('[A-Z]') == 1)
-      bCap = (b\find('[A-Z]') == 1)
-      if aCap and not bCap
+      aPrefix = (a\find('^lovr') == 1)
+      bPrefix = (b\find('^lovr') == 1)
+      if aPrefix and not bPrefix
         return a > b
-      elseif bCap and not aCap
+      elseif bPrefix and not aPrefix
         return a > b
-      elseif bCap and aCap
+      elseif bPrefix and aPrefix
         return a < b
       else
         return a < b
