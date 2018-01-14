@@ -1,5 +1,5 @@
 {
-  "name": "lovr-docs",
+  "name": "lovr.org",
   "version": "1.0.0",
   "description": "",
   "directories": {
@@ -7,10 +7,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bjornbytes/lovr-docs.git"
+    "url": "git+https://github.com/bjornbytes/lovr.org.git"
   },
   "author": "bjornbytes",
-  "homepage": "https://github.com/bjornbytes/lovr-docs",
+  "homepage": "https://github.com/bjornbytes/lovr.org",
   "dependencies": {
     "oboe": "^2.1.2",
     "script-loader": "^0.7.0"
