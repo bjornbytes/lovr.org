@@ -1,252 +1,66 @@
-require 'lfs'
+import insert from table
+import render_html, Widget from require 'lapis.html'
 mde = require 'markdown_extra'
-import render_html from require 'lapis.html'
-api = require 'content.lovr-api.raw'
 
-glob = ->
-  data = {}
-  content = {}
-  categories = {}
-  tags = {}
+renderers = {
+  modules: require 'widgets.module'
+  callbacks: require 'widgets.function'
+  functions: require 'widgets.function'
+  objects: require 'widgets.object'
+  types: require 'widgets.enum'
+}
 
-  renderExamples = (examples) ->
-    render_html ->
-      if examples
-        h2 #examples == 1 and 'Example' or 'Examples'
-        for example in *examples
-          raw mde.from_string example.description if example.description
+glob = (version = 'latest') ->
+  data, tags, content, categories = {}, {}, {}, {}
 
-          pre ->
-            code example.code
+  api = require "content.#{version}.api"
+  examples = require "content.#{version}.examples"
+  guides = require "content.#{version}.guides"
 
-  renderModule = =>
-    render_html ->
-      h1 @key
-      raw mde.from_string @description
+  track = (item, category) ->
+    tag = item.tag or 'none'
+    tags[tag] or= {}
+    categories[category] or= {}
+    data[item.key] = item
+    insert tags[tag], item.key
+    insert categories[category], item.key
 
-      if @sections
-        for section in *@sections
-          h2 section.name
-          raw mde.from_string section.description if section.description
+  sort = (keys) ->
+    table.sort keys, (a, b) -> if a\find('^lovr') == b\find('^lovr') then a < b else a > b
 
-          if section.tag and tags[section.tag] and #tags[section.tag] > 0
-            element 'table', ->
-              for key in *tags[section.tag]
-                tr ->
-                  td class: 'pre', key
-                  td data[key].summary
-      else
-        if @functions and #@functions > 0
-          h2 'Functions'
-          element 'table', ->
-            for fn in *@functions
-              tr ->
-                td class: 'pre', fn.key
-                td fn.summary
+  postprocess =
+    functions: (fn) ->
+      key = fn.key
+      fn.related or= {}
+      addFriend = (friend) -> insert fn.related, friend if friend ~= key and data[friend]
+      addFriend key\gsub('get', 'set')
+      addFriend key\gsub('is', 'set')
+      addFriend key\gsub('set', 'get')
+      addFriend key\gsub('set', 'is')
+      addFriend key\match('^(%w+):') or fn.module
 
-      if @notes
-        h2 'Notes'
-        raw mde.from_string @notes
+    objects: (object) ->
+      object.related or= {}
+      insert object.related, object.extends
+      insert object.related, object.module
 
-      raw renderExamples @examples
+    types: (enum) ->
+      enum.related or= {}
+      insert enum.related, enum.module
 
-  renderFunction = =>
-    render_html ->
-      h1 @key
-      raw mde.from_string @description
+  render = (category, item) ->
+    widget = renderers[category] item
+    widget.data, widget.tags = data, tags
+    widget\render_to_string!
 
-      for i, variant in ipairs(@variants)
-        raw mde.from_string variant.description if variant.description
-
-        pre ->
-          code ->
-            returns = table.concat([ ret.name for ret in *variant.returns ], ', ')
-
-            arguments = '(' .. table.concat([ arg.name for arg in *variant.arguments ], ', ') .. ')'
-
-            if @tag == 'callbacks'
-              raw 'function ' .. @key .. arguments .. '\n  -- your code here\nend'
-            else
-              returns ..= ' = ' if #returns > 0
-              raw returns .. @key .. arguments
-
-        h3 'Arguments'
-
-        if #variant.arguments > 0
-          element 'table', class: 'signature', ->
-            thead ->
-              tr ->
-                td 'Name'
-                td 'Type'
-                td 'Default'
-                td 'Description'
-            tbody ->
-              for arg in *variant.arguments
-                tr ->
-                  td class: 'pre', arg.name
-                  td class: 'pre', arg.type
-                  td class: 'pre', arg.default
-                  td arg.description
-        else
-          p class: 'muted', 'None'
-
-        h3 'Returns'
-
-        if #variant.returns > 0
-          element 'table', class: 'signature', ->
-            thead ->
-              tr ->
-                td 'Name'
-                td 'Type'
-                td 'Description'
-            tbody ->
-              for ret in *variant.returns
-                tr ->
-                  td class: 'pre', ret.name
-                  td class: 'pre', ret.type
-                  td ret.description
-        else
-          p class: 'muted', 'Nothing'
-
-        hr! if i ~= #@variants
-
-      if @notes
-        h2 'Notes'
-        raw mde.from_string @notes
-
-      raw renderExamples @examples
-
-      related = @related or {}
-
-      friend = nil
-      if @key\find('[%.:]get') or @key\find('[%.:]is')
-        friend = data[@key\gsub('([%.:])get', (sep) -> sep .. 'set')]
-      elseif @key\find('[%.:]set')
-        friend = data[@key\gsub('([%.:])set', (sep) -> sep .. 'get')]
-        friend or= data[@key\gsub('([%.:])set', (sep) -> sep .. 'is')]
-
-      table.insert(related, 1, friend.key) if friend and friend.key ~= @key
-      related[#related + 1] = @key\match('^(%w+):') or @module
-
-      h2 'See also'
-      ul ->
-        for key in *related
-          li ->
-            code key
-
-  renderObject = =>
-    render_html ->
-      h1 @key
-      raw mde.from_string @description
-
-      if @constructors
-        h2 #@constructors == 1 and 'Constructor' or 'Constructors'
-        element 'table', ->
-          for constructor in *@constructors
-            tr ->
-              td class: 'pre', constructor
-              td data[constructor].summary
-
-      if @sections
-        for section in *@sections
-          h2 section.name
-          raw mde.from_string section.description if section.description
-
-          if section.tag and tags[section.tag] and #tags[section.tag] > 0
-            element 'table', ->
-              for key in *tags[section.tag]
-                tr ->
-                  td class: 'pre', key
-                  td data[key].summary
-      else
-        if @methods and #@methods > 0
-          h2 'Methods'
-          element 'table', ->
-            for fn in *@methods
-              tr ->
-                td class: 'pre', fn.key
-                td fn.summary
-
-      if @notes
-        h2 'Notes'
-        raw mde.from_string @notes
-
-      raw renderExamples @examples
-
-      related = @related or {}
-      related[#related + 1] = @extends
-      related[#related + 1] = @module
-
-      h2 'See also'
-      ul ->
-        for key in *related
-          li ->
-            code key
-
-  renderEnum = =>
-    render_html ->
-      h1 @key
-      raw mde.from_string @description
-
-      element 'table', ->
-        thead ->
-          tr ->
-            td 'Value'
-            td 'Description'
-
-        tbody ->
-          for value in *@values
-            tr ->
-              td class: 'pre', value.name
-              td value.description
-
-      if @notes
-        h2 'Notes'
-        raw mde.from_string @notes
-
-      related = @related or {}
-      related[#related + 1] = @module
-
-      h2 'See also'
-      ul ->
-        for key in *related
-          li ->
-            code key
-
-  dir = 'examples'
-  categories.example = {}
-  for file in lfs.dir 'examples' do
-    path = dir .. '/' .. file
-    if file ~= '.' and file ~= '..' and lfs.attributes(path, 'mode') == 'directory'
-      main = path .. '/main.lua'
-      handle = io.open(main, 'r')
-      if handle
-        content[file] = '<pre><code>' .. handle\read('*a') .. '</code></pre>'
-        handle\close!
-        table.insert(categories.example, file)
-
-  add = (item, category) ->
-    { :key, :tag } = item
-    data[key] = item
-    tag = tag or 'none'
-    tags[tag] = tags[tag] or {}
-    table.insert(tags[tag], item.key)
-    category ..= 's'
-    categories[category] = categories[category] or {}
-    table.insert(categories[category], item.key)
-
-  addObject = (object) ->
-    add object, 'object'
-    add fn, 'function' for fn in *object.methods
-
-  addModule = (m) ->
-    add m, 'module'
-    add fn, 'function' for fn in *m.functions
-    add enum, 'enum' for enum in *m.enums
-    addObject object for object in *m.objects
-
-  addModule m for m in *api.modules
-  add cb, 'callback' for cb in *api.callbacks
+  track cb, 'callbacks' for cb in *api.callbacks
+  for m in *api.modules
+    track m, 'modules'
+    track f, 'functions' for f in *m.functions
+    track e, 'types' for e in *m.enums
+    for o in *m.objects
+      track o, 'objects'
+      track f, 'functions' for f in *o.methods
 
   for tag in pairs tags
     table.sort tags[tag], (a, b) ->
@@ -254,24 +68,26 @@ glob = ->
       bBase = b\gsub('[%.:][gs]et', '')\gsub('[%.:]is', '')
       return aBase == bBase and (a < b) or (aBase < bBase)
 
-  content[key] = renderModule data[key] for key in *categories.modules
-  content[key] = renderFunction data[key] for key in *categories.callbacks
-  content[key] = renderFunction data[key] for key in *categories.functions
-  content[key] = renderObject data[key] for key in *categories.objects
-  content[key] = renderEnum data[key] for key in *categories.enums
-
   for category, keys in pairs categories
-    table.sort keys, (a, b) ->
-      aPrefix = (a\find('^lovr') == 1)
-      bPrefix = (b\find('^lovr') == 1)
-      if aPrefix and not bPrefix
-        return a > b
-      elseif bPrefix and not aPrefix
-        return a > b
-      elseif bPrefix and aPrefix
-        return a < b
-      else
-        return a < b
+    sort keys
+    postprocess[category] and postprocess[category] data[key] for key in *keys
+    content[key] = render category, data[key] for key in *keys
+
+  categories.examples = {}
+  for example in *examples do
+    handle = io.open("content/#{version}/examples/#{example}/main.lua", 'r')
+    continue if handle == nil
+    content[example] = "<pre><code>#{handle\read('*a')}</code></pre>"
+    insert categories.examples, example
+    handle\close!
+
+  categories.guides = {}
+  for guide in *guides do
+    handle = io.open("content/#{version}/guides/#{guide}.md", 'r')
+    continue if handle == nil
+    content[guide] = mde.from_string handle\read('*a')
+    insert categories.guides, guide
+    handle\close!
 
   content, categories
 

@@ -4,42 +4,17 @@ Navbar = require 'views.navbar'
 
 class Docs extends require 'views.page'
   sidebar_content: =>
-    h2 'Guides'
-    ul ->
-      @sidebar_link 'Getting_Started'
-      @sidebar_link 'Callbacks_and_Modules'
-      @sidebar_link 'Libraries'
-      @sidebar_link 'Distribution'
+    renderCategory = (category) ->
+      h2 category\gsub('^%l', string.upper) or ''
+      ul -> @sidebar_link(link, category == 'examples') for link in *@categories[category] or {}
 
-    h2 'Examples'
-    ul ->
-      for key in *@categories.example do
-        @example_link key
-
-    h2 'Modules'
-    ul ->
-      for key in *@categories.modules do
-        @sidebar_link key
-
-    h2 'Callbacks'
-    ul ->
-      for key in *@categories.callbacks do
-        @sidebar_link key
-
-    h2 'Objects'
-    ul ->
-      for key in *@categories.objects do
-        @sidebar_link key
-
-    h2 'Functions'
-    ul ->
-      for i, key in ipairs @categories.functions do
-        @sidebar_link key
-
-    h2 'Types'
-    ul ->
-      for i, key in ipairs @categories.enums do
-        @sidebar_link key
+    renderCategory 'guides'
+    renderCategory 'examples'
+    renderCategory 'modules'
+    renderCategory 'callbacks'
+    renderCategory 'objects'
+    renderCategory 'functions'
+    renderCategory 'types'
 
   content: =>
     @content_for 'head', ->

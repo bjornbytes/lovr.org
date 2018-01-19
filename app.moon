@@ -2,6 +2,9 @@ import Application from require 'lapis'
 import cached from require 'lapis.cache'
 import capture_errors_json, yield_error from require 'lapis.application'
 
+if not package.path\match('%./?/init%.lua')
+  package.path = package.path .. ';./?/init.lua'
+
 config = require('lapis.config').get!
 glob = require 'glob'
 upload = require 'upload'
