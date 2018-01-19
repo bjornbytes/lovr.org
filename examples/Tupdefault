@@ -1,3 +1,0 @@
-ROOT = ../..
-
-: *.lua |> python $(ROOT)/emscripten/tools/file_packager.py $(ROOT)/static/play/%d.data --preload .@/ --js-output=$(ROOT)/static/play/%d.js |> $(ROOT)/static/play/%d.js $(ROOT)/static/play/%d.data
