@@ -354,8 +354,8 @@ main.docs {
     }
 
     td {
-      font-size: 13px;
-      padding: 4px 6px;
+      font-size: 15px;
+      padding: 8px;
 
       &.pre, &.pre a {
         font-family: "Fira Mono";
@@ -374,8 +374,13 @@ main.docs {
 
   table, tr, td { border: 1px $c-steam solid; }
 
-  thead td {
-    color: $c-slate;
+  thead {
+    background: $c-cream;
+    border-bottom: 2px $c-steam solid;
+
+    td {
+      color: $c-slate;
+    }
   }
 
   blockquote {

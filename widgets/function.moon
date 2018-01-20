@@ -27,19 +27,21 @@ class Function extends Widget
       h3 'Arguments'
 
       if #variant.arguments > 0
+        hasDefault = #[arg.default for arg in *variant.arguments] > 0
+
         element 'table', class: 'signature', ->
           thead ->
             tr ->
               td 'Name'
               td 'Type'
-              td 'Default'
+              td 'Default' if hasDefault
               td 'Description'
           tbody ->
             for arg in *variant.arguments
               tr ->
                 td class: 'pre', arg.name
                 td class: 'pre', arg.type
-                td class: 'pre', arg.default
+                td class: 'pre', arg.default if hasDefault
                 td arg.description
       else
         p class: 'muted', 'None'
