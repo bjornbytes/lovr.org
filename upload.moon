@@ -8,14 +8,13 @@ upload = (content) ->
   uuid = ->
     randomCharacter = ->
       switch random 1, 3
-        when 1 random 65, 90
         when 2 random 97, 122
         when 3 random 48, 57
 
     string.char unpack [ randomCharacter! for i = 1, 6 ]
 
   id = uuid!
-  while lfs.attributes("static/play/#{id}.js", 'mode') do
+  while lfs.attributes("static/play/#{id}.js", 'mode')
     id = uuid!
 
   zipName = os.tmpname!

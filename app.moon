@@ -1,6 +1,6 @@
 import Application from require 'lapis'
 import cached from require 'lapis.cache'
-import capture_errors_json, yield_error from require 'lapis.application'
+import capture_errors_json, yield_error, respond_to, json_params from require 'lapis.application'
 
 if not package.path\match('%./?/init%.lua')
   package.path = package.path .. ';./?/init.lua'
@@ -10,6 +10,7 @@ glob = require 'glob'
 upload = require 'upload'
 lfs = require 'lfs'
 aliases = require 'aliases'
+refresh = require 'content.refresh'
 
 class extends Application
   layout: 'layout'
@@ -27,9 +28,10 @@ class extends Application
   [index: '/']: cached =>
     render: true
 
-  [docs: '/docs(/*)']: cached =>
-    docs, @categories = glob!
-    @page = @params.splat or 'Getting_Started'
+  [docs: '/docs(/:version[v%d%.])(/*)']: cached =>
+    @params.version or= 'master'
+    docs, @categories = glob @params.version
+    @page = @params.splat or @categories.guides[1]
     @contents = docs[@page] or ''
     render: true
 
@@ -38,11 +40,13 @@ class extends Application
     render: true
 
   [embed: '/embed/:id']: =>
-    if (not @params.id\match '^%w+$') or (not lfs.attributes("static/play/#{@params.id}.js", 'mode'))
+    @id = @params.id
+    @file = "static/play/#{@id}.js"
+
+    if (not @id\match '^%w+$') or not lfs.attributes(@file, 'mode')
       return status: 404
 
-    @id = @params.id
-    lfs.touch "static/play/#{@id}.js"
+    lfs.touch @file
     render: true
 
   [share: '/share']: =>
@@ -75,3 +79,9 @@ class extends Application
 
   '/slack': =>
     redirect_to: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg'
+
+  '/refresh(/:version)': respond_to {
+    POST: json_params =>
+      success = pcall refresh, @params.version or (@params.ref and @params.ref\match('[^/]+$'))
+      status: success and 200 or 500, layout: false, ''
+  }

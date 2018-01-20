@@ -10,7 +10,7 @@ renderers = {
   types: require 'widgets.enum'
 }
 
-glob = (version = 'latest') ->
+glob = (version = 'master') ->
   data, tags, content, categories = {}, {}, {}, {}
 
   api = require "content.#{version}.api"

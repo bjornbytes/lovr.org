@@ -17,5 +17,5 @@ class Embed extends Widget
 
     script src: '/static/js/embed.js'
     script src: '/static/js/webvr-polyfill.min.js'
-    script src: "/static/play/#{@id}.js"
+    script src: "/#{@file}"
     script src: '/static/js/lovr.js', async: true
