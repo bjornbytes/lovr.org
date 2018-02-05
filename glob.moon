@@ -15,12 +15,17 @@ baseSort = (a, b) ->
   bBase = b\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('[%.:]is', '')
   return aBase == bBase and (a < b) or (aBase < bBase)
 
-glob = (version = 'master') ->
+glob = (version) ->
   data, tags, content, categories = {}, {}, {}, {}
 
-  api = require "content.#{version}.api"
-  examples = require "content.#{version}.examples"
-  guides = require "content.#{version}.guides"
+  if not version
+    for file in lfs.dir 'content' do
+      if not file\match('^%.+$') and lfs.attributes("content/#{file}", 'mode') == 'directory'
+        version = (not version or file > version) and file or version
+
+  api = loadfile("content/#{version}/api/init.lua")()
+  examples = loadfile("content/#{version}/examples/init.lua")()
+  guides = loadfile("content/#{version}/guides/init.lua")()
 
   track = (item, category) ->
     tag = item.tag or 'none'

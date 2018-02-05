@@ -29,7 +29,6 @@ class extends Application
     render: true
 
   [docs: '/docs(/:version[v%d%.])(/*)']: cached =>
-    @params.version or= 'master'
     docs, @categories = glob @params.version
     @page = @params.splat or @categories.guides[1]
     @contents = docs[@page] or ''

@@ -11,3 +11,5 @@ static/js/play.js
 node_modules
 static/play/*
 conf
+content/v*
+content/master
