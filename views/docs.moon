@@ -1,12 +1,21 @@
-import Widget from require 'lapis.html'
-
 Navbar = require 'views.navbar'
 
 class Docs extends require 'views.page'
   sidebar_content: =>
+    skip = (link) ->
+      link\match('^%w+Joint$') or link\match('^%w+Shape$')
+
+    labelFor = (link) ->
+      (link == 'Joint' or link == 'Shape') and (link .. 's') or link
+
+    isHidden = (category) ->
+      category == 'functions' or category == 'types'
+
     renderCategory = (category) ->
-      h2 category\gsub('^%l', string.upper) or ''
-      ul -> @sidebar_link(link, category == 'examples') for link in *@categories[category] or {}
+      hidden = isHidden category
+      section class: { :hidden, category }, ->
+        h2 category\gsub('^%l', string.upper) or ''
+        ul -> @sidebar_link(link, labelFor link, category == 'examples') if not skip link for link in *@categories[category]
 
     renderCategory 'guides'
     renderCategory 'examples'

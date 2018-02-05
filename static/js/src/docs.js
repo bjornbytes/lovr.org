@@ -4,6 +4,7 @@ require('../highlight.js');
 var main = document.querySelector('main');
 var embed = document.querySelector('.embed');
 var iframe = embed.querySelector('iframe');
+var sidebarSections = Array.prototype.slice.call(document.querySelectorAll('section'));
 var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
 var searchBox = document.querySelector('.search');
 var aliasMessage = document.querySelector('.alias-message');
@@ -293,14 +294,24 @@ function updateResults() {
     }
   });
 
+  sidebarSections.forEach(function(section) {
+    section.style.display = 'none';
+  });
+
+  var shownSections = {};
+
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
     var visible = key.indexOf(query) >= 0;
+    var section = link.parentElement.parentElement;
 
     if (!visible) {
       visible = replacements.find(function(alias) {
         return key.indexOf(alias[1].toLowerCase()) >= 0;
       });
+    } else if (!shownSections[section.className]) {
+      shownSections[section.className] = true;
+      section.style.display = query === '' ? '' : 'block';
     }
 
     link.style.display = visible ? '' : 'none';

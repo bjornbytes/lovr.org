@@ -10,6 +10,11 @@ renderers = {
   types: require 'widgets.enum'
 }
 
+baseSort = (a, b) ->
+  aBase = a\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('[%.:]is', '')
+  bBase = b\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('[%.:]is', '')
+  return aBase == bBase and (a < b) or (aBase < bBase)
+
 glob = (version = 'master') ->
   data, tags, content, categories = {}, {}, {}, {}
 
@@ -43,6 +48,7 @@ glob = (version = 'master') ->
       object.related or= {}
       insert object.related, object.extends
       insert object.related, object.module
+      table.sort object.methods, (a, b) -> baseSort(a.key, b.key)
 
     types: (enum) ->
       enum.related or= {}
@@ -63,10 +69,7 @@ glob = (version = 'master') ->
       track f, 'functions' for f in *o.methods
 
   for tag in pairs tags
-    table.sort tags[tag], (a, b) ->
-      aBase = a\gsub('[%.:][gs]et', '')\gsub('[%.:]is', '')
-      bBase = b\gsub('[%.:][gs]et', '')\gsub('[%.:]is', '')
-      return aBase == bBase and (a < b) or (aBase < bBase)
+    table.sort tags[tag], baseSort
 
   for category, keys in pairs categories
     sort keys

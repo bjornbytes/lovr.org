@@ -18,42 +18,48 @@
   overflow-y: scroll;
   will-change: scroll-position;
 
-  h2 {
-    font-size: 16px;
-    color: $c-raven;
-    margin: 0;
-    font-weight: normal;
-    margin-top: 18px;
-    margin-bottom: 8px;
-    padding-left: 24px;
-  }
+  section {
+    &.hidden {
+      display: none;
+    }
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
+    h2 {
+      font-size: 16px;
+      color: $c-raven;
+      margin: 0;
+      font-weight: normal;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      padding-left: 24px;
+    }
 
-  li {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    color: $c-mauve;
-    font-size: 12px;
-    cursor: pointer;
-    border-left: 5px solid;
-    border-left-color: transparent;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
-    &.active { color: $c-raven; border-left-color: $c-mauve; }
-    &:active, &.active { background: $c-phlox; }
-    &:last-child { margin-bottom: 0; }
-    &.disabled, &.disabled:hover {
-      color: $c-slate;
-      cursor: default;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      color: $c-mauve;
+      font-size: 12px;
+      cursor: pointer;
+      border-left: 5px solid;
+      border-left-color: transparent;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
+      &.active { color: $c-raven; border-left-color: $c-mauve; }
+      &:active, &.active { background: $c-phlox; }
+      &:last-child { margin-bottom: 0; }
+      &.disabled, &.disabled:hover {
+        color: $c-slate;
+        cursor: default;
+      }
     }
   }
 
@@ -351,11 +357,21 @@ main.docs {
 
     &.signature {
       margin-left: 15px;
+
+      tr {
+        td {
+          padding: 8px;
+        }
+
+        &.indent-1 td:first-child { padding-left: 18px; }
+        &.indent-2 td:first-child { padding-left: 28px; }
+        &.indent-3 td:first-child { padding-left: 38px; }
+      }
     }
 
     td {
-      font-size: 15px;
-      padding: 8px;
+      font-size: 14px;
+      padding: 5px;
 
       &.pre, &.pre a {
         font-family: "Fira Mono";
@@ -375,8 +391,7 @@ main.docs {
   table, tr, td { border: 1px $c-steam solid; }
 
   thead {
-    background: $c-cream;
-    border-bottom: 2px $c-steam solid;
+    background: $c-ghost;
 
     td {
       color: $c-slate;

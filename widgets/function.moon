@@ -27,7 +27,21 @@ class Function extends Widget
       h3 'Arguments'
 
       if #variant.arguments > 0
-        hasDefault = #[arg.default for arg in *variant.arguments] > 0
+        hasDefault = #[arg for arg in *variant.arguments when arg.default] > 0
+
+        renderSubTable = (t, level = 0) ->
+          return if not t
+
+          prefix = level > 0 and '.' or ''
+
+          for field in *t
+            tr class: "indent-#{level}", ->
+              td class: 'pre', prefix .. field.name
+              td class: 'pre', field.type
+              td class: 'pre', field.default if hasDefault
+              td field.description
+
+              renderSubTable(field.table, level + 1)
 
         element 'table', class: 'signature', ->
           thead ->
@@ -37,12 +51,7 @@ class Function extends Widget
               td 'Default' if hasDefault
               td 'Description'
           tbody ->
-            for arg in *variant.arguments
-              tr ->
-                td class: 'pre', arg.name
-                td class: 'pre', arg.type
-                td class: 'pre', arg.default if hasDefault
-                td arg.description
+            renderSubTable variant.arguments
       else
         p class: 'muted', 'None'
 
