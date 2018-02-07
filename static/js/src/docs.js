@@ -12,17 +12,18 @@ var transitionTimeout;
 var data = {};
 var aliases = [];
 
+function getUrl(key) {
+  var base = window.location.pathname;
+  return /docs$|v[\d\.]+$|master$/.test(base) ? (base + '/' + key) : key;
+}
+
 function pushPage(key) {
   if (history.state) {
     var scroll = window.scrollY;
-    var url = '/docs';
-    url += (history.state.key.length > 0 ? ('/' + history.state.key) : '');
-    history.replaceState({ key: history.state.key, scroll: scroll }, '', url);
+    history.replaceState({ key: history.state.key, scroll: scroll }, '', getUrl(history.state.key));
   }
 
-  var url = '/docs';
-  url += key.length > 0 ? ('/' + key) : '';
-  history.pushState({ key: key, scroll: 0 }, '', url);
+  history.pushState({ key: key, scroll: 0 }, '', getUrl(key));
 }
 
 function showPage(key, scroll) {
@@ -83,7 +84,6 @@ function enhance(node) {
     } else {
       var tokenPattern = /(a (?:new )?)([A-Z][a-zA-Z]+)/gm;
       td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
-        console.log(token);
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
           return prefix + '<a data-key="' + token + '">' + token + '</a>';
         }
@@ -117,7 +117,7 @@ function enhance(node) {
 }
 
 // Stream documentation
-oboe('/api/docs')
+oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/)))
   .node('!.*', function(node, path) {
     var key = path[0];
     data[key] = node;
@@ -156,7 +156,7 @@ setTimeout(function() {
 
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
-  var page = (event.state && event.state.key) || 'Getting_Started';
+  var page = (event.state && event.state.key) || document.querySelector('.sidebar section li').dataset.key;
   showPage(page, event.state && event.state.scroll);
 });
 
@@ -181,10 +181,8 @@ iframe.addEventListener('load', function(event) {
 var initialContent = document.querySelector('.content');
 if (initialContent) {
   var key = initialContent.dataset.key;
-  var url = '/docs';
-  url += key.length > 0 ? ('/' + key) : '';
-  if (!history.state || history.state.key !== key) {
-    history.replaceState({ key: key }, '', url);
+  if (key.length > 0 && (!history.state || history.state.key !== key)) {
+    history.replaceState({ key: key }, '', getUrl(key));
   }
 
   enhance(initialContent);

@@ -2,15 +2,14 @@ import Application from require 'lapis'
 import cached from require 'lapis.cache'
 import capture_errors_json, yield_error, respond_to, json_params from require 'lapis.application'
 
-if not package.path\match('%./?/init%.lua')
-  package.path = package.path .. ';./?/init.lua'
-
 config = require('lapis.config').get!
 glob = require 'glob'
 upload = require 'upload'
 lfs = require 'lfs'
 aliases = require 'aliases'
 refresh = require 'content.refresh'
+
+isVersion = (v) -> v and (v\match('%d%.+') or v == 'master')
 
 class extends Application
   layout: 'layout'
@@ -28,10 +27,13 @@ class extends Application
   [index: '/']: cached =>
     render: true
 
-  [docs: '/docs(/:version[v%d%.])(/*)']: cached =>
-    docs, @categories = glob @params.version
-    @page = @params.splat or @categories.guides[1]
-    @contents = docs[@page] or ''
+  [docs: '/docs(/:version)(/:page)']: cached =>
+    { version: @version, page: @page } = @params
+    @version, @page = nil, @version if not isVersion(@version)
+    docs, @categories = glob @version
+    return render: '404', status: 404 if not docs or (@page and not docs[@page])
+    @page or= @categories.guides[1]
+    @contents = docs[@page]
     render: true
 
   [play: '/play/:id']: =>
@@ -51,8 +53,10 @@ class extends Application
   [share: '/share']: =>
     render: true
 
-  '/api/docs': cached =>
-    json: glob!
+  '/api/docs(/:version)': cached =>
+    docs = glob @params.version
+    return status: 404, layout: false, '' if not docs
+    json: docs
 
   '/api/aliases': cached =>
     json: aliases
@@ -81,6 +85,7 @@ class extends Application
 
   '/refresh(/:version)': respond_to {
     POST: json_params =>
+      return status: 200, layout: false, '' if not @params.version and not @params.ref
       success = pcall refresh, @params.version or (@params.ref and @params.ref\match('[^/]+$'))
       status: success and 200 or 500, layout: false, ''
   }

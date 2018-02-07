@@ -23,6 +23,8 @@ glob = (version) ->
       if not file\match('^%.+$') and lfs.attributes("content/#{file}", 'mode') == 'directory'
         version = (not version or file > version) and file or version
 
+  return nil if not lfs.attributes("content/#{version}", 'mode')
+
   api = loadfile("content/#{version}/api/init.lua")()
   examples = loadfile("content/#{version}/examples/init.lua")()
   guides = loadfile("content/#{version}/guides/init.lua")()
