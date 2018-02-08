@@ -13,8 +13,7 @@ var data = {};
 var aliases = [];
 
 function getUrl(key) {
-  var base = window.location.pathname;
-  return /docs$|v[\d\.]+$|master$/.test(base) ? (base + '/' + key) : key;
+  return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/) + '/' + key;
 }
 
 function pushPage(key) {
