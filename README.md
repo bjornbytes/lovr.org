@@ -1,6 +1,7 @@
-LÖVR Documentation
+LÖVR Website
 ---
 
-Powers the LÖVR website hosted at <http://lovr.org>.
+Powers the LÖVR website hosted at <https://lovr.org>.
 
-Want to create/update documentation?  Each page is a markdown file in the [docs folder](docs).
+Want to create/update documentation?  All the documentation is in the
+[lovr-docs](https://github.com/bjornbytes/lovr-docs) repository.
