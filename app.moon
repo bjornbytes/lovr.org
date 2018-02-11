@@ -83,6 +83,9 @@ class extends Application
   '/slack': =>
     redirect_to: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg'
 
+  '/docs/WebVR': =>
+    redirect_to: 'https://lovr.org/docs/Distribution'
+
   '/refresh(/:version)': respond_to {
     POST: json_params =>
       return status: 200, layout: false, '' if not @params.version and not @params.ref
