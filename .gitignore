@@ -1,5 +1,6 @@
 *.lua
 views/*.lua
+/secrets.*
 logs
 nginx.conf.compiled
 static/css

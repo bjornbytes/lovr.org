@@ -1,15 +1,19 @@
 import Application from require 'lapis'
 import cached from require 'lapis.cache'
 import capture_errors_json, yield_error, respond_to, json_params from require 'lapis.application'
+import hmac_sha1 from require 'lapis.util.encoding'
 
 config = require('lapis.config').get!
+cache = require 'lapis.cache'
 glob = require 'glob'
 upload = require 'upload'
 lfs = require 'lfs'
 aliases = require 'aliases'
+secrets = require 'secrets'
 refresh = require 'content.refresh'
 
 isVersion = (v) -> v and (v\match('%d%.+') or v == 'master')
+status = (status) -> { status: status, layout: false, '' }
 
 class extends Application
   layout: 'layout'
@@ -55,7 +59,7 @@ class extends Application
 
   '/api/docs(/:version)': cached =>
     docs = glob @params.version
-    return status: 404, layout: false, '' if not docs
+    return status 404 if not docs
     json: docs
 
   '/api/aliases': cached =>
@@ -86,9 +90,29 @@ class extends Application
   '/docs/WebVR': =>
     redirect_to: 'https://lovr.org/docs/Distribution'
 
-  '/refresh(/:version)': respond_to {
+  '/refresh/:version': respond_to {
     POST: json_params =>
-      return status: 200, layout: false, '' if not @params.version and not @params.ref
-      success = pcall refresh, @params.version or (@params.ref and @params.ref\match('[^/]+$'))
-      status: success and 200 or 500, layout: false, ''
+      return status 403 if @req.parsed_url.host ~= 'localhost' and @req.parsed_url.host ~= '127.0.0.1'
+      return status 400 if not @params.version or not isVersion @params.version
+      success = pcall refresh, @params.version
+      return status 500 if not success
+      cache.delete_all!
+      status 200
+  }
+
+  '/refresh': respond_to {
+    POST: json_params =>
+      fail = (status) -> { status: status, layout: false, '' }
+      return status 400 if not @params.ref
+      version = @params.ref\match('[^/]+$')
+      return status 400 if not isVersion version
+      ngx.req.read_body!
+      data = ngx.req.get_body_data!
+      return status 400 if not data
+      signature = pcall -> 'sha1=' .. hmac_sha1(secrets.webhook, data)
+      return status 403 if signature ~= @req.headers['X-Hub-Signature']
+      success = pcall refresh, version
+      return status 500 if not success
+      cache.delete_all!
+      status 200
   }
