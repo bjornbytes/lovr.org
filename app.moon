@@ -109,7 +109,9 @@ class extends Application
       ngx.req.read_body!
       data = ngx.req.get_body_data!
       return status 400 if not data
-      signature = pcall -> 'sha1=' .. hmac_sha1(secrets.webhook, data)
+      digest = hmac_sha1(secrets.webhook, data)
+      signature = 'sha1='
+      signature ..= string.format('%02x', digest\byte(i)) for i = 1, #digest
       return status 403 if signature ~= @req.headers['X-Hub-Signature']
       success = pcall refresh, version
       return status 500 if not success
