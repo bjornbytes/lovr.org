@@ -7,9 +7,9 @@ import random from math
 upload = (content) ->
   uuid = ->
     randomCharacter = ->
-      switch random 1, 3
-        when 2 random 97, 122
-        when 3 random 48, 57
+      switch random 1, 2
+        when 1 random 97, 122
+        when 2 random 48, 57
 
     string.char unpack [ randomCharacter! for i = 1, 6 ]
 
