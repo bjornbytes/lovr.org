@@ -215,6 +215,7 @@ document.onkeydown = function(event) {
 
     case 13:
       firstVisibleLink && firstVisibleLink.click();
+      searchBox.blur();
       break;
 
     case 40:
