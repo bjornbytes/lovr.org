@@ -11,8 +11,8 @@ renderers = {
 }
 
 baseSort = (a, b) ->
-  aBase = a\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('[%.:]is', '')
-  bBase = b\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('[%.:]is', '')
+  aBase = a\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('([%.:])is', (x) -> x)
+  bBase = b\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('([%.:])is', (x) -> x)
   return aBase == bBase and (a < b) or (aBase < bBase)
 
 glob = (version) ->
