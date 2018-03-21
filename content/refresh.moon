@@ -11,7 +11,7 @@ refresh = (version) ->
   for file in lfs.dir "#{dir}/examples"
     path = "#{dir}/examples/#{file}"
     if not file\match('^%.') and lfs.attributes(path, 'mode') == 'directory'
-      id = file .. version\gsub('%.', '')\gsub('master', '')
+      id = "#{file}-#{version}"
       os.execute("python emscripten/tools/file_packager.py static/play/#{id}.data --preload #{path}@/ --js-output=static/play/#{id}.js")
 
 refresh

@@ -99,6 +99,6 @@ glob = (version) ->
     insert categories.guides, guide
     handle\close!
 
-  content, categories
+  content, categories, version
 
 glob

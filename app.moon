@@ -32,9 +32,9 @@ class extends Application
     render: true
 
   [docs: '/docs(/:version)(/:page)']: cached =>
-    { version: @version, page: @page } = @params
-    @version, @page = nil, @version if not isVersion(@version)
-    docs, @categories = glob @version
+    { :version, page: @page } = @params
+    version, @page = nil, version if not isVersion version
+    docs, @categories, @version = glob version
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
     @contents = docs[@page]
@@ -48,7 +48,7 @@ class extends Application
     @id = @params.id
     @file = "static/play/#{@id}.js"
 
-    if (not @id\match '^%w+$') or not lfs.attributes(@file, 'mode')
+    if (not @id\match '^[%w%.%-]+$') or not lfs.attributes(@file, 'mode')
       return status: 404
 
     lfs.touch @file
