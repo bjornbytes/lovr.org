@@ -102,7 +102,6 @@ class extends Application
 
   '/refresh': respond_to {
     POST: json_params =>
-      fail = (status) -> { status: status, layout: false, '' }
       return status 400 if not @params.ref
       version = @params.ref\match('[^/]+$')
       return status 400 if not isVersion version

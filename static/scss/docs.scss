@@ -324,19 +324,15 @@ main.docs {
   }
 
   ul {
-    margin: 15px 25px;
+    margin: 25px;
     list-style-type: circle;
 
     li {
-      font-size: 14px;
-      margin-bottom: 6px;
+      font-size: 15px;
+      margin-bottom: 10px;
+      padding-left: 10px;
       &:last-child { margin-bottom: 0; }
-      line-height: 1.5;
-
-      code:first-child {
-        margin-right: 8px;
-        padding: 0 4px;
-      }
+      line-height: 1.7;
     }
   }
 
