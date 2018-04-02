@@ -48,7 +48,7 @@ class extends Application
     @id = @params.id
     @file = "static/play/#{@id}.js"
 
-    if (not @id\match '^[%w%.%-]+$') or not lfs.attributes(@file, 'mode')
+    if (not @id\match '^[%w%.%-_]+$') or not lfs.attributes(@file, 'mode')
       return status: 404
 
     lfs.touch @file
