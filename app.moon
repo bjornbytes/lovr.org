@@ -57,6 +57,11 @@ class extends Application
   [share: '/share']: =>
     render: true
 
+  '/api/data(/:version)': cached =>
+    api = glob @params.version, true
+    return status 404 if not api
+    json: api
+
   '/api/docs(/:version)': cached =>
     docs = glob @params.version
     return status 404 if not docs

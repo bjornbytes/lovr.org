@@ -15,7 +15,7 @@ baseSort = (a, b) ->
   bBase = b\lower!\gsub('([%.:])[gs]et', (x) -> x)\gsub('([%.:])is', (x) -> x)
   return aBase == bBase and (a < b) or (aBase < bBase)
 
-glob = (version) ->
+glob = (version, justApi) ->
   data, tags, content, categories = {}, {}, {}, {}
 
   if not version
@@ -28,6 +28,8 @@ glob = (version) ->
   api = loadfile("content/#{version}/api/init.lua")()
   examples = loadfile("content/#{version}/examples/init.lua")()
   guides = loadfile("content/#{version}/guides/init.lua")()
+
+  return api if justApi
 
   track = (item, category) ->
     tag = item.tag or 'none'
