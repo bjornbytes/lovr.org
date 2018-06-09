@@ -44,14 +44,8 @@ class extends Application
     @id = @params.id
     render: true
 
-  [embed: '/embed/:id']: =>
-    @id = @params.id
-    @file = "static/play/#{@id}.js"
-
-    if (not @id\match '^[%w%.%-_]+$') or not lfs.attributes(@file, 'mode')
-      return status: 404
-
-    lfs.touch @file
+  [embed: '/embed(/:id)']: =>
+    @bundle = "/static/play/#{@id}.js" if @params.id
     render: true
 
   [share: '/share']: =>
