@@ -7,6 +7,7 @@
   '^soun': 'audio'
   '^love': 'lovr'
   '^unity': 'lovr'
+  '^unreal': 'lovr'
   '^rng': 'random'
   'matr': 'Transform'
   'netw': 'enet'
@@ -22,11 +23,6 @@
   '^partic': {
     type: 'unsupported',
     feature: 'Particles'
-  }
-
-  '^threa': {
-    type: 'unsupported',
-    feature: 'Threads'
   }
 
   '^overla': {
@@ -61,9 +57,5 @@
 
   '^hi$': {
     type: 'hi'
-  }
-
-  '^(unity|unreal)$': {
-    type: 'no'
   }
 }
