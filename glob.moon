@@ -89,7 +89,7 @@ glob = (version, justApi) ->
   for example in *examples do
     handle = io.open("content/#{version}/examples/#{example}/main.lua", 'r')
     continue if handle == nil
-    content[example] = "<pre><code>#{handle\read('*a')}</code></pre>"
+    content[example] = "<h1>#{example\gsub('_', ' ')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
     insert categories.examples, example
     handle\close!
 
