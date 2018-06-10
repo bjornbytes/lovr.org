@@ -1,11 +1,5 @@
 lfs = require 'lfs'
-
-latestVersion = () ->
-  latest = nil
-  for file in lfs.dir 'content' do
-    if not file\match('^%.+$') and lfs.attributes("content/#{file}", 'mode') == 'directory'
-      latest = (not latest or file > latest) and file or latest
-  latest
+config = require('lapis.config').get!
 
 refresh = (version) ->
   dir = "content/#{version}"
@@ -15,7 +9,7 @@ refresh = (version) ->
   else
     os.execute "git -C #{dir} pull"
 
-  return unless version == latestVersion!
+  return unless version == config.version
 
   for file in lfs.dir "#{dir}/examples"
     path = "#{dir}/examples/#{file}"

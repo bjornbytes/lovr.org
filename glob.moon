@@ -18,11 +18,6 @@ baseSort = (a, b) ->
 glob = (version, justApi) ->
   data, tags, content, categories = {}, {}, {}, {}
 
-  if not version
-    for file in lfs.dir 'content' do
-      if not file\match('^%.+$') and lfs.attributes("content/#{file}", 'mode') == 'directory'
-        version = (not version or file > version) and file or version
-
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
   api = loadfile("content/#{version}/api/init.lua")()
@@ -101,6 +96,6 @@ glob = (version, justApi) ->
     insert categories.guides, guide
     handle\close!
 
-  content, categories, version
+  content, categories
 
 glob

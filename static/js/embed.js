@@ -1,62 +1,139 @@
+var activeProject = null;
+var canvas = document.getElementById('canvas');
+var loader = document.querySelector('.loader');
+var button = document.querySelector('button');
+
+var context = canvas.getContext('webgl2', {
+  alpha: false,
+  antialias: true,
+  depth: true,
+  stencil: true,
+  preserveDrawingBuffer: true
+});
+
 var Module = window.Module = {
-  arguments: ['./'],
+  noInitialRun: true,
+  preRun: [findDisplay],
+  postRun: [],
   print: console.log.bind(console),
   printErr: console.error.bind(console),
-  canvas: document.querySelector('canvas'),
+  thisProgram: './lovr',
+  canvas: canvas,
+  preinitializedWebGLContext: context,
   locateFile: function(file) {
-    if (/\.mem$/.test(file)) {
-      return '/static/js/lovr.js.mem';
-    } else if (/\.wasm/.test(file)) {
-      return '/static/js/lovr.wasm';
+    if (/\.wasm$/.test(file)) {
+      return '/static/js/' + file;
     } else if (/\.data$/.test(file)) {
       return '/static/play/' + file;
+    } else {
+      return file;
     }
-
-    return file;
+  },
+  monitorRunDependencies: function(count) {
+    if (count === 0 && activeProject) {
+      if (Module.calledRun) {
+        startProject();
+      } else {
+        Module.onRuntimeInitialized = startProject;
+      }
+    }
   }
 };
 
-var setupFullscreenButton = function() { // selects the parent element of iframe and toggles a fullscreen class when button is clicked
-  var vrButton = document.querySelector('button.vr-toggle');
-  vrButton.innerHTML = 'Fullscreen';
-  vrButton.style.display = 'block';
-  var vrEmbed = window.parent.document.getElementsByTagName('iframe')[0].parentElement;
+function findDisplay() {
+  if (navigator.getVRDisplays) {
+    Module.addRunDependency('lovrDisplay');
+    navigator.getVRDisplays().
+      then(function(displays) {
+        Module.lovrDisplay = displays[0];
+        canvas.style.cursor = displays[0] ? 'default' : '';
+      }).finally(function() {
+        Module.removeRunDependency('lovrDisplay');
+      });
+  }
+}
 
-  vrButton.addEventListener('click', function() {
-    vrEmbed.classList.toggle('fullscreen');
+function startProject() {
+  var width = canvas.width, height = canvas.height;
+  _lovrQuit();
+
+  requestAnimationFrame(function() {
+    canvas.width = width;
+    canvas.height = height;
+
+    var pointerSize = 4;
+    var argv = stackAlloc(2 * pointerSize);
+    var status = stackAlloc(pointerSize);
+    HEAP32[(argv >> 2) + 0] = allocateUTF8OnStack(Module.thisProgram);
+    HEAP32[(argv >> 2) + 1] = allocateUTF8OnStack('/' + activeProject);
+
+    try {
+      _lovrRun(2, argv, status);
+    } catch (e) {
+      if (e !== 'SimulateInfiniteLoop') {
+        throw e;
+      }
+    }
+
+    requestAnimationFrame(function() {
+      loader.style.transition = 'none';
+      loader.style.opacity = 1;
+      getComputedStyle(loader).opacity;
+      loader.style.transition = '';
+      loader.style.opacity = 0;
+    });
   });
+}
+
+window.runProject = function(key) {
+  if (!key) {
+    return;
+  }
+
+  activeProject = key;
+  loader.style.opacity = 1;
+
+  var bundle = '/static/play/' + key + '.js';
+  if (!document.querySelector('script[src="' + bundle + '"]')) {
+    var script = document.createElement('script');
+    script.src = bundle;
+    document.body.appendChild(script);
+  } else {
+    startProject();
+  }
 };
 
-if (navigator.getVRDisplays) {
-  document.querySelector('canvas').style.cursor = 'default';
-
-  navigator.getVRDisplays().then(function(displays) {
-    var display = displays[0];
-
-    if (display && display.capabilities.canPresent) {
-      var vrButton = document.querySelector('button.vr-toggle');
-      vrButton.style.display = 'block';
-
-      vrButton.addEventListener('click', function(event) {
-        if (display.isPresenting) {
-          window.dispatchEvent(new CustomEvent('lovr.exitvr'));
-        } else {
-          window.dispatchEvent(new CustomEvent('lovr.entervr'));
-        }
-      });
-
-      window.addEventListener('vrdisplaypresentchange', function() {
-        if (display.isPresenting) {
-          vrButton.textContent = 'Exit VR';
-        } else {
-          vrButton.textContent = 'Enter VR';
-        }
-      });
+button.addEventListener('click', function() {
+  if (Module.lovrDisplay && Module.lovrDisplay.capabilities.canPresent) {
+    if (Module.lovrDisplay.isPresenting) {
+      window.dispatchEvent(new CustomEvent('lovr.exitvr'));
     } else {
-      setupFullscreenButton();
+      window.dispatchEvent(new CustomEvent('lovr.entervr'));
     }
-  });
-} else {
-  document.querySelector('canvas').style.cursor = 'move';
-  setupFullscreenButton();
+  } else {
+    Module.requestFullscreen();
+  }
+});
+
+Module.onFullscreen = function(isFullscreen) {
+  if (isFullscreen) {
+    Module.setCanvasSize(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio);
+    canvas.classList.add('fullscreen');
+  } else {
+    canvas.classList.remove('fullscreen');
+  }
 }
+
+window.addEventListener('vrdisplaypresentchange', function() {
+  if (Module.lovrDisplay && Module.lovrDisplay.isPresenting) {
+    button.classList.add('presenting');
+  } else {
+    button.classList.remove('presenting');
+  }
+});
+
+window.addEventListener('mouseup', function(event) {
+  if (event.currentTarget !== canvas) {
+    canvas.dispatchEvent(new MouseEvent('mouseup'));
+  }
+});

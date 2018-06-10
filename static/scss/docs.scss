@@ -134,41 +134,22 @@ main.docs {
   min-height: 100%;
 
   .embed {
-    display: none;
     position: relative;
-    border: none;
-    width: 100%;
-    height: calc(55vw - 310px);
-    min-height: 300px;
-    max-height: calc(80vh - 60px);
-    background: $c-steam;
-
-    .progress {
-      width: 50%;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background: $c-white;
-      box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-    }
+    display: none;
+    width: 740px;
+    max-width: 100%;
+    padding: 40px 50px 0;
 
     iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
       border: none;
-    }
-  }
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, .1);
 
-  .embed.fullscreen {
-    height: 100%;
-    max-height: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 100;
+      &.focus {
+        box-shadow: 0 0 1px 3px rgba($c-mauve, .35);
+      }
+    }
   }
 
   .content {
@@ -432,8 +413,12 @@ main.docs {
   main.docs {
     margin-left: 220px;
 
-    .content {
+    .content, .embed {
       padding: 30px 30px;
+
+      &.embed {
+        padding-bottom: 0;
+      }
     }
 
     table {
@@ -472,8 +457,12 @@ main.docs {
   main.docs {
     margin-left: 0;
 
-    .content {
+    .content, .embed {
       padding: 30px 20px;
+
+      &.embed {
+        padding-bottom: 0;
+      }
     }
 
     pre, blockquote {

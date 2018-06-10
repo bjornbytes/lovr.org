@@ -11,6 +11,7 @@ var aliasMessage = document.querySelector('.alias-message');
 var transitionTimeout;
 var data = {};
 var aliases = [];
+var hasWebGL2 = !!document.createElement('canvas').getContext('webgl2');
 
 function getUrl(key) {
   return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/) + '/' + key;
@@ -43,8 +44,7 @@ function showPage(key, scroll) {
     content.remove();
   });
 
-  // Show/hide embed
-  setEmbed(link && link.dataset.embed);
+  setExample(link && link.dataset.example);
 
   // Uh
   if (!key) {
@@ -53,7 +53,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content', 'intro', link && link.dataset.embed && 'example');
+  content.classList.add('content', link && !link.dataset.example && 'intro', link && link.dataset.example && 'example');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);
@@ -159,22 +159,47 @@ window.addEventListener('popstate', function(event) {
   showPage(page, event.state && event.state.scroll);
 });
 
-// Embeds
-function setEmbed(key) {
-  if (key) {
+// Example
+function setExample(key) {
+  if (hasWebGL2 && key) {
     embed.style.display = 'block';
-    iframe.style.display = 'none';
-    iframe.src = '/embed/' + key;
+    iframe.style.display = 'block';
+    iframe.contentWindow.runProject(key);
+    resizeIframe();
   } else {
     embed.style.display = 'none';
     iframe.style.display = 'none';
-    iframe.src = 'about:blank';
   }
 }
 
-iframe.addEventListener('load', function(event) {
-  iframe.style.display = iframe.src === 'about:blank' ? 'none' : 'block';
+function resizeIframe() {
+  if (iframe.style.display === 'block') {
+    var canvas = iframe.contentWindow.document.querySelector('#canvas');
+    if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
+      iframe.style.height = canvas.offsetHeight + 'px';
+    }
+  }
+}
+
+window.addEventListener('focus', function() {
+  if (document.activeElement !== iframe) {
+    iframe.classList.remove('focus');
+  }
 });
+
+window.addEventListener('blur', function() {
+  if (document.activeElement === iframe) {
+    iframe.classList.add('focus');
+  }
+});
+
+var resizeTimeout;
+function debouncedResize() {
+  if (resizeTimeout) { clearTimeout(resizeTimeout); }
+  resizeTimeout = setTimeout(resizeIframe, 150);
+}
+
+window.addEventListener('resize', debouncedResize);
 
 // Bootstrap initial content
 var initialContent = document.querySelector('.content');
@@ -191,13 +216,15 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
-    setEmbed(link.dataset.embed);
+    iframe.addEventListener('load', function() {
+      setExample(link.dataset.example);
+    });
   }
 }
 
 // Searching
 
-document.onkeydown = function(event) {
+window.addEventListener('keydown', function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
   var firstVisibleLink = visibleLinks[0];
 
@@ -246,9 +273,9 @@ document.onkeydown = function(event) {
       }
       break;
   }
-};
+});
 
-document.onkeypress = function(event) {
+window.addEventListener('keypress', function(event) {
   if (event.ctrlKey || event.altKey || event.metaKey) {
     return;
   }
@@ -260,7 +287,7 @@ document.onkeypress = function(event) {
     searchBox.value = event.key;
     updateResults();
   }
-};
+});
 
 searchBox.onkeyup = function() {
   setTimeout(function() {
@@ -300,14 +327,14 @@ function updateResults() {
 
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
-    var visible = key.indexOf(query) >= 0;
     var section = link.parentElement.parentElement;
+    var visible = key.indexOf(query) >= 0;
 
-    if (!visible) {
-      visible = replacements.find(function(alias) {
-        return key.indexOf(alias[1].toLowerCase()) >= 0;
-      });
-    } else if (!shownSections[section.className]) {
+    visible = visible || replacements.find(function(alias) {
+      return key.indexOf(alias[1].toLowerCase()) >= 0;
+    });
+
+    if (visible && !shownSections[section.className]) {
       shownSections[section.className] = true;
       section.style.display = query === '' ? '' : 'block';
     }

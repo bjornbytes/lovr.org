@@ -1,6 +1,6 @@
 @import "colors.scss";
 
-html, body, #canvas {
+html, body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -8,27 +8,93 @@ html, body, #canvas {
   overflow: hidden;
 }
 
+#canvas {
+  background: #fff;
+  width: 100%;
+  height: auto;
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  &.fullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .5);
+  opacity: 1;
+  transition: opacity 240ms;
+  pointer-events: none;
+}
+
 button {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  display: none;
+  right: 16px;
+  bottom: 16px;
   outline: none;
-  background: $c-lilac;
-  width: 125px;
+  background: rgba(#fff, .5);
+  width: 60px;
   height: 50px;
   user-select: none;
   cursor: pointer;
   font-size: 18px;
-  color: $c-smoky;
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-bottom: 2px solid darken($c-lilac, 4%);
+
+  &:hover {
+    background: rgba(#fff, .75);
+  }
 
   &:active {
-    background: darken($c-lilac, 5%);
-    transform: translate(0, 2px);
+    background: rgba(#fff, 1);
+  }
+
+  svg.hmd {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    fill: $c-smoky;
+  }
+
+  svg.heart {
+    fill: $c-berry;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(.2);
+    animation: pulse 1s infinite;
+    z-index: 5;
+
+    &.left { left: 33.33%; }
+    &.right { left: 66.66%; }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(.35); }
+      50% { transform: translate(-50%, -50%) scale(.39); }
+      100% { transform: translate(-50%, -50%) scale(.35); }
+    }
+  }
+
+  &:not(.presenting) svg.heart {
+    display: none;
   }
 }

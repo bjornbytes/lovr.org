@@ -32,9 +32,10 @@ class extends Application
     render: true
 
   [docs: '/docs(/:version)(/:page)']: cached =>
-    { :version, page: @page } = @params
-    version, @page = nil, version if not isVersion version
-    docs, @categories, @version = glob version
+    { version: @version, page: @page } = @params
+    @version, @page = config.version, @version if not isVersion @version
+    @isDefaultVersion = @version == config.version
+    docs, @categories = glob @version
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
     @contents = docs[@page]
@@ -52,12 +53,14 @@ class extends Application
     render: true
 
   '/api/data(/:version)': cached =>
-    api = glob @params.version, true
+    version = @params.version or config.version
+    api = glob version, true
     return status 404 if not api
     json: api
 
   '/api/docs(/:version)': cached =>
-    docs = glob @params.version
+    version = @params.version or config.version
+    docs = glob version
     return status 404 if not docs
     json: docs
 
