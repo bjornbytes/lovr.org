@@ -10,6 +10,7 @@ class Share extends Widget
     widget Navbar
     main class: 'share container', ->
       h1 'Share your LÖVR'
+      aside 'This feature is in the process of being replaced.  Don\'t use it as a long term solution!'
       div class: 'drop', ->
         div class: 'message', 'Drop a .lovr file here to turn it into a WebVR app!'
         div class: 'progress', ->
