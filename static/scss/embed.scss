@@ -74,6 +74,7 @@ button {
     top: 50%;
     transform: translate(-50%, -50%);
     fill: $c-smoky;
+    width: 70%;
   }
 
   svg.heart {
@@ -83,6 +84,7 @@ button {
     transform: translate(-50%, -50%) scale(.2);
     animation: pulse 1s infinite;
     z-index: 5;
+    width: 66%;
 
     &.left { left: 33.33%; }
     &.right { left: 66.66%; }
