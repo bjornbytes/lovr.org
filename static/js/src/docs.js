@@ -161,6 +161,16 @@ window.addEventListener('popstate', function(event) {
 
 // Example
 function setExample(key) {
+  if (!iframe) {
+    return;
+  } else if (!iframe.src && key) {
+    iframe.src = '/embed';
+    iframe.addEventListener('load', function() {
+      setExample(key);
+    });
+    return;
+  }
+
   if (hasWebGL2 && key) {
     embed.style.display = 'block';
     iframe.style.display = 'block';
@@ -172,34 +182,36 @@ function setExample(key) {
   }
 }
 
-function resizeIframe() {
-  if (iframe.style.display === 'block') {
-    var canvas = iframe.contentWindow.document.querySelector('#canvas');
-    if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
-      iframe.style.height = canvas.offsetHeight + 'px';
+if (iframe) {
+  function resizeIframe() {
+    if (iframe.style.display === 'block') {
+      var canvas = iframe.contentWindow.document.querySelector('#canvas');
+      if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
+        iframe.style.height = canvas.offsetHeight + 'px';
+      }
     }
   }
-}
 
-window.addEventListener('focus', function() {
-  if (document.activeElement !== iframe) {
-    iframe.classList.remove('focus');
+  window.addEventListener('focus', function() {
+    if (document.activeElement !== iframe) {
+      iframe.classList.remove('focus');
+    }
+  });
+
+  window.addEventListener('blur', function() {
+    if (document.activeElement === iframe) {
+      iframe.classList.add('focus');
+    }
+  });
+
+  var resizeTimeout;
+  function debouncedResize() {
+    if (resizeTimeout) { clearTimeout(resizeTimeout); }
+    resizeTimeout = setTimeout(resizeIframe, 150);
   }
-});
 
-window.addEventListener('blur', function() {
-  if (document.activeElement === iframe) {
-    iframe.classList.add('focus');
-  }
-});
-
-var resizeTimeout;
-function debouncedResize() {
-  if (resizeTimeout) { clearTimeout(resizeTimeout); }
-  resizeTimeout = setTimeout(resizeIframe, 150);
+  window.addEventListener('resize', debouncedResize);
 }
-
-window.addEventListener('resize', debouncedResize);
 
 // Bootstrap initial content
 var initialContent = document.querySelector('.content');
@@ -216,9 +228,7 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
-    iframe.addEventListener('load', function() {
-      setExample(link.dataset.example);
-    });
+    setExample(link.dataset.example);
   }
 }
 
