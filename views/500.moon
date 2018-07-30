@@ -14,4 +14,4 @@ class Oops extends Widget
       h1 'Uh oh!'
       p ->
         text 'Something bad happened.  Try again later or contact '
-        a href: 'https://twitter.com/bjornbytes', '@bjornbytes'
+        a href: 'https://twitter.com/bjornbytes', target: '_blank', '@bjornbytes'
