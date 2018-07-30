@@ -3,7 +3,7 @@ import Widget from require 'lapis.html'
 Navbar = require 'views.navbar'
 Logo = require 'views.logo'
 
-class Oops extends Widget
+class NotFound extends Widget
   content: =>
     @content_for 'head', ->
       link rel: 'stylesheet', href: '/static/css/index.css'

@@ -6,10 +6,12 @@ Logo = require 'views.logo'
 class Oops extends Widget
   content: =>
     @content_for 'head', ->
-      link rel: 'stylesheet', href: '/static/css/index.css'
+      link rel: 'stylesheet', href: '/static/css/error.css'
 
     widget Navbar
-    main class: 'index container', ->
-      widget Logo
-      h1 'Oops!'
-      p 'An error occurred.'
+    main class: 'error container', ->
+      img src: '/static/img/hangryGoose.png', class: 'hero'
+      h1 'Uh oh!'
+      p ->
+        text 'Something bad happened.  Try again later or contact '
+        a href: 'https://twitter.com/bjornbytes', '@bjornbytes'
