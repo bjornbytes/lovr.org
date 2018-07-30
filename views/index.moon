@@ -20,7 +20,7 @@ class Index extends Widget
       p 'A simple framework for creating VR with Lua'
 
       div class: 'buttons', ->
-        a href: 'http://bjornbyt.es/f/lovr.zip', 'Download'
+        a href: '/static/f/lovr.zip', 'Download'
         a href: '/docs', 'Get Started'
 
       div class: 'thirds', ->

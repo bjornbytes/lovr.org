@@ -75,7 +75,7 @@ class extends Application
       yield_error(result)
 
   '/download': =>
-    redirect_to: 'http://bjornbyt.es/f/lovr.zip'
+    redirect_to: '/static/f/lovr.zip'
 
   '/repo': =>
     redirect_to: 'https://github.com/bjornbytes/lovr'

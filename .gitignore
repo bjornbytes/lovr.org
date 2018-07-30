@@ -4,6 +4,7 @@ views/*.lua
 logs
 nginx.conf.compiled
 static/css
+static/f/*
 static/js/docs.js
 static/js/share.js
 static/js/play.js
