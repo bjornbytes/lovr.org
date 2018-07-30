@@ -1,7 +1,7 @@
 import Application from require 'lapis'
 import cached from require 'lapis.cache'
 import capture_errors_json, yield_error, respond_to, json_params from require 'lapis.application'
-import hmac_sha1 from require 'lapis.util.encoding'
+import hmac_sha1, encode_base64 from require 'lapis.util.encoding'
 
 config = require('lapis.config').get!
 cache = require 'lapis.cache'
@@ -117,5 +117,17 @@ class extends Application
       success = pcall refresh, version
       return status 500 if not success
       cache.delete_all!
+      status 200
+  }
+
+  '/nightly': respond_to {
+    GET: =>
+      redirect_to: '/static/f/lovr-nightly.zip'
+
+    POST: json_params =>
+      return status 403 if @req.headers['Authorization'] != "Basic #{encode_base64(secrets.nightly)}"
+      return status 400 if not @params.artifacts or #@params.artifacts == 0
+      return status 400 if @params.artifacts[1].fileName ~= 'lovr.zip'
+      os.execute("curl '#{@params.artifacts[1].url}' > static/f/lovr-nightly.zip") -- >_>
       status 200
   }
