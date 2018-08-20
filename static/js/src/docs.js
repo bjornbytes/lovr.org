@@ -155,8 +155,15 @@ setTimeout(function() {
 
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
-  var page = (event.state && event.state.key) || document.querySelector('.sidebar section li').dataset.key;
-  showPage(page, event.state && event.state.scroll);
+  var content = main.querySelector('.content');
+
+  if (!event.state && content) {
+    history.replaceState({ key: content.dataset.key, scroll: window.scrollY }, '', window.location.pathname + window.location.hash);
+  }
+
+  if (event.state && event.state.key && (!content || content.dataset.key !== event.state.key)) {
+    showPage(event.state.key, event.state.scroll);
+  }
 });
 
 // Example
