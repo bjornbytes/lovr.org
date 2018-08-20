@@ -113,6 +113,11 @@ function enhance(node) {
       showPage(key, 0);
     };
   });
+
+  var hs = Array.prototype.slice.call(node.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+  hs.forEach(function(h) {
+    h.id = h.id || h.textContent.toLowerCase().replace(/[^\w]+/g, '');
+  });
 }
 
 // Stream documentation
