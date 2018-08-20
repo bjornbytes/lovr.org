@@ -245,15 +245,6 @@ main.docs {
       font-family: "Fira Mono", monospace;
     }
 
-    a[data-key] {
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
-
-      &:hover {
-        border-bottom: 2px $c-berry solid;
-      }
-    }
-
     color: $c-smoky;
     font-size: 14px;
     display: inline-block;
@@ -262,6 +253,16 @@ main.docs {
     line-height: 1;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+  }
+
+  code a[data-key], a code {
+    color: $c-mauve;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    &:hover {
+      border-bottom: 2px $c-berry solid;
+    }
   }
 
   pre {
