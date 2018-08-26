@@ -273,6 +273,7 @@ main.docs {
 
     code {
       display: block;
+      overflow-x: auto;
       background: $c-night;
       color: $c-cream;
       border-radius: 5px;
