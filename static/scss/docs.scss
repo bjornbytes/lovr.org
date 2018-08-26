@@ -13,12 +13,13 @@
   z-index: 10;
   background: $c-white;
   border-right: 2px $c-ghost solid;
-  padding-bottom: 20px;
   width: 310px;
   overflow-y: scroll;
   will-change: scroll-position;
 
   section {
+    margin-bottom: 18px;
+
     &.hidden {
       display: none;
     }
