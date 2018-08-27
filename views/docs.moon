@@ -15,7 +15,9 @@ class Docs extends require 'views.page'
       hidden = isHidden category
       section class: { :hidden, category }, ->
         h2 category\gsub('^%l', string.upper) or ''
-        ul -> @sidebar_link(link, labelFor(link), category == 'examples') if not skip link for link in *@categories[category]
+        ul ->
+          for link in *@categories[category]
+            @sidebar_link(link, labelFor(link), category == 'examples') if not skip link
 
     renderCategory 'guides'
     renderCategory 'examples'

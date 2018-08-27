@@ -40,7 +40,8 @@
       list-style-type: none;
     }
 
-    li {
+    li a {
+      display: block;
       padding-left: 20px;
       padding-right: 20px;
       padding-top: 3px;
@@ -393,7 +394,7 @@ main.docs {
       padding-left: 14px;
     }
 
-    li {
+    li a {
       padding-left: 10px;
       padding-right: 10px;
     }

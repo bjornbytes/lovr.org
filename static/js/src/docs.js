@@ -24,11 +24,12 @@ var aliases = [
 require('../highlight.js');
 var main = document.querySelector('main');
 var embed = document.querySelector('.embed');
+var sidebar = document.querySelector('.sidebar');
 var iframe = embed.querySelector('iframe');
-var sidebarSections = Array.prototype.slice.call(document.querySelectorAll('section'));
-var sidebarLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key]'));
-var searchBox = document.querySelector('.search');
-var aliasMessage = document.querySelector('.alias-message');
+var sidebarSections = Array.prototype.slice.call(sidebar.querySelectorAll('section'));
+var sidebarLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key]'));
+var searchBox = sidebar.querySelector('.search');
+var aliasMessage = sidebar.querySelector('.alias-message');
 var transitionTimeout;
 var data = {};
 var hasWebGL2 = !!document.createElement('canvas').getContext('webgl2');
@@ -49,13 +50,13 @@ function pushPage(key) {
 function showPage(key, scroll) {
 
   // Unhighlight all active links
-  var activeLinks = Array.prototype.slice.call(document.querySelectorAll('li[data-key].active'));
+  var activeLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key].active'));
   activeLinks.forEach(function(link) {
     link.classList.remove('active');
   });
 
   // Highlight active link
-  var link = document.querySelector('li[data-key="' + key + '"]');
+  var link = sidebar.querySelector('a[data-key="' + key + '"]');
   link && link.classList.add('active');
 
   // Destroy any existing content elements
@@ -146,8 +147,8 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
     var key = path[0];
     data[key] = node;
 
-    var li = document.querySelector('li[data-key="' + key + '"]');
-    if (li) {
+    var a = sidebar.querySelector('a[data-key="' + key + '"]');
+    if (a) {
       var onclick = function(event) {
         var content = document.querySelector('.content');
         if (content && content.dataset.key === key) { return; }
@@ -155,10 +156,10 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
         showPage(key, 0);
       };
 
-      li.classList.remove('disabled');
-      li.tabIndex = 0;
-      li.addEventListener('click', onclick);
-      li.addEventListener('keypress', function(event) {
+      a.classList.remove('disabled');
+      a.tabIndex = 0;
+      a.addEventListener('click', onclick);
+      a.addEventListener('keypress', function(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
           event.preventDefault();
           onclick(event);
@@ -245,7 +246,6 @@ if (initialContent) {
   }
 
   enhance(initialContent);
-  var sidebar = document.querySelector('.sidebar');
   var link = sidebar.querySelector('[data-key="' + key + '"]');
 
   if (link) {
@@ -360,7 +360,7 @@ function updateResults() {
 
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
-    var section = link.parentElement.parentElement;
+    var section = link.parentElement.parentElement.parentElement;
     var visible = key.indexOf(query) >= 0;
 
     visible = visible || replacements.find(function(alias) {
