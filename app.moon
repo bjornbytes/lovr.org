@@ -8,7 +8,6 @@ cache = require 'lapis.cache'
 glob = require 'glob'
 upload = require 'upload'
 lfs = require 'lfs'
-aliases = require 'aliases'
 secrets = require 'secrets'
 refresh = require 'content.refresh'
 
@@ -63,9 +62,6 @@ class extends Application
     docs = glob version
     return status 404 if not docs
     json: docs
-
-  '/api/aliases': cached =>
-    json: aliases
 
   '/api/share': capture_errors_json =>
     success, result = pcall(upload, @params.file.content)

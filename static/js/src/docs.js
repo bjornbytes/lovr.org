@@ -1,5 +1,26 @@
 import oboe from 'oboe';
 
+var aliases = [
+  [ /^imag/, 'Texture' ],
+  [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
+  [ /^(love|unity|unreal)/, 'lovr' ],
+  [ /^rng/, 'random' ],
+  [ /matr/, 'Transform' ],
+  [ /netw|multip|sock|udp/, 'enet' ],
+  [ /glsl/, 'Shader' ],
+  [ /batc.*/, 'instance' ],
+  [ /msaa|multis|antia/, 'lovr.conf' ],
+  [ /^partic/, { type: 'unsupported', feature: 'Particles' } ],
+  [ /^overla/, { type: 'unsupported', feature: 'Overlays' } ],
+  [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
+  [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
+  [ /^bezi/, { type: 'unsupported', feature: 'Bezier curves' } ],
+  [ /^(android|cardboard|gear|daydream|mobile)/, { type: 'unsupported', feature: 'Mobile VR' } ],
+  [ /^(android|cardboard|gear|daydream|mobile)/, { type: 'unsupported', feature: 'Mobile VR' } ],
+  [ /^(ar\\s*kit|ar\\s*core|augm.*)$/, { type: 'unsupported', feature: 'AR' } ],
+  [ /^hi$/, { type: 'hi' } ]
+];
+
 require('../highlight.js');
 var main = document.querySelector('main');
 var embed = document.querySelector('.embed');
@@ -10,7 +31,6 @@ var searchBox = document.querySelector('.search');
 var aliasMessage = document.querySelector('.alias-message');
 var transitionTimeout;
 var data = {};
-var aliases = [];
 var hasWebGL2 = !!document.createElement('canvas').getContext('webgl2');
 
 function getUrl(key) {
@@ -148,15 +168,6 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
 
     return oboe.drop;
   });
-
-setTimeout(function() {
-  oboe('/api/aliases')
-    .done(function(result) {
-      aliases = Object.keys(result).map(function(key) {
-        return [ new RegExp(key), result[key] ];
-      });
-    });
-}, 100);
 
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
