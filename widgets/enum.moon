@@ -20,5 +20,5 @@ class Enum extends Widget
             td class: 'pre', value.name
             td value.description
 
-    Notes notes: @notes
-    Related related: @related
+    widget Notes notes: @notes
+    widget Related related: @related
