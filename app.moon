@@ -70,8 +70,12 @@ class extends Application
     else
       yield_error(result)
 
-  '/download': =>
-    redirect_to: '/static/f/lovr.zip'
+  '/download': => redirect_to: '/static/f/lovr.zip'
+  '/download/mac': => redirect_to: '/static/f/mac/LÖVR.dmg'
+  '/download/windows': => redirect_to: '/static/f/win/32/lovr.zip'
+  '/download/windows/32': => redirect_to: '/static/f/win/32/lovr.zip'
+  '/download/windows/64': => redirect_to: '/static/f/win/64/lovr.zip'
+  '/download/nightly': => redirect_to: '/static/f/lovr-nightly.zip'
 
   '/repo': =>
     redirect_to: 'https://github.com/bjornbytes/lovr'
