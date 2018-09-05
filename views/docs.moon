@@ -37,7 +37,7 @@ class Docs extends require 'views.page'
     @sidebar!
 
     main class: 'docs', ->
-      div class: 'embed', -> iframe allowvr: true if @isDefaultVersion
+      div class: 'embed', -> iframe allowvr: true, allowfullscreen: true if @isDefaultVersion
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
