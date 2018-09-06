@@ -13,6 +13,7 @@ refresh = require 'content.refresh'
 
 isVersion = (v) -> v and (v\match('%d%.+') or v == 'master')
 status = (status) -> { status: status, layout: false, '' }
+findPage = (docs, page) -> ([key for key in pairs docs when key\lower! == page\lower!])[1] or page
 
 class extends Application
   layout: 'layout'
@@ -35,6 +36,7 @@ class extends Application
     @version, @page = config.version, @version if not isVersion @version
     @isDefaultVersion = @version == config.version
     docs, @categories = glob @version
+    @page = findPage docs, @page if docs and @page and not docs[@page]
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
     @contents = docs[@page]
