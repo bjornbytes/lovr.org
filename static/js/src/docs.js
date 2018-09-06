@@ -313,7 +313,7 @@ window.addEventListener('keypress', function(event) {
     return;
   }
 
-  if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:]/.test(event.key)) {
+  if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:\[\]]/.test(event.key)) {
     event.preventDefault();
     searchBox.style.display = 'block';
     searchBox.focus();
@@ -336,6 +336,10 @@ searchBox.onkeyup = function() {
 };
 
 function updateResults() {
+  if (/[\[\]\{\}\/\.\+\*]/.test(searchBox.value)) {
+    try { var regex = new RegExp(searchBox.value); } catch (e) { regex = null; }
+  }
+
   var query = searchBox.value.toLowerCase();
   var replacements = [];
   var message = null;
@@ -361,7 +365,7 @@ function updateResults() {
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
     var section = link.parentElement.parentElement.parentElement;
-    var visible = key.indexOf(query) >= 0;
+    var visible = key.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key));
 
     visible = visible || replacements.find(function(alias) {
       return key.indexOf(alias[1].toLowerCase()) >= 0;
