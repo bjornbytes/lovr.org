@@ -92,6 +92,20 @@ class extends Application
   '/docs/WebVR': =>
     redirect_to: 'https://lovr.org/docs/Distribution'
 
+  '/sitemap': =>
+    sitemap = { 'https://lovr.org', 'https://lovr.org/docs' }
+    add = (path) -> table.insert sitemap, "https://lovr.org/docs/#{path}"
+    _, categories = glob config.version
+    add key for key in *categories.guides
+    add key for key in *categories.examples
+    add key for key in *categories.modules
+    add key for key in *categories.callbacks
+    add key for key in *categories.functions
+    add key for key in *categories.types
+    @options.layout = false
+    @options.content_type = 'text/plain'
+    table.concat sitemap, '\n'
+
   '/refresh/:version': respond_to {
     POST: json_params =>
       return status 403 if @req.parsed_url.host ~= 'localhost' and @req.parsed_url.host ~= '127.0.0.1'
