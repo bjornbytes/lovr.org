@@ -2,7 +2,7 @@ Navbar = require 'views.navbar'
 
 class Docs extends require 'views.page'
   sidebar_content: =>
-    skip = (link) ->
+    hide = (link) ->
       link\match('^%w+Joint$') or link\match('^%w+Shape$')
 
     labelFor = (link) ->
@@ -17,7 +17,7 @@ class Docs extends require 'views.page'
         h2 category\gsub('^%l', string.upper) or ''
         ul ->
           for link in *@categories[category]
-            @sidebar_link(link, labelFor(link), category == 'examples') if not skip link
+            @sidebar_link link, labelFor link, hide link, category == 'examples'
 
     renderCategory 'guides'
     renderCategory 'examples'
