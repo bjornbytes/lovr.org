@@ -17,7 +17,7 @@ class Docs extends require 'views.page'
         h2 category\gsub('^%l', string.upper) or ''
         ul ->
           for link in *@categories[category]
-            @sidebar_link link, labelFor link, hide link, category == 'examples'
+            @sidebar_link link, (labelFor link), (hide link), (category == 'examples')
 
     renderCategory 'guides'
     renderCategory 'examples'
