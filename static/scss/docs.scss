@@ -54,6 +54,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      &.hidden { display: none; }
       &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
       &.active { color: $c-raven; border-left-color: $c-mauve; }
       &:active, &.active { background: $c-phlox; }
