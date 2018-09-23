@@ -27,7 +27,7 @@ class Index extends Widget
         div class: 'third', ->
           h3 (-> span '📦'), 'Cross Platform'
           p 'LÖVR projects work on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or '..
-            'an Oculus Rift, and there\'s even a drag and drop tool for exporting projects to WebVR.'
+            'an Oculus Rift, and you can even export projects to WebVR.'
 
         div class: 'third', ->
           h3 (-> span '🌈'), 'Super Simple'

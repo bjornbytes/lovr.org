@@ -12,7 +12,6 @@ class Navbar extends Widget
 
       div class: 'links', ->
         a href: '/docs', 'Documentation'
-        a href: '/share', 'WebVR'
 
         div class: 'spacer'
 
