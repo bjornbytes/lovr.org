@@ -5,6 +5,20 @@ Examples = require 'widgets.examples'
 Notes = require 'widgets.notes'
 
 class Function extends Widget
+  renderSubTable: (t, hasDefault, level = 0) =>
+    return if not t
+
+    prefix = level > 0 and '.' or ''
+
+    for field in *t
+      tr class: "indent-#{level}", ->
+        td class: 'pre', prefix .. field.name
+        td class: { 'pre', field.type }, field.type
+        td class: 'pre', field.default if hasDefault
+        td -> raw (field.description and (mde.from_string field.description)\gsub('</?p>', '') or '')
+
+        @renderSubTable field.table, hasDefault, level + 1
+
   content: =>
     h1 @key
     raw mde.from_string @description
@@ -29,20 +43,6 @@ class Function extends Widget
       if #variant.arguments > 0
         hasDefault = #[arg for arg in *variant.arguments when arg.default] > 0
 
-        renderSubTable = (t, level = 0) ->
-          return if not t
-
-          prefix = level > 0 and '.' or ''
-
-          for field in *t
-            tr class: "indent-#{level}", ->
-              td class: 'pre', prefix .. field.name
-              td class: { 'pre', field.type }, field.type
-              td class: 'pre', field.default if hasDefault
-              td field.description
-
-              renderSubTable(field.table, level + 1)
-
         element 'table', class: 'signature', ->
           thead ->
             tr ->
@@ -51,7 +51,7 @@ class Function extends Widget
               td 'Default' if hasDefault
               td 'Description'
           tbody ->
-            renderSubTable variant.arguments
+            @renderSubTable variant.arguments, hasDefault
       else
         p class: 'muted', 'None'
 
@@ -65,11 +65,7 @@ class Function extends Widget
               td 'Type'
               td 'Description'
           tbody ->
-            for ret in *variant.returns
-              tr ->
-                td class: 'pre', ret.name
-                td class: { 'pre', ret.type }, ret.type
-                td ret.description
+            @renderSubTable variant.returns, false
       else
         p class: 'muted', 'Nothing'
 
