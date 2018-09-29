@@ -17,29 +17,29 @@
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
+.hljs-literal,
 .hljs-deletion {
   color: #ff9da4;
 }
 
 /* Tomorrow Orange */
 .hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
 .hljs-type,
-.hljs-params,
 .hljs-meta,
 .hljs-link {
   color: #ffc58f;
 }
 
 /* Tomorrow Yellow */
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-params,
 .hljs-attribute {
   color: #ffeead;
 }
 
 /* Tomorrow Green */
-.hljs-string,
+.hljs-title,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
@@ -47,7 +47,7 @@
 }
 
 /* Tomorrow Blue */
-.hljs-title,
+.hljs-string,
 .hljs-section {
   color: #bbdaff;
 }

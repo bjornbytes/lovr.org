@@ -37,7 +37,7 @@ class Function extends Widget
           for field in *t
             tr class: "indent-#{level}", ->
               td class: 'pre', prefix .. field.name
-              td class: 'pre', field.type
+              td class: { 'pre', field.type }, field.type
               td class: 'pre', field.default if hasDefault
               td field.description
 
@@ -68,7 +68,7 @@ class Function extends Widget
             for ret in *variant.returns
               tr ->
                 td class: 'pre', ret.name
-                td class: 'pre', ret.type
+                td class: { 'pre', ret.type }, ret.type
                 td ret.description
       else
         p class: 'muted', 'Nothing'

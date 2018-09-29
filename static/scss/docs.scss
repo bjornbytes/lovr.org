@@ -302,7 +302,15 @@ main.docs {
       }
 
       .hljs-comment {
-        color: $c-steam;
+        color: $c-dusty;
+      }
+
+      &.prototype {
+        .boolean { color: $c-amber; }
+        .number { color: $c-rusty; }
+        .string { color: $c-ocean; }
+        .table { color: $c-mossy; }
+        .function { color: $c-honey; }
       }
     }
   }
@@ -337,6 +345,12 @@ main.docs {
       tr {
         td {
           padding: 8px;
+
+          &.pre.boolean { color: $c-amber; }
+          &.pre.number { color: $c-rusty; }
+          &.pre.string { color: $c-ocean; }
+          &.pre.table { color: $c-mossy; }
+          &.pre.function { color: $c-honey; }
         }
 
         &.indent-1 td:first-child { padding-left: 18px; }
