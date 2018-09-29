@@ -364,8 +364,9 @@ function updateResults() {
 
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
+    var lazyKey = key.replace(/[:.]/g, '');
     var section = link.parentElement.parentElement.parentElement;
-    var visible = key.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key));
+    var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key));
 
     visible = visible || replacements.find(function(alias) {
       return key.indexOf(alias[1].toLowerCase()) >= 0;
