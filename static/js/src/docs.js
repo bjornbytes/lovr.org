@@ -113,7 +113,7 @@ function enhance(node) {
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
-  var tokenPattern = /(lovr[a-zA-Z\.]*)|([A-Z][a-zA-Z]+[:\.][a-zA-Z]+)/gm;
+  var tokenPattern = /(lovr[a-zA-Z\.]*)|([A-Z][a-zA-Z:]+)/gm;
   codes.forEach(function(code) {
     if (!code.classList.contains('hljs') || code.classList.contains('lua')) {
       code.innerHTML = code.innerHTML.replace(tokenPattern, function(token) {
