@@ -101,7 +101,7 @@ function enhance(node) {
         td.innerHTML = '<a data-key="' + td.textContent + '">' + td.textContent + '</a>';
       }
     } else {
-      var tokenPattern = /(a (?:new )?)([A-Z][a-zA-Z]+)/gm;
+      var tokenPattern = /(an? (?:new )?)([A-Z][a-zA-Z]+)/gm;
       td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
           return prefix + '<a data-key="' + token + '">' + token + '</a>';
@@ -113,15 +113,17 @@ function enhance(node) {
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
-  var tokenPattern = /(?:^|[^\/\-])(lovr[a-zA-Z\.]*)(?:$|[^\/\-])|([A-Z][a-zA-Z:]+)/gm;
+  var tokenPattern = /(lovr[a-zA-Z\.]*)|([A-Z][a-zA-Z]+[:\.][a-zA-Z]+)/gm;
   codes.forEach(function(code) {
-    code.innerHTML = code.innerHTML.replace(tokenPattern, function(token) {
-      if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
-        return '<a data-key="' + token + '">' + token + '</a>';
-      }
+    if (!code.classList.contains('hljs') || code.classList.contains('lua')) {
+      code.innerHTML = code.innerHTML.replace(tokenPattern, function(token) {
+        if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
+          return '<a data-key="' + token + '">' + token + '</a>';
+        }
 
-      return token;
-    });
+        return token;
+      });
+    }
   });
 
   var links = Array.prototype.slice.call(node.querySelectorAll('a[data-key]'));
