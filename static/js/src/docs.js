@@ -91,7 +91,6 @@ function showPage(key, scroll) {
 function enhance(node) {
   var pres = Array.prototype.slice.call(node.querySelectorAll('pre code'));
   pres.forEach(function(pre) {
-    pre.classList.add('lua');
     hljs.highlightBlock(pre);
   });
 
