@@ -53,6 +53,7 @@
       border-left-color: transparent;
       overflow: hidden;
       text-overflow: ellipsis;
+      text-decoration: none;
       white-space: nowrap;
       &.hidden { display: none; }
       &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }

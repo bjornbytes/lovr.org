@@ -152,6 +152,7 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
     var a = sidebar.querySelector('a[data-key="' + key + '"]');
     if (a) {
       var onclick = function(event) {
+        event.preventDefault();
         var content = document.querySelector('.content');
         if (content && content.dataset.key === key) { return; }
         pushPage(key);
