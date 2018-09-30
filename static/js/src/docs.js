@@ -113,15 +113,15 @@ function enhance(node) {
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
-  var tokenPattern = /(lovr[a-zA-Z\.]*)|([A-Z][a-zA-Z:]+)/gm;
+  var tokenPattern = /(^|[^\/\-])(lovr[a-zA-Z\.]*|[A-Z][a-zA-Z:]+)([^\/\-]|$)/gm;
   codes.forEach(function(code) {
     if (!code.classList.contains('hljs') || code.classList.contains('lua')) {
-      code.innerHTML = code.innerHTML.replace(tokenPattern, function(token) {
+      code.innerHTML = code.innerHTML.replace(tokenPattern, function(_, a, token, b) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
-          return '<a data-key="' + token + '">' + token + '</a>';
+          return a + '<a data-key="' + token + '">' + token + '</a>' + b;
         }
 
-        return token;
+        return _;
       });
     }
   });
