@@ -141,6 +141,10 @@
           color: $c-steam;
         }
       }
+
+      &:active {
+        background: darken($c-lilac, 25%);
+      }
     }
 
     &:hover {
