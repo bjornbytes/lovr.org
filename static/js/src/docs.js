@@ -29,6 +29,7 @@ var iframe = embed.querySelector('iframe');
 var sidebarSections = Array.prototype.slice.call(sidebar.querySelectorAll('section'));
 var sidebarLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key]'));
 var searchBox = sidebar.querySelector('.search');
+var versions = sidebar.querySelector('.versions');
 var aliasMessage = sidebar.querySelector('.alias-message');
 var transitionTimeout;
 var data = {};
@@ -404,6 +405,8 @@ function updateResults() {
   } else {
     aliasMessage.style.display = '';
   }
+
+  versions.style.display = searchBox.style.display == 'block' ? 'none' : 'block';
 }
 
 var sidebarToggle = document.querySelector('.sidebar-toggle');

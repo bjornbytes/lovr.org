@@ -96,6 +96,59 @@
       text-decoration: none;
     }
   }
+
+  .versions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    width: 80px;
+    text-align: center;
+    background: $c-lilac;
+    border-radius: 4px;
+    z-index: 5;
+    font-size: 12px;
+    border-bottom: none;
+
+    .version {
+      display: none;
+      border-radius: 4px;
+      margin: 0;
+      user-select: none;
+
+      a {
+        display: inline-block;
+        padding: 6px 4px;
+        color: $c-raven;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      &.active {
+        display: block;
+        padding: 6px 4px;
+      }
+
+      &:hover {
+        background: darken($c-lilac, 20%);
+
+        &, a {
+          color: $c-steam;
+        }
+      }
+    }
+
+    &:hover {
+      .version {
+        display: block;
+      }
+
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+    }
+  }
 }
 
 .sidebar-toggle {

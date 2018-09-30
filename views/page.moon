@@ -8,6 +8,13 @@ class Page extends Widget
 
   sidebar: =>
     div class: 'sidebar', ->
+      ul class: 'versions', ->
+        li class: 'active version', @version
+        for v in *@versions
+          if v ~= @version
+            li class: 'version', ->
+              a href: "/docs/#{v}", v
+
       input class: 'search'
 
       aside class: 'alias-message'

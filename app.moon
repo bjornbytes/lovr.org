@@ -10,8 +10,8 @@ upload = require 'upload'
 lfs = require 'lfs'
 secrets = require 'secrets'
 refresh = require 'content.refresh'
+versions = require 'content.versions'
 
-isVersion = (v) -> v and (v\match('%d%.+') or v == 'master')
 status = (status) -> { status: status, layout: false, '' }
 findPage = (docs, page) -> ([key for key in pairs docs when key\lower! == page\lower!])[1] or page
 
@@ -33,7 +33,8 @@ class extends Application
 
   [docs: '/docs(/:version)(/:page)']: cached =>
     { version: @version, page: @page } = @params
-    @version, @page = config.version, @version if not isVersion @version
+    @versions = versions!
+    @version, @page = config.version, @version if not @versions[@version]
     @isDefaultVersion = @version == config.version
     docs, @categories = glob @version
     @page = findPage docs, @page if docs and @page and not docs[@page]
@@ -111,7 +112,7 @@ class extends Application
   '/refresh/:version': respond_to {
     POST: json_params =>
       return status 403 if @req.parsed_url.host ~= 'localhost' and @req.parsed_url.host ~= '127.0.0.1'
-      return status 400 if not @params.version or not isVersion @params.version
+      return status 400 if not @params.version or not versions![@params.version]
       success = pcall refresh, @params.version
       return status 500 if not success
       cache.delete_all!
@@ -122,7 +123,7 @@ class extends Application
     POST: json_params =>
       return status 400 if not @params.ref
       version = @params.ref\match('[^/]+$')
-      return status 400 if not isVersion version
+      return status 400 if not versions![version]
       ngx.req.read_body!
       data = ngx.req.get_body_data!
       return status 400 if not data
