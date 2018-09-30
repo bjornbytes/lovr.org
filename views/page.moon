@@ -4,7 +4,7 @@ class Page extends Widget
   sidebar_link: (key, label, hidden, isExample) =>
     li ->
       a class: { 'disabled', active: key == @page, :hidden }, ['data-key']: key, ['data-example']: @isDefaultVersion and isExample and key, ->
-        text label\gsub('_', ' ') or ''
+        text label and label\gsub('_', ' ')\gsub('.+%-', '') or ''
 
   sidebar: =>
     div class: 'sidebar', ->

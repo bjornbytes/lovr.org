@@ -84,16 +84,18 @@ glob = (version, justApi) ->
   for example in *examples do
     handle = io.open("content/#{version}/examples/#{example}/main.lua", 'r')
     continue if handle == nil
-    content[example] = "<h1>#{example\gsub('_', ' ')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
-    insert categories.examples, example
+    key = content[example] and "example-#{example}" or example
+    content[key] = "<h1>#{example\gsub('_', ' ')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
+    insert categories.examples, key
     handle\close!
 
   categories.guides = {}
   for guide in *guides do
     handle = io.open("content/#{version}/guides/#{guide}.md", 'r')
     continue if handle == nil
-    content[guide] = mde.from_string handle\read('*a')
-    insert categories.guides, guide
+    key = content[guide] and "guide-#{guide}" or guide
+    content[key] = mde.from_string handle\read('*a')
+    insert categories.guides, key
     handle\close!
 
   content, categories
