@@ -13,7 +13,7 @@ versions = () ->
       for i = 1, 3
         if tonumber(ta[i]) < tonumber(tb[i]) then return false
         elseif tonumber(ta[i]) > tonumber(tb[i]) then return true
-      true
+      false
   t
 
 versions
