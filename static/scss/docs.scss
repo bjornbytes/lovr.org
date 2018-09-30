@@ -134,6 +134,7 @@
 
       &:hover {
         background: darken($c-lilac, 20%);
+        text-shadow: 1px 1px rgba(0, 0, 0, .25);
 
         &, a {
           color: $c-steam;
