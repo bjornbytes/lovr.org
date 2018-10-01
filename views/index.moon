@@ -25,18 +25,18 @@ class Index extends Widget
 
       div class: 'thirds', ->
         div class: 'third', ->
-          h3 (-> span '📦'), 'Cross Platform'
+          h3 (-> span 'aria-hidden': true, '📦'), 'Cross Platform'
           p 'LÖVR projects work on Windows, macOS, and Linux.  You can run the same code on an HTC Vive or '..
             'an Oculus Rift, and you can even export projects to WebVR.'
 
         div class: 'third', ->
-          h3 (-> span '🌈'), 'Super Simple'
+          h3 (-> span 'aria-hidden': true, '🌈'), 'Super Simple'
           p 'LÖVR is minimal, clean, and really easy to pick up.  It\'s scripted with Lua, a fun '..
             'little scripting language.  Most common tasks are reduced to just a few lines of code, and '..
             'everything is designed for VR.'
 
         div class: 'third', ->
-          h3 (-> span '💜'), 'Open Source'
+          h3 (-> span 'aria-hidden': true, '💜'), 'Open Source'
           p 'LÖVR is open source software, meaning it\'s 100% free to use and doesn\'t require accounts, paid licenses, '..
             'or royalties.  The code can be found on GitHub and is released '..
             'under the MIT license.'
