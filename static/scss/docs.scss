@@ -247,9 +247,42 @@ main.docs {
     }
   }
 
-  h1, h2, h3, h4, h5, ul, li, p, pre {
+  p, pre, li {
     margin: 0;
     padding: 0;
+  }
+
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: -1;
+
+    // Fixes hash links
+    /*&::before {
+      $nav-height: 60px;
+      $body-padding: 40px;
+      width: 0;
+      display: block;
+      content: " ";
+      margin-top: -($nav-height + $body-padding);
+      height: $nav-height + $body-padding;
+      visibility: hidden;
+      pointer-events: none;
+    }*/
+
+    .permalink {
+      display: none;
+      color: darken($c-lilac, 10%);
+      cursor: pointer;
+      position: absolute;
+      right: 100%;
+      padding-right: 16px;
+    }
+
+    &:hover .permalink {
+      display: inline-block;
+    }
   }
 
   h1 {
@@ -263,7 +296,9 @@ main.docs {
     color: $c-smoke;
     font-size: 20px;
     font-weight: normal;
-    margin-top: 40px;
+    //margin-top: 40px;
+    padding-top: 100px;
+    margin-top: -100px;
     padding-bottom: 6px;
     border-bottom: 2px $c-candy solid;
   }
@@ -582,14 +617,28 @@ main.docs {
 }
 
 @media(max-width: 640px) {
+  $nav-height: 50px;
+
   .sidebar {
-    top: 50px;
+    top: $nav-height;
+  }
+
+  h1::before, h2::before, h3::before, h4::before {
+    margin-top: -($nav-height + 40px);
+    height: $nav-height + 40px;
   }
 }
 
 @media(max-width: 480px) {
+  $nav-height: 40px;
+
   .sidebar {
-    top: 40px;
+    top: $nav-height;
+  }
+
+  h1::before, h2::before, h3::before, h4::before {
+    margin-top: -($nav-height + 40px);
+    height: $nav-height + 40px;
   }
 
   main.docs {
