@@ -13,7 +13,7 @@ class Page extends Widget
         for v in *@versions
           if v ~= @version
             li class: 'version', ->
-              a href: "/docs/#{v}", v
+              a href: "/docs/#{v}", rel: 'nofollow', v
 
       input class: 'search'
 
