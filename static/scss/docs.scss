@@ -108,11 +108,14 @@
     cursor: pointer;
     width: 80px;
     text-align: center;
-    background: $c-lilac;
     border-radius: 4px;
     z-index: 5;
     font-size: 12px;
     border-bottom: none;
+    background-color: darken($c-lilac, 10%);
+    background-image: linear-gradient(rgba($c-white, .5), rgba($c-white, 0));
+    user-select: none;
+    -webkit-user-select: none;
 
     .version {
       display: none;
@@ -131,10 +134,12 @@
       &.active {
         display: block;
         padding: 6px 4px;
+        text-shadow: 1px 1px rgba($c-white, .2);
       }
 
       &:hover {
-        background: darken($c-lilac, 20%);
+        background-color: darken($c-lilac, 25%);
+        background-image: linear-gradient(rgba($c-white, .4), rgba($c-white, 0));
         text-shadow: 1px 1px rgba(0, 0, 0, .25);
 
         &, a {
@@ -142,8 +147,8 @@
         }
       }
 
-      &:active {
-        background: darken($c-lilac, 25%);
+      &:not(.active):active {
+        background-color: darken($c-lilac, 35%);
       }
     }
 
