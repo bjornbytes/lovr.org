@@ -31,11 +31,12 @@ class extends Application
   [index: '/']: cached =>
     render: true
 
-  [docs: '/docs(/:version)(/:page)']: cached =>
+  [docs: '/docs(/:version)(/:page)']: =>
     { version: @version, page: @page } = @params
-    @versions = versions!
+    @versions = { config.version }
     @version, @page = config.version, @version if not @versions[@version]
     @isDefaultVersion = @version == config.version
+    return render: '404', status: 404 if not @isDefaultVersion
     docs, @categories = glob @version
     @page = findPage docs, @page if docs and @page and not docs[@page]
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
