@@ -2,7 +2,7 @@
 @import "colors.scss";
 @import "nav.scss";
 @import "progress.scss";
-@import "fira-mono.scss";
+@import "source-code-pro.scss";
 @import "varela-round.scss";
 @import "tomorrow-night-blue.scss";
 
@@ -310,7 +310,7 @@ main.docs {
 
   code {
     &, * {
-      font-family: "Fira Mono", monospace;
+      font-family: "Source Code Pro", monospace;
     }
 
     color: $c-smoky;
@@ -442,7 +442,7 @@ main.docs {
       padding: 5px;
 
       &.pre, &.pre a {
-        font-family: "Fira Mono";
+        font-family: "Source Code Pro";
       }
 
       &.pre a {

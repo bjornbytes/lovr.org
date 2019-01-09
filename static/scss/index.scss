@@ -1,7 +1,7 @@
 @import "base.scss";
 @import "colors.scss";
 @import "nav.scss";
-@import "fira-mono.scss";
+@import "source-code-pro.scss";
 @import "varela-round.scss";
 @import "tomorrow-night-blue.scss";
 
@@ -88,7 +88,7 @@ main.index {
 
       pre {
         &, * {
-          font-family: 'Fira Mono', monospace;
+          font-family: 'Source Code Pro', monospace;
           font-size: 14px;
         }
 
