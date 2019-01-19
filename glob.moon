@@ -20,9 +20,9 @@ glob = (version, justApi) ->
 
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
-  api = loadfile("content/#{version}/api/init.lua")()
-  examples = loadfile("content/#{version}/examples/init.lua")()
-  guides = loadfile("content/#{version}/guides/init.lua")()
+  api = require("content/#{version}/api/init")
+  examples = require("content/#{version}/examples/init")
+  guides = require("content/#{version}/guides/init")
 
   return api if justApi
 
