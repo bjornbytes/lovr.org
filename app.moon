@@ -31,12 +31,11 @@ class extends Application
   [index: '/']: cached =>
     render: true
 
-  [docs: '/docs(/:version)(/:page)']: =>
+  [docs: '/docs(/:version)(/:page)']: cached =>
     { version: @version, page: @page } = @params
-    @versions = { config.version }
+    @versions = versions!
     @version, @page = config.version, @version if not @versions[@version]
     @isDefaultVersion = @version == config.version
-    return render: '404', status: 404 if not @isDefaultVersion
     docs, @categories = glob @version
     @page = findPage docs, @page if docs and @page and not docs[@page]
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
@@ -55,13 +54,13 @@ class extends Application
   [share: '/share']: =>
     render: true
 
-  '/api/data(/:version)': cached =>
+  '/api/data(/:version)': =>
     version = @params.version or config.version
     api = glob version, true
     return status 404 if not api
     json: api
 
-  '/api/docs(/:version)': cached =>
+  '/api/docs(/:version)': =>
     version = @params.version or config.version
     docs = glob version
     return status 404 if not docs

@@ -99,7 +99,6 @@
   }
 
   .versions {
-    display: none;
     position: absolute;
     top: 12px;
     right: 12px;
@@ -113,7 +112,7 @@
     z-index: 5;
     font-size: 12px;
     border-bottom: none;
-    background-color: darken($c-lilac, 10%);
+    background-color: #d8c7ff;
     background-image: linear-gradient(rgba($c-white, .5), rgba($c-white, 0));
     user-select: none;
     -webkit-user-select: none;
@@ -139,7 +138,7 @@
       }
 
       &:hover {
-        background-color: darken($c-lilac, 25%);
+        background-color: #9668ff;
         background-image: linear-gradient(rgba($c-white, .4), rgba($c-white, 0));
         text-shadow: 1px 1px rgba(0, 0, 0, .25);
 

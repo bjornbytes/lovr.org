@@ -15,7 +15,7 @@ class Object extends Widget
         for constructor in *@constructors
           tr ->
             td class: 'pre', constructor
-            td @data[constructor].summary
+            td @data[constructor] and @data[constructor].summary or ''
 
     if @sections
       for section in *@sections
