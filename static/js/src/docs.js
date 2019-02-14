@@ -102,7 +102,7 @@ function enhance(node) {
         td.innerHTML = '<a data-key="' + td.textContent + '">' + td.textContent + '</a>';
       }
     } else {
-      var tokenPattern = /(an? (?:new )?)([A-Z][a-zA-Z]+)/gm;
+      var tokenPattern = /(an? (?:new )?)([a-zA-Z0-9]+)/gm;
       td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
           return prefix + '<a data-key="' + token + '">' + token + '</a>';
@@ -114,7 +114,7 @@ function enhance(node) {
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
-  var tokenPattern = /(^|[^\/\-])(lovr[a-zA-Z\.]*|[A-Z][a-zA-Z:]+)([^\/\-]|$)/gm;
+  var tokenPattern = /(^|[^\/\-])(lovr[a-zA-Z0-9\.]*|[a-zA-Z0-9:]+)([^\/\-]|$)/gm;
   codes.forEach(function(code) {
     if (!code.classList.contains('hljs') || code.classList.contains('lua')) {
       code.innerHTML = code.innerHTML.replace(tokenPattern, function(_, a, token, b) {
