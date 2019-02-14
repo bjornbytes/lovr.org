@@ -10,10 +10,6 @@ renderers = {
   types: require 'widgets.enum'
 }
 
-export apiCache = {}
-export examplesCache = {}
-export guidesCache = {}
-
 baseSort = (a, b) ->
   a = a\gsub(':__', ':zz')
   b = b\gsub(':__', ':zz')
@@ -26,13 +22,9 @@ glob = (version, justApi) ->
 
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
-  apiCache[version] or= loadfile("content/#{version}/api/init.lua")()
-  examplesCache[version] or= loadfile("content/#{version}/examples/init.lua")()
-  guidesCache[version] or= loadfile("content/#{version}/guides/init.lua")()
-
-  api = apiCache[version]
-  examples = examplesCache[version]
-  guides = guidesCache[version]
+  api = loadfile("content/#{version}/api/init.lua")()
+  examples = loadfile("content/#{version}/examples/init.lua")()
+  guides = loadfile("content/#{version}/guides/init.lua")()
 
   return api if justApi
 
