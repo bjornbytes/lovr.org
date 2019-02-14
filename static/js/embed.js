@@ -55,7 +55,7 @@ function findDisplay() {
 
 function startProject() {
   var width = canvas.width, height = canvas.height;
-  _lovrQuit();
+  _lovrDestroy(Browser.mainLoop.arg);
 
   requestAnimationFrame(function() {
     canvas.width = width;
@@ -63,12 +63,11 @@ function startProject() {
 
     var pointerSize = 4;
     var argv = stackAlloc(2 * pointerSize);
-    var status = stackAlloc(pointerSize);
     HEAP32[(argv >> 2) + 0] = allocateUTF8OnStack(Module.thisProgram);
     HEAP32[(argv >> 2) + 1] = allocateUTF8OnStack('/' + activeProject);
 
     try {
-      _lovrRun(2, argv, status);
+      _main(2, argv);
     } catch (e) {
       if (e !== 'SimulateInfiniteLoop') {
         throw e;
