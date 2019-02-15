@@ -14,9 +14,6 @@ var aliases = [
   [ /^overla/, { type: 'unsupported', feature: 'Overlays' } ],
   [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
-  [ /^bezi/, { type: 'unsupported', feature: 'Bezier curves' } ],
-  [ /^(android|cardboard|gear|daydream|mobile)/, { type: 'unsupported', feature: 'Mobile VR' } ],
-  [ /^(android|cardboard|gear|daydream|mobile)/, { type: 'unsupported', feature: 'Mobile VR' } ],
   [ /^(ar\\s*kit|ar\\s*core|augm.*)$/, { type: 'unsupported', feature: 'AR' } ],
   [ /^hi$/, { type: 'hi' } ]
 ];
