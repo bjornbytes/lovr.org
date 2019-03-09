@@ -118,8 +118,7 @@ class Index extends Widget
               span class: 'hljs-title', 'lovr.draw'
               span class: 'hljs-params', '()'
 
-            text '\n  angle, ax, ay, az = lovr.headset.getOrientation()'
-            text '\n  lovr.graphics.skybox(skybox, -angle, ax, ay, az)'
+            text '\n  lovr.graphics.skybox(skybox)'
             span class: 'hljs-keyword', '\nend'
 
       h2 'Screenshots'
