@@ -87,7 +87,7 @@ class Index extends Widget
               span class: 'hljs-params', '()'
 
             text '\n  controllers = lovr.headset.getControllers()'
-            span class: 'hljs-keyword', '\n\n  for'
+            span class: 'hljs-keyword', '\n  for'
             text ' _, controller'
             span class: 'hljs-keyword', ' in'
             span class: 'hljs-built_in', ' ipairs'
