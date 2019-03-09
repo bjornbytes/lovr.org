@@ -112,7 +112,7 @@ class extends Application
   '/refresh/:version': respond_to {
     POST: json_params =>
       return status 403 if @req.parsed_url.host ~= 'localhost' and @req.parsed_url.host ~= '127.0.0.1'
-      return status 400 if not @params.version or not @params.version\match('v[%d%.]+')
+      return status 400 if not @params.version
       success = pcall refresh, @params.version
       return status 500 if not success
       cache.delete_all!
@@ -123,7 +123,7 @@ class extends Application
     POST: json_params =>
       return status 400 if not @params.ref
       version = @params.ref\match('[^/]+$')
-      return status 400 if not version or not version\match('v[%d%.]+')
+      return status 400 if not version
       ngx.req.read_body!
       data = ngx.req.get_body_data!
       return status 400 if not data
