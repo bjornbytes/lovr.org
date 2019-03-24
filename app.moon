@@ -115,6 +115,7 @@ class extends Application
       return status 400 if not @params.version
       success = pcall refresh, @params.version
       return status 500 if not success
+      cachedContent[@params.version] = nil
       cache.delete_all!
       status 200
   }
@@ -133,6 +134,7 @@ class extends Application
       return status 403 if signature ~= @req.headers['X-Hub-Signature']
       success = pcall refresh, version
       return status 500 if not success
+      cachedContent[version] = nil
       cache.delete_all!
       status 200
   }

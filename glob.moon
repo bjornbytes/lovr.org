@@ -20,6 +20,8 @@ baseSort = (a, b) ->
 glob = (version, justApi) ->
   data, tags, content, categories = {}, {}, {}, {}
 
+  return cachedContent[version].content, cachedContent[version].categories if cachedContent[version]
+
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
   api = loadfile("content/#{version}/api/init.lua")()
@@ -100,6 +102,7 @@ glob = (version, justApi) ->
     insert categories.guides, key
     handle\close!
 
+  cachedContent[version] = { content: content, categories: categories } if not cachedContent[version]
   content, categories
 
 glob
