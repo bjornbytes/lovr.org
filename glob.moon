@@ -20,7 +20,7 @@ baseSort = (a, b) ->
 glob = (version, justApi) ->
   data, tags, content, categories = {}, {}, {}, {}
 
-  return cachedContent[version].content, cachedContent[version].categories if cachedContent[version]
+  return cachedContent[version].content, cachedContent[version].categories if cachedContent[version] and not justApi
 
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
