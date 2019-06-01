@@ -12,6 +12,7 @@ class Navbar extends Widget
 
       div class: 'links', ->
         a href: '/docs', 'Documentation'
+        a href: '/downloads', 'Downloads'
 
         div class: 'spacer'
 

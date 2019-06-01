@@ -73,6 +73,7 @@ class extends Application
     else
       yield_error(result)
 
+  [downloads: '/downloads']: => render: true
   '/download': => redirect_to: '/static/f/lovr.zip'
   '/download/mac': => redirect_to: '/static/f/mac/LÖVR.dmg'
   '/download/windows': => redirect_to: '/static/f/win/32/lovr.zip'

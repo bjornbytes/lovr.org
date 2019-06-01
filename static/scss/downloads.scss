@@ -1,0 +1,64 @@
+@import "base.scss";
+@import "colors.scss";
+@import "nav.scss";
+@import "source-code-pro.scss";
+@import "varela-round.scss";
+
+main.downloads {
+  padding-bottom: 110px;
+
+  h1 {
+    font-size: 32px;
+    margin: 64px 0 32px;
+  }
+
+  p {
+    margin: 32px 0;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .box {
+    background-color: $c-white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .05);
+
+    h2 {
+      font-size: 24px;
+      color: $c-raven;
+      font-weight: normal;
+      margin: 0;
+
+      span {
+        display: inline-block;
+        font-size: 24px;
+        vertical-align: middle;
+        margin-left: 4px;
+        margin-right: 16px;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      font-size: 18px;
+      margin: 16px 64px 4px;
+      padding: 0;
+
+      li {
+        padding: 4px;
+
+        a {
+          color: $c-mauve;
+          text-decoration: none;
+
+          &:hover {
+            color: $c-black;
+          }
+        }
+      }
+    }
+  }
+}
