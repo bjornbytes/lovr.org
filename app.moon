@@ -37,6 +37,7 @@ class extends Application
     @version, @page = config.version, @version if not @versions[@version]
     @isDefaultVersion = @version == config.version
     docs, @categories = glob @version
+    @page = @page\gsub('%%3A', ':') if @page
     @page = findPage docs, @page if docs and @page and not docs[@page]
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
