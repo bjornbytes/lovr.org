@@ -1,7 +1,8 @@
 versions = () ->
   t = {}
   for file in lfs.dir "content"
-    if not file\match('^%.') and lfs.attributes("content/#{file}", 'mode') == 'directory'
+    isDirectory = lfs.attributes("content/#{file}", 'mode') == 'directory'
+    if isDirectory and (file == 'master' or file\match('v[0-9%.]+')) and not file\match('^%.')
       t[file] = file
       table.insert t, file
   table.sort t, (a, b) ->
