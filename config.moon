@@ -10,4 +10,4 @@ config 'production', ->
   code_cache 'on'
   port 10812
   env 'prod'
-  version 'v0.12.0'
+  version 'v0.13.0'

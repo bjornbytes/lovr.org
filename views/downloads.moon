@@ -12,13 +12,13 @@ class Downloads extends Widget
       widget Navbar
 
       h1 'Download LÖVR'
-      p 'v0.12.0, Mushroom Detector'
+      p 'v0.13.0, Very Velociraptor'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📎'), 'Windows'
         ul ->
           li -> a href: '/download/windows/64', '64 bit'
-          li -> a href: '/download/windows/32', '32 bit'
+          --li -> a href: '/download/windows/32', '32 bit'
           li -> a href: '/download/nightly', 'Nightly (64 bit)'
 
       div class: 'box', ->
