@@ -25,6 +25,7 @@ glob = (version, justApi) ->
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
   api = loadfile("content/#{version}/api/init.lua")()
+  showcase = loadfile("content/#{version}/showcase/init.lua")()
   examples = loadfile("content/#{version}/examples/init.lua")()
   guides = loadfile("content/#{version}/guides/init.lua")()
 
@@ -83,6 +84,17 @@ glob = (version, justApi) ->
     sort keys
     postprocess[category] and postprocess[category] data[key] for key in *keys
     content[key] = render category, data[key] for key in *keys
+
+  categories.showcase = {}
+  for name in *showcase do
+    data = dofile("content/#{version}/showcase/#{name}/init.lua")
+    continue if not data
+    key = content[name] and "showcase-#{name}" or name
+    content[key] = "<h1>#{name\gsub('_', ' ')}</h1>"
+    content[key] ..= "<a href=\"https://github.com/bjornbytes/lovr-docs/tree/#{version}/showcase/#{name}\" class=\"source-button\">View Source</a>"
+    content[key] ..= "<aside>by #{data.author}</aside>" if type(data.author) == 'string'
+    content[key] ..= "<aside>by <a href=\"#{data.author.link}\">#{data.author.name}</a></aside>" if type(data.author) == 'table'
+    insert categories.showcase, key
 
   categories.examples = {}
   for example in *examples do

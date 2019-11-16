@@ -11,6 +11,11 @@ refresh = (version) ->
 
   return unless version == config.version
 
+  for file in lfs.dir "#{dir}/showcase"
+    path = "#{dir}/showcase/#{file}"
+    if not file\match('^%.') and lfs.attributes(path, 'mode') == 'directory'
+      os.execute("python emscripten/tools/file_packager.py static/play/#{file}.data --no-heap-copy --preload #{path}@/#{file} --js-output=static/play/#{file}.js")
+
   for file in lfs.dir "#{dir}/examples"
     path = "#{dir}/examples/#{file}"
     if not file\match('^%.') and lfs.attributes(path, 'mode') == 'directory'

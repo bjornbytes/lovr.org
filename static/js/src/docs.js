@@ -63,7 +63,7 @@ function showPage(key, scroll) {
     content.remove();
   });
 
-  setExample(link && link.dataset.example);
+  setEmbed(link && link.dataset.embed);
 
   // Uh
   if (!key) {
@@ -72,7 +72,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content', link && !link.dataset.example && 'intro', link && link.dataset.example && 'example');
+  content.classList.add('content', link && !link.dataset.embed && 'intro', link && link.dataset.embed && 'embed');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);
@@ -183,14 +183,14 @@ window.addEventListener('popstate', function(event) {
   }
 });
 
-// Example
-function setExample(key) {
+// Embed
+function setEmbed(key) {
   if (!iframe) {
     return;
   } else if (!iframe.src && key) {
     iframe.src = '/embed';
     iframe.addEventListener('load', function() {
-      setExample(key);
+      setEmbed(key);
     });
     return;
   }
@@ -251,7 +251,7 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
-    setExample(link.dataset.example);
+    setEmbed(link.dataset.embed);
   }
 }
 

@@ -477,6 +477,28 @@ main.docs {
       font-size: 14px;
     }
   }
+
+  a.source-button {
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    background-color: #d8c7ff;
+    background-image: linear-gradient(rgba($c-white, .5), rgba($c-white, 0));
+    border-radius: 4px;
+    color: $c-mauve;
+    padding: 8px 16px;
+    &:hover {
+      background-color: #9668ff;
+      background-image: linear-gradient(rgba($c-white, .4), rgba($c-white, 0));
+      text-shadow: 1px 1px rgba(0, 0, 0, .25);
+      color: $c-steam;
+    }
+  }
+
+  aside {
+    font-style: italic;
+    color: $c-smoky;
+  }
 }
 
 @media(max-width: 960px) {
