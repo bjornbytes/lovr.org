@@ -57,6 +57,7 @@
       white-space: nowrap;
       &.hidden { display: none; }
       &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
+      &.active:focus { background: $c-lilac; outline: none; }
       &.active { color: $c-raven; border-left-color: $c-mauve; }
       &:active, &.active { background: $c-phlox; }
       &:last-child { margin-bottom: 0; }

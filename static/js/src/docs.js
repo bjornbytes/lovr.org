@@ -5,16 +5,13 @@ var aliases = [
   [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
   [ /^(love|unity|unreal)/, 'lovr' ],
   [ /^rng/, 'random' ],
-  [ /matr/, 'Transform' ],
+  [ /matr/, 'Mat4' ],
   [ /netw|multip|sock|udp/, 'enet' ],
   [ /glsl/, 'Shader' ],
-  [ /batc.*/, 'instance' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^partic/, { type: 'unsupported', feature: 'Particles' } ],
-  [ /^overla/, { type: 'unsupported', feature: 'Overlays' } ],
   [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
-  [ /^(ar\\s*kit|ar\\s*core|augm.*)$/, { type: 'unsupported', feature: 'AR' } ],
   [ /^hi$/, { type: 'hi' } ]
 ];
 
@@ -258,7 +255,7 @@ if (initialContent) {
 // Searching
 
 window.addEventListener('keydown', function(event) {
-  var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === ''; });
+  var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === 'block'; });
   var firstVisibleLink = visibleLinks[0];
 
   switch (event.keyCode) {
@@ -343,6 +340,7 @@ function updateResults() {
   var query = searchBox.value.toLowerCase();
   var replacements = [];
   var message = null;
+  var baseVisibility = (query === '' ? '' : 'block');
 
   aliases.forEach(function(alias) {
     if (!alias[0].test(query)) {
@@ -374,10 +372,10 @@ function updateResults() {
 
     if (visible && !shownSections[section.className]) {
       shownSections[section.className] = true;
-      section.style.display = query === '' ? '' : 'block';
+      section.style.display = baseVisibility;
     }
 
-    link.style.display = visible ? '' : 'none';
+    link.style.display = visible ? baseVisibility : 'none';
   });
 
   if (message) {
