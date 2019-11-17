@@ -25,7 +25,7 @@ glob = (version, justApi) ->
   return nil if not lfs.attributes("content/#{version}", 'mode')
 
   api = loadfile("content/#{version}/api/init.lua")()
-  showcase = loadfile("content/#{version}/showcase/init.lua")()
+  showcase = lfs.attributes("content/#{version}/showcase") and loadfile("content/#{version}/showcase/init.lua")() or {}
   examples = loadfile("content/#{version}/examples/init.lua")()
   guides = loadfile("content/#{version}/guides/init.lua")()
 
@@ -102,6 +102,8 @@ glob = (version, justApi) ->
     continue if handle == nil
     key = content[example] and "example-#{example}" or example
     content[key] = "<h1>#{example\gsub('_', ' ')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
+    content[key] ..= "<a
+    href=\"https://github.com/bjornbytes/lovr-docs/tree/#{version}/examples/#{example}/main.lua\" class=\"source-button\">View Source</a>"
     insert categories.examples, key
     handle\close!
 
