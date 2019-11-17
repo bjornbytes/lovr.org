@@ -27,6 +27,11 @@ class Downloads extends Widget
           li -> a href: '/download/mac', '64 bit'
 
       div class: 'box', ->
+        h2 (-> span 'aria-hidden': true, '🤖'), 'Android'
+        ul ->
+          li -> a href: 'https://github.com/mcclure/lovr-oculus-mobile/releases/download/lovrapp-0.3/test-release.apk', '64 bit'
+
+      div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📜'), 'Source'
         ul ->
           li -> a href: 'https://github.com/bjornbytes/lovr', 'Source code'
