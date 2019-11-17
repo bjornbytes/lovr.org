@@ -5,16 +5,13 @@ var aliases = [
   [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
   [ /^(love|unity|unreal)/, 'lovr' ],
   [ /^rng/, 'random' ],
-  [ /matr/, 'Transform' ],
+  [ /matr/, 'Mat4' ],
   [ /netw|multip|sock|udp/, 'enet' ],
   [ /glsl/, 'Shader' ],
-  [ /batc.*/, 'instance' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^partic/, { type: 'unsupported', feature: 'Particles' } ],
-  [ /^overla/, { type: 'unsupported', feature: 'Overlays' } ],
   [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
-  [ /^(ar\\s*kit|ar\\s*core|augm.*)$/, { type: 'unsupported', feature: 'AR' } ],
   [ /^hi$/, { type: 'hi' } ]
 ];
 
