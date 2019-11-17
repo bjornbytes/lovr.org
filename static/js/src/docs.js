@@ -72,7 +72,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content', link && !link.dataset.embed && 'intro', link && link.dataset.embed && 'embed');
+  content.classList.add('content', link && !link.dataset.embed && 'intro');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);
@@ -184,6 +184,15 @@ window.addEventListener('popstate', function(event) {
 });
 
 // Embed
+function resizeIframe() {
+  if (iframe.style.display === 'block') {
+    var canvas = iframe.contentWindow.document.querySelector('#canvas');
+    if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
+      iframe.style.height = canvas.offsetHeight + 'px';
+    }
+  }
+}
+
 function setEmbed(key) {
   if (!iframe) {
     return;
@@ -207,15 +216,6 @@ function setEmbed(key) {
 }
 
 if (iframe) {
-  function resizeIframe() {
-    if (iframe.style.display === 'block') {
-      var canvas = iframe.contentWindow.document.querySelector('#canvas');
-      if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
-        iframe.style.height = canvas.offsetHeight + 'px';
-      }
-    }
-  }
-
   window.addEventListener('focus', function() {
     if (document.activeElement !== iframe) {
       iframe.classList.remove('focus');
