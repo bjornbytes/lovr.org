@@ -1,6 +1,7 @@
 import Widget from require 'lapis.html'
 
 Navbar = require 'views.navbar'
+Footer = require 'views.footer'
 Logo = require 'views.logo'
 
 class Index extends Widget
@@ -131,5 +132,7 @@ class Index extends Widget
 
         div class: 'third', ->
           img src: '/static/img/planets.jpg'
+
+    widget Footer
 
     script -> raw [[var s = document.querySelector('main svg'); setTimeout(function(){s.style.display = 'inline-block';}, 0);]]
