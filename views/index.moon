@@ -14,7 +14,7 @@ class Index extends Widget
 
     widget Navbar
     main class: 'index container', ->
-      widget Logo
+      img src: '/static/img/logo.svg'
 
       h1 'LÖVR'
       p 'A simple framework for creating VR with Lua'
