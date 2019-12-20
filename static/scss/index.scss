@@ -12,7 +12,7 @@ main.index {
     text-align: center;
   }
 
-  svg.logo {
+  img.logo {
     margin-top: 100px;
     height: 135px;
     pointer-events: none;
@@ -188,27 +188,24 @@ main.index {
 }
 
 .buttons a {
-  background-color: #d4c8ee;
-  background-image: linear-gradient(rgba($c-white, .4), rgba($c-white, 0));
+  background-color: #E2D7FF;
+  color: #7F4CFF;
+  letter-spacing: .5px;
   width: 190px;
-  height: 70px;
-  line-height: 70px;
+  height: 65px;
+  line-height: 65px;
   user-select: none;
   cursor: pointer;
-  font-size: 20px;
-  color: $c-smoke;
-  border-radius: 4px;
+  font-size: 24px;
+  border-radius: 8px;
   text-align: center;
   text-decoration: none;
-  border-bottom: 3px solid #bdb0ee;
-  text-shadow: 0 1px 0 rgba($c-white, .5);
 
   &:hover {
-    background-image: linear-gradient(rgba($c-white, .5), rgba($c-white, 0));
+    background-color: darken(#E2D7FF, 3%);
   }
 
   &:active {
-    border-bottom: 0px;
-    transform: translate(0, 3px);
+    transform: translate(0, 1px);
   }
 }

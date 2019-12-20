@@ -15,14 +15,14 @@ class Index extends Widget
 
     widget Navbar
     main class: 'index container', ->
-      img src: '/static/img/logo.svg'
+      img class: 'logo', src: '/static/img/logo.svg'
 
       h1 'LÖVR'
       p 'A simple framework for creating VR with Lua'
 
       div class: 'buttons', ->
-        a href: '/static/f/lovr.zip', 'Download'
-        a href: '/docs', 'Get Started'
+        a href: '/docs', 'Docs'
+        a href: '/downloads', 'Downloads'
 
       div class: 'thirds', ->
         div class: 'third', ->
@@ -134,5 +134,3 @@ class Index extends Widget
           img src: '/static/img/planets.jpg'
 
     widget Footer
-
-    script -> raw [[var s = document.querySelector('main svg'); setTimeout(function(){s.style.display = 'inline-block';}, 0);]]
