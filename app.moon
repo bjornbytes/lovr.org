@@ -16,6 +16,7 @@ status = (status) -> { status: status, layout: false, '' }
 findPage = (docs, page) -> ([key for key in pairs docs when key\lower! == page\lower!])[1] or page
 
 class extends Application
+  @enable "etlua"
   layout: 'layout'
 
   handle_404: =>
@@ -29,7 +30,7 @@ class extends Application
       super err, trace
 
   [index: '/']: cached =>
-    render: true
+    render: true, layout: false
 
   [docs: '/docs(/:version)(/:page)']: cached =>
     { version: @version, page: @page } = @params
