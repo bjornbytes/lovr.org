@@ -6,7 +6,6 @@ import hmac_sha1, encode_base64 from require 'lapis.util.encoding'
 config = require('lapis.config').get!
 cache = require 'lapis.cache'
 glob = require 'glob'
-upload = require 'upload'
 lfs = require 'lfs'
 secrets = require 'secrets'
 refresh = require 'content.refresh'
@@ -53,9 +52,6 @@ class extends Application
     @bundle = "/static/play/#{@params.id}.js" if @params.id
     render: true
 
-  [share: '/share']: =>
-    render: true
-
   '/api/data(/:version)': =>
     version = @params.version or config.version
     api = glob version, true
@@ -67,13 +63,6 @@ class extends Application
     docs = glob version
     return status 404 if not docs
     json: docs
-
-  '/api/share': capture_errors_json =>
-    success, result = pcall(upload, @params.file.content)
-    if success
-      return json: { id: result }
-    else
-      yield_error(result)
 
   [downloads: '/downloads']: => render: true
   '/download': => redirect_to: '/static/f/lovr.zip'
