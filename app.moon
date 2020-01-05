@@ -95,6 +95,12 @@ class extends Application
   '/slack': =>
     redirect_to: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg'
 
+  '/matrix': =>
+    redirect_to: 'https://matrix.to/#/!XVAslexgYDYQnYnZBP:matrix.org'
+
+  '/twitter': =>
+    redirect_to: 'https://twitter.com/bjornbytes'
+
   '/docs/WebVR': =>
     redirect_to: 'https://lovr.org/docs/Distribution'
 
