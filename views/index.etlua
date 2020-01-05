@@ -88,11 +88,10 @@
         <ul>
           <li class="icon">📦</li>
           <li>OpenVR</li>
+          <li>OpenXR</li>
           <li>LibOVR</li>
           <li>VrApi</li>
-          <li>OpenXR</li>
           <li>WebVR</li>
-          <li>WebXR</li>
         </ul>
       </div>
     </section>
