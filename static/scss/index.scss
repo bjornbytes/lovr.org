@@ -114,10 +114,11 @@ svg.shadow.trim path {
   width: 80px;
   height: 80px;
   display: inline-block;
-  line-height: 84px;
+  line-height: 80px;
   font-size: 32px;
   transform: rotate(0deg);
   transition: transform 200ms;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
 }
 
 .features li .icon:hover {
@@ -206,9 +207,10 @@ svg.shadow.trim path {
   width: 64px;
   height: 64px;
   margin-bottom: 32px;
-  line-height: 69px;
+  line-height: 64px;
   display: inline-block;
   font-size: 24px;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
 }
 
 .samples {
