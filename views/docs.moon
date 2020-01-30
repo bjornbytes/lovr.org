@@ -42,4 +42,6 @@ class Docs extends require 'views.page'
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 
+    script src: '/static/js/highlight.min.js'
+    script src: '/static/js/oboe.min.js'
     script src: '/static/js/docs.js', async: true

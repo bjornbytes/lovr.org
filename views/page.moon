@@ -3,7 +3,7 @@ import Widget from require 'lapis.html'
 class Page extends Widget
   sidebar_link: (key, label, hidden, embed) =>
     li ->
-      a class: { 'disabled', active: key == @page, :hidden }, href: "/docs/#{@version}/#{key}", ['data-key']: key, ['data-embed']: @isDefaultVersion and embed and key, ->
+      a class: { 'disabled', selected: key == @page, :hidden }, href: "/docs/#{@version}/#{key}", ['data-key']: key, ['data-embed']: @isDefaultVersion and embed and key, ->
         text label and label\gsub('_', ' ')\gsub('.+%-', '') or ''
 
   sidebar: =>

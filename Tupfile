@@ -3,4 +3,3 @@
 : foreach views/*.moon |> moonc %f |> views/%B.lua
 : foreach widgets/*.moon |> moonc %f |> widgets/%B.lua
 : foreach static/scss/[a-z]*.scss |> sass --no-source-map -s compressed %f %o |> static/css/%B.css
-: static/js/src/*.js |> webpack --optimize-minimize --config webpack.config.js |> static/js/docs.js

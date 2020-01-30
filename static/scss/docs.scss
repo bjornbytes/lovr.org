@@ -86,11 +86,12 @@
       text-overflow: ellipsis;
       text-decoration: none;
       white-space: nowrap;
+      transition: border-left-width 100ms;
       &.hidden { display: none; }
-      &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); outline: none; }
-      &.active:focus { background: $c-lilac; outline: none; }
-      &.active { color: $c-raven; border-left-color: $c-mauve; }
-      &:active, &.active { background: $c-phlox; }
+      &:hover, &:focus { background: mix($c-lilac, $c-white, 25%); }
+      &.selected { background: $c-phlox; color: $c-raven; border-left-color: $c-mauve; }
+      &:focus { border-left-width: 7px; outline: none; }
+      &:active { border-left-width: 8px; }
       &:last-child { margin-bottom: 0; }
       &.disabled, &.disabled:hover {
         color: $c-slate;
@@ -233,6 +234,7 @@ main.docs {
   min-height: 100%;
 
   .embed {
+    display: none;
     position: relative;
     width: 740px;
     max-width: 100%;
