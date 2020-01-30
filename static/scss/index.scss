@@ -447,3 +447,50 @@ footer section ul li a:active {
     font-size: 13px;
   }
 }
+
+@media(prefers-color-scheme: dark) {
+  body {
+    background: #303044;
+  }
+
+  h1 {
+    color: #dedede;
+  }
+
+  .hero p, .sass p {
+    color: #bcbcbc;
+  }
+
+  .hero a {
+    color: #e1d6ff;
+    background: #654aa9;
+  }
+
+  .hero a:hover {
+    background: #7f4cff;
+  }
+
+  .hero a:active {
+    background: #654aa9;
+  }
+
+  .samples h2 {
+    color: #f8f8f8;
+  }
+
+  .samples ul li h3 {
+    color: #dedede;
+  }
+
+  .samples aside {
+    color: #a0a0a0;
+  }
+
+  svg.shadow.trim path {
+    fill: #202028;
+  }
+
+  .samples ul li pre, footer {
+    background: #202028;
+  }
+}
