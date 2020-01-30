@@ -40,6 +40,38 @@
       list-style-type: none;
     }
 
+    ul ul li a {
+      padding-left: 30px;
+    }
+
+    ul li.group {
+      position: relative;
+
+      &.open:after {
+        transform: rotate(135deg);
+      }
+    }
+
+    ul li.group:after {
+      position: absolute;
+      pointer-events: none;
+      top: 5px;
+      right: 16px;
+      width: 4px;
+      height: 4px;
+      content: ' ';
+      transform: rotate(315deg);
+      transform-origin: 2px 4px;
+      border-left: 2px $c-berry solid;
+      border-bottom: 2px $c-berry solid;
+      transition: transform 192ms;
+      will-change: transform;
+    }
+
+    ul li.group:not(.open) ul {
+      display: none;
+    }
+
     li a {
       display: block;
       padding-left: 20px;
