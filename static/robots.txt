@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /play/
 Disallow: /docs/master
 Disallow: /docs/v0.12.0
 Disallow: /docs/v0.11.0
