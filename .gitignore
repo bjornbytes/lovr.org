@@ -5,13 +5,8 @@ logs
 nginx.conf.compiled
 static/css
 static/f/*
-static/js/docs.js
-static/js/share.js
-static/js/play.js
 .sass-cache
 .tup
-node_modules
-static/play/*
 conf
 content/v*
 content/master
