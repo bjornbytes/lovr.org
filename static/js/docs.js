@@ -1,5 +1,3 @@
-//import oboe from 'oboe';
-
 var aliases = [
   [ /^imag/, 'Texture' ],
   [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
@@ -15,7 +13,6 @@ var aliases = [
   [ /^hi$/, { type: 'hi' } ]
 ];
 
-//require('../highlight.js');
 var main = document.querySelector('main');
 var embed = document.querySelector('.embed');
 var sidebar = document.querySelector('.sidebar');
