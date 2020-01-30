@@ -44,12 +44,7 @@ class extends Application
     @contents = docs[@page]
     render: true
 
-  [play: '/play/:id']: =>
-    @id = @params.id
-    render: true
-
-  [embed: '/embed(/:id)']: =>
-    @bundle = "/static/play/#{@params.id}.js" if @params.id
+  [embed: '/embed']: =>
     render: true
 
   '/api/data(/:version)': =>

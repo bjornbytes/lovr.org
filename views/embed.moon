@@ -15,4 +15,3 @@ class Embed extends Widget
 
     script src: '/static/js/embed.js'
     script src: '/static/js/lovr.js', async: true
-    script src: @bundle if @bundle

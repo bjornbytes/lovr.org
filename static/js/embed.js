@@ -1,3 +1,4 @@
+var loaded = {};
 var activeProject = null;
 var canvas = document.getElementById('canvas');
 var loader = document.querySelector('.loader');
@@ -23,8 +24,6 @@ var Module = window.Module = {
   locateFile: function(file) {
     if (/\.wasm$/.test(file)) {
       return '/static/js/' + file;
-    } else if (/\.data$/.test(file)) {
-      return '/static/play/' + file;
     } else {
       return file;
     }
@@ -64,7 +63,7 @@ function startProject() {
     var pointerSize = 4;
     var argv = stackAlloc(2 * pointerSize);
     HEAP32[(argv >> 2) + 0] = allocateUTF8OnStack(Module.thisProgram);
-    HEAP32[(argv >> 2) + 1] = allocateUTF8OnStack('/' + activeProject);
+    HEAP32[(argv >> 2) + 1] = allocateUTF8OnStack('/' + activeProject + '.zip');
 
     try {
       _main(2, argv);
@@ -92,13 +91,12 @@ window.runProject = function(key) {
   activeProject = key;
   loader.style.opacity = 1;
 
-  var bundle = '/static/play/' + key + '.js';
-  if (!document.querySelector('script[src="' + bundle + '"]')) {
-    var script = document.createElement('script');
-    script.src = bundle;
-    document.body.appendChild(script);
-  } else {
+  if (loaded[key]) {
     startProject();
+  } else {
+    var bundle = '/static/f/' + key + '.zip';
+    Module.FS_createPreloadedFile('/', key + '.zip', bundle, true, false);
+    loaded[key] = true;
   }
 };
 
