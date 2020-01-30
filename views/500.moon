@@ -11,7 +11,8 @@ class Oops extends Widget
     widget Navbar
     main class: 'error container', ->
       img src: '/static/img/hangryGoose.png', class: 'hero'
-      h1 'Uh oh!'
+      h1 '5ÖÖ'
       p ->
-        text 'Something bad happened.  Try again later or contact '
+        text 'The website is broken.  You should probably tell '
         a href: 'https://twitter.com/bjornbytes', target: '_blank', '@bjornbytes'
+        text '.'

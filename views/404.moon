@@ -6,10 +6,9 @@ Logo = require 'views.logo'
 class NotFound extends Widget
   content: =>
     @content_for 'head', ->
-      link rel: 'stylesheet', href: '/static/css/index.css'
+      link rel: 'stylesheet', href: '/static/css/error.css'
 
     widget Navbar
-    main class: 'index container', ->
-      widget Logo
-      h1 'Oops!'
+    main class: 'error error-404 container', ->
+      h1 '4Ö4'
       p 'Page not found.'
