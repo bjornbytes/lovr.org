@@ -23,7 +23,7 @@ var Module = window.Module = {
   preinitializedWebGLContext: context,
   locateFile: function(file) {
     if (/\.wasm$/.test(file)) {
-      return '/static/js/' + file;
+      return '/static/f/' + file;
     } else {
       return file;
     }

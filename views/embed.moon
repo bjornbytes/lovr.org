@@ -14,4 +14,4 @@ class Embed extends Widget
     div class: 'loader'
 
     script src: '/static/js/embed.js'
-    script src: '/static/js/lovr.js', async: true
+    script src: '/static/f/lovr.js', async: true
