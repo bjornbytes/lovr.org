@@ -23,10 +23,10 @@ class Docs extends Widget
       aside class: 'alias-message'
 
       hide = (link) ->
-        link\match('^%w+Joint$') or link\match('^%w+Shape$')
+        link\match('^%w+Joint$') or link\match('^%w+Shape$') or link\match('Vec%d') or link\match('Mat%d') or link == 'Quat'
 
       labelFor = (link) ->
-        (link == 'Joint' or link == 'Shape') and (link .. 's') or link
+        (link == 'Joint' or link == 'Shape') and (link .. 's') or link\gsub('.+/', '')
 
       isHidden = (category) ->
         category == 'functions' or category == 'types'
@@ -37,13 +37,21 @@ class Docs extends Widget
           h2 category\gsub('^%l', string.upper) or ''
           ul ->
             for key in *@categories[category]
-              label = labelFor key
-              hidden = hide key
-              embed = category == 'examples' or category == 'showcase'
+              link = (key) ->
+                label = labelFor key
+                group = @categories[category][key]
+                embed = not group and (category == 'examples' or category == 'showcase') and @isDefaultVersion
+                classes = { disabled: not group, selected: key == @page, hidden: hide key }
+                href = not group and "/docs/#{@version}/#{key}"
+                li class: { :group }, ->
+                  a class: classes, href: href, ['data-key']: key, ['data-embed']: embed and key, ->
+                    text label and label\gsub('_', ' ')\gsub('.+%-', '') or ''
+                  if group
+                    ul ->
+                      for subkey in *group
+                        link subkey
 
-              li ->
-                a class: { 'disabled', selected: key == @page, :hidden }, href: "/docs/#{@version}/#{key}", ['data-key']: key, ['data-embed']: @isDefaultVersion and embed and key, ->
-                  text label and label\gsub('_', ' ')\gsub('.+%-', '') or ''
+              link key
 
       renderCategory 'guides'
       renderCategory 'showcase'

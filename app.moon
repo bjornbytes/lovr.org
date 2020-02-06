@@ -31,8 +31,8 @@ class extends Application
   [index: '/']: cached =>
     render: true, layout: false
 
-  [docs: '/docs(/:version)(/:page)']: cached =>
-    { version: @version, page: @page } = @params
+  [docs: '/docs(/:version)(/*)']: cached =>
+    { version: @version, splat: @page } = @params
     @versions = versions!
     @version, @page = config.version, @version if not @versions[@version]
     @isDefaultVersion = @version == config.version

@@ -101,10 +101,17 @@ glob = (version, justApi) ->
     handle = io.open("content/#{version}/examples/#{example}/main.lua", 'r')
     continue if handle == nil
     key = content[example] and "example-#{example}" or example
-    content[key] = "<h1>#{example\gsub('_', ' ')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
+    content[key] = "<h1>#{example\gsub('_', ' ')\gsub('.+/', '')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
     content[key] ..= "<a
     href=\"https://github.com/bjornbytes/lovr-docs/tree/#{version}/examples/#{example}/main.lua\" class=\"source-button\">View Source</a>"
-    insert categories.examples, key
+    group = example\match('(.-)/')
+    if group
+      if not categories.examples[group]
+        categories.examples[group] = {}
+        insert categories.examples, group
+      insert categories.examples[group], key
+    else
+      insert categories.examples, key
     handle\close!
 
   categories.guides = {}

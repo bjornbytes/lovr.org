@@ -249,6 +249,13 @@ if (initialContent) {
   }
 }
 
+var groups = Array.prototype.slice.call(sidebar.querySelectorAll('li.group > a'));
+groups.forEach(function(group) {
+  group.addEventListener('click', function(event) {
+    event.target.parentElement.classList.toggle('open');
+  });
+});
+
 // Searching
 
 window.addEventListener('keydown', function(event) {
