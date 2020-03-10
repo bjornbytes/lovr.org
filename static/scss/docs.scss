@@ -47,16 +47,20 @@
     ul li.group {
       position: relative;
 
-      &.open:after {
+      &.open:before {
         transform: rotate(135deg);
+      }
+
+      &.open:hover {
+        border-right: 8px mix($c-lilac, $c-white, 25%) solid;
       }
     }
 
-    ul li.group:after {
+    ul li.group:before {
       position: absolute;
       pointer-events: none;
-      top: 5px;
-      right: 16px;
+      top: 8px;
+      left: 11px;
       width: 4px;
       height: 4px;
       content: ' ';
@@ -66,6 +70,11 @@
       border-bottom: 2px $c-berry solid;
       transition: transform 192ms;
       will-change: transform;
+
+      a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
     }
 
     ul li.group:not(.open) ul {
