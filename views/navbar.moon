@@ -17,5 +17,5 @@ class Navbar extends Widget
         div class: 'spacer'
 
         a href: 'https://github.com/bjornbytes/lovr', target: '_blank', rel: 'noopener', 'GitHub'
-        a href: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg', target: '_blank', rel: 'noopener', 'Slack'
+        a href: 'https://lovr.org/slack', target: '_blank', rel: 'noopener', 'Slack'
         a href: 'https://twitter.com/bjornbytes', target: '_blank', rel: 'noopener', 'Twitter'
