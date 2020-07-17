@@ -77,7 +77,7 @@ class extends Application
     redirect_to: 'https://github.com/bjornbytes/lovr'
 
   '/slack': =>
-    redirect_to: 'https://join.slack.com/ifyouwannabemylovr/shared_invite/MTc5ODk2MjE0NDM3LTE0OTQxMTIyMDEtMzdhOGVlODFhYg'
+    redirect_to: 'https://join.slack.com/t/ifyouwannabemylovr/shared_invite/zt-2an5k7fp-RTW5U1qYOPPIZGn~VdTv_w'
 
   '/matrix': =>
     redirect_to: 'https://matrix.to/#/!XVAslexgYDYQnYnZBP:matrix.org'
