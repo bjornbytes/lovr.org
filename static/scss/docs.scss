@@ -54,6 +54,11 @@
       &.open:hover {
         border-right: 8px mix($c-lilac, $c-white, 25%) solid;
       }
+
+      > a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
     }
 
     ul li.group:before {
@@ -70,11 +75,6 @@
       border-bottom: 2px $c-berry solid;
       transition: transform 192ms;
       will-change: transform;
-
-      a {
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
     }
 
     ul li.group:not(.open) ul {
