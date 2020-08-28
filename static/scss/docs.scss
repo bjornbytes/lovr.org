@@ -48,7 +48,7 @@
       position: relative;
 
       &.open:before {
-        transform: rotate(135deg);
+        transform: rotate(315deg);
       }
 
       &.open:hover {
@@ -64,11 +64,11 @@
       width: 4px;
       height: 4px;
       content: ' ';
-      transform: rotate(315deg);
+      transform: rotate(225deg);
       transform-origin: 2px 4px;
       border-left: 2px $c-berry solid;
       border-bottom: 2px $c-berry solid;
-      transition: transform 192ms;
+      transition: transform 180ms;
       will-change: transform;
 
       a {
