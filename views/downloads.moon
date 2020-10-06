@@ -12,7 +12,7 @@ class Downloads extends Widget
       widget Navbar
 
       h1 'Download LÖVR'
-      p 'v0.13.0, Very Velociraptor'
+      p 'v0.14.0, Maximum Moss'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📎'), 'Windows'
@@ -27,9 +27,9 @@ class Downloads extends Widget
           li -> a href: '/download/mac', '64 bit, Sierra+'
 
       div class: 'box', ->
-        h2 (-> span 'aria-hidden': true, '🤖'), 'Android'
+        h2 (-> span 'aria-hidden': true, '🤖'), 'Android (Oculus)'
         ul ->
-          li -> a href: 'https://github.com/mcclure/lovr-oculus-mobile/releases/download/lovrapp-0.3/test-release.apk', '64 bit'
+          li -> a href: '/download/android', '64 bit'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📜'), 'Source'

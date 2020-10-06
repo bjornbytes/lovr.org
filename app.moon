@@ -65,6 +65,7 @@ class extends Application
   '/download/windows': => redirect_to: '/static/f/win/32/lovr.zip'
   '/download/windows/32': => redirect_to: '/static/f/win/32/lovr.zip'
   '/download/windows/64': => redirect_to: '/static/f/win/64/lovr.zip'
+  '/download/android': => redirect_to: '/static/f/lovr.apk'
   '/download/nightly': => redirect_to: '/static/f/lovr-nightly.zip'
 
   '/repo': =>

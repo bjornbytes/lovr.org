@@ -72,6 +72,7 @@
           <li>Oculus Rift (S)</li>
           <li>Oculus Go</li>
           <li>Windows MR</li>
+          <li>Pico Neo 2</li>
           <li>Leap Motion</li>
           <li>Keyboard/Mouse</li>
         </ul>
@@ -91,7 +92,8 @@
           <li>OpenXR</li>
           <li>LibOVR</li>
           <li>VrApi</li>
-          <li>WebVR</li>
+          <li>Pico SDK</li>
+          <li>WebXR</li>
         </ul>
       </div>
     </section>
