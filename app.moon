@@ -34,7 +34,7 @@ class extends Application
   [docs: '/docs(/:version)(/*)']: cached =>
     { version: @version, splat: @page } = @params
     @versions = versions!
-    @version, @page = config.version, @version if not @versions[@version]
+    @version, @page = config.version, ("#{@version}/#{@page or ''}") if not @versions[@version]
     @isDefaultVersion = @version == config.version
     docs, @categories = glob @version
     @page = @page\gsub('%%3A', ':') if @page
