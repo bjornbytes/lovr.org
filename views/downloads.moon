@@ -27,9 +27,9 @@ class Downloads extends Widget
           li -> a href: '/download/mac', '64 bit, Sierra+'
 
       div class: 'box', ->
-        h2 (-> span 'aria-hidden': true, '🤖'), 'Android (Oculus)'
+        h2 (-> span 'aria-hidden': true, '🤖'), 'Android '
         ul ->
-          li -> a href: '/download/android', '64 bit'
+          li -> a href: '/download/android', 'Oculus (64 bit)'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📜'), 'Source'
