@@ -31,7 +31,7 @@ class extends Application
   [index: '/']: cached =>
     render: true, layout: false
 
-  [docs: '/docs(/:version)(/*)']: cached =>
+  [docs: '/docs(/:version)(/*)']: =>
     { version: @version, splat: @page } = @params
     @versions = versions!
     @version, @page = config.version, (@version and "#{@version}#{@page and ('/' .. @page) or ''}") if not @versions[@version]
@@ -42,10 +42,10 @@ class extends Application
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
     @contents = docs[@page]
-    render: true
+    render: true, headers: { 'Cross-Origin-Embedder-Policy': 'require-corp', 'Cross-Origin-Opener-Policy': 'same-origin' }
 
   [embed: '/embed']: =>
-    render: true
+    render: true, headers: { 'Cross-Origin-Embedder-Policy': 'require-corp' }
 
   '/api/data(/:version)': =>
     version = @params.version or config.version
