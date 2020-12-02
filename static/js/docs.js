@@ -90,13 +90,13 @@ function enhance(node) {
   tds.forEach(function(td) {
     if (td.classList.contains('pre')) {
       if (td.textContent !== node.dataset.key && document.querySelector('[data-key="' + td.textContent + '"]')) {
-        td.innerHTML = '<a data-key="' + td.textContent + '">' + td.textContent + '</a>';
+        td.innerHTML = '<a href="' + getUrl(td.textContent) + '" data-key="' + td.textContent + '">' + td.textContent + '</a>';
       }
     } else {
       var tokenPattern = /(an? (?:new )?)([a-zA-Z0-9]+)/gm;
       td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
-          return prefix + '<a data-key="' + token + '">' + token + '</a>';
+          return prefix + '<a href="' + getUrl(token) + '" data-key="' + token + '">' + token + '</a>';
         }
 
         return prefix + token;
@@ -110,7 +110,7 @@ function enhance(node) {
     if (!code.classList.contains('hljs') || code.classList.contains('lua')) {
       code.innerHTML = code.innerHTML.replace(tokenPattern, function(_, a, token, b) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
-          return a + '<a data-key="' + token + '">' + token + '</a>' + b;
+          return a + '<a href="' + getUrl(token) + '" data-key="' + token + '">' + token + '</a>' + b;
         }
 
         return _;
@@ -125,6 +125,7 @@ function enhance(node) {
       var key = link.dataset.key;
       pushPage(key);
       showPage(key, 0);
+      event.preventDefault();
     };
   });
 
@@ -147,9 +148,9 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
         if (content && content.dataset.key === key) { return; }
         pushPage(key);
         showPage(key, 0);
+        event.preventDefault();
       };
 
-      a.removeAttribute('href');
       a.classList.remove('disabled');
       a.tabIndex = 0;
       a.addEventListener('click', onclick);
