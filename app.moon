@@ -31,7 +31,7 @@ class extends Application
   [index: '/']: cached =>
     render: true, layout: false
 
-  [docs: '/docs(/:version)(/*)']: =>
+  [docs: '/docs(/:version)(/*)']: cached =>
     { version: @version, splat: @page } = @params
     @versions = versions!
     @version, @page = config.version, (@version and "#{@version}#{@page and ('/' .. @page) or ''}") if not @versions[@version]
@@ -42,10 +42,10 @@ class extends Application
     return render: '404', status: 404 if not docs or (@page and not docs[@page])
     @page or= @categories.guides[1]
     @contents = docs[@page]
-    render: true, headers: { 'Cross-Origin-Embedder-Policy': 'require-corp', 'Cross-Origin-Opener-Policy': 'same-origin' }
+    render: true
 
   [embed: '/embed']: =>
-    render: true, headers: { 'Cross-Origin-Embedder-Policy': 'require-corp' }
+    render: true
 
   '/api/data(/:version)': =>
     version = @params.version or config.version
@@ -60,13 +60,13 @@ class extends Application
     json: docs
 
   [downloads: '/downloads']: => render: true
-  '/download': => redirect_to: '/static/f/lovr.zip'
-  '/download/mac': => redirect_to: '/static/f/mac/LÖVR.dmg'
-  '/download/windows': => redirect_to: '/static/f/win/32/lovr.zip'
-  '/download/windows/32': => redirect_to: '/static/f/win/32/lovr.zip'
-  '/download/windows/64': => redirect_to: '/static/f/win/64/lovr.zip'
-  '/download/android': => redirect_to: '/static/f/lovr.apk'
-  '/download/nightly': => redirect_to: '/static/f/lovr-nightly.zip'
+  '/download': => redirect_to: 'https://lovr.org/static/f/lovr.zip'
+  '/download/mac': => redirect_to: 'https://lovr.org/static/f/mac/LÖVR.dmg'
+  '/download/windows': => redirect_to: 'https://lovr.org/static/f/win/32/lovr.zip'
+  '/download/windows/32': => redirect_to: 'https://lovr.org/static/f/win/32/lovr.zip'
+  '/download/windows/64': => redirect_to: 'https://lovr.org/static/f/win/64/lovr.zip'
+  '/download/android': => redirect_to: 'https://lovr.org/static/f/lovr.apk'
+  '/download/nightly': => redirect_to: 'https://lovr.org/static/f/lovr-nightly.zip'
 
   '/repo': =>
     redirect_to: 'https://github.com/bjornbytes/lovr'
