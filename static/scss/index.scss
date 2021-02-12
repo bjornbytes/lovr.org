@@ -37,11 +37,13 @@ svg.shadow.trim path {
   margin-right: 5%;
   pointer-events: none;
   user-select: none;
-  width: 250px;
+  height: 200px;
 }
 
 .hero .copy {
   flex: 0 1 350px;
+  min-height: 220px;
+  font-display: optional;
 }
 
 .hero .buttons {
@@ -72,6 +74,7 @@ svg.shadow.trim path {
   display: inline-block;
   padding: 12px 24px;
   min-width: 120px;
+  min-height: 48px;
 }
 
 .hero a:hover {

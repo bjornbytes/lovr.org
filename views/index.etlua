@@ -8,6 +8,7 @@
   <meta name="twitter:title" content="LÖVR"/>
   <meta name="twitter:description" content="A simple framework for creating VR with Lua."/>
   <meta name="twitter:image" content="https://lovr.org/static/img/logo.png"/>
+  <link rel="preload" href="/static/fonts/VarelaRound.woff2"/>
   <link rel="shortcut icon" href="/static/img/favicon.png"/>
   <link rel="stylesheet" href="/static/css/index.css"/>
   <link rel="prefetch" href="/docs"/>
