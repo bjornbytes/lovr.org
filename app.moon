@@ -81,7 +81,7 @@ class extends Application
     redirect_to: 'https://join.slack.com/t/ifyouwannabemylovr/shared_invite/zt-2an5k7fp-RTW5U1qYOPPIZGn~VdTv_w'
 
   '/matrix': =>
-    redirect_to: 'https://matrix.to/#/!XVAslexgYDYQnYnZBP:matrix.org'
+    redirect_to: 'https://matrix.to/#/#lovr:matrix.org'
 
   '/twitter': =>
     redirect_to: 'https://twitter.com/bjornbytes'
