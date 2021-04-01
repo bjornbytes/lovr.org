@@ -27,6 +27,8 @@ var embed = document.querySelector('.embed');
 var sidebar = document.querySelector('.sidebar');
 var iframe = embed.querySelector('iframe');
 var sidebarSections = Array.prototype.slice.call(sidebar.querySelectorAll('section'));
+var sidebarGroups = Array.prototype.slice.call(sidebar.querySelectorAll('li.group'));
+var sidebarGroupLinks = Array.prototype.slice.call(sidebar.querySelectorAll('li.group > a'));
 var sidebarLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key]'));
 var searchBox = sidebar.querySelector('.search');
 var versions = sidebar.querySelector('.versions');
@@ -161,7 +163,6 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/))
       };
 
       a.classList.remove('disabled');
-      a.tabIndex = 0;
       a.addEventListener('click', onclick);
       a.addEventListener('keypress', function(event) {
         if (event.keyCode === 13 || event.keyCode === 32) {
@@ -259,10 +260,15 @@ if (initialContent) {
   }
 }
 
-var groups = Array.prototype.slice.call(sidebar.querySelectorAll('li.group > a'));
-groups.forEach(function(group) {
+sidebarGroupLinks.forEach(function(group) {
   group.addEventListener('click', function(event) {
     event.target.parentElement.classList.toggle('open');
+  });
+  group.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13 || event.keyCode === 32) {
+      event.preventDefault();
+      group.click();
+    }
   });
 });
 
@@ -351,7 +357,7 @@ function updateResults() {
     try { var regex = new RegExp(searchBox.value); } catch (e) { regex = null; }
   }
 
-  var query = searchBox.value.toLowerCase();
+  var query = searchBox.value.toLowerCase().replace(/ /g, '_');
   var replacements = [];
   var message = null;
   var baseVisibility = (query === '' ? '' : 'block');
@@ -372,12 +378,18 @@ function updateResults() {
     section.style.display = 'none';
   });
 
+  sidebarGroups.forEach(function(group) {
+    group.style.display = 'none';
+  });
+
   var shownSections = {};
+  var shownGroups = {};
 
   sidebarLinks.forEach(function(link) {
     var key = link.dataset.key.toLowerCase();
     var lazyKey = key.replace(/[:.]/g, '');
-    var section = link.parentElement.parentElement.parentElement;
+    var section = link.closest('section');
+    var group = link.closest('li.group');
     var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key));
 
     visible = visible || replacements.find(function(alias) {
@@ -387,6 +399,17 @@ function updateResults() {
     if (visible && !shownSections[section.className]) {
       shownSections[section.className] = true;
       section.style.display = baseVisibility;
+    }
+
+    if (visible && group && !shownGroups[group.firstChild.textContent]) {
+      shownGroups[group.firstChild.textContent] = true;
+      group.style.display = baseVisibility;
+      group.firstChild.style.display = baseVisibility;
+      if (query === '') {
+        group.classList.remove('open');
+      } else {
+        group.classList.add('open');
+      }
     }
 
     link.style.display = visible ? baseVisibility : 'none';

@@ -44,7 +44,7 @@ class Docs extends Widget
                 classes = { disabled: not group, selected: key == @page, hidden: hide key }
                 href = not group and "/docs/#{@version}/#{key}"
                 li class: { :group }, ->
-                  a class: classes, href: href, ['data-key']: key, ['data-embed']: embed and key, ->
+                  a class: classes, href: href, ['data-key']: key, ['data-embed']: embed and key, tabIndex: 0, ->
                     text label and label\gsub('_', ' ')\gsub('.+%-', '') or ''
                   if group
                     ul ->
