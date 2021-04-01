@@ -1,15 +1,24 @@
 var aliases = [
+  [ /^sink/, 'lovr.audio.setDevice' ],
+  [ /^stream/, 'lovr.data.newSound' ],
+  [ /^(microp|captu)/, 'AudioType' ],
+  [ /^controller$/, 'lovr.headset' ],
   [ /^imag/, 'Texture' ],
+  [ /^reload/, 'restart' ],
+  [ /^exi/, 'quit' ],
   [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
   [ /^(love|unity|unreal)/, 'lovr' ],
-  [ /^rng/, 'random' ],
   [ /matr/, 'Mat4' ],
-  [ /netw|multip|sock|udp/, 'enet' ],
-  [ /glsl/, 'Shader' ],
+  [ /^(glsl|light)/, 'Shader' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^partic/, { type: 'unsupported', feature: 'Particles' } ],
   [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
+  [ /^keyb/, { type: 'library', name: 'lovr-keyboard', link: 'https://github.com/bjornbytes/lovr-keyboard' } ],
+  [ /^mouse/, { type: 'library', name: 'lovr-mouse', link: 'https://github.com/bjornbytes/lovr-mouse' } ],
+  [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
+  [ /^(enet|udp|multip)/, { type: 'plugin', name: 'enet', link: 'https://github.com/bjornbytes/lua-enet' } ],
+  [ /^json/, { type: 'plugin', name: 'cjson', link: 'https://github.com/bjornbytes/lua-cjson' } ],
   [ /^hi$/, { type: 'hi' } ]
 ];
 
@@ -390,16 +399,18 @@ function updateResults() {
       html = message.feature + ' ' + (/s$/.test(message.feature) ? 'are' : 'is') + ' not supported yet.  ';
       html += 'Head over to the <a href="https://github.com/bjornbytes/lovr/issues" target="_blank">issues page</a> ';
       html += 'for up-to-date status and discussion about new features.';
+    } else if (message.type === 'library') {
+      html = 'Psst!  Check out the <a href="' + message.link + '">' + message.name + '</a> library.';
+    } else if (message.type === 'plugin') {
+      html = 'Psst!  Check out the <a href="' + message.link + '">' + message.name + '</a> plugin.';
     } else if (message.type === 'hi') {
       html = 'Hey.';
-    } else if (message.type === 'no') {
-      html = 'No.';
     }
 
     aliasMessage.innerHTML = html;
     aliasMessage.style.display = 'block';
   } else if (replacements.length > 0) {
-    aliasMessage.textContent = 'Showing results for ' + replacements.map(function(alias) {
+    aliasMessage.textContent = 'Including results for ' + replacements.map(function(alias) {
       return "'" + alias[1] + "'";
     }).join(', ');
     aliasMessage.style.display = 'block';
