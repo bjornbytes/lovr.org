@@ -400,9 +400,9 @@ function updateResults() {
       html += 'Head over to the <a href="https://github.com/bjornbytes/lovr/issues" target="_blank">issues page</a> ';
       html += 'for up-to-date status and discussion about new features.';
     } else if (message.type === 'library') {
-      html = 'Psst!  Check out the <a href="' + message.link + '">' + message.name + '</a> library.';
+      html = 'Psst!  Check out the <a href="' + message.link + '" target="_blank">' + message.name + '</a> library.';
     } else if (message.type === 'plugin') {
-      html = 'Psst!  Check out the <a href="' + message.link + '">' + message.name + '</a> plugin.';
+      html = 'Psst!  Check out the <a href="' + message.link + '" target="_blank">' + message.name + '</a> plugin.';
     } else if (message.type === 'hi') {
       html = 'Hey.';
     }
