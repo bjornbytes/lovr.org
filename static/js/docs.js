@@ -3,7 +3,6 @@ var aliases = [
   [ /^stream/, 'lovr.data.newSound' ],
   [ /^(microp|captu)/, 'AudioType' ],
   [ /^contr/, 'lovr.headset' ],
-  [ /^imag/, 'Texture' ],
   [ /^reload/, 'restart' ],
   [ /^exi/, 'quit' ],
   [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
