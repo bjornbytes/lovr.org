@@ -41,7 +41,10 @@ class Function extends Widget
       h3 'Arguments'
 
       if #variant.arguments > 0
-        hasDefault = #[arg for arg in *variant.arguments when arg.default] > 0
+        isTableWithDefault = (arg) ->
+          arg.table and #[field for field in *arg.table when field.default] > 0
+
+        hasDefault = #[arg for arg in *variant.arguments when arg.default or isTableWithDefault(arg)] > 0
 
         element 'table', class: 'signature', ->
           thead ->
