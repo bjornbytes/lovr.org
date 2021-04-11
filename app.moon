@@ -61,11 +61,11 @@ class extends Application
 
   [downloads: '/downloads']: => render: true
   '/download': => redirect_to: 'https://lovr.org/static/f/lovr.zip'
-  '/download/mac': => redirect_to: 'https://lovr.org/static/f/mac/LÖVR.dmg'
-  '/download/windows': => redirect_to: 'https://lovr.org/static/f/win/32/lovr.zip'
-  '/download/windows/32': => redirect_to: 'https://lovr.org/static/f/win/32/lovr.zip'
-  '/download/windows/64': => redirect_to: 'https://lovr.org/static/f/win/64/lovr.zip'
-  '/download/android': => redirect_to: 'https://lovr.org/static/f/lovr.apk'
+  '/download/windows': => redirect_to: 'https://lovr.org/static/f/lovr.zip'
+  '/download/mac': => redirect_to: 'https://lovr.org/static/f/LÖVR.dmg'
+  '/download/macos': => redirect_to: 'https://lovr.org/static/f/LÖVR.dmg'
+  '/download/linux': => redirect_to: 'https://lovr.org/static/f/lovr-x86_64.AppImage'
+  '/download/android': => redirect_to: 'https://lovr.org/static/f/lovr.apk.zip'
   '/download/nightly': => redirect_to: 'https://lovr.org/static/f/lovr-nightly.zip'
 
   '/repo': =>

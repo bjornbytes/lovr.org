@@ -12,24 +12,28 @@ class Downloads extends Widget
       widget Navbar
 
       h1 'Download LÖVR'
-      p 'v0.14.0, Maximum Moss'
+      p 'v0.15.0, Government Goop'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📎'), 'Windows'
         ul ->
-          li -> a href: '/download/windows/64', '64 bit'
-          --li -> a href: '/download/windows/32', '32 bit'
+          li -> a href: '/download/windows', '64 bit'
           li -> a href: '/download/nightly', 'Nightly (64 bit)'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🍎'), 'macOS'
         ul ->
-          li -> a href: '/download/mac', '64 bit, Sierra+'
+          li -> a href: '/download/mac', 'DMG, Sierra+'
+
+      div class: 'box', ->
+        h2 (-> span 'aria-hidden': true, '🐧'), 'Linux'
+        ul ->
+          li -> a href: '/download/linux', 'AppImage, x86_64'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🤖'), 'Android '
         ul ->
-          li -> a href: '/download/android', 'Oculus (64 bit)'
+          li -> a href: '/download/android', 'APK, Oculus'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '📜'), 'Source'
