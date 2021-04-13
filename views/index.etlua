@@ -22,8 +22,8 @@
         <h1>LÖVR</h1>
         <p>An open source framework for rapidly building immersive 3D experiences.</p>
         <div class="buttons">
-          <a href="/downloads">Download</a>
-          <a href="/docs">Learn</a>
+          <a href="/downloads">Downloads</a>
+          <a href="/docs">Docs</a>
         </div>
       </div>
     </section>
@@ -70,8 +70,8 @@
           <li>HTC Vive</li>
           <li>Valve Index</li>
           <li>Oculus Quest</li>
+          <li>Oculus Quest 2</li>
           <li>Oculus Rift (S)</li>
-          <li>Oculus Go</li>
           <li>Windows MR</li>
           <li>Pico Neo 2</li>
           <li>Leap Motion</li>
@@ -138,7 +138,7 @@
           <h3>Audio</h3>
           <pre>
             <code><i class="hl-keyword">function</i> lovr.load()</code>
-            <code>  song = lovr.audio.newSource(<i class="hl-string">'darude.ogg'</i>, <i class="hl-string">'stream'</i>)</code>
+            <code>  song = lovr.audio.newSource(<i class="hl-string">'darude.ogg'</i>)</code>
             <code>  song:play()</code>
             <code><i class="hl-keyword">end</i></code>
           </pre>
