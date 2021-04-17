@@ -101,7 +101,7 @@ glob = (version, justApi) ->
     key = content[example] and "example-#{example}" or example
     content[key] = "<h1>#{example\gsub('_', ' ')\gsub('.+/', '')}</h1><pre><code>#{handle\read('*a')}</code></pre>"
     content[key] ..= "<a
-    href=\"https://github.com/bjornbytes/lovr-docs/tree/#{version}/examples/#{example}/main.lua\" class=\"source-button\">View Source</a>"
+    href=\"https://github.com/bjornbytes/lovr-docs/tree/#{version}/examples/#{example}\" class=\"source-button\">View Source</a>"
     group = example\match('(.-)/')
     if group
       if not categories.examples[group]
