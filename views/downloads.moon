@@ -23,7 +23,7 @@ class Downloads extends Widget
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🍎'), 'macOS'
         ul ->
-          li -> a href: '/download/mac', 'DMG, 10.11+ (Big Sur)'
+          li -> a href: '/download/mac', 'DMG, macOS 11+ (Big Sur)'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🐧'), 'Linux'
