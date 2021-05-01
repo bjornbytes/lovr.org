@@ -28,7 +28,7 @@ class Downloads extends Widget
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🐧'), 'Linux'
         ul ->
-          li -> a href: '/download/linux', 'AppImage, x86_64, libc 2.29+ (Sorry, fixing next version)'
+          li -> a href: '/download/linux', 'AppImage, x86_64, libc 2.29+'
 
       div class: 'box', ->
         h2 (-> span 'aria-hidden': true, '🤖'), 'Android '
