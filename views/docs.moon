@@ -18,7 +18,7 @@ class Docs extends Widget
             li class: 'version', ->
               a href: "/docs/#{v}", rel: 'nofollow', v
 
-      input class: 'search'
+      input class: 'search', spellcheck: 'false'
 
       aside class: 'alias-message'
 
