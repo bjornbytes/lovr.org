@@ -18,6 +18,7 @@ var aliases = [
   [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
   [ /^(enet|udp|multip)/, { type: 'plugin', name: 'enet', link: 'https://github.com/bjornbytes/lua-enet' } ],
   [ /^json/, { type: 'plugin', name: 'cjson', link: 'https://github.com/bjornbytes/lua-cjson' } ],
+  [ /^(monado|openx)/, 'FAQ' ],
   [ /^hi$/, { type: 'hi' } ]
 ];
 
