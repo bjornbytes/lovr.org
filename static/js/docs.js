@@ -37,7 +37,7 @@ var data = {};
 var hasWebGL2 = !!document.createElement('canvas').getContext('webgl2');
 
 function getUrl(key) {
-  return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/) + '/' + key;
+  return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/dev)?/) + '/' + key;
 }
 
 function pushPage(key) {
@@ -146,7 +146,7 @@ function enhance(node) {
 }
 
 // Stream documentation
-oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master)?/)))
+oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/dev)?/)))
   .node('!.*', function(node, path) {
     var key = path[0];
     data[key] = node;
