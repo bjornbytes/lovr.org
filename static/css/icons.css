@@ -1,0 +1,38 @@
+/*!
+ *  Based on Fork Awesome 1.2.0, originaly by Dave Gandy - http://forkawesome.github.io/Fork-Awesome/
+ *  License - http://forkawesome.github.io/Fork-Awesome//license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+@font-face {
+  font-family: 'icons';
+  src: url('./icons.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]::before { content: attr(data-icon); }
+
+[data-icon]::before, [class^="icon-"]::before, [class*=" icon-"]::before {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  font-size: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-cog::before { content: "\f100"; }
+.icon-discord::before { content: "\f101"; }
+.icon-discord-alt::before { content: "\f102"; }
+.icon-envelope::before { content: "\f103"; }
+.icon-github::before { content: "\f104"; }
+.icon-mastodon::before { content: "\f105"; }
+.icon-matrix-org::before { content: "\f106"; }
+.icon-slack::before { content: "\f107"; }
+.icon-twitter::before { content: "\f108"; }
