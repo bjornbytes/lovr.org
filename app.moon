@@ -86,6 +86,9 @@ class extends Application
   '/twitter': =>
     redirect_to: 'https://twitter.com/bjornbytes'
 
+  '/mastodon': =>
+    redirect_to: 'https://fosstodon.org/@lovr'
+
   '/docs/WebVR': =>
     redirect_to: 'https://lovr.org/docs/Distribution'
 

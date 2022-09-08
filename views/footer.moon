@@ -23,4 +23,4 @@ class Footer extends Widget
         ul ->
           li -> a href: '/slack', 'Slack'
           li -> a href: '/matrix', 'Matrix'
-          li -> a href: '/twitter', 'Twitter'
+          li -> a href: '/mastodon', 'Mastodon'
