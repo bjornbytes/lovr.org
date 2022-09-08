@@ -57,8 +57,8 @@ class Docs extends Widget
       renderCategory 'showcase'
       renderCategory 'examples'
       renderCategory 'modules'
-      renderCategory 'callbacks'
       renderCategory 'objects'
+      renderCategory 'callbacks'
       renderCategory 'functions'
       renderCategory 'types'
 
