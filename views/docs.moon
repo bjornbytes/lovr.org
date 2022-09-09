@@ -8,7 +8,6 @@ class Docs extends Widget
   content: =>
     @content_for 'head', ->
       link rel: 'stylesheet', href: config.env == 'prod' and '/static/css/docs.css' or '/static/css/docs-dev.css'
-      script ';'
 
     widget Navbar
 
@@ -56,7 +55,7 @@ class Docs extends Widget
               link key
 
       renderCategory 'guides'
-      renderCategory 'showcase'
+      --renderCategory 'showcase'
       renderCategory 'examples'
       renderCategory 'modules'
       renderCategory 'objects'
@@ -68,7 +67,6 @@ class Docs extends Widget
       span class: 'arrow'
 
     main class: 'docs', ->
-      div class: 'embed', -> iframe allowvr: true, allowfullscreen: true if @isDefaultVersion
       div class: 'content', ['data-key']: @page, ->
         raw @contents
 

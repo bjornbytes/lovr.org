@@ -23,9 +23,7 @@ var aliases = [
 ];
 
 var main = document.querySelector('main');
-var embed = document.querySelector('.embed');
 var sidebar = document.querySelector('.sidebar');
-var iframe = embed.querySelector('iframe');
 var sidebarSections = Array.prototype.slice.call(sidebar.querySelectorAll('section'));
 var sidebarGroups = Array.prototype.slice.call(sidebar.querySelectorAll('li.group'));
 var sidebarGroupLinks = Array.prototype.slice.call(sidebar.querySelectorAll('li.group > a'));
@@ -68,8 +66,6 @@ function showPage(key, scroll) {
     content.remove();
   });
 
-  setEmbed(link && link.dataset.embed);
-
   // Uh
   if (!key) {
     return;
@@ -77,7 +73,7 @@ function showPage(key, scroll) {
 
   // Create element for new content
   var content = document.createElement('div');
-  content.classList.add('content', link && !link.dataset.embed && 'intro');
+  content.classList.add('content');
   content.innerHTML = data[key];
   content.dataset.key = key;
   enhance(content);
@@ -188,60 +184,6 @@ window.addEventListener('popstate', function(event) {
   }
 });
 
-// Embed
-function resizeIframe() {
-  if (iframe.style.display === 'block') {
-    var canvas = iframe.contentWindow.document.querySelector('#canvas');
-    if (canvas && iframe.offsetHeight !== canvas.offsetHeight) {
-      iframe.style.height = canvas.offsetHeight + 'px';
-    }
-  }
-}
-
-function setEmbed(key) {
-  if (!iframe) {
-    return;
-  } else if (!iframe.src && key) {
-    iframe.src = '/embed';
-    iframe.addEventListener('load', function() {
-      setEmbed(key);
-    });
-    return;
-  }
-
-  if (hasWebGL2 && key) {
-    embed.style.display = 'block';
-    iframe.style.display = 'block';
-    iframe.contentWindow.runProject(key);
-    resizeIframe();
-  } else {
-    embed.style.display = 'none';
-    iframe.style.display = 'none';
-  }
-}
-
-if (iframe) {
-  window.addEventListener('focus', function() {
-    if (document.activeElement !== iframe) {
-      iframe.classList.remove('focus');
-    }
-  });
-
-  window.addEventListener('blur', function() {
-    if (document.activeElement === iframe) {
-      iframe.classList.add('focus');
-    }
-  });
-
-  var resizeTimeout;
-  function debouncedResize() {
-    if (resizeTimeout) { clearTimeout(resizeTimeout); }
-    resizeTimeout = setTimeout(resizeIframe, 150);
-  }
-
-  window.addEventListener('resize', debouncedResize);
-}
-
 // Bootstrap initial content
 var initialContent = document.querySelector('.content');
 if (initialContent) {
@@ -256,7 +198,6 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
-    setEmbed(link.dataset.embed);
   }
 }
 
