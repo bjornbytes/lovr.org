@@ -340,16 +340,14 @@ window.addEventListener('keypress', function(event) {
 });
 
 searchBox.onkeyup = function() {
-  setTimeout(function() {
-    if (searchBox.value === '') {
-      searchBox.style.display = '';
-      searchBox.blur();
-    } else {
-      searchBox.style.display = 'block';
-    }
+  if (searchBox.value === '') {
+    searchBox.style.display = '';
+    searchBox.blur();
+  } else {
+    searchBox.style.display = 'block';
+  }
 
-    updateResults();
-  }, 0);
+  updateResults();
 };
 
 function updateResults() {

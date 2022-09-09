@@ -222,7 +222,26 @@ nav .links .spacer {
 }
 
 .sidebar .versions {
-  display: none; /* TODO */
+  position: absolute;
+  right: 16px;
+  top: 22px;
+  appearance: none;
+  background: var(--c-white);
+  color: var(--c-smoky);
+  padding: 4px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+}
+
+.sidebar .versions:hover {
+  background: var(--c-ghost);
+}
+
+.sidebar .versions:focus {
+  outline: var(--c-phlox) solid 2px;
 }
 
 .sidebar input {
@@ -237,6 +256,21 @@ nav .links .spacer {
   border: none;
   border-bottom: 2px var(--c-phlox) solid;
   outline: none;
+}
+
+.sidebar .alias-message {
+  display: none;
+  margin: 18px 0;
+  padding: 8px 16px;
+  background: var(--c-white);
+  color: var(--c-smoke);
+  font-size: 14px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.sidebar .alias-message a {
+  color: var(--c-mauve);
 }
 
 .sidebar section.hidden {
@@ -254,7 +288,7 @@ nav .links .spacer {
   padding: 0;
 }
 
-.sidebar a {
+.sidebar li a {
   color: var(--c-mauve);
   display: block;
   line-height: 1.5;
@@ -263,20 +297,20 @@ nav .links .spacer {
   white-space: nowrap;
 }
 
-.sidebar a.hidden {
+.sidebar li a.hidden {
   display: none;
 }
 
-.sidebar a.disabled {
+.sidebar li a.disabled {
   cursor: default;
   color: var(--c-slate);
 }
 
-.sidebar a:hover, .sidebar a.selected, .sidebar a:focus {
+.sidebar li a:hover, .sidebar li a.selected, .sidebar li a:focus {
   background: linear-gradient(90deg, transparent, hsl(256deg 100% 87%));
 }
 
-.sidebar a:focus {
+.sidebar li a:focus {
   outline: none;
 }
 
@@ -575,7 +609,7 @@ main.docs {
     --c-smoke: #cdcdcd;
     --c-smoky: #bcbcbc;
     --c-storm: #181820;
-    --c-night: #121114;
+    --c-night: #181820;
     --c-slate: #777777;
     --c-dusty: #aaaaaa;
     --c-steam: #e8e8e8;
@@ -596,7 +630,7 @@ main.docs {
     --c-honey: #fffdcb;
   }
 
-  .sidebar a:hover, .sidebar a.selected, .sidebar a:focus {
+  .sidebar li a:hover, .sidebar li a.selected, .sidebar li a:focus {
     background: linear-gradient(90deg, transparent, hsl(256deg 44% 53%));
   }
 

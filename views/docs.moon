@@ -13,12 +13,12 @@ class Docs extends Widget
     widget Navbar
 
     div class: 'sidebar', ->
-      ul class: 'versions', ->
-        li class: 'active version', @version
+
+      element 'select', class: 'versions', onchange: 'window.location.href=this.options[this.selectedIndex].value', ->
+        option selected: true, value: "/docs/#{@version}", @version
         for v in *@versions
           if v ~= @version
-            li class: 'version', ->
-              a href: "/docs/#{v}", rel: 'nofollow', v
+            option value: "/docs/#{v}", v
 
       input class: 'search', spellcheck: 'false'
 
