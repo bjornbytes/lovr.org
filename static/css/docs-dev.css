@@ -605,7 +605,7 @@ main.docs {
 @media (prefers-color-scheme: dark) {
   :root {
     --c-black: #ffffff;
-    --c-raven: #dedede;
+    --c-raven: #d0d0d0;
     --c-smoke: #cdcdcd;
     --c-smoky: #bcbcbc;
     --c-storm: #181820;
