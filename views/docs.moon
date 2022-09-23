@@ -7,7 +7,7 @@ Navbar = require 'views.navbar'
 class Docs extends Widget
   content: =>
     @content_for 'head', ->
-      link rel: 'stylesheet', href: config.env == 'prod' and '/static/css/docs.css' or '/static/css/docs-dev.css'
+      link rel: 'stylesheet', href: '/static/css/docs.css'
 
     widget Navbar
 

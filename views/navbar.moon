@@ -16,7 +16,7 @@ class Navbar extends Widget
 
         div class: 'spacer'
 
-        a href: 'https://github.com/bjornbytes/lovr', target: '_blank', rel: 'noopener', 'GitHub', -> i class: 'icon-github'
-        a href: 'https://lovr.org/slack', target: '_blank', rel: 'noopener', 'Slack', -> i class: 'icon-slack'
-        a href: 'https://lovr.org/matrix', target: '_blank', rel: 'noopener', 'Matrix', -> i class: 'icon-matrix-org'
-        a href: 'https://fosstodon.org/@lovr', target: '_blank', rel: 'noopener', 'Mastodon', -> i class: 'icon-mastodon'
+        a href: 'https://github.com/bjornbytes/lovr', target: '_blank', rel: 'noopener', -> i class: 'icon-github'
+        a href: 'https://lovr.org/slack', target: '_blank', rel: 'noopener', -> i class: 'icon-slack'
+        a href: 'https://lovr.org/matrix', target: '_blank', rel: 'noopener', -> i class: 'icon-matrix-org'
+        a href: 'https://fosstodon.org/@lovr', target: '_blank', rel: 'noopener', -> i class: 'icon-mastodon'
