@@ -5,13 +5,10 @@ var aliases = [
   [ /^contr/, 'lovr.headset' ],
   [ /^reload/, 'restart' ],
   [ /^exi/, 'quit' ],
-  [ /^(fbo|frameb|render\\s*tex|rtt)/, 'Canvas' ],
   [ /^(love|unity|unreal)/, 'lovr' ],
   [ /matr/, 'Mat4' ],
   [ /^(glsl|light)/, 'Shader' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
-  [ /^partic/, { type: 'unsupported', feature: 'Particles' } ],
-  [ /^http/, { type: 'unsupported', feature: 'HTTP' } ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
   [ /^keyb/, { type: 'library', name: 'lovr-keyboard', link: 'https://github.com/bjornbytes/lovr-keyboard' } ],
   [ /^mouse/, { type: 'library', name: 'lovr-mouse', link: 'https://github.com/bjornbytes/lovr-mouse' } ],
@@ -33,7 +30,6 @@ var versions = sidebar.querySelector('.versions');
 var aliasMessage = sidebar.querySelector('.alias-message');
 var transitionTimeout;
 var data = {};
-var hasWebGL2 = !!document.createElement('canvas').getContext('webgl2');
 
 function getUrl(key) {
   return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/dev)?/) + '/' + key;

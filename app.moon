@@ -44,9 +44,6 @@ class extends Application
     @contents = docs[@page]
     render: true
 
-  [embed: '/embed']: =>
-    render: true
-
   '/api/data(/:version)': =>
     version = @params.version or config.version
     api = glob version, true
@@ -88,9 +85,6 @@ class extends Application
 
   '/mastodon': =>
     redirect_to: 'https://fosstodon.org/@lovr'
-
-  '/docs/WebVR': =>
-    redirect_to: 'https://lovr.org/docs/Distribution'
 
   '/sitemap': =>
     sitemap = { 'https://lovr.org', 'https://lovr.org/docs' }
