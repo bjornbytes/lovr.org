@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="description" content="An open source framework for rapidly building immersive 3D experiences."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="LÖVR"/>
+  <meta name="twitter:description" content="A simple framework for creating VR with Lua."/>
+  <meta name="twitter:image" content="/img/logo.png"/>
+  <link rel="shortcut icon" href="/img/favicon.png"/>
+  <link rel="stylesheet" href="/css/index.css"/>
+  <title>LÖVR</title>
+</head>
+<body class="index">
+  <main>
+    <section class="hero">
+      <img class="logo" src="/img/logo.svg" width="32"/>
+      <div class="right">
+        <h1>LÖVR</h1>
+        <p>An open source framework for rapidly building immersive 3D experiences.</p>
+        <div class="buttons">
+          <a href="/downloads">Downloads</a>
+          <a href="/docs">Docs</a>
+        </div>
+      </div>
+    </section>
+
+    <svg class="trim" height="0" viewBox="0 0 32 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 V 16 H 32 V 0 Q 24,16 16,16 Q 8,16 0,0" fill="#654aa9"/>
+    </svg>
+
+    <section class="features">
+      <ul>
+        <li>
+          <span class="icon">🕶</span>
+          <h3>Designed for VR</h3>
+          <p>Out of the box you get fast stereo rendering, VR controllers, hand tracking, haptics, spatial audio, 3D physics, PBR materials, SDF fonts, and more.</p>
+        </li>
+
+        <li>
+          <span class="icon">🎈</span>
+          <h3>Super Lightweight</h3>
+          <p>The entire engine fits in a couple of MB and uses LuaJIT, a super fast Lua implementation.  Projects are just folders with code and assets, organized however you want.</p>
+        </li>
+
+        <li>
+          <span class="icon">🤔</span>
+          <h3>Beginner Friendly</h3>
+          <p>You can write 3 lines of Lua and drag and drop a folder onto an exe to get a working VR scene.  Lua is a really simple language, making LÖVR great for learning and prototyping.</p>
+        </li>
+      </ul>
+    </section>
+
+    <svg class="trim" height="0" viewBox="0 0 32 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,16 V 0 H 32 V 16 Q 24,0 16,0 Q 8,0 0,16" fill="#654aa9"/>
+    </svg>
+
+    <section class="sass">
+      <p>People are using LÖVR for game jams, commercial projects, tools, education, and VR/3D/2D prototyping. Some daring souls have even embedded LÖVR inside of Unity, ported the engine to other languages, and gotten it running on tiny microcontrollers. With LÖVR, you can turn virtually any idea into reality.</p>
+      <div class="screenshots">
+        <img loading="lazy" src="img/screen1.jpg"/>
+        <img loading="lazy" src="img/screen2.jpg"/>
+        <img loading="lazy" src="img/screen3.jpg"/>
+      </div>
+    </section>
+
+    <svg class="trim" height="0" viewBox="0 0 32 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 V 16 H 32 V 0 Q 24,16 16,16 Q 8,16 0,0" fill="#654aa9"/>
+    </svg>
+
+    <section class="hardware">
+      <h2>Hardware Support</h2>
+      <p>LÖVR is powered by OpenXR and Vulkan, so it's compatible with a wide variety of hardware and platforms.  It can also simulate a VR headset using keyboard and mouse, so you don't need any VR hardware to get started.</p>
+      <div class="lists">
+        <ul>
+          <li class="icon">🕹</li>
+          <li>HTC Vive</li>
+          <li>Valve Index</li>
+          <li>Oculus Quest</li>
+          <li>Oculus Quest 2</li>
+          <li>Oculus Rift (S)</li>
+          <li>Windows MR</li>
+          <li>Pico Neo 3</li>
+          <li>Ultraleap</li>
+          <li>Keyboard/Mouse</li>
+        </ul>
+
+        <ul>
+          <li class="icon">🖥</li>
+          <li>Windows</li>
+          <li>macOS</li>
+          <li>Linux</li>
+          <li>Android</li>
+        </ul>
+      </div>
+    </section>
+
+    <svg class="trim" height="0" viewBox="0 0 32 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,16 V 0 H 32 V 16 Q 24,0 16,0 Q 8,0 0,16" fill="#654aa9"/>
+    </svg>
+
+    <section class="samples">
+      <h2>Sample Projects</h2>
+      <ul>
+        <li>
+          <h3>Hello Virtual World</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.draw()</code>
+            <code>  lovr.graphics.print(<i class="hl-string">'hello'</i>, <i class="hl-number">0</i>, <i class="hl-number">1.7</i>, <i class="hl-number">-1</i>, <i class="hl-number">.5</i>)</code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+
+        <li>
+          <h3>Spinning Cube</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.draw(pass)</code>
+            <code>  <i class="hl-keyword">local</i> angle = lovr.headset.getTime()</code>
+            <code>  pass:cube(<i class="hl-number">0</i>, <i class="hl-number">1.7</i>, <i class="hl-number">-1</i>, <i class="hl-number">.5</i>, angle)</code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+
+        <li>
+          <h3>Tracked Hands</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.draw(pass)</code>
+            <code>  <i class="hl-keyword">for</i> i, hand <i class="hl-keyword">in</i> <i class="hl-builtin">ipairs</i>(lovr.headset.getHands()) <i class="hl-keyword">do</i></code>
+            <code>    <i class="hl-keyword">local</i> x, y, z = lovr.headset.getPosition(hand)</code>
+            <code>    pass:sphere(x, y, z, <i class="hl-number">.1</i>)</code>
+            <code>  <i class="hl-keyword">end</i></code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+
+        <li>
+          <h3>Audio</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.load()</code>
+            <code>  song = lovr.audio.newSource(<i class="hl-string">'darude.ogg'</i>)</code>
+            <code>  song:play()</code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+
+        <li>
+          <h3>Skybox</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.load()</code>
+            <code>  sky = lovr.graphics.newTexture(<i class="hl-string">'sky.hdr'</i>)</code>
+            <code><i class="hl-keyword">end</i>
+            </code>
+            <code><i class="hl-keyword">function</i> lovr.draw(pass)</code>
+            <code>  pass:skybox(sky)</code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+
+        <li>
+          <h3>3D Model</h3>
+          <pre>
+            <code><i class="hl-keyword">function</i> lovr.load()</code>
+            <code>  model = lovr.graphics.newModel(<i class="hl-string">'monkey.gltf'</i>)</code>
+            <code><i class="hl-keyword">end</i>
+            </code>
+            <code><i class="hl-keyword">function</i> lovr.draw(pass)</code>
+            <code>  pass:draw(model, <i class="hl-number">0</i>, <i class="hl-number">2</i>, <i class="hl-number">-3</i>, <i class="hl-number">2</i>)</code>
+            <code><i class="hl-keyword">end</i></code>
+          </pre>
+        </li>
+      </ul>
+
+      <aside>
+        Want to see more examples or learn how to get started?<br>
+        Check out the <a href="/docs">Getting Started</a> tutorial.
+      </aside>
+    </section>
+
+    <svg class="shadow trim" height="0" viewBox="0 0 32 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,0 V 16 H 32 V 0 Q 24,16 16,16 Q 8,16 0,0" fill="#30333c"/>
+    </svg>
+
+    <footer>
+      <div class="sections">
+        <section>
+          <header>LÖVR</header>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/downloads">Downloads</a></li>
+            <li><a href="/docs">Documentation</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <header>Development</header>
+          <ul>
+            <li><a href="/source">Source</a></li>
+            <li><a href="https://github.com/bjornbytes/lovr/releases">Releases</a></li>
+            <li><a href="https://github.com/bjornbytes/lovr/issues">Issues</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <header>Community</header>
+          <ul>
+            <li><a href="/matrix">Matrix</a></li>
+            <li><a href="/discord">Discord</a></li>
+            <li><a href="/mastodon">Mastodon</a></li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

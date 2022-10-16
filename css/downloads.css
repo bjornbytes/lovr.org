@@ -1,0 +1,59 @@
+@import "base.css";
+
+main {
+  width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: var(--c-raven);
+}
+
+h1 {
+  font-size: 32px;
+  margin: 64px 0 32px;
+}
+
+p {
+  margin: 32px 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.box {
+  background: var(--c-ghost);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 24px;
+  color: var(--c-raven);
+}
+
+h2 span {
+  display: inline-block;
+  font-size: 24px;
+  margin-left: 4px;
+  margin-right: 16px;
+  pointer-events: none;
+  user-select: none;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 18px;
+  margin: 16px 48px 4px;
+  padding: 0;
+}
+
+li {
+  padding: 4px;
+}
+
+li a {
+  color: var(--c-mauve);
+  text-decoration: none;
+}
+
+li a:hover {
+  text-decoration: underline var(--c-phlox) 2px;
+}

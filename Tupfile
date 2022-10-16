@@ -1,5 +1,0 @@
-: foreach *.moon |> moonc %f |> %B.lua
-: foreach content/*.moon |> moonc %f |> content/%B.lua
-: foreach views/*.moon |> moonc %f |> views/%B.lua
-: foreach widgets/*.moon |> moonc %f |> widgets/%B.lua
-: foreach static/scss/[a-z]*.scss |> sass --no-source-map -s compressed %f %o |> static/css/%B.css

@@ -1,12 +1,4 @@
-*.lua
-views/*.lua
-/secrets.*
-logs
-nginx.conf.compiled
-static/css
-static/f/*
-.sass-cache
-.tup
-conf
-content/v*
-content/master
+docs/*
+.lovr-docs
+.lua/secrets.lua
+f

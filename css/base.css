@@ -1,0 +1,218 @@
+/* vars */
+
+:root {
+  --c-black: #000000;
+  --c-raven: #222222;
+  --c-smoke: #333333;
+  --c-smoky: #444444;
+  --c-storm: #30333c;
+  --c-night: #433a4c;
+  --c-slate: #777777;
+  --c-dusty: #aaaaaa;
+  --c-steam: #e8e8e8;
+  --c-ghost: #f8f5ff;
+  --c-bream: #e8e8e8;
+  --c-cream: #f8f8f8;
+  --c-white: #fefefe;
+  --c-mauve: #6029a3;
+  --c-phlox: #b9a4f4;
+  --c-berry: #c0a0fa;
+  --c-candy: #e6dafa;
+  --c-lilac: #ebe5fc;
+  --c-lapis: #d5e9f9;
+  --c-amber: #f2506d;
+  --c-rusty: #ff9505;
+  --c-ocean: #44c3df;
+  --c-mossy: #61c804;
+  --c-honey: #c9c43d;
+  --nav-height: 60px;
+  --sidebar-size: 250px;
+  --sidebar-padding: calc((100vw - 960px - var(--sidebar-size)) / 2 + 20px);
+  --sidebar-width: calc(var(--sidebar-padding) + var(--sidebar-size));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-black: #ffffff;
+    --c-raven: #d0d0d0;
+    --c-smoke: #cdcdcd;
+    --c-smoky: #bcbcbc;
+    --c-storm: #181820;
+    --c-night: #181820;
+    --c-slate: #777777;
+    --c-dusty: #aaaaaa;
+    --c-steam: #e8e8e8;
+    --c-ghost: #181820;
+    --c-bream: #383848;
+    --c-cream: #282838;
+    --c-white: #202028;
+    --c-mauve: #c090ff;
+    --c-phlox: #6747c4;
+    --c-berry: #c0a0fa;
+    --c-candy: #e6dafa;
+    --c-lilac: #303044;
+    --c-lapis: #393f72;
+    --c-amber: #f37b90;
+    --c-rusty: #ffca83;
+    --c-ocean: #78becd;
+    --c-mossy: #d0ffa5;
+    --c-honey: #fffdcb;
+  }
+}
+
+/* fonts */
+
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Varela Round Regular'), local('VarelaRound-Regular'), url('/fonts/VarelaRound.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url('/fonts/SourceCodePro.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*!
+ *  Based on Fork Awesome 1.2.0, originaly by Dave Gandy - http://forkawesome.github.io/Fork-Awesome/
+ *  License - http://forkawesome.github.io/Fork-Awesome//license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+@font-face {
+  font-family: 'icons';
+  src: url('/fonts/icons.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]::before { content: attr(data-icon); }
+
+[data-icon]::before, [class^="icon-"]::before, [class*=" icon-"]::before {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  font-size: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-cog::before { content: "\f100"; }
+.icon-discord::before { content: "\f101"; }
+.icon-discord-alt::before { content: "\f102"; }
+.icon-envelope::before { content: "\f103"; }
+.icon-github::before { content: "\f104"; }
+.icon-mastodon::before { content: "\f105"; }
+.icon-matrix::before { content: "\f106"; }
+.icon-slack::before { content: "\f107"; }
+.icon-twitter::before { content: "\f108"; }
+
+/* reset */
+
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, ul, ol, pre {
+  margin: 0;
+}
+
+body {
+  font-family: 'Varela Round';
+  background: var(--c-white);
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* nav */
+
+body {
+  padding-top: var(--nav-height);
+}
+
+nav {
+  position: fixed;
+  overflow: auto hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--c-storm);
+  padding: 0 10px 0 20px;
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav.with-sidebar {
+  padding-left: var(--sidebar-padding);
+}
+
+nav.with-sidebar .container {
+  width: initial;
+  margin: initial;
+  padding: initial;
+}
+
+nav.with-sidebar .logo {
+  width: var(--sidebar-size);
+}
+
+nav a {
+  color: var(--c-steam);
+}
+
+nav a:hover {
+  color: var(--c-berry);
+}
+
+nav .logo {
+  height: var(--nav-height);
+  line-height: var(--nav-height);
+  margin-top: 1px;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+nav .logo img {
+  width: 32px;
+  height: 32px;
+  margin-right: 7px;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
+nav .social {
+  font-size: 0;
+}
+
+nav .social a {
+  cursor: pointer;
+}
+
+nav .social i::before {
+  font-size: 32px;
+  line-height: var(--nav-height);
+  padding: 0 10px;
+}
