@@ -1,13 +1,13 @@
 local secrets = require 'secrets'
 local generate = require 'generate'
 local refresh = require 'refresh'
-local defaultVersion = 'v0.15.0'
+local defaultVersion = 'v0.16.0'
 local defaultPage = 'Getting_Started'
 
 function OnHttpRequest()
   local method, path = GetMethod(), GetPath():gsub('/$', '')
 
-  if path == '/' then
+  if path == '' then
     Route()
   elseif method == 'GET' and path == '/downloads' then
     Route(GetHost(), path .. '.html')
@@ -17,8 +17,6 @@ function OnHttpRequest()
     if not version or (version ~= 'master' and not version:match('v%d+%.%d+%.%d+')) then
       version, page = defaultVersion, version and (version .. (page == '' and page or ('/' .. page)))
     end
-
-    print(page)
 
     page = page ~= '' and page or defaultPage
     page = page:gsub('%%3[aA]', ':')
@@ -30,7 +28,7 @@ function OnHttpRequest()
   elseif method == 'GET' and path:find('/api/docs') == 1 then
     local version = path:match('/api/data/(.+)$') or defaultVersion
     return Route(GetHost(), 'docs/' .. version .. '/pages.json')
-  elseif method == 'POST' and path == '/hook/docs' then
+  elseif method == 'POST' and path == '/refresh' then
     local body = GetBody()
     local data = DecodeJson(body)
 
