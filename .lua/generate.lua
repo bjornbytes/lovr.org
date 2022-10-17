@@ -419,9 +419,9 @@ return function(v)
       local tb = { b:match('(%d+)%.(%d+)%.(%d+)') }
       for i = 1, 3 do
         if tonumber(ta[i]) < tonumber(tb[i]) then return false
-        elseif tonumber(ta[i]) > tonumber(tb[i]) then return true
-        else return false end
+        elseif tonumber(ta[i]) > tonumber(tb[i]) then return true end
       end
+      return false
     else
       return a < b
     end
