@@ -27,10 +27,10 @@ function OnHttpRequest()
     return Route(GetHost(), ('docs/%s/%s.html'):format(version, page))
   elseif method == 'GET' and path:find('/api/data') == 1 then
     local version = path:match('/api/data/(.+)$') or defaultVersion
-    return Route(GetHost(), 'docs/' .. version .. '/data.json')
+    Route(GetHost(), ('docs/%s/data.json'):format(version))
   elseif method == 'GET' and path:find('/api/docs') == 1 then
-    local version = path:match('/api/data/(.+)$') or defaultVersion
-    return Route(GetHost(), 'docs/' .. version .. '/pages.json')
+    local version = path:match('/api/docs/(.+)$') or defaultVersion
+    Route(GetHost(), ('docs/%s/pages.json'):format(version))
   elseif method == 'POST' and path == '/refresh' then
     local body = GetBody()
     local data = DecodeJson(body)
