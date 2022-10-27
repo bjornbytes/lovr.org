@@ -9,6 +9,8 @@ function OnHttpRequest()
 
   if path == '' then
     Route()
+  elseif path:match('static/img') then
+    Route(GetHost(), path:gsub('static/', ''))
   elseif method == 'GET' and path == '/downloads' then
     Route(GetHost(), path .. '.html')
   elseif method == 'GET' and path:find('/docs') == 1 then
