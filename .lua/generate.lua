@@ -72,7 +72,7 @@ return function(v)
     end
   end
 
-  local function link(t, key, friend)
+  local function relate(t, key, friend)
     if friend ~= key and lookup[friend] then
       table.insert(t, friend)
     end
@@ -81,11 +81,11 @@ return function(v)
   for _, key in ipairs(categories.functions) do
     local fn = lookup[key]
     fn.related = fn.related or {}
-    link(key:gsub('get', 'set'))
-    link(key:gsub('is', 'set'))
-    link(key:gsub('set', 'get'))
-    link(key:gsub('set', 'is'))
-    link(key:match('^(%w+):') or fn.module)
+    relate(fn.related, key, key:gsub('get', 'set'))
+    relate(fn.related, key, key:gsub('is', 'set'))
+    relate(fn.related, key, key:gsub('set', 'get'))
+    relate(fn.related, key, key:gsub('set', 'is'))
+    relate(fn.related, key, key:match('^(%w+):') or fn.module)
   end
 
   for _, key in ipairs(categories.objects) do
@@ -242,6 +242,8 @@ return function(v)
             end)
           }
         }
+      else
+        constructors = ''
       end
 
       if object.sections then
@@ -272,7 +274,7 @@ return function(v)
           }
         }
       else
-        object.methods = ''
+        links = ''
       end
 
       return {
@@ -316,7 +318,7 @@ return function(v)
         if fn.tag == 'callbacks' then
           signature = pre {
             code {
-              'function ' .. key .. args .. '\n-- your code here\nend'
+              'function ' .. key .. args .. '\n  -- your code here\nend'
             }
           }
         else
@@ -491,7 +493,7 @@ return function(v)
   assert(unix.rmrf(root))
   assert(unix.makedirs(root))
   assert(Barf(root .. '/data.json', EncodeJson(api)))
-  assert(Barf(root .. '/pages.json', EncodeJson(content)))
+  assert(Barf(root .. '/pages.json', EncodeJson(content):gsub('\\u003c', '<'):gsub('\\u003e', '>') .. ''))
 
   local template = assert(Slurp('docs/.template.html'))
 
