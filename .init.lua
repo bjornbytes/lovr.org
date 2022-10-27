@@ -39,7 +39,13 @@ function OnHttpRequest()
       return SetStatus(400)
     end
 
-    if not IsLoopbackIp(GetRemoteAddr()) and GetHeader('X-Hub-Signature-256') ~= GetCryptoHash('SHA256', body, secrets.docs) then
+    local hash = 'sha256='
+    local bytes = GetCryptoHash('SHA256', body, secrets.docs)
+    for i = 1, #bytes do
+      hash = hash .. ('%02x'):format(bytes:byte(i))
+    end
+
+    if not IsLoopbackIp(GetRemoteAddr()) and GetHeader('X-Hub-Signature-256') ~= hash then
       return SetStatus(403)
     end
 
