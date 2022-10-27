@@ -1,5 +1,5 @@
 local html = require 'html'
-local md = require 'md'
+local md = require 'markdown'
 
 return function(v)
   local api = loadfile('.lovr-docs/' .. v .. '/api/init.lua')()
