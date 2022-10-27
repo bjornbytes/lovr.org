@@ -1,8 +1,8 @@
 local secrets = require 'secrets'
 local generate = require 'generate'
 local refresh = require 'refresh'
+
 local defaultVersion = 'v0.16.0'
-local defaultPage = 'Getting_Started'
 
 function OnHttpRequest()
   local method, path = GetMethod(), GetPath():gsub('/$', '')
@@ -20,6 +20,7 @@ function OnHttpRequest()
       version, page = defaultVersion, version and (version .. (page == '' and page or ('/' .. page)))
     end
 
+    local defaultPage = (version == 'v0.1.0' or version == 'v0.2.0') and 'Introduction' or 'Getting_Started'
     page = page ~= '' and page or defaultPage
     page = page:gsub('%%3[aA]', ':')
 
