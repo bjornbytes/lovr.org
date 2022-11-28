@@ -361,6 +361,7 @@ return function(v)
         end
 
         return {
+          #fn.variants > 1 and hr({}) or '',
           variant.description and md(variant.description) or '',
           signature,
           h3 'Arguments',
