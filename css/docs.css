@@ -204,21 +204,37 @@ main {
 
 .content h2 {
   font-size: 20px;
-  color: var(--c-smoke);
   border-bottom: 2px var(--c-lilac) solid;
   padding-bottom: 4px;
   margin-top: 40px;
 }
 
 .content h3 {
-  color: var(--c-smoky);
   font-size: 18px;
   font-weight: normal;
   margin: 25px 0 10px;
 }
 
-.content h2:target, .content h3:target {
-  background: var(--c-lilac);
+.content h2, .content h2 a {
+  color: var(--c-smoke);
+}
+
+.content h3, .content h3 a {
+  color: var(--c-smoky);
+}
+
+.content h2:target a, .content h3:target a {
+  color: var(--c-mauve);
+}
+
+.content h2:target::before, .content h3:target::before {
+  content: '§';
+  color: var(--c-mauve);
+  margin-right: 8px;
+}
+
+.content h2 a:hover, .content h3 a:hover {
+  text-decoration: none;
 }
 
 .content p {
