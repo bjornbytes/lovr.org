@@ -162,7 +162,7 @@ return function(v)
       for i = 2, 3 do
         content[guide] = content[guide]:gsub(('<h%d>(.-)</h%d>'):format(i, i), function(title)
           local slug = title:gsub(' ', '-'):gsub('Ö', 'O'):gsub('[^%w-]+', ''):lower()
-          return ('<a href="#%s"><h%d id="%s">%s</h%d></a>'):format(slug, i, slug, title, i)
+          return ('<h%d id="%s"><a href="#%s">%s</a></h%d>'):format(i, slug, slug, title, i)
         end)
       end
     end
