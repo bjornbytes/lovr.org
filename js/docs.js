@@ -97,7 +97,7 @@ function enhance(node) {
         td.innerHTML = '<a href="' + getUrl(td.textContent) + '" data-key="' + td.textContent + '">' + td.textContent + '</a>';
       }
     } else {
-      var tokenPattern = /(an? (?:new )?)([a-zA-Z0-9]+)/gm;
+      var tokenPattern = /(an? (?:new )?(?:temporary )?)([a-zA-Z0-9]+)/gm;
       td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
         if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
           return prefix + '<a href="' + getUrl(token) + '" data-key="' + token + '">' + token + '</a>';
