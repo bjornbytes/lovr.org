@@ -62,6 +62,29 @@ function OnHttpRequest()
       generate(version)
       SetStatus(200)
     end
+  elseif method == 'POST' and path == '/nightly' then
+    local body = GetBody()
+    local data = DecodeJson(body)
+
+    if GetHeader('Authorization') ~= 'Basic ' .. EncodeBase64(secrets.nightly) then
+      return SetStatus(403)
+    end
+
+    if not data or not data.artifacts or #data.artifacts == 0 then
+      return SetStatus(400)
+    end
+
+    if data.artifacts[1].fileName ~= 'lovr.zip' then
+      return SetStatus(400)
+    end
+
+    if assert(unix.fork()) == 0 then
+      local curl = assert(unix.commandv('curl'))
+      unix.execve(curl, { curl, data.artifacts[1].url, '-o', 'f/lovr-nightly.zip' })
+    else
+      unix.wait()
+      SetStatus(200)
+    end
   else
     Route()
   end
