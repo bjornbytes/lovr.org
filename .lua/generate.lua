@@ -322,7 +322,7 @@ return function(v)
             }
           }
         else
-          signature = pre { code { rets .. (#rets > 0 and ' = ' or '') .. key .. args } }
+          signature = pre { code { class = 'nohighlight', rets .. (#rets > 0 and ' = ' or '') .. key .. args } }
         end
 
         if #variant.arguments > 0 then
