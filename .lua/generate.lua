@@ -503,6 +503,8 @@ return function(v)
       assert(unix.makedirs(root .. '/' .. k:match('(.+)/')))
     end
 
-    assert(Barf(root .. '/' .. k .. '.html', template:format(sidebar, k, v)))
+    local title = k:gsub('(.+)/', ''):gsub('_', ' ')
+
+    assert(Barf(root .. '/' .. k .. '.html', template:format(title, sidebar, k, v)))
   end
 end

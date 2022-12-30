@@ -80,7 +80,7 @@ function showPage(key, scroll) {
   window.scrollTo(0, scroll);
 
   // Set window title
-  document.title = (key === 'index' ? '' : (key.replace(/_/g, ' ') + ' - ')) + 'LOVR';
+  document.title = key.replace(/(.+\/)/, ' ').replace(/_/g, ' ');
 }
 
 // Syntax highlighting and autolinking
