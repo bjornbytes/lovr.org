@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bash -c './lovr.org -d -P /var/run/redbean.pid -L /var/log/redbean.log -D .'

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zip -r lovr.org *.html *.txt css fonts img js .lua .init.lua
