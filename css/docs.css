@@ -272,6 +272,7 @@ main {
 
 .content a:hover {
   text-decoration: underline var(--c-phlox) 2px;
+  text-underline-offset: 2px;
 }
 
 .content blockquote {
