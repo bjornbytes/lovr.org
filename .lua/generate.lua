@@ -114,6 +114,33 @@ return function(v)
     return u
   end
 
+  local function edit(_ENV, thing, kind)
+    local path
+
+    -- TODO docs generator could provide filepaths
+    if kind == 'module' then
+      path = ('%s/init.lua'):format(thing.key:gsub('%.', '/'))
+    elseif kind == 'object' then
+      path = ('%s/%s/init.lua'):format(thing.module:gsub('%.', '/'), thing.key)
+    elseif kind == 'function' and not thing.key:match(':') then
+      path = ('%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+    elseif kind == 'function' and thing.key:match(':') then
+      path = ('%s/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.key:match('(.-):'), thing.name)
+    elseif kind == 'enum' then
+      path = ('%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+    elseif kind == 'callback' then
+      path = ('lovr/callbacks/%s.lua'):format(thing.name)
+    end
+
+    return {
+      a {
+        href = 'https://github.com/bjornbytes/lovr-docs/edit/' .. v .. '/api/' .. path,
+        target = '_blank',
+        'Edit'
+      }
+    }
+  end
+
   local function notes(_ENV, x)
     if x.notes then
       return { h2 { 'Notes' }, md(x.notes) or '' }
@@ -158,6 +185,15 @@ return function(v)
     if unix.stat(filename) then
       content[guide] = md(assert(Slurp(filename)))
 
+      content[guide] = content[guide]:gsub('<h1>.-</h1>', function(h1)
+        return table.concat({
+          '<header>',
+            '%s',
+            '<a href="https://github.com/bjornbytes/lovr-docs/edit/%s/guides/%s.md">Edit</a>',
+          '</header>'
+        }):format(h1, v, guide)
+      end)
+
       -- Add id slugs to headers
       for i = 2, 3 do
         content[guide] = content[guide]:gsub(('<h%d>(.-)</h%d>'):format(i, i), function(title)
@@ -176,7 +212,19 @@ return function(v)
 
       content[example] = html(function(_ENV)
         return {
-          h1 { title },
+          header {
+            h1 { title },
+            a {
+              href = 'https://github.com/bjornbytes/lovr-docs/tree/' .. v .. '/examples/' .. example,
+              target = '_blank',
+              'Source'
+            },
+            a {
+              href = 'https://github.com/bjornbytes/lovr-docs/edit/' .. v .. '/examples/' .. example .. '/main.lua',
+              target = '_blank',
+              'Edit'
+            }
+          },
           pre { code { contents } }
         }
       end)
@@ -217,7 +265,10 @@ return function(v)
       end
 
       return {
-        h1 { key },
+        header {
+          h1 { key },
+          edit(_ENV, module, 'module')
+        },
         md(module.description),
         links,
         notes(_ENV, module),
@@ -278,7 +329,10 @@ return function(v)
       end
 
       return {
-        h1 { key },
+        header {
+          h1 { key },
+          edit(_ENV, object, 'object')
+        },
         md(object.description),
         constructors,
         links,
@@ -308,7 +362,10 @@ return function(v)
 
   local function renderFn(_ENV, fn, key)
     return {
-      h1 { key },
+      header {
+        h1 { key },
+        edit(_ENV, fn, fn.tag == 'callbacks' and 'callback' or 'function')
+      },
       md(fn.description),
       imap(fn.variants, function(variant)
         local args = '(' .. t.concat(imap(variant.arguments, function(arg) return arg.name end), ', ') .. ')'
@@ -387,7 +444,10 @@ return function(v)
   for _, key in ipairs(categories.types) do
     content[key] = html(function(_ENV, enum)
       return {
-        h1 { key },
+        header {
+          h1 { key },
+          edit(_ENV, enum, 'enum')
+        },
         md(enum.description),
         table {
           thead { tr { td 'Value', td 'Description' } },

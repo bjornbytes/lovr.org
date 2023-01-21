@@ -196,6 +196,22 @@ main {
   max-width: 100%;
 }
 
+.content header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content header h1 {
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.content header a {
+  margin-left: 16px;
+  font-size: 18px;
+}
+
 .content h1 {
   font-size: 28px;
   color: var(--c-smoke);
