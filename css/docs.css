@@ -334,8 +334,11 @@ main {
   color: var(--c-raven);
   border-bottom: 1px var(--c-lilac) solid;
   border-right: 1px var(--c-lilac) solid;
-  /*border-bottom: 1px var(--c-lilac) solid;*/
   padding: 6px 12px;
+}
+
+.content td a {
+  white-space: nowrap;
 }
 
 .content tr:first-child td:first-child { border-top-left-radius: 8px; }
