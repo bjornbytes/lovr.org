@@ -39,7 +39,7 @@ function getUrl(key) {
 function pushPage(key) {
   if (history.state) {
     var scroll = window.scrollY;
-    history.replaceState({ key: history.state.key, scroll: scroll }, '', getUrl(history.state.key));
+    history.replaceState({ key: history.state.key, scroll: scroll }, '', getUrl(history.state.key) + window.location.hash);
   }
 
   history.pushState({ key: key, scroll: 0 }, '', getUrl(key));
@@ -186,7 +186,7 @@ var initialContent = document.querySelector('.content');
 if (initialContent) {
   var key = initialContent.dataset.key;
   if (key.length > 0 && (!history.state || history.state.key !== key)) {
-    history.replaceState({ key: key }, '', getUrl(key));
+    history.replaceState({ key: key }, '', getUrl(key) + window.location.hash);
   }
 
   enhance(initialContent);
