@@ -149,6 +149,7 @@ body {
 nav {
   position: fixed;
   overflow: auto hidden;
+  white-space: nowrap;
   top: 0;
   left: 0;
   right: 0;
