@@ -476,7 +476,7 @@ return function(v)
             imap(enum.values, function(value)
               return tr {
                 td { class = 'pre', value.name },
-                td { value.description }
+                td { (md(value.description):gsub('</?p>', '')) }
               }
             end)
           }
