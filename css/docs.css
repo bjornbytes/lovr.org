@@ -336,6 +336,7 @@ main {
   border-bottom: 1px var(--c-lilac) solid;
   border-right: 1px var(--c-lilac) solid;
   padding: 6px 12px;
+  vertical-align: top;
 }
 
 .content td a {
