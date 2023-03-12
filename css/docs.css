@@ -173,6 +173,7 @@ main {
   padding: 40px 50px;
   background: var(--c-white);
   width: 860px;
+  max-width: 100%;
 }
 
 .content > *:last-child {
