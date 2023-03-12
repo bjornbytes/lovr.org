@@ -109,7 +109,7 @@ return function(v)
   local function imap(t, f)
     local u = {}
     for i = 1, #t do
-      u[i] = f(t[i])
+      u[i] = f(t[i], i)
     end
     return u
   end
@@ -361,26 +361,46 @@ return function(v)
   end
 
   local function renderFn(_ENV, fn, key)
+    local toggles = #fn.variants == 1 and '' or imap(fn.variants, function(variant, i)
+      return input { type = 'radio', name = 'variants', id = 'var' .. i, checked = (i == 1) }
+    end)
+
+    local signatures
+    if fn.tag == 'callbacks' then
+      local args = '(' .. t.concat(imap(fn.variants[1].arguments, function(arg) return arg.name end), ', ') .. ')'
+      signatures = pre { class = 'signatures', code { 'function ' .. key .. args .. '\n  -- your code here\nend' } }
+    else
+      signatures = pre {
+        class = { 'signatures', multivar = #fn.variants > 1 },
+        code {
+          class = 'nohighlight',
+          imap(fn.variants, function(variant, i)
+            local args = '(' .. t.concat(imap(variant.arguments, function(arg) return arg.name end), ', ') .. ')'
+            local rets = t.concat(imap(variant.returns, function(ret) return ret.name end), ', ')
+            local body = rets .. (#rets > 0 and ' = ' or '') .. key .. args
+
+            return #fn.variants == 1 and body or {
+              label {
+                ['for'] = 'var' .. i,
+                class = 'var' .. i,
+                body
+              }, '\n'
+            }
+          end)
+        }
+      }
+    end
+
     return {
       header {
         h1 { key },
         edit(_ENV, fn, fn.tag == 'callbacks' and 'callback' or 'function')
       },
       md(fn.description),
-      imap(fn.variants, function(variant)
-        local args = '(' .. t.concat(imap(variant.arguments, function(arg) return arg.name end), ', ') .. ')'
-        local rets = t.concat(imap(variant.returns, function(ret) return ret.name end), ', ')
-        local signature, arguments, returns
-
-        if fn.tag == 'callbacks' then
-          signature = pre {
-            code {
-              'function ' .. key .. args .. '\n  -- your code here\nend'
-            }
-          }
-        else
-          signature = pre { code { class = 'nohighlight', rets .. (#rets > 0 and ' = ' or '') .. key .. args } }
-        end
+      toggles,
+      signatures,
+      imap(fn.variants, function(variant, i)
+        local arguments, returns
 
         if #variant.arguments > 0 then
           local hasDefault = false
@@ -418,13 +438,14 @@ return function(v)
         end
 
         return {
-          #fn.variants > 1 and hr({}) or '',
-          variant.description and md(variant.description) or '',
-          signature,
-          h3 'Arguments',
-          arguments,
-          h3 'Returns',
-          returns
+          div {
+            class = { 'variant', 'var' .. i },
+            variant.description and md(variant.description) or '',
+            h3 'Arguments',
+            arguments,
+            h3 'Returns',
+            returns
+          }
         }
       end),
       notes(_ENV, fn),
