@@ -1,6 +1,7 @@
 var aliases = [
   [ /^sink/, 'lovr.audio.setDevice' ],
   [ /^tube/, 'cylinder' ],
+  [ /^stencil/, 'lovr.conf' ],
   [ /^stream/, 'lovr.data.newSound' ],
   [ /^(microp|captu)/, 'AudioType' ],
   [ /^contr/, 'lovr.headset' ],
