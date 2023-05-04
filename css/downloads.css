@@ -57,3 +57,9 @@ li a {
 li a:hover {
   text-decoration: underline var(--c-phlox) 2px;
 }
+
+aside {
+  font-style: italic;
+  font-size: 16px;
+  margin: 16px 16px 0;
+}
