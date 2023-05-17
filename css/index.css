@@ -156,9 +156,20 @@ svg.trim {
   margin: 80px 0;
 }
 
+.sass .screenshots > img, .sass .screenshots a {
+  width: 30%;
+}
+
+.sass .screenshots a img {
+  width: 100%;
+}
+
+.sass .screenshots > img {
+  width: 30%;
+}
+
 .sass .screenshots img {
   border-radius: 999px;
-  width: 30%;
   object-fit: cover;
 }
 
