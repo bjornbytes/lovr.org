@@ -7,6 +7,10 @@ nav {
   left: unset;
 }
 
+nav a {
+  color: var(--c-smoky);
+}
+
 .hero {
   margin: 0 auto;
   display: flex;
