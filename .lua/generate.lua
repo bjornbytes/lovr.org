@@ -415,9 +415,17 @@ return function(v)
       }
     end
 
+    local parent, title = key:match('(%u%w+):') or key:match('lovr%.[a-z]+')
+
+    if parent and parent ~= key then
+      title = h1 { a { href = ('/docs/%s/%s'):format(v, parent), ['data-key'] = parent, parent }, (key:gsub(parent, '')) }
+    else
+      title = h1 { key }
+    end
+
     return {
       header {
-        h1 { key },
+        title,
         edit(_ENV, fn, fn.tag == 'callbacks' and 'callback' or 'function')
       },
       md(fn.description),

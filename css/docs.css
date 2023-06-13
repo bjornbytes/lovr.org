@@ -208,12 +208,12 @@ main {
   margin-bottom: 0;
 }
 
-.content header a {
+.content header > a {
   margin-left: 16px;
   font-size: 18px;
 }
 
-.content h1 {
+.content h1, .content h1 a {
   font-size: 28px;
   color: var(--c-smoke);
   margin-bottom: 20px;
