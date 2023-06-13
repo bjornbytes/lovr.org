@@ -172,7 +172,7 @@ main {
 .content {
   padding: 40px 50px;
   background: var(--c-white);
-  width: 860px;
+  width: var(--content-width);
   max-width: 100%;
 }
 
@@ -521,6 +521,34 @@ main {
 
 .content pre .bash {
   color: var(--c-cream);
+}
+
+.content .toc {
+  position: fixed;
+  top: calc(var(--nav-height) + 25px);
+  left: calc(var(--sidebar-width) + var(--content-width));
+  margin-left: 10px;
+  min-width: 250px;
+  background: var(--c-ghost);
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+.content .toc ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+.content .toc ul li.level-3 {
+  margin-left: 10px;
+}
+
+.content .toc h2 {
+  color: var(--c-smoky);
+  border-bottom: none;
+  margin-bottom: 10px;
+  padding-bottom: 0;
+  margin-top: 5px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -194,12 +194,36 @@ return function(v)
         }):format(h1, v, guide)
       end)
 
+      local headers = {}
+
       -- Add id slugs to headers
-      for i = 2, 3 do
-        content[guide] = content[guide]:gsub(('<h%d>(.-)</h%d>'):format(i, i), function(title)
-          local slug = title:gsub(' ', '-'):gsub('Ö', 'O'):gsub('[^%w-]+', ''):lower()
-          return ('<h%d id="%s"><a href="#%s">%s</a></h%d>'):format(i, slug, slug, title, i)
+      content[guide] = content[guide]:gsub('<h([23])>(.-)</h[23]>', function(level, title)
+        local slug = title:gsub(' ', '-'):gsub('Ö', 'O'):gsub('[^%w-]+', ''):lower()
+        table.insert(headers, { slug = slug, text = title, level = level })
+        return ('<h%d id="%s"><a href="#%s">%s</a></h%d>'):format(level, slug, slug, title, level)
+      end)
+
+      if content[guide]:match('<h2') then
+        local toc = html(function(_ENV)
+          return {
+            div {
+              class = 'toc',
+              h2 { 'Contents' },
+              ul {
+                imap(headers, function(header)
+                  return {
+                    li {
+                      class = 'level-' .. header.level,
+                      a { href = '#' .. header.slug, header.text }
+                    }
+                  }
+                end)
+              }
+            }
+          }
         end)
+
+        content[guide] = content[guide]:gsub('<h2', toc .. '<h2', 1)
       end
     end
   end

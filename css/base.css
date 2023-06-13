@@ -27,8 +27,9 @@
   --c-honey: #c9c43d;
   --nav-height: 60px;
   --sidebar-size: 250px;
-  --sidebar-padding: calc((100vw - 960px - var(--sidebar-size)) / 2 + 20px);
+  --sidebar-padding: calc((100vw - 960px - var(--sidebar-size)) / 2.5 + 20px);
   --sidebar-width: calc(var(--sidebar-padding) + var(--sidebar-size));
+  --content-width: 860px;
 }
 
 @media (prefers-color-scheme: dark) {
