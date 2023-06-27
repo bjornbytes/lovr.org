@@ -1,23 +1,24 @@
 var aliases = [
-  [ /^sink/, 'lovr.audio.setDevice' ],
   [ /^tube/, 'cylinder' ],
   [ /^stencil/, 'lovr.conf' ],
   [ /^stream/, 'lovr.data.newSound' ],
   [ /^(microp|captu)/, 'AudioType' ],
-  [ /^contr/, 'lovr.headset' ],
+  [ /^controller/, 'lovr.headset' ],
   [ /^reload/, 'restart' ],
   [ /^exi/, 'quit' ],
   [ /^(love|unity|unreal)/, 'lovr' ],
   [ /matr/, 'Mat4' ],
-  [ /^(glsl|light)/, 'Shader' ],
+  [ /recta/, 'Pass:plane' ],
+  [ /arc/, 'Pass:circle' ],
+  [ /clear/, 'Pass:fill' ],
+  [ /print/, 'Pass:text' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
-  [ /^keyb/, { type: 'library', name: 'lovr-keyboard', link: 'https://github.com/bjornbytes/lovr-keyboard' } ],
-  [ /^mouse/, { type: 'library', name: 'lovr-mouse', link: 'https://github.com/bjornbytes/lovr-mouse' } ],
   [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
-  [ /^(enet|udp|multip)/, { type: 'plugin', name: 'enet', link: 'https://github.com/bjornbytes/lua-enet' } ],
+  [ /^(enet|udp|multipla)/, { type: 'plugin', name: 'enet', link: 'https://github.com/bjornbytes/lua-enet' } ],
+  [ /(socket|tcp)/, { type: 'plugin', name: 'luasocket', link: 'https://github.com/brainrom/lovr-luasocket' } ],
+  [ /^(http)/, { type: 'plugin', name: 'lua-https', link: 'https://github.com/love2d/lua-https' } ],
   [ /^json/, { type: 'plugin', name: 'cjson', link: 'https://github.com/bjornbytes/lua-cjson' } ],
-  [ /^(monado|openx)/, 'FAQ' ],
   [ /^hi$/, { type: 'hi' } ]
 ];
 
@@ -368,11 +369,6 @@ function updateResults() {
     }
 
     aliasMessage.innerHTML = html;
-    aliasMessage.style.display = 'block';
-  } else if (replacements.length > 0) {
-    aliasMessage.textContent = 'Including results for ' + replacements.map(function(alias) {
-      return "'" + alias[1] + "'";
-    }).join(', ');
     aliasMessage.style.display = 'block';
   } else {
     aliasMessage.style.display = '';
