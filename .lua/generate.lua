@@ -582,8 +582,9 @@ return function(v)
           end
         end)
       },
+      i { class = 'search-icon', tabindex = 0 },
       input { class = 'search', spellcheck = 'false' },
-      aside { class = 'alias-message' },
+      aside { class = 'message' },
       imap(sections, function(category)
         return {
           section {

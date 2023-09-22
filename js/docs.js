@@ -30,7 +30,7 @@ var sidebarGroupLinks = Array.prototype.slice.call(sidebar.querySelectorAll('li.
 var sidebarLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key]'));
 var searchBox = sidebar.querySelector('.search');
 var versions = sidebar.querySelector('.versions');
-var aliasMessage = sidebar.querySelector('.alias-message');
+var message = sidebar.querySelector('.message');
 var transitionTimeout;
 var data = {};
 
@@ -214,6 +214,24 @@ sidebarGroupLinks.forEach(function(group) {
 
 // Searching
 
+function toggleSearch() {
+  if (searchBox.style.display == 'block') {
+    searchBox.value = '';
+    searchBox.style.display = 'none';
+    searchBox.blur();
+    updateResults();
+    document.activeElement.blur();
+  } else {
+    searchBox.style.display = 'block';
+    searchBox.focus();
+    updateResults();
+  }
+}
+
+var searchIcon = document.querySelector('.search-icon');
+searchIcon.addEventListener('click', toggleSearch);
+searchIcon.addEventListener('keydown', function(event) { if (event.keyCode === 13) toggleSearch(); });
+
 window.addEventListener('keydown', function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === 'block'; });
   var firstVisibleLink = visibleLinks[0];
@@ -279,8 +297,9 @@ window.addEventListener('keypress', function(event) {
   }
 });
 
-searchBox.onkeyup = function() {
-  if (searchBox.value === '') {
+searchBox.onkeyup = function(event) {
+  if (searchBox.value === '' && event.key === 'Backspace') {
+    console.log(event.keyCode);
     searchBox.style.display = '';
     searchBox.blur();
   } else {
@@ -297,7 +316,7 @@ function updateResults() {
 
   var query = searchBox.value.toLowerCase().replace(/ /g, '_');
   var replacements = [];
-  var message = null;
+  var msg = null;
   var baseVisibility = (query === '' ? '' : 'block');
 
   aliases.forEach(function(alias) {
@@ -308,7 +327,7 @@ function updateResults() {
     if (typeof alias[1] === 'string') {
       replacements.push(alias);
     } else {
-      message = alias[1];
+      msg = alias[1];
     }
   });
 
@@ -353,25 +372,25 @@ function updateResults() {
     link.style.display = visible ? baseVisibility : 'none';
   });
 
-  if (message) {
+  if (msg) {
     var html = null;
 
-    if (message.type === 'unsupported') {
-      html = message.feature + ' ' + (/s$/.test(message.feature) ? 'are' : 'is') + ' not supported yet.  ';
+    if (msg.type === 'unsupported') {
+      html = msg.feature + ' ' + (/s$/.test(msg.feature) ? 'are' : 'is') + ' not supported yet.  ';
       html += 'Head over to the <a href="https://github.com/bjornbytes/lovr/issues" target="_blank">issues page</a> ';
       html += 'for up-to-date status and discussion about new features.';
-    } else if (message.type === 'library') {
-      html = 'Psst!  Check out the <a href="' + message.link + '" target="_blank">' + message.name + '</a> library.';
-    } else if (message.type === 'plugin') {
-      html = 'Psst!  Check out the <a href="' + message.link + '" target="_blank">' + message.name + '</a> plugin.';
-    } else if (message.type === 'hi') {
+    } else if (msg.type === 'library') {
+      html = 'Psst!  Check out the <a href="' + msg.link + '" target="_blank">' + msg.name + '</a> library.';
+    } else if (msg.type === 'plugin') {
+      html = 'Psst!  Check out the <a href="' + msg.link + '" target="_blank">' + msg.name + '</a> plugin.';
+    } else if (msg.type === 'hi') {
       html = 'Hey.';
     }
 
-    aliasMessage.innerHTML = html;
-    aliasMessage.style.display = 'block';
+    message.innerHTML = html;
+    message.style.display = 'block';
   } else {
-    aliasMessage.style.display = '';
+    message.style.display = '';
   }
 
   versions.style.display = searchBox.style.display == 'block' ? 'none' : 'block';
