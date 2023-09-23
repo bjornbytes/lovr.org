@@ -294,6 +294,11 @@ window.addEventListener('keypress', function(event) {
     searchBox.focus();
     searchBox.value = event.key;
     updateResults();
+  } else if (event.key === '/' && searchBox.style.display !== 'block') {
+    searchBox.style.display = 'block';
+    searchBox.focus();
+    updateResults();
+    event.preventDefault();
   }
 });
 
