@@ -93,9 +93,6 @@ return function(v)
     object.related = object.related or {}
     table.insert(object.related, object.extends)
     table.insert(object.related, object.module)
-    table.sort(object.methods, function(a, b)
-      return a.key < b.key
-    end)
   end
 
   for _, key in ipairs(categories.types) do
@@ -274,7 +271,7 @@ return function(v)
             }
           }
         end)
-      else
+      elseif #module.functions > 0 then
         links = {
           h2 'Functions',
           table {
@@ -286,6 +283,8 @@ return function(v)
             end)
           }
         }
+      else
+        links = ''
       end
 
       return {
