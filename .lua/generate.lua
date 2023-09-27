@@ -174,7 +174,7 @@ return function(v)
         h2 { 'See also' },
         ul {
           imap(x.related, function(key)
-            return li { code { key } }
+            return li { code { linkTo(_ENV, key) } }
           end)
         }
       }
