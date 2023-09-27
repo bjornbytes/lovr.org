@@ -378,10 +378,12 @@ return function(v)
     indent = indent or 0
 
     return imap(fields, function(field)
+      local basic = field.type:match('^%l')
+
       return tr {
         class = 'indent-' .. indent,
         td { class = 'pre', (indent > 0 and '.' or '') .. field.name },
-        td { class = { 'pre', field.type }, field.type },
+        td { class = { 'pre', basic and field.type }, basic and field.type or linkTo(_ENV, field.type) },
         hasDefault and td { class = 'pre', field.default } or '',
         td { field.description and md(field.description):gsub('</?p>', '') or '' },
         subtable(_ENV, field.table, hasDefault, indent + 1)

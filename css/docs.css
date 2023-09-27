@@ -200,10 +200,41 @@ ul li.group.open:after {
   transform: rotate(135deg);
 }
 
+.sidebar-toggle {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 99px;
+  background: var(--c-raven);
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .25);
+}
+
+.sidebar-toggle .arrow {
+  width: 18px;
+  height: 18px;
+  border-left: 5px var(--c-bream) solid;
+  border-top: 5px var(--c-bream) solid;
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  transform: rotate(-45deg);
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 2px;
+  transition: transform 165ms;
+  transform-origin: 37.5% 37.5%;
+}
+
 /* content */
 
 main {
   margin-left: var(--sidebar-width);
+  min-height: calc(100vh - var(--nav-height));
 }
 
 .content {
@@ -324,6 +355,11 @@ main {
   margin: 0;
 }
 
+.content blockquote code {
+  background: var(--c-bream);
+  border: none;
+}
+
 .content ul, .content ol {
   color: var(--c-raven);
   margin: 25px;
@@ -367,7 +403,7 @@ main {
 
 .content pre code::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: var(--c-phlox);
+  background: var(--c-lilac);
 }
 
 .content pre code {
@@ -610,6 +646,83 @@ main {
 @media(max-width: 1600px) {
   .content .toc {
     display: none;
+  }
+}
+
+@media(max-width: 800px) {
+  .sidebar {
+    position: fixed;
+    right: calc(var(--sidebar-width) * -1);
+    max-width: 100%;
+    transition: transform 165ms;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .sidebar.open {
+    transform: translateX(calc(var(--sidebar-width) * -1));
+  }
+
+  .sidebar.open + .sidebar-toggle .arrow {
+    transform: rotate(135deg);
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 25px 30px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .content img {
+    min-width: 65%;
+  }
+
+  .content pre {
+    padding: 0;
+    margin: 15px -30px;
+  }
+
+  .content pre code {
+    padding: 15px 30px;
+    border-radius: 0;
+  }
+
+  .content table.signature {
+    margin-left: 0;
+  }
+}
+
+@media(max-width: 640px) {
+  .content table {
+    padding: 0;
+  }
+
+  .content table, table tbody, table tr, table td {
+    display: block;
+    border: none;
+  }
+
+  .content table thead {
+    display: none;
+  }
+
+  .content table tr {
+    border-bottom: 1px var(--c-lilac) solid;
+    padding: 5px;
+  }
+
+  .content table tr:last-child {
+    border-bottom: none;
+  }
+
+  table.signature, table.signature thead, table.signature tbody, table.signature tr, table.signature td {
+    display: revert;
   }
 }
 
