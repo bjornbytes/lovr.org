@@ -138,6 +138,12 @@ return function(v)
     }
   end
 
+  local function linkTo(_ENV, key)
+    return {
+      a { href = ('/docs/%s/%s'):format(v, key), ['data-key'] = key, key }
+    }
+  end
+
   local function notes(_ENV, x)
     if x.notes then
       return { h2 { 'Notes' }, md(x.notes) or '' }
@@ -262,10 +268,10 @@ return function(v)
             h2 { section.name },
             section.description and md(section.description) or '',
             table {
-              imap(tags[section.tag], function(link)
+              imap(tags[section.tag], function(fn)
                 return tr {
-                  td { class = 'pre', link },
-                  td { lookup[link].summary }
+                  td { linkTo(_ENV, fn) },
+                  td { lookup[fn].summary }
                 }
               end)
             }
@@ -277,7 +283,7 @@ return function(v)
           table {
             imap(module.functions, function(fn)
               return tr {
-                td { class = 'pre', fn.key },
+                td { linkTo(_ENV, fn.key) },
                 td { fn.summary }
               }
             end)
@@ -310,7 +316,7 @@ return function(v)
           table {
             imap(object.constructors, function(constructor)
               return tr {
-                td { class = 'pre', constructor },
+                td { linkTo(_ENV, constructor) },
                 td { lookup[constructor].summary }
               }
             end)
@@ -326,10 +332,10 @@ return function(v)
             h2 { section.name },
             section.description and md(section.description) or '',
             table {
-              imap(tags[section.tag], function(link)
+              imap(tags[section.tag], function(method)
                 return tr {
-                  td { class = 'pre', link },
-                  td { lookup[link].summary }
+                  td { linkTo(_ENV, method) },
+                  td { lookup[method].summary }
                 }
               end)
             }
@@ -341,7 +347,7 @@ return function(v)
           table {
             imap(object.methods, function(method)
               return tr {
-                td { class = 'pre', method.key },
+                td { linkTo(_ENV, method.key) },
                 td { method.summary }
               }
             end)

@@ -94,20 +94,14 @@ function enhance(node) {
 
   var tds = Array.prototype.slice.call(node.querySelectorAll('td'));
   tds.forEach(function(td) {
-    if (td.classList.contains('pre')) {
-      if (td.textContent !== node.dataset.key && document.querySelector('[data-key="' + td.textContent + '"]')) {
-        td.innerHTML = '<a href="' + getUrl(td.textContent) + '" data-key="' + td.textContent + '">' + td.textContent + '</a>';
+    var tokenPattern = /(an? (?:new )?(?:temporary )?)([a-zA-Z0-9]+)/gm;
+    td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
+      if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
+        return prefix + '<a href="' + getUrl(token) + '" data-key="' + token + '">' + token + '</a>';
       }
-    } else {
-      var tokenPattern = /(an? (?:new )?(?:temporary )?)([a-zA-Z0-9]+)/gm;
-      td.innerHTML = td.innerHTML.replace(tokenPattern, function(_, prefix, token) {
-        if (token !== node.dataset.key && document.querySelector('[data-key="' + token + '"]')) {
-          return prefix + '<a href="' + getUrl(token) + '" data-key="' + token + '">' + token + '</a>';
-        }
 
-        return prefix + token;
-      });
-    }
+      return prefix + token;
+    });
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));

@@ -221,7 +221,6 @@ main {
   display: block;
   margin: 10px auto;
   max-width: 100%;
-  height: auto;
   border-radius: 8px;
   box-shadow: 0 0 2px rgba(0, 0, 0, .2);
 }
@@ -341,6 +340,69 @@ main {
   line-height: 1.5;
 }
 
+.content code {
+  font-family: 'Source Code Pro', monospace;
+  color: var(--c-smoke);
+  font-size: 14px;
+  padding: 0 4px;
+  background: var(--c-cream);
+  border: 1px var(--c-bream) solid;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.content pre {
+  margin: 15px 0;
+  padding: 2px;
+  overflow-x: auto;
+}
+
+.content pre code::-webkit-scrollbar {
+  height: 7px;
+}
+
+.content pre code::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, .05);
+}
+
+.content pre code::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--c-phlox);
+}
+
+.content pre code {
+  display: block;
+  overflow-x: auto;
+  background: var(--c-night);
+  color: var(--c-cream);
+  border-radius: 5px;
+  border: none;
+  padding: 16px;
+  line-height: 1.25;
+  letter-spacing: -.5px;
+  font-size: 15px;
+  width: 100%;
+  white-space: pre;
+}
+
+.content pre code a {
+  color: inherit;
+}
+
+.content pre .hljs-comment {
+  color: var(--c-dusty);
+}
+
+.content pre .hljs-meta {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.content pre .bash {
+  color: var(--c-cream);
+}
+
 .content hr {
   border: none;
   border-top: 2px var(--c-lilac) solid;
@@ -352,9 +414,6 @@ main {
   background: var(--c-ghost);
   border-spacing: 0;
   border-radius: 8px;
-}
-
-.content table:not(.signature) {
   padding: 8px;
 }
 
@@ -362,23 +421,19 @@ main {
   color: var(--c-slate);
 }
 
-.content table:not(.signature) td {
-  padding: 4px 8px;
-  border-bottom: none;
-  border-right: none;
-}
-
-.content td {
-  padding: 2px 8px;
+.content table td {
   color: var(--c-raven);
-  border-bottom: 1px var(--c-lilac) solid;
-  border-right: 1px var(--c-lilac) solid;
-  padding: 6px 12px;
   vertical-align: top;
+  padding: 2px 8px;
 }
 
-.content td a {
+.content table td a {
   white-space: nowrap;
+}
+
+.content table td.pre {
+  font-family: 'Source Code Pro';
+  font-size: 15px;
 }
 
 .content tr:first-child td:first-child { border-top-left-radius: 8px; }
@@ -395,6 +450,33 @@ main {
 .content thead + tbody tr:first-child td:last-child { border-top-right-radius: 0; }
 .content thead + tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
 .content thead + tbody tr:last-child td:last-child { border-bottom-right-radius: 8px; }
+
+.content table.signature {
+  margin-left: 8px;
+  padding: 0;
+}
+
+.content table.signature thead td {
+  font-size: 14px;
+  border-radius: 0;
+  background: var(--c-lilac);
+}
+
+.content table.signature td {
+  border-bottom: 1px var(--c-lilac) solid;
+  border-right: 1px var(--c-lilac) solid;
+  padding: 4px 12px;
+}
+
+.content table.signature td.boolean { color: var(--c-amber); }
+.content table.signature td.number { color: var(--c-rusty); }
+.content table.signature td.string { color: var(--c-ocean); }
+.content table.signature td.table { color: var(--c-mossy); }
+.content table.signature td.function { color: var(--c-honey); }
+
+.content table.signature tr.indent-1 td:first-child { padding-left: 20px; }
+.content table.signature tr.indent-2 td:first-child { padding-left: 35px; }
+.content table.signature tr.indent-3 td:first-child { padding-left: 50px; }
 
 .content input[type="radio"] {
   display: none;
@@ -472,94 +554,6 @@ main {
 .content input:checked#var7 ~ .variant.var7 { display: block; }
 .content input:checked#var8 ~ .variant.var8 { display: block; }
 .content input:checked#var9 ~ .variant.var9 { display: block; }
-
-.content table.signature {
-  margin-left: 15px;
-}
-
-.content table.signature thead td {
-  font-size: 14px;
-  border-radius: 0;
-  background: var(--c-lilac);
-}
-
-.content table.signature td.pre {
-  font-family: 'Source Code Pro';
-  font-size: 15px;
-}
-
-.content table.signature td.boolean { color: var(--c-amber); }
-.content table.signature td.number { color: var(--c-rusty); }
-.content table.signature td.string { color: var(--c-ocean); }
-.content table.signature td.table { color: var(--c-mossy); }
-.content table.signature td.function { color: var(--c-honey); }
-
-.content table.signature tr.indent-1 td:first-child { padding-left: 20px; }
-.content table.signature tr.indent-2 td:first-child { padding-left: 35px; }
-.content table.signature tr.indent-3 td:first-child { padding-left: 50px; }
-
-.content code {
-  font-family: 'Source Code Pro', monospace;
-  color: var(--c-smoke);
-  font-size: 14px;
-  padding: 0 4px;
-  background: var(--c-cream);
-  border: 1px var(--c-bream) solid;
-  border-radius: 6px;
-  white-space: nowrap;
-}
-
-.content pre {
-  margin: 15px 0;
-  padding: 2px;
-  overflow-x: auto;
-}
-
-.content pre code::-webkit-scrollbar {
-  height: 7px;
-}
-
-.content pre code::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, .05);
-}
-
-.content pre code::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: var(--c-phlox);
-}
-
-.content pre code {
-  display: block;
-  overflow-x: auto;
-  background: var(--c-night);
-  color: var(--c-cream);
-  border-radius: 5px;
-  border: none;
-  padding: 16px;
-  line-height: 1.25;
-  letter-spacing: -.5px;
-  font-size: 15px;
-  width: 100%;
-  white-space: pre;
-}
-
-.content pre code a {
-  color: inherit;
-}
-
-.content pre .hljs-comment {
-  color: var(--c-dusty);
-}
-
-.content pre .hljs-meta {
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.content pre .bash {
-  color: var(--c-cream);
-}
 
 .content .toc {
   position: fixed;
