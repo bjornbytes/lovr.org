@@ -120,7 +120,6 @@ function enhance(node) {
 
   var links = Array.prototype.slice.call(node.querySelectorAll('a[data-key]'));
   links.forEach(function(link) {
-    link.style.cursor = 'pointer';
     link.onclick = function(event) {
       var key = link.dataset.key;
       pushPage(key);
