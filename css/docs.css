@@ -560,6 +560,12 @@ main {
 .content input:checked#var7 ~ pre label.var7::before { display: inline; }
 .content input:checked#var8 ~ pre label.var8::before { display: inline; }
 .content input:checked#var9 ~ pre label.var9::before { display: inline; }
+.content input:checked#var10 ~ pre label.var10::before { display: inline; }
+.content input:checked#var11 ~ pre label.var11::before { display: inline; }
+.content input:checked#var12 ~ pre label.var12::before { display: inline; }
+.content input:checked#var13 ~ pre label.var13::before { display: inline; }
+.content input:checked#var14 ~ pre label.var14::before { display: inline; }
+.content input:checked#var15 ~ pre label.var15::before { display: inline; }
 
 .content input:checked#var1 ~ pre label.var1 { color: var(--c-candy); }
 .content input:checked#var2 ~ pre label.var2 { color: var(--c-candy); }
@@ -570,6 +576,12 @@ main {
 .content input:checked#var7 ~ pre label.var7 { color: var(--c-candy); }
 .content input:checked#var8 ~ pre label.var8 { color: var(--c-candy); }
 .content input:checked#var9 ~ pre label.var9 { color: var(--c-candy); }
+.content input:checked#var10 ~ pre label.var10 { color: var(--c-candy); }
+.content input:checked#var11 ~ pre label.var11 { color: var(--c-candy); }
+.content input:checked#var12 ~ pre label.var12 { color: var(--c-candy); }
+.content input:checked#var13 ~ pre label.var13 { color: var(--c-candy); }
+.content input:checked#var14 ~ pre label.var14 { color: var(--c-candy); }
+.content input:checked#var15 ~ pre label.var15 { color: var(--c-candy); }
 
 .content input:not(:checked)#var1 ~ .variant.var1 { display: none; }
 .content input:not(:checked)#var2 ~ .variant.var2 { display: none; }
@@ -580,6 +592,12 @@ main {
 .content input:not(:checked)#var7 ~ .variant.var7 { display: none; }
 .content input:not(:checked)#var8 ~ .variant.var8 { display: none; }
 .content input:not(:checked)#var9 ~ .variant.var9 { display: none; }
+.content input:not(:checked)#var10 ~ .variant.var10 { display: none; }
+.content input:not(:checked)#var11 ~ .variant.var11 { display: none; }
+.content input:not(:checked)#var12 ~ .variant.var12 { display: none; }
+.content input:not(:checked)#var13 ~ .variant.var13 { display: none; }
+.content input:not(:checked)#var14 ~ .variant.var14 { display: none; }
+.content input:not(:checked)#var15 ~ .variant.var15 { display: none; }
 
 .content input:checked#var1 ~ .variant.var1 { display: block; }
 .content input:checked#var2 ~ .variant.var2 { display: block; }
@@ -590,6 +608,12 @@ main {
 .content input:checked#var7 ~ .variant.var7 { display: block; }
 .content input:checked#var8 ~ .variant.var8 { display: block; }
 .content input:checked#var9 ~ .variant.var9 { display: block; }
+.content input:checked#var10 ~ .variant.var10 { display: block; }
+.content input:checked#var11 ~ .variant.var11 { display: block; }
+.content input:checked#var12 ~ .variant.var12 { display: block; }
+.content input:checked#var13 ~ .variant.var13 { display: block; }
+.content input:checked#var14 ~ .variant.var14 { display: block; }
+.content input:checked#var15 ~ .variant.var15 { display: block; }
 
 .content .toc {
   position: fixed;
