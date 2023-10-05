@@ -315,10 +315,14 @@ return function(v)
           h2 { 'Constructor' .. (#object.constructors > 1 and 's' or '') },
           table {
             imap(object.constructors, function(constructor)
-              return tr {
-                td { linkTo(_ENV, constructor) },
-                td { lookup[constructor].summary }
-              }
+              if lookup[constructor] then
+                return tr {
+                  td { linkTo(_ENV, constructor) },
+                  td { lookup[constructor].summary }
+                }
+              else
+                return ''
+              end
             end)
           }
         }
@@ -332,7 +336,7 @@ return function(v)
             h2 { section.name },
             section.description and md(section.description) or '',
             table {
-              imap(tags[section.tag], function(method)
+              imap(tags[section.tag] or {}, function(method)
                 return tr {
                   td { linkTo(_ENV, method) },
                   td { lookup[method].summary }
@@ -378,7 +382,7 @@ return function(v)
     indent = indent or 0
 
     return imap(fields, function(field)
-      local basic = field.type:match('^%l')
+      local basic = field.type:match('^%l') or field.type == '*'
 
       return tr {
         class = 'indent-' .. indent,
