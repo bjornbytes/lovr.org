@@ -556,6 +556,7 @@ return function(v)
   end
 
   content.index = content[v] or content.Getting_Started or content.Introduction
+  local indexKey = content[v] and v or content.Getting_Started and 'Getting_Started' or content.Introduction and 'Introduction'
 
   -- Sidebar
 
@@ -656,6 +657,6 @@ return function(v)
 
     local title = k:gsub('(.+)/', ''):gsub('_', ' ')
 
-    assert(Barf(root .. '/' .. k .. '.html', template:format(title, sidebar, k, v)))
+    assert(Barf(root .. '/' .. k .. '.html', template:format(title, sidebar, k == 'index' and indexKey or k, v)))
   end
 end
