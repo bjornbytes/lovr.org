@@ -163,7 +163,7 @@ nav {
 nav .container {
   display: flex;
   align-items: center;
-  width: 1080px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 20px;
 }
