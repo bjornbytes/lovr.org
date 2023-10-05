@@ -14,15 +14,15 @@ function OnHttpRequest()
   elseif method == 'GET' and path == '/downloads' then
     Route(GetHost(), path .. '.html')
   elseif method == 'GET' and path:find('/docs') == 1 then
-    local version, page = path:match('/docs/([^/]+)/?(.*)')
+    local version, page = path:gsub('%%3[aA]', ':'):match('/docs/([^/]+)(/?.*)')
 
-    if not version or (version ~= 'master' and not version:match('v%d+%.%d+%.%d+')) then
-      version, page = defaultVersion, version and (version .. (page == '' and page or ('/' .. page)))
+    if not version then
+      version, page = defaultVersion, 'index'
+    elseif not version:match('v%d+%.%d+%.%d+') and version ~= 'master' then
+      version, page = defaultVersion, version .. page
+    elseif page == '' or page == '/' then
+      page = 'index'
     end
-
-    local defaultPage = (version == 'v0.1.0' or version == 'v0.2.0') and 'Introduction' or 'Getting_Started'
-    page = page ~= '' and page or defaultPage
-    page = page:gsub('%%3[aA]', ':')
 
     return Route(GetHost(), ('docs/%s/%s.html'):format(version, page))
   elseif method == 'GET' and path:find('/api/data') == 1 then
