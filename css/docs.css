@@ -360,6 +360,35 @@ main {
   border: none;
 }
 
+.content aside {
+  border-left: 4px solid;
+  padding-left: 20px;
+}
+
+.content aside .header {
+  font-weight: bold;
+}
+
+.content aside .header .icon {
+  padding-right: 16px;
+}
+
+.content aside.note {
+  border-left-color: var(--c-ocean);
+}
+
+.content aside.note .header {
+  color: var(--c-ocean);
+}
+
+.content aside.warning {
+  border-left-color: var(--c-amber);
+}
+
+.content aside.warning .header {
+  color: var(--c-amber);
+}
+
 .content ul, .content ol {
   color: var(--c-raven);
   margin: 25px;

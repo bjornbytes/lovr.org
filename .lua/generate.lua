@@ -1,5 +1,5 @@
 local html = require 'html'
-local md = require 'markdown'
+local markdown = require 'markdown'
 
 return function(v)
   local api = loadfile('.lovr-docs/' .. v .. '/api/init.lua')()
@@ -142,6 +142,27 @@ return function(v)
     return {
       a { href = ('/docs/%s/%s'):format(v, key), ['data-key'] = key, key }
     }
+  end
+
+  local function aside(_ENV, kind, text)
+    return {
+      aside {
+        class = kind,
+        header {
+          img { class = 'icon', src = ('/img/icon-%s.svg'):format(kind), width = 32 },
+          kind:gsub('^%l', string.upper) or ''
+        },
+        p { text }
+      }
+    }
+  end
+
+  local function md(s)
+    local markup = markdown(s)
+
+    markup = markup:gsub(':::(%w+)\n(.-)\n:::', aside)
+
+    return markup
   end
 
   local function notes(_ENV, x)
@@ -396,6 +417,8 @@ return function(v)
   end
 
   local function renderFn(_ENV, fn, key)
+    local deprecation = deprecated and aside('warning', 'This function is deprecated!') or ''
+
     local toggles = #fn.variants == 1 and '' or imap(fn.variants, function(variant, i)
       return input { type = 'radio', name = 'variants', id = 'var' .. i, checked = (i == 1) }
     end)
@@ -439,6 +462,7 @@ return function(v)
         title,
         edit(_ENV, fn, fn.tag == 'callbacks' and 'callback' or 'function')
       },
+      deprecation,
       md(fn.description),
       toggles,
       signatures,
