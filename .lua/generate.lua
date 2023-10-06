@@ -1,5 +1,6 @@
 local html = require 'html'
 local markdown = require 'markdown'
+local icons = require 'icons'
 
 return function(v)
   local api = loadfile('.lovr-docs/' .. v .. '/api/init.lua')()
@@ -144,13 +145,13 @@ return function(v)
     }
   end
 
-  local function aside(_ENV, kind, text)
+  local function notice(_ENV, kind, text, title)
     return {
       aside {
         class = kind,
-        header {
-          img { class = 'icon', src = ('/img/icon-%s.svg'):format(kind), width = 32 },
-          kind:gsub('^%l', string.upper) or ''
+        span {
+          icons[({ note = 'info', warning = 'warning' })[kind]] or '',
+          title or kind:gsub('^%l', string.upper)
         },
         p { text }
       }
@@ -160,7 +161,11 @@ return function(v)
   local function md(s)
     local markup = markdown(s)
 
-    markup = markup:gsub(':::(%w+)\n(.-)\n:::', aside)
+    markup = markup:gsub(':::(%w+)\n(.-)\n:::', function(kind, text)
+      return html(function(_ENV)
+        return notice(_ENV, kind, text)
+      end)
+    end)
 
     return markup
   end
@@ -417,7 +422,7 @@ return function(v)
   end
 
   local function renderFn(_ENV, fn, key)
-    local deprecation = deprecated and aside('warning', 'This function is deprecated!') or ''
+    local deprecation = deprecated and notice(_ENV, 'warning', 'This function is deprecated.  It still works, but it\'s probably gonna get removed in the future.', 'Deprecated') or ''
 
     local toggles = #fn.variants == 1 and '' or imap(fn.variants, function(variant, i)
       return input { type = 'radio', name = 'variants', id = 'var' .. i, checked = (i == 1) }

@@ -355,39 +355,39 @@ main {
   margin: 0;
 }
 
-.content blockquote code {
-  background: var(--c-bream);
+.content blockquote code, .content aside code {
+  background: var(--c-white);
   border: none;
 }
 
 .content aside {
   border-left: 4px solid;
-  padding-left: 20px;
+  padding: 12px 16px 10px;
 }
 
-.content aside .header {
-  font-weight: bold;
+.content aside span {
+  margin-bottom: 5px;
+  display: inline-block;
 }
 
-.content aside .header .icon {
-  padding-right: 16px;
+.content aside span svg {
+  margin-right: 8px;
+  margin-bottom: -2px;
+  fill: currentColor;
 }
 
-.content aside.note {
-  border-left-color: var(--c-ocean);
+.content aside p {
+  line-height: 1.35;
+  margin: 0;
 }
 
-.content aside.note .header {
-  color: var(--c-ocean);
-}
+.content aside.note { background: var(--c-lapis); }
+.content aside.note span { color: var(--c-azure); }
+.content aside.note { border-left-color: var(--c-azure); }
 
-.content aside.warning {
-  border-left-color: var(--c-amber);
-}
-
-.content aside.warning .header {
-  color: var(--c-amber);
-}
+.content aside.warning { background: var(--c-peach); }
+.content aside.warning span { color: var(--c-rusty); }
+.content aside.warning { border-left-color: var(--c-rusty); }
 
 .content ul, .content ol {
   color: var(--c-raven);
@@ -533,7 +533,7 @@ main {
   padding: 4px 12px;
 }
 
-.content table.signature td.boolean { color: var(--c-amber); }
+.content table.signature td.boolean { color: var(--c-brick); }
 .content table.signature td.number { color: var(--c-rusty); }
 .content table.signature td.string { color: var(--c-ocean); }
 .content table.signature td.table { color: var(--c-mossy); }
@@ -682,6 +682,10 @@ main {
   .content pre code, .content pre .bash {
     color: var(--c-raven);
   }
+
+  blockquote code, .content aside code {
+    background: rgba(20, 20, 28, .4);
+  }
 }
 
 /* phones */
@@ -698,7 +702,15 @@ main {
 
 @media(max-width: 1600px) {
   .content .toc {
-    display: none;
+    position: static;
+    margin-left: 0;
+    width: auto;
+    max-width: none;
+    padding: 10px 20px;
+  }
+
+  .content .toc h2 {
+    font-size: 18px;
   }
 }
 

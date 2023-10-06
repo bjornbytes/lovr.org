@@ -19,10 +19,12 @@
   --c-berry: #c0a0fa;
   --c-candy: #e6dafa;
   --c-lilac: #ebe5fc;
-  --c-lapis: #d5e9f9;
-  --c-amber: #f2506d;
+  --c-lapis: #e5f3ff;
+  --c-peach: #fff2e5;
+  --c-brick: #f2506d;
   --c-rusty: #e08300;
   --c-ocean: #44c3df;
+  --c-azure: #0d69f2;
   --c-mossy: #469300;
   --c-honey: #c9c43d;
   --nav-height: 60px;
@@ -52,10 +54,12 @@
     --c-berry: #c0a0fa;
     --c-candy: #e6dafa;
     --c-lilac: #303044;
-    --c-lapis: #393f72;
-    --c-amber: #f37b90;
+    --c-lapis: #273d68;
+    --c-peach: #47301f;
+    --c-brick: #f37b90;
     --c-rusty: #ffca83;
     --c-ocean: #78becd;
+    --c-azure: #59abff;
     --c-mossy: #d0ffa5;
     --c-honey: #fffdcb;
   }
