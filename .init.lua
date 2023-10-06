@@ -10,9 +10,9 @@ function OnHttpRequest()
   if path == '' then
     Route()
   elseif path:match('static/img') then
-    Route(GetHost(), path:gsub('static/', ''))
+    ServeAsset(path:gsub('static/', ''))
   elseif method == 'GET' and path == '/downloads' then
-    Route(GetHost(), path .. '.html')
+    ServeAsset(path .. '.html')
   elseif method == 'GET' and path:find('/docs') == 1 then
     local version, page = path:gsub('%%3[aA]', ':'):match('/docs/([^/]+)(/?.*)')
 
@@ -24,13 +24,13 @@ function OnHttpRequest()
       page = 'index'
     end
 
-    return Route(GetHost(), ('docs/%s/%s.html'):format(version, page))
+    return ServeAsset(('docs/%s/%s.html'):format(version, page))
   elseif method == 'GET' and path:find('/api/data') == 1 then
     local version = path:match('/api/data/(.+)$') or defaultVersion
-    Route(GetHost(), ('docs/%s/data.json'):format(version))
+    ServeAsset(('docs/%s/data.json'):format(version))
   elseif method == 'GET' and path:find('/api/docs') == 1 then
     local version = path:match('/api/docs/(.+)$') or defaultVersion
-    Route(GetHost(), ('docs/%s/pages.json'):format(version))
+    ServeAsset(('docs/%s/pages.json'):format(version))
   elseif method == 'POST' and path == '/refresh' then
     local body = GetBody()
     local data = DecodeJson(body)
