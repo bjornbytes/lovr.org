@@ -275,9 +275,31 @@ main {
   margin-bottom: 0;
 }
 
-.content header > a {
+.content header > a.button {
   margin-left: 16px;
-  font-size: 18px;
+}
+
+.content a.button {
+  font-size: 15px;
+  background: var(--c-ghost);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 2px solid var(--c-lilac);
+  line-height: 20px;
+  color: var(--c-raven);
+  user-select: none;
+}
+
+.content a.button svg {
+  fill: currentColor;
+  margin-right: 8px;
+  margin-bottom: 1px;
+  vertical-align: text-bottom;
+}
+
+.content a.button:hover {
+  text-decoration: none;
+  background: var(--c-lilac);
 }
 
 .content h1, .content h1 a {

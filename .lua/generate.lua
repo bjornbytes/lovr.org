@@ -117,23 +117,29 @@ return function(v)
 
     -- TODO docs generator could provide filepaths
     if kind == 'module' then
-      path = ('%s/init.lua'):format(thing.key:gsub('%.', '/'))
+      path = ('api/%s/init.lua'):format(thing.key:gsub('%.', '/'))
     elseif kind == 'object' then
-      path = ('%s/%s/init.lua'):format(thing.module:gsub('%.', '/'), thing.key)
+      path = ('api/%s/%s/init.lua'):format(thing.module:gsub('%.', '/'), thing.key)
     elseif kind == 'function' and not thing.key:match(':') then
-      path = ('%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+      path = ('api/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
     elseif kind == 'function' and thing.key:match(':') then
-      path = ('%s/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.key:match('(.-):'), thing.name)
+      path = ('api/%s/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.key:match('(.-):'), thing.name)
     elseif kind == 'enum' then
-      path = ('%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+      path = ('api/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
     elseif kind == 'callback' then
-      path = ('lovr/callbacks/%s.lua'):format(thing.name)
+      path = ('api/lovr/callbacks/%s.lua'):format(thing.name)
+    elseif kind == 'guide' then
+      path = ('guides/%s.md'):format(thing)
+    elseif kind == 'example' then
+      path = ('examples/%s/main.lua'):format(thing)
     end
 
     return {
       a {
-        href = 'https://github.com/bjornbytes/lovr-docs/edit/' .. v .. '/api/' .. path,
+        class = 'button',
+        href = 'https://github.com/bjornbytes/lovr-docs/edit/' .. v .. '/' .. path,
         target = '_blank',
+        icons.edit,
         'Edit'
       }
     }
@@ -218,9 +224,9 @@ return function(v)
         return table.concat({
           '<header>',
             '%s',
-            '<a href="https://github.com/bjornbytes/lovr-docs/edit/%s/guides/%s.md">Edit</a>',
+            '%s',
           '</header>'
-        }):format(h1, v, guide)
+        }):format(h1, html(function(_ENV) return edit(_ENV, guide, 'guide') end))
       end)
 
       local headers = {}
@@ -272,11 +278,7 @@ return function(v)
               target = '_blank',
               'Source'
             },
-            a {
-              href = 'https://github.com/bjornbytes/lovr-docs/edit/' .. v .. '/examples/' .. example .. '/main.lua',
-              target = '_blank',
-              'Edit'
-            }
+            edit(_ENV, example, 'example')
           },
           pre { code { contents } }
         }
