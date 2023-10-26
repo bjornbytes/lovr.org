@@ -1,5 +1,5 @@
 return function(v)
-  if not (v == 'master' or v:match('v%d+%.%d+%.%d+')) then
+  if not (v == 'master' or v == 'dev' or v:match('v%d+%.%d+%.%d+')) then
     return
   end
 

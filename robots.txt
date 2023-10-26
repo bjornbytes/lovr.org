@@ -1,5 +1,8 @@
 User-agent: *
 Disallow: /docs/master
+Disallow: /docs/dev
+Disallow: /docs/v0.17.0
+Disallow: /docs/v0.16.0
 Disallow: /docs/v0.15.0
 Disallow: /docs/v0.14.0
 Disallow: /docs/v0.13.0
