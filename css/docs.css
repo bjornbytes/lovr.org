@@ -108,6 +108,7 @@ html {
   cursor: pointer;
   font: inherit;
   font-size: 12px;
+  text-align: center;
 }
 
 .sidebar .versions:hover {
@@ -264,6 +265,15 @@ main {
   max-width: 100%;
 }
 
+.content video {
+  display: block;
+  border-radius: 8px;
+  margin: 10px auto;
+  max-height: 420px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
 .content header {
   display: flex;
   align-items: center;
@@ -321,11 +331,16 @@ main {
   margin: 25px 0 10px;
 }
 
+.content h4 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
 .content h2, .content h2 a {
   color: var(--c-smoke);
 }
 
-.content h3, .content h3 a {
+.content h3, .content h3 a, .content h4, .content h4 a {
   color: var(--c-smoky);
 }
 
@@ -668,7 +683,7 @@ main {
 
 .content .toc {
   position: fixed;
-  top: calc(var(--nav-height) + 25px);
+  top: calc(var(--nav-height) + 35px);
   left: calc(var(--sidebar-width) + var(--content-width));
   margin-left: 10px;
   max-width: calc(100vw - var(--sidebar-width) - var(--content-width) - 60px);
@@ -726,7 +741,7 @@ main {
   .content .toc {
     position: static;
     margin-left: 0;
-    width: auto;
+    width: 50%;
     max-width: none;
     padding: 10px 20px;
   }

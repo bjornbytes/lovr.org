@@ -424,7 +424,7 @@ return function(v)
   end
 
   local function renderFn(_ENV, fn, key)
-    local deprecation = deprecated and notice(_ENV, 'warning', 'This function is deprecated.  It still works, but it\'s probably gonna get removed in the future.', 'Deprecated') or ''
+    local deprecation = fn.deprecated and notice(_ENV, 'warning', 'This function is deprecated.  It still works, but it\'s probably gonna get removed in the future.', 'Deprecated') or ''
 
     local toggles = #fn.variants == 1 and '' or imap(fn.variants, function(variant, i)
       return input { type = 'radio', name = 'variants', id = 'var' .. i, checked = (i == 1) }
@@ -440,7 +440,7 @@ return function(v)
         code {
           class = 'nohighlight',
           imap(fn.variants, function(variant, i)
-            local args = '(' .. t.concat(imap(variant.arguments, function(arg) return arg.name end), ', ') .. ')'
+            local args = '(' .. t.concat(imap(variant.arguments, function(arg) return arg.name end), ', ') .. ')' .. (variant.deprecated and ' -- Deprecated' or '')
             local rets = t.concat(imap(variant.returns, function(ret) return ret.name end), ', ')
             local body = rets .. (#rets > 0 and ' = ' or '') .. key .. args
 
@@ -662,7 +662,7 @@ return function(v)
       assert(unix.makedirs(root .. '/' .. k:match('(.+)/')))
     end
 
-    local title = k:gsub('(.+)/', ''):gsub('_', ' ')
+    local title = k == 'index' and indexKey or k:gsub('(.+)/', ''):gsub('_', ' ')
 
     assert(Barf(root .. '/' .. k .. '.html', template:format(title, sidebar, k == 'index' and indexKey or k, v)))
   end
