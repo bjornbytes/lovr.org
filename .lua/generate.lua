@@ -292,8 +292,9 @@ return function(v)
 
       if module.sections then
         links = imap(module.sections, function(section)
+          local slug = section.name:gsub(' ', '-'):gsub('[^%w-]+', ''):lower()
           return {
-            h2 { section.name },
+            h2 { id = slug, a { href = '#' .. slug, section.name } },
             section.description and md(section.description) or '',
             table {
               imap(tags[section.tag], function(fn)
@@ -340,7 +341,10 @@ return function(v)
 
       if object.constructors then
         constructors = {
-          h2 { 'Constructor' .. (#object.constructors > 1 and 's' or '') },
+          h2 {
+            id = 'constructors',
+            a { href = '#constructors', 'Constructor' .. (#object.constructors > 1 and 's' or '') }
+          },
           table {
             imap(object.constructors, function(constructor)
               if lookup[constructor] then
@@ -360,8 +364,9 @@ return function(v)
 
       if object.sections then
         links = imap(object.sections, function(section)
+          local slug = section.name:gsub(' ', '-'):gsub('[^%w-]+', ''):lower()
           return {
-            h2 { section.name },
+            h2 { id = slug, a { href = '#' .. slug, section.name } },
             section.description and md(section.description) or '',
             table {
               imap(tags[section.tag] or {}, function(method)
