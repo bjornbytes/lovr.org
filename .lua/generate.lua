@@ -178,7 +178,14 @@ return function(v)
 
   local function notes(_ENV, x)
     if x.notes then
-      return { h2 { 'Notes' }, md(x.notes) or '' }
+      local content = md(x.notes) or ''
+
+      content = content:gsub('<h([23])>(.-)</h[23]>', function(level, title)
+        local slug = title:gsub(' ', '-'):gsub('Ö', 'O'):gsub('[^%w-]+', ''):lower()
+        return ('<h%d id="%s"><a href="#%s">%s</a></h%d>'):format(level, slug, slug, title, level)
+      end)
+
+      return { h2 { id = 'notes', a { href = '#notes', 'Notes' } }, content }
     else
       return ''
     end
