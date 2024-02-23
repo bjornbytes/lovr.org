@@ -12,6 +12,7 @@ var aliases = [
   [ /arc/, 'Pass:circle' ],
   [ /clear/, 'Pass:fill' ],
   [ /print/, 'Pass:text' ],
+  [ /scroll/, 'lovr.wheelmoved' ],
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
   [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
