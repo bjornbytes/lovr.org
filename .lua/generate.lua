@@ -385,10 +385,16 @@ return function(v)
             }
           }
         end)
-      elseif object.methods and #object.methods > 0 then
+      elseif object.extends or (object.methods and #object.methods > 0) then
         links = {
           h2 'Methods',
           table {
+            imap(object.extends and lookup[object.extends].methods or {}, function(method)
+              return tr {
+                td { linkTo(_ENV, method.key) },
+                td { method.summary }
+              }
+            end),
             imap(object.methods, function(method)
               return tr {
                 td { linkTo(_ENV, method.key) },
@@ -640,7 +646,7 @@ return function(v)
         end)
       },
       i { class = 'search-icon', tabindex = 0 },
-      input { class = 'search', spellcheck = 'false' },
+      input { class = 'search', spellcheck = 'false', placeholder = 'Search' },
       aside { class = 'message' },
       imap(sections, function(category)
         return {
