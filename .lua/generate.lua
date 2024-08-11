@@ -304,7 +304,7 @@ return function(v)
             h2 { id = slug, a { href = '#' .. slug, section.name } },
             section.description and md(section.description) or '',
             table {
-              imap(tags[section.tag], function(fn)
+              imap(section.tag and tags[section.tag] or section.links or {}, function(fn)
                 return tr {
                   td { linkTo(_ENV, fn) },
                   td { lookup[fn].summary }
