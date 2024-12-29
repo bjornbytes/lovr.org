@@ -635,7 +635,7 @@ return function(v)
     return {
       select {
         class = 'versions',
-        onchange = 'window.location.href=this.options[this.selectedIndex].value',
+        onchange = "window.location.pathname=window.location.pathname.replace(/^\\/docs\\/(dev\\/|v\\d+\\.\\d+\\.\\d+\\/)?/, this.options[this.selectedIndex].value+'/')",
         option { selected = 'selected', value = '/docs/' .. v, v },
         imap(versions, function(version)
           if version ~= v then

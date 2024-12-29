@@ -24,6 +24,19 @@
     <main>
       <h1>4Ö4</h1>
       <p>Page not found.</p>
+      <p>Return after 3 seconds.</p>
+      <script type="text/javascript">
+        setTimeout(function() {
+          if (window.location.pathname.match(/^\/docs/)) {
+            let top_path = window.location.pathname.replace(
+              /(\/docs(\/(dev|v\d+\.\d+\.\d+)\/)?).*/, '$1'
+            );
+            window.location.pathname = top_path
+          } else {
+            window.location.pathname = '/';
+          }
+        }, 3000)
+      </script>
     </main>
   </body>
 </html>
