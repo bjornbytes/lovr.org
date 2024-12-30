@@ -159,6 +159,22 @@ oboe('/api' + (window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/de
     return oboe.drop;
   });
 
+fetch('/api/pages').then(function(response) {
+  return response.json();
+}).then(function(pages) {
+  versions.onchange = function() {
+    var option = this.options[this.selectedIndex];
+    var version = option.text;
+    var content = main.querySelector('.content');
+    var page = content && content.dataset.key;
+    if (content && page && pages[version] && pages[version][page]) {
+      window.location.href = option.value + '/' + page;
+    } else {
+      window.location.href = option.value;
+    }
+  }
+});
+
 // Render pages when history is updated
 window.addEventListener('popstate', function(event) {
   var content = main.querySelector('.content');
@@ -186,6 +202,7 @@ if (initialContent) {
   if (link) {
     var linkGeometry = link.getBoundingClientRect();
     sidebar.scrollTop = linkGeometry.top - linkGeometry.height / 2 -  sidebar.offsetHeight / 2;
+    link.classList.add('selected');
   }
 }
 

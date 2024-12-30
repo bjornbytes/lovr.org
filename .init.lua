@@ -30,7 +30,9 @@ function OnHttpRequest()
     return ServeAsset(('docs/%s/data.json'):format(version)) or ServeError(404)
   elseif method == 'GET' and path:find('/api/docs') == 1 then
     local version = path:match('/api/docs/(.+)$') or defaultVersion
-    return ServeAsset(('docs/%s/pages.json'):format(version)) or ServeError(404)
+    return ServeAsset(('docs/%s/content.json'):format(version)) or ServeError(404)
+  elseif method == 'GET' and path:find('/api/pages') == 1 then
+    return ServeAsset('docs/pages.json') or ServeError(404)
   elseif method == 'POST' and path == '/refresh' then
     local body = GetBody()
     local data = DecodeJson(body)

@@ -585,10 +585,19 @@ return function(v)
 
   -- Sidebar
 
+  local pages = {}
   local versions = {}
   for name, kind in assert(unix.opendir('docs')) do
     if kind == unix.DT_DIR and not name:match('^%.') then
       table.insert(versions, name)
+
+      pages[name] = {}
+      for page, kind in assert(unix.opendir('docs/' .. name)) do
+        if page:match('%.html$') and page ~= 'index.html' then
+          local key = page:gsub('%.html$', '')
+          pages[name][key] = 1
+        end
+      end
     end
   end
 
@@ -671,7 +680,8 @@ return function(v)
   assert(unix.rmrf(root))
   assert(unix.makedirs(root))
   assert(Barf(root .. '/data.json', EncodeJson(api)))
-  assert(Barf(root .. '/pages.json', EncodeJson(content):gsub('\\u003c', '<'):gsub('\\u003e', '>') .. ''))
+  assert(Barf(root .. '/content.json', EncodeJson(content):gsub('\\u003c', '<'):gsub('\\u003e', '>') .. ''))
+  assert(Barf('docs/pages.json', EncodeJson(pages)))
 
   local template = assert(Slurp('docs/.template.html'))
 
