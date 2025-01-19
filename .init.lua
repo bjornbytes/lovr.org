@@ -9,7 +9,13 @@ function OnHttpRequest()
 
   if path == '' then
     Route()
-  elseif path:match('static/img') then
+  elseif path:match('%.js$') or path:match('%.wasm$') then
+    if ServeAsset(path:gsub('static/', '')) then
+      SetHeader('Access-Control-Allow-Origin', '*')
+    else
+      ServeError(404)
+    end
+  elseif path:match('static/img') or path:match('static/f') then
     return ServeAsset(path:gsub('static/', '')) or ServeError(404)
   elseif method == 'GET' and path == '/downloads' then
     ServeAsset(path .. '.html')
