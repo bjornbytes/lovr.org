@@ -16,7 +16,7 @@ var aliases = [
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
   [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
-  [ /^(enet|udp|multipla)/, { type: 'plugin', name: 'enet', link: 'https://github.com/bjornbytes/lua-enet' } ],
+  [ /^(udp|multipla)/, 'enet' ],
   [ /(socket|tcp)/, { type: 'plugin', name: 'luasocket', link: 'https://github.com/brainrom/lovr-luasocket' } ],
   [ /^(http)/, { type: 'plugin', name: 'lua-https', link: 'https://github.com/love2d/lua-https' } ],
   [ /^json/, { type: 'plugin', name: 'cjson', link: 'https://github.com/bjornbytes/lua-cjson' } ],
