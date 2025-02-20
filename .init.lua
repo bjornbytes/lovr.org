@@ -2,7 +2,7 @@ local secrets = require 'secrets'
 local generate = require 'generate'
 local refresh = require 'refresh'
 
-local defaultVersion = 'v0.17.0'
+local defaultVersion = 'v0.18.0'
 
 function OnHttpRequest()
   local method, path = GetMethod(), GetPath():gsub('/$', '')
