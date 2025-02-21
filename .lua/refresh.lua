@@ -1,8 +1,4 @@
 return function(v)
-  if not (v == 'master' or v == 'dev' or v:match('v%d+%.%d+%.%d+')) then
-    return
-  end
-
   local git = unix.commandv('git')
   local repo = 'https://github.com/bjornbytes/lovr-docs'
   local dir = '.lovr-docs/' .. v

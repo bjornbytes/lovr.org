@@ -61,6 +61,8 @@ function OnHttpRequest()
 
     if not version then
       return SetStatus(400)
+    elseif not (version == 'master' or version == 'dev' or version:match('v%d+%.%d+%.%d+')) then
+      return SetStatus(202)
     end
 
     if assert(unix.fork()) == 0 then
