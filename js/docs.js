@@ -16,6 +16,7 @@ var aliases = [
   [ /msaa|multis|antia/, 'lovr.conf' ],
   [ /^video/, { type: 'unsupported', feature: 'Video playback' } ],
   [ /^icos/, { type: 'library', name: 'lovr-icosphere', link: 'https://github.com/bjornbytes/lovr-icosphere' } ],
+  [ /^joy/, { type: 'library', name: 'game_controller', link: 'https://github.com/immortalx74/game_controller' } ],
   [ /^(udp|multipla)/, 'enet' ],
   [ /(socket|tcp)/, { type: 'plugin', name: 'luasocket', link: 'https://github.com/brainrom/lovr-luasocket' } ],
   [ /^(http)/, { type: 'plugin', name: 'lua-https', link: 'https://github.com/love2d/lua-https' } ],
