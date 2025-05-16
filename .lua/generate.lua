@@ -165,13 +165,13 @@ return function(v)
   end
 
   local function md(s)
-    local markup = markdown(s)
-
-    markup = markup:gsub(':::(%w+)\n(.-)\n:::', function(kind, text)
+    s = s:gsub(':::(%w+)\n(.-)\n:::', function(kind, text)
       return html(function(_ENV)
         return notice(_ENV, kind, text)
       end)
     end)
+
+    local markup = markdown(s)
 
     return markup
   end
