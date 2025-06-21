@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <meta name="description" content="An open source framework for rapidly building immersive 3D experiences."/>
+  <meta name="description" content="An open source Lua framework for building 3D games and VR experiences."/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="LÖVR"/>
@@ -26,7 +26,7 @@
       <img class="logo" src="/img/logo.svg" width="32"/>
       <div class="right">
         <h1>LÖVR</h1>
-        <p>An open source framework for rapidly building immersive 3D experiences.</p>
+        <p>An open source Lua framework for building 3D games and VR experiences.</p>
         <div class="buttons">
           <a href="/downloads">Downloads</a>
           <a href="/docs">Docs</a>
@@ -42,8 +42,10 @@
       <ul>
         <li>
           <span class="icon">🕶</span>
-          <h3>Designed for VR</h3>
-          <p>Out of the box you get fast stereo rendering, VR controllers, hand tracking, haptics, spatial audio, 3D physics, PBR materials, SDF fonts, and more.</p>
+          <h3>Great at VR Stuff</h3>
+          <p>LÖVR has APIs for fast stereo rendering, controller input, hand tracking, haptics,
+          audio spatialization, SDF fonts, 3D physics, foveated rendering, passthrough, and
+          more.</p>
         </li>
 
         <li>
@@ -55,7 +57,7 @@
         <li>
           <span class="icon">🤔</span>
           <h3>Beginner Friendly</h3>
-          <p>You can write 3 lines of Lua and drag and drop a folder onto an exe to get a working VR scene.  Lua is a really simple language, making LÖVR great for learning and prototyping.</p>
+          <p>You can write 3 lines of Lua and drag and drop a folder onto an exe to get a working 3D scene.  Lua is a really simple language, making LÖVR great for learning and prototyping.</p>
         </li>
       </ul>
     </section>
@@ -65,7 +67,10 @@
     </svg>
 
     <section class="sass">
-      <p>People are using LÖVR for game jams, commercial projects, tools, education, and VR/3D/2D prototyping. Some daring souls have even embedded LÖVR inside of Unity, ported the engine to other languages, and gotten it running on tiny microcontrollers. With LÖVR, you can turn virtually any idea into reality.</p>
+      <p>LÖVR can be used for game jams, commercial projects, tools, prototyping, education, and
+      everything in between.  The framework is really unopinionated, giving you the freedom and
+      control to make whatever you want.  LÖVR is also permissively licensed, so you can use and
+      modify it as you wish.</p>
       <div class="screenshots">
         <img loading="lazy" src="img/screen1.jpg"/>
         <a href="https://angelitasilva.itch.io/the-golden-lights-of-fall" target="_blank">
@@ -83,7 +88,11 @@
 
     <section class="hardware">
       <h2>Hardware Support</h2>
-      <p>LÖVR is powered by OpenXR and Vulkan, so it's compatible with a wide variety of hardware and platforms.  It can also simulate a VR headset using keyboard and mouse, so you don't need any VR hardware to get started.</p>
+      <p>LÖVR is powered by OpenXR and Vulkan, so it's compatible with a wide variety of hardware
+      and platforms.  It can also simulate a VR headset using keyboard and mouse, so you don't need
+      any VR hardware to get started.</p>
+      <p>And if you're not doing VR at all, it's easy to disable the VR parts and use LÖVR as a regular
+      3D game engine.</p>
       <div class="lists">
         <ul>
           <li class="icon">🕹</li>
@@ -118,7 +127,7 @@
       <h2>Sample Projects</h2>
       <ul>
         <li>
-          <h3>Hello Virtual World</h3>
+          <h3>Hello World</h3>
           <pre>
             <code><i class="hl-keyword">function</i> lovr.draw(pass)</code>
             <code>  pass:text(<i class="hl-string">'hello'</i>, <i class="hl-number">0</i>, <i class="hl-number">1.7</i>, <i class="hl-number">-1</i>, <i class="hl-number">.5</i>)</code>

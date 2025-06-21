@@ -192,7 +192,7 @@ svg.trim {
   font-size: 18px;
   line-height: 1.7;
   color: #e1d6ff;
-  margin: 32px auto 40px;
+  margin: 20px auto 20px;
   width: 960px;
   max-width: 90vw;
 }
@@ -201,7 +201,7 @@ svg.trim {
   display: flex;
   justify-content: space-evenly;
   max-width: 640px;
-  margin: 0 auto 64px;
+  margin: 40px auto 64px;
 }
 
 .hardware .lists ul {
