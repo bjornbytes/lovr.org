@@ -441,9 +441,13 @@ return function(v)
     end)
   end
 
-  local function renderFn(_ENV, fn, key)
-    local deprecation = fn.deprecated and notice(_ENV, 'warning', 'This function is deprecated.  It still works, but it\'s probably gonna get removed in the future.', 'Deprecated') or ''
+  local function deprecation(_ENV, fn)
+    if not fn.deprecated then return '' end
+    local default = 'This function is deprecated.  It still works, but it\'s probably going to get removed soon.'
+    return notice(_ENV, 'warning', type(fn.deprecated) == 'string' and md(fn.deprecated) or default, 'Deprecated')
+  end
 
+  local function renderFn(_ENV, fn, key)
     local toggles = #fn.variants == 1 and '' or imap(fn.variants, function(variant, i)
       return input { type = 'radio', name = 'variants', id = 'var' .. i, checked = (i == 1) }
     end)
@@ -487,7 +491,7 @@ return function(v)
         title,
         edit(_ENV, fn, fn.tag == 'callbacks' and 'callback' or 'function')
       },
-      deprecation,
+      deprecation(_ENV, fn),
       md(fn.description),
       toggles,
       signatures,
