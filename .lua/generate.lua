@@ -389,13 +389,13 @@ return function(v)
         links = {
           h2 'Methods',
           table {
-            imap(object.extends and lookup[object.extends].methods or {}, function(method)
+            imap(object.methods, function(method)
               return tr {
                 td { linkTo(_ENV, method.key) },
                 td { method.summary }
               }
             end),
-            imap(object.methods, function(method)
+            imap(object.extends and lookup[object.extends].methods or {}, function(method)
               return tr {
                 td { linkTo(_ENV, method.key) },
                 td { method.summary }
