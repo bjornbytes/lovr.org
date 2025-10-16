@@ -9,6 +9,8 @@ function OnHttpRequest()
 
   if path == '' then
     Route()
+  elseif path == '/favicon.ico' then
+    return ServeAsset('img/favicon.png')
   elseif path:match('%.js$') or path:match('%.wasm$') then
     if ServeAsset(path:gsub('static/', '')) then
       SetHeader('Access-Control-Allow-Origin', '*')
