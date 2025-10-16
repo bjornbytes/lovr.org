@@ -570,11 +570,11 @@ main {
   padding: 4px 12px;
 }
 
-.content table.signature td.boolean { color: var(--c-brick); }
-.content table.signature td.number { color: var(--c-rusty); }
-.content table.signature td.string { color: var(--c-ocean); }
-.content table.signature td.table { color: var(--c-mossy); }
-.content table.signature td.function { color: var(--c-honey); }
+.content table.signature td .boolean { color: var(--c-brick); }
+.content table.signature td .number { color: var(--c-rusty); }
+.content table.signature td .string { color: var(--c-ocean); }
+.content table.signature td .table { color: var(--c-mossy); }
+.content table.signature td .function { color: var(--c-honey); }
 
 .content table.signature tr.indent-1 td:first-child { padding-left: 20px; }
 .content table.signature tr.indent-2 td:first-child { padding-left: 35px; }

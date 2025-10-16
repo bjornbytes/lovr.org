@@ -428,12 +428,20 @@ return function(v)
     indent = indent or 0
 
     return imap(fields, function(field)
+      local types = field.type:gsub('%w+', function(t)
+        if t:match('^%u') then
+          return html(function(_ENV) return linkTo(_ENV, t) end)
+        else
+          return html(function(_ENV) return { span { class = t, t } } end)
+        end
+      end)
+
       local basic = field.type:match('^%l') or field.type == '*'
 
       return tr {
         class = 'indent-' .. indent,
         td { class = 'pre', (indent > 0 and '.' or '') .. field.name },
-        td { class = { 'pre', basic and field.type }, basic and field.type or linkTo(_ENV, field.type) },
+        td { class = 'pre', types },
         hasDefault and td { class = 'pre', field.default } or '',
         td { field.description and md(field.description):gsub('</?p>', '') or '' },
         subtable(_ENV, field.table, hasDefault, indent + 1)
