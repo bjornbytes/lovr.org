@@ -3,3 +3,4 @@ docs/*
 .lua/secrets.lua
 f
 lovr.org
+lovr.org.pid
