@@ -1,4 +1,4 @@
 #!/bin/bash
 
-kill $(cat /var/run/redbean.pid) 2>/dev/null
-bash -c './lovr.org -d -P /var/run/redbean.pid -L /var/log/redbean.log -D .'
+kill $(cat lovr.org.pid) 2>/dev/null
+bash -c './lovr.org -d -P lovr.org.pid -L /var/log/redbean.log -D .'
