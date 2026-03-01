@@ -19,7 +19,7 @@ p {
 
 .box {
   background: var(--c-ghost);
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 20px;
   margin-bottom: 32px;
 }

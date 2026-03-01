@@ -126,6 +126,7 @@
 
 * {
   box-sizing: border-box;
+  corner-shape: squircle;
 }
 
 body, h1, h2, h3, p, ul, ol, pre {

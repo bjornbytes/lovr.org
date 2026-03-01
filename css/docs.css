@@ -40,9 +40,9 @@ html {
 }
 
 .sidebar .search-icon:focus {
-  outline: var(--c-phlox) solid 2px;
+  outline: var(--c-mauve) solid 4px;
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .sidebar .search-icon:after {
@@ -52,6 +52,7 @@ html {
   height: 8px;
   border: 3px var(--c-smoke) solid;
   border-radius: 50%;
+  corner-shape: round;
 }
 
 .sidebar .search-icon:before {
@@ -103,7 +104,7 @@ html {
   background: var(--c-white);
   color: var(--c-smoky);
   padding: 4px 16px;
-  border-radius: 8px;
+  border-radius: 16px;
   border: none;
   cursor: pointer;
   font: inherit;
@@ -116,7 +117,7 @@ html {
 }
 
 .sidebar .versions:focus {
-  outline: var(--c-phlox) solid 2px;
+  outline: var(--c-mauve) solid 4px;
 }
 
 .sidebar section.hidden {
@@ -253,7 +254,7 @@ main {
   display: block;
   margin: 10px auto;
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: 0 0 2px rgba(0, 0, 0, .2);
 }
 
@@ -267,7 +268,7 @@ main {
 
 .content video {
   display: block;
-  border-radius: 8px;
+  border-radius: 16px;
   margin: 10px auto;
   max-height: 420px;
   max-width: 100%;
@@ -293,7 +294,7 @@ main {
   font-size: 15px;
   background: var(--c-ghost);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid var(--c-lilac);
   line-height: 20px;
   color: var(--c-raven);
@@ -383,7 +384,7 @@ main {
 
 .content blockquote {
   background: var(--c-lapis);
-  border-radius: 8px;
+  border-radius: 16px;
   margin: 20px 0;
   padding: 16px;
 }
@@ -449,7 +450,7 @@ main {
   padding: 0 4px;
   background: var(--c-cream);
   border: 1px var(--c-bream) solid;
-  border-radius: 6px;
+  border-radius: 12px;
   white-space: nowrap;
 }
 
@@ -477,7 +478,7 @@ main {
   overflow-x: auto;
   background: var(--c-night);
   color: var(--c-cream);
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   padding: 16px;
   line-height: 1.25;
@@ -515,8 +516,8 @@ main {
   margin: 15px 0;
   background: var(--c-ghost);
   border-spacing: 0;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 16px;
+  padding: 8px 4px;
 }
 
 .content table thead td {
@@ -689,7 +690,7 @@ main {
   max-width: calc(100vw - var(--sidebar-width) - var(--content-width) - 60px);
   background: var(--c-ghost);
   padding: 15px 30px;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .content .toc ul {
