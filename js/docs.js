@@ -107,7 +107,7 @@ function enhance(node) {
   });
 
   var codes = Array.prototype.slice.call(node.querySelectorAll('code'));
-  var tokenPattern = /(^|[^\/\-])(lovr[a-zA-Z0-9\.]*|[a-zA-Z0-9:]+)([^\/\-]|$)/gm;
+  var tokenPattern = /(^|[^\/\-])((?:lovr|vector|quaternion)[a-zA-Z0-9\.]*|[a-zA-Z0-9:]+)([^\/\-]|$)/gm;
   codes.forEach(function(code) {
     if (code.children.length === 0 && (!code.classList.contains('hljs') || code.classList.contains('lua'))) {
       code.innerHTML = code.innerHTML.replace(tokenPattern, function(_, a, token, b) {
