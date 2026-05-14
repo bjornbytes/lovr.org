@@ -546,8 +546,8 @@ main {
 
 .content thead tr:first-child td:first-child { border-top-left-radius: 8px; }
 .content thead tr:first-child td:last-child { border-top-right-radius: 8px; }
-.content thead tr:last-child td:first-child { border-bottom-left-radius: 0; }
-.content thead tr:last-child td:last-child { border-bottom-right-radius: 0; }
+.content thead tr:last-child td:first-child { border-bottom-left-radius: 1px; }
+.content thead tr:last-child td:last-child { border-bottom-right-radius: 1px; }
 
 .content thead + tbody tr:first-child td:first-child { border-top-left-radius: 0; }
 .content thead + tbody tr:first-child td:last-child { border-top-right-radius: 0; }
