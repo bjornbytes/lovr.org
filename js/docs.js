@@ -37,7 +37,14 @@ var transitionTimeout;
 var data = {};
 
 function getUrl(key) {
-  return window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/dev)?/) + '/' + key;
+  var base = window.location.pathname.match(/\/docs(?:\/v[\d\.]+|\/master|\/dev)?/);
+
+  // Handle version page, avoids double v0.0.0/v0.0.0 URL
+  if (base[0].endsWith(key)) {
+    return base;
+  }
+
+  return base[0] + '/' + key;
 }
 
 function pushPage(key) {
