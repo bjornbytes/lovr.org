@@ -116,8 +116,10 @@ return function(v)
     local path
 
     -- TODO docs generator could provide filepaths
-    if kind == 'module' then
+    if kind == 'module' and thing.key:match('^lovr') then
       path = ('api/%s/init.lua'):format(thing.key:gsub('%.', '/'))
+    elseif kind == 'module' then
+      path = ('api/lovr/%s/init.lua'):format(thing.key)
     elseif kind == 'object' then
       path = ('api/%s/%s/init.lua'):format(thing.module:gsub('%.', '/'), thing.key)
     elseif kind == 'function' and not thing.key:match(':') then
@@ -689,7 +691,7 @@ return function(v)
 
   local root = 'docs/' .. v
 
-  assert(unix.rmrf(root))
+  unix.rmrf(root)
   assert(unix.makedirs(root))
   assert(Barf(root .. '/data.json', EncodeJson(api)))
   assert(Barf(root .. '/content.json', EncodeJson(content):gsub('\\u003c', '<'):gsub('\\u003e', '>') .. ''))
