@@ -202,7 +202,7 @@ return function(v)
   local function snippets(_ENV, x)
     if x.examples then
       return {
-        h2 { #x.examples > 1 and 'Examples' or 'Example' },
+        h2 { id = 'examples', #x.examples > 1 and 'Examples' or 'Example' },
         imap(x.examples, function(example)
           return {
             example.description and md(example.description) or '',
