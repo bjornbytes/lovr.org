@@ -1,7 +1,6 @@
 var aliases = [
   [ /^tube/, 'cylinder' ],
   [ /^stencil/, 'lovr.conf' ],
-  [ /^stream/, 'lovr.data.newSound' ],
   [ /^(microp|captu)/, 'AudioType' ],
   [ /^controller/, 'lovr.headset' ],
   [ /^reload/, 'restart' ],
@@ -19,7 +18,6 @@ var aliases = [
   [ /^joy/, { type: 'library', name: 'game_controller', link: 'https://github.com/immortalx74/game_controller' } ],
   [ /^(udp|multipla)/, 'enet' ],
   [ /(socket|tcp)/, { type: 'plugin', name: 'luasocket', link: 'https://github.com/brainrom/lovr-luasocket' } ],
-  [ /^(http)/, { type: 'plugin', name: 'lua-https', link: 'https://github.com/love2d/lua-https' } ],
   [ /^json/, { type: 'plugin', name: 'cjson', link: 'https://github.com/bjornbytes/lua-cjson' } ],
   [ /^hi$/, { type: 'hi' } ]
 ];
