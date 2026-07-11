@@ -382,7 +382,7 @@ function updateResults() {
     var lazyKey = key.replace(/[:.]/g, '');
     var section = link.closest('section');
     var group = link.closest('li.group');
-    var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key)) || (deep && data[link.dataset.key] && data[link.dataset.key].indexOf(query) >= 0);
+    var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key)) || (deep && data[link.dataset.key] && data[link.dataset.key].toLowerCase().indexOf(query) >= 0);
 
     visible = visible || replacements.find(function(alias) {
       return key.indexOf(alias[1].toLowerCase()) >= 0;
