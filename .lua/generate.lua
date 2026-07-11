@@ -675,6 +675,7 @@ return function(v)
         end)
       },
       i { class = 'search-icon', tabindex = 0 },
+      i { class = 'find-icon', tabindex = 0, icons.find, title = 'Search in pages' },
       input { class = 'search', spellcheck = 'false', placeholder = 'Search' },
       aside { class = 'message' },
       imap(sections, function(category)

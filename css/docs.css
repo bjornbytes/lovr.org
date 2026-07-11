@@ -30,22 +30,28 @@ html {
   background: var(--c-phlox);
 }
 
-.sidebar .search-icon {
+.sidebar i {
+  font-style: normal;
+  font-size: 24px;
   position: absolute;
-  top: 27px;
-  right: 24px;
+  cursor: pointer;
   width: 16px;
   height: 16px;
-  cursor: pointer;
+  top: 27px;
+  color: var(--c-smoke);
 }
 
-.sidebar .search-icon:focus {
+.sidebar i:focus {
   outline: var(--c-mauve) solid 4px;
   outline-offset: 3px;
   border-radius: 8px;
 }
 
-.sidebar .search-icon:after {
+.sidebar i.search-icon, i.close-icon {
+  right: 24px;
+}
+
+.sidebar i.search-icon:not(.active):after {
   content: '';
   position: absolute;
   width: 8px;
@@ -55,7 +61,7 @@ html {
   corner-shape: round;
 }
 
-.sidebar .search-icon:before {
+.sidebar i.search-icon:not(.active):before {
   border-top: 3px var(--c-smoke) solid;
   content: '';
   position: absolute;
@@ -67,11 +73,38 @@ html {
   z-index: -1;
 }
 
+.sidebar i.search-icon.active {
+  top: 18px;
+  width: 12px;
+  height: 30px;
+}
+
+.sidebar i.search-icon.active:after {
+  content: '\00d7';
+}
+
+.sidebar i.find-icon {
+  top: 22px;
+  right: 44px;
+  width: 22px;
+  height: 22px;
+  display: none;
+}
+
+.sidebar i.find-icon.active {
+  color: var(--c-mauve);
+}
+
+.sidebar i.find-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
 .sidebar input.search {
   display: none;
   width: 93%;
   margin-top: 22px;
-  padding: 4px 30px 4px 8px;
+  padding: 4px 55px 4px 8px;
   background: transparent;
   font-size: 16px;
   font-family: 'Varela Round';

@@ -31,6 +31,8 @@ var sidebarGroups = Array.prototype.slice.call(sidebar.querySelectorAll('li.grou
 var sidebarGroupLinks = Array.prototype.slice.call(sidebar.querySelectorAll('li.group > a'));
 var sidebarLinks = Array.prototype.slice.call(sidebar.querySelectorAll('a[data-key]'));
 var searchBox = sidebar.querySelector('.search');
+var searchIcon = sidebar.querySelector('.search-icon');
+var findIcon = sidebar.querySelector('.find-icon');
 var versions = sidebar.querySelector('.versions');
 var message = sidebar.querySelector('.message');
 var transitionTimeout;
@@ -230,21 +232,25 @@ sidebarGroupLinks.forEach(function(group) {
 
 function toggleSearch() {
   if (searchBox.style.display == 'block') {
-    searchBox.value = '';
+    findIcon.style.display = 'none';
+    searchIcon.classList.remove('active');
     searchBox.style.display = 'none';
+    searchBox.value = '';
     searchBox.blur();
     updateResults();
     document.activeElement.blur();
   } else {
+    findIcon.style.display = 'block';
+    searchIcon.classList.add('active');
     searchBox.style.display = 'block';
     searchBox.focus();
     updateResults();
   }
 }
 
-var searchIcon = document.querySelector('.search-icon');
 searchIcon.addEventListener('click', toggleSearch);
 searchIcon.addEventListener('keydown', function(event) { if (event.keyCode === 13) toggleSearch(); });
+findIcon.addEventListener('click', function() { findIcon.classList.toggle('active'); updateResults(); });
 
 window.addEventListener('keydown', function(event) {
   var visibleLinks = sidebarLinks.filter(function(link) { return link.style.display === 'block'; });
@@ -252,8 +258,10 @@ window.addEventListener('keydown', function(event) {
 
   switch (event.keyCode) {
     case 27:
-      searchBox.value = '';
+      findIcon.style.display = 'none';
+      searchIcon.classList.remove('active');
       searchBox.style.display = 'none';
+      searchBox.value = '';
       searchBox.blur();
       updateResults();
       break;
@@ -304,11 +312,15 @@ window.addEventListener('keypress', function(event) {
 
   if (document.activeElement !== searchBox && event.key.length === 1 && /[a-zA-Z\.:\[\]]/.test(event.key)) {
     event.preventDefault();
+    findIcon.style.display = 'block';
+    searchIcon.classList.add('active');
     searchBox.style.display = 'block';
     searchBox.focus();
     searchBox.value = event.key;
     updateResults();
   } else if (event.key === '/' && searchBox.style.display !== 'block') {
+    findIcon.style.display = 'block';
+    searchIcon.classList.add('active');
     searchBox.style.display = 'block';
     searchBox.focus();
     updateResults();
@@ -318,10 +330,13 @@ window.addEventListener('keypress', function(event) {
 
 searchBox.onkeyup = function(event) {
   if (searchBox.value === '' && event.key === 'Backspace') {
-    console.log(event.keyCode);
+    findIcon.style.display = '';
+    searchIcon.classList.remove('active');
     searchBox.style.display = '';
     searchBox.blur();
   } else {
+    findIcon.style.display = 'block';
+    searchIcon.classList.add('active');
     searchBox.style.display = 'block';
   }
 
@@ -334,6 +349,7 @@ function updateResults() {
   }
 
   var query = searchBox.value.toLowerCase().replace(/ /g, '_');
+  var deep = findIcon.classList.contains('active');
   var replacements = [];
   var msg = null;
   var baseVisibility = (query === '' ? '' : 'block');
@@ -366,7 +382,7 @@ function updateResults() {
     var lazyKey = key.replace(/[:.]/g, '');
     var section = link.closest('section');
     var group = link.closest('li.group');
-    var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key));
+    var visible = key.indexOf(query) >= 0 || lazyKey.indexOf(query) >= 0 || (regex && regex.test(link.dataset.key)) || (deep && data[link.dataset.key] && data[link.dataset.key].indexOf(query) >= 0);
 
     visible = visible || replacements.find(function(alias) {
       return key.indexOf(alias[1].toLowerCase()) >= 0;
