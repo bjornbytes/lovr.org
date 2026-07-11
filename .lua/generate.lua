@@ -116,14 +116,20 @@ return function(v)
     local path
 
     -- TODO docs generator could provide filepaths
-    if kind == 'module' and thing.key:match('^lovr') then
-      path = ('api/%s/init.lua'):format(thing.key:gsub('%.', '/'))
-    elseif kind == 'module' then
-      path = ('api/lovr/%s/init.lua'):format(thing.key)
+    if kind == 'module' then
+      if thing.key:match('^lovr') then
+        path = ('api/%s/init.lua'):format(thing.key:gsub('%.', '/'))
+      else
+        path = ('api/lovr/%s/init.lua'):format(thing.key)
+      end
     elseif kind == 'object' then
       path = ('api/%s/%s/init.lua'):format(thing.module:gsub('%.', '/'), thing.key)
     elseif kind == 'function' and not thing.key:match(':') then
-      path = ('api/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+      if thing.module:match('^lovr') then
+        path = ('api/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.name)
+      else
+        path = ('api/lovr/%s/%s.lua'):format(thing.module, thing.name)
+      end
     elseif kind == 'function' and thing.key:match(':') then
       path = ('api/%s/%s/%s.lua'):format(thing.module:gsub('%.', '/'), thing.key:match('(.-):'), thing.name)
     elseif kind == 'enum' then
