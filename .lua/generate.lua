@@ -708,11 +708,11 @@ return function(v)
 
   for k, v in pairs(content) do
     if k:match('/') then
-      assert(unix.makedirs(root .. '/' .. k:match('(.+)/')))
+      assert(unix.makedirs(root .. '/' .. k:match('(.+)/'):lower()))
     end
 
     local title = k == 'index' and indexKey or k:gsub('(.+)/', ''):gsub('_', ' ')
 
-    assert(Barf(root .. '/' .. k .. '.html', template:format(title, sidebar, k == 'index' and indexKey or k, v)))
+    assert(Barf(root .. '/' .. k:lower() .. '.html', template:format(title, sidebar, k == 'index' and indexKey or k, v)))
   end
 end

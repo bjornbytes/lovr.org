@@ -32,7 +32,7 @@ function OnHttpRequest()
       page = 'index'
     end
 
-    return ServeAsset(('docs/%s/%s.html'):format(version, page)) or ServeError(404)
+    return ServeAsset(('docs/%s/%s.html'):format(version, page:lower())) or ServeError(404)
   elseif method == 'GET' and path:find('/api/data') == 1 then
     local version = path:match('/api/data/(.+)$') or defaultVersion
     return ServeAsset(('docs/%s/data.json'):format(version)) or ServeError(404)
