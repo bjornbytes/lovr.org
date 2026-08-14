@@ -641,7 +641,7 @@ return function(v)
 
     local function link(key, group)
       local label = (key == 'Joint' or key == 'Shape') and (key .. 's') or key:gsub('.+/', ''):gsub('_', ' ')
-      local hidden = key:match('^%w+Joint$') or key:match('^%w+Shape$') or key:match('Vec%d') or key:match('Mat%d') or key == 'Quat' or key:match('v%d+%.%d+%.%d+')
+      local hidden = key:match('^%w+Joint$') or key:match('^%w+Shape$') or key:match('v%d+%.%d+%.%d+')
       local class = t.concat({ group = group, hidden and 'hidden' or '' }, ' ')
 
       return li {
