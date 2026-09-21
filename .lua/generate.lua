@@ -184,6 +184,24 @@ return function(v)
     return markup
   end
 
+  local function linkTable(_ENV, section)
+    local slug = section.name:gsub(' ', '-'):gsub('[^%w-]+', ''):lower()
+    return {
+      h2 { id = slug, a { href = '#' .. slug, section.name } },
+      section.description and md(section.description) or '',
+      table {
+        imap(section.tag and tags[section.tag] or section.links or {}, function(method)
+          if lookup[method] then
+            return tr {
+              td { linkTo(_ENV, method) },
+              td { lookup[method].summary }
+            }
+          end
+        end)
+      }
+    }
+  end
+
   local function notes(_ENV, x)
     if x.notes then
       local content = md(x.notes) or ''
@@ -307,19 +325,7 @@ return function(v)
 
       if module.sections then
         links = imap(module.sections, function(section)
-          local slug = section.name:gsub(' ', '-'):gsub('[^%w-]+', ''):lower()
-          return {
-            h2 { id = slug, a { href = '#' .. slug, section.name } },
-            section.description and md(section.description) or '',
-            table {
-              imap(section.tag and tags[section.tag] or section.links or {}, function(fn)
-                return tr {
-                  td { linkTo(_ENV, fn) },
-                  td { lookup[fn].summary }
-                }
-              end)
-            }
-          }
+          return linkTable(_ENV, section)
         end)
       elseif #module.functions > 0 then
         links = {
@@ -379,20 +385,26 @@ return function(v)
 
       if object.sections then
         links = imap(object.sections, function(section)
-          local slug = section.name:gsub(' ', '-'):gsub('[^%w-]+', ''):lower()
-          return {
-            h2 { id = slug, a { href = '#' .. slug, section.name } },
-            section.description and md(section.description) or '',
-            table {
-              imap(section.tag and tags[section.tag] or section.links or {}, function(method)
-                return tr {
-                  td { linkTo(_ENV, method) },
-                  td { lookup[method].summary }
-                }
-              end)
-            }
-          }
+          return linkTable(_ENV, section)
         end)
+
+        local super = object.extends
+
+        if super then
+          local inherited = {
+            name = 'Inherited',
+            links = {}
+          }
+
+          repeat
+            for i, method in ipairs(lookup[super].methods or {}) do
+              inherited.links[#inherited.links + 1] = method.key
+            end
+            super = super.extends
+          until not super
+
+          links[#links + 1] = linkTable(_ENV, inherited)
+        end
       elseif object.extends or (object.methods and #object.methods > 0) then
         links = {
           h2 'Methods',
@@ -404,6 +416,13 @@ return function(v)
               }
             end),
             imap(object.extends and lookup[object.extends].methods or {}, function(method)
+              return tr {
+                td { linkTo(_ENV, method.key) },
+                td { method.summary }
+              }
+            end),
+            -- Sorry...
+            imap(object.extends and lookup[object.extends].extends and lookup[lookup[object.extends].extends].methods or {}, function(method)
               return tr {
                 td { linkTo(_ENV, method.key) },
                 td { method.summary }
