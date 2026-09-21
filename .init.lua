@@ -5,7 +5,13 @@ local refresh = require 'refresh'
 local defaultVersion = 'v0.19.0'
 
 function OnHttpRequest()
-  local method, path = GetMethod(), GetPath():gsub('/$', '')
+  local method, path = GetMethod(), GetPath()
+
+  if path:match('\0') then
+    return SetStatus(400)
+  end
+
+  path = path:gsub('/$', '')
 
   if path == '' then
     Route()
